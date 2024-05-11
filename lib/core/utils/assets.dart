@@ -1,5 +1,6 @@
 class AssetsData {
   static const logoAllWhite = "assets/images/main/logo_all_white.png";
+  static const miniLogo = "assets/images/main/mini_logo_white.png";
 
 }
 
