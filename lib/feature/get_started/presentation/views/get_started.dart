@@ -11,9 +11,9 @@ class GetStarted extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   Scaffold(
+    return  const  Scaffold(
      body: GetStartedBody(),
-     //  body: BackgroundImage(imageUrl: OnBoardingAssets.onBoaring2,),
+
     );
   }
 }

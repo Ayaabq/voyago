@@ -5,13 +5,7 @@ import 'package:voyago/feature/get_started/presentation/views/widgets/on_boardin
 class GetStartedBody extends StatelessWidget {
   const GetStartedBody({super.key});
 
-  static const List<Widget> bodies = [
-    Text("data"),
-    Text("data"),
-    Text("data"),
-    Text("data"),
-    Text("data"),
-  ];
+
 
   @override
   Widget build(BuildContext context) {

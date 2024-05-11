@@ -2,11 +2,12 @@
 class Assets {
   Assets._();
 
-  static const String mainLogo all white 1 = 'assets/images/main/logo_all_white.png';
+  static const String mainLogoAllWhite = 'assets/images/main/logo_all_white.png';
   static const String onBoardingOnBoarding1 = 'assets/images/on_boarding/on_boarding_1.png';
   static const String onBoardingOnBoarding2 = 'assets/images/on_boarding/on_boarding_2.png';
   static const String onBoardingOnBoarding3 = 'assets/images/on_boarding/on_boarding_3.png';
   static const String onBoardingOnBoarding4 = 'assets/images/on_boarding/on_boarding_4.png';
   static const String onBoardingOnBoarding5 = 'assets/images/on_boarding/on_boarding_5.png';
+  static const String onBoardingPageIndicator = 'assets/images/on_boarding/page_indicator.dart';
 
 }

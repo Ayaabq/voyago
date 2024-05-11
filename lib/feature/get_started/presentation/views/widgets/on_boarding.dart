@@ -1,43 +1,64 @@
 import 'package:flutter/material.dart';
-import 'package:onboarding_animation/onboarding_animation.dart';
+import 'package:voyago/feature/get_started/data/models/on_boarding_model.dart';
 import 'package:voyago/feature/get_started/presentation/views/widgets/on_boarding_page.dart';
+import 'package:voyago/feature/get_started/presentation/views/widgets/page_indicator.dart';
 
 import '../../../../../core/utils/assets.dart';
-import 'background_image.dart';
-class OnBoarding extends StatelessWidget {
-   OnBoarding({super.key});
 
- final  PageController pc =  PageController();
+class OnBoarding extends StatelessWidget {
+  OnBoarding({super.key});
+
+  final PageController pc = PageController();
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-     children: [
-       PageView(
-
+    return Stack(children: [
+      PageView(
         controller: pc,
         children: backgrounds,
       ),
-       Container(
-         alignment: const  Alignment(0,0.5),
-         child: SmoothPageIndicator(
-             controller: pc, count: backgrounds.length,
-         ),
-       ),
-
-     ]
-    );
+      PageIndicator(
+        pageController: pc,
+        backgrounds: backgrounds,
+      )
+    ]);
   }
 }
- const List<Widget> backgrounds = [
-   OnBoardingPage(),
-   OnBoardingPage(),
-  BackgroundImage(imageUrl: OnBoardingAssets.onBoaring1),
 
+List<Widget> backgrounds = [
+  OnBoardingPage(
+    imageUrl: OnBoardingAssets.onBoarding1,
+    onBoardingModel: OnBoardingModel(
+      descreptionTitle: "Discover the best of the world with us",
 
-   BackgroundImage(imageUrl: OnBoardingAssets.onBoaring2),
-  BackgroundImage(imageUrl: OnBoardingAssets.onBoaring3),
-   OnBoardingPage(),
-  BackgroundImage(imageUrl: OnBoardingAssets.onBoaring4),
-  BackgroundImage(imageUrl: OnBoardingAssets.onBoaring5),
+    ),
+  ),
+  OnBoardingPage(
+    imageUrl: OnBoardingAssets.onBoarding2,
+    onBoardingModel: OnBoardingModel(
+      descreptionTitle: "Find the best places to go",
+      decreptionText: 'Search in all the popular destinations to find the best place for you'
+    ),
+  ),
+  OnBoardingPage(
+    imageUrl: OnBoardingAssets.onBoarding3,
+    onBoardingModel: OnBoardingModel(
+      descreptionTitle: 'Enjoy the magic of the nature',
+      decreptionText: "See fantastic natural places around the world with just a few clicks"
+    ),
+  ),
+  OnBoardingPage(
+    imageUrl: OnBoardingAssets.onBoarding4,
+    onBoardingModel: OnBoardingModel(
+      descreptionTitle: 'Explore the world like a real traveller',
+      decreptionText: 'Find thousands of destinations for you to visit'
+    ),
+  ),
+  OnBoardingPage(
+    imageUrl: OnBoardingAssets.onBoarding5,
+    onBoardingModel: OnBoardingModel(
+      descreptionTitle: 'Get the best offers and deals',
+      decreptionText: 'Find the best deals to save your money'
+    ),
+  )
 ];
