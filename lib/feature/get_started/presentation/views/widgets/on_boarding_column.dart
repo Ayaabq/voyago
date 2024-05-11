@@ -1,9 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:voyago/core/utils/assets.dart';
+import 'package:voyago/feature/get_started/presentation/views/widgets/first_on_boarding.dart';
 
 import '../../../../../core/utils/custom_colors.dart';
+import '../../../../../core/utils/screen_size_util.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../data/models/on_boarding_model.dart';
 
@@ -13,26 +13,28 @@ class OnBoardingColumn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isFirst = onBoardingModel.decreptionText ==null;
     return Padding(
       padding: const EdgeInsets.symmetric(
-          vertical: 91,
+          // vertical: 91,
       horizontal: 17),
-      child: Column(
+      child: isFirst?FirstOnboarding(onBoardingModel: onBoardingModel):Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 39),
-            child: FittedBox(
-              child: Image.asset(AssetsData.logoAllWhite,
-
-
-              ),
+            padding: const EdgeInsets.symmetric(
+              vertical: 23,
+           horizontal:  19
             ),
+            child: Image.asset(AssetsData.miniLogo,
+            width:70 ,),
           ),
-         const  Spacer(),
+
+         const  Spacer(flex: 3,),
 
            Text(
            onBoardingModel.descreptionTitle,
-            textAlign: TextAlign.center,
+            textAlign:  TextAlign.start,
             style: Styles.textStyle32W700.copyWith(
               color: CustomColors.kWhite[0],
               shadows: [
@@ -43,16 +45,19 @@ class OnBoardingColumn extends StatelessWidget {
                 ),
               ],
             ),
+             overflow: TextOverflow.ellipsis,
+             maxLines: 2,
           ),
-          Spacer(),
-           if(onBoardingModel.decreptionText != null)
+
            Text(
              onBoardingModel.decreptionText!,
             style: Styles.textStyle18W400.copyWith(
               color: CustomColors.kWhite[0]
             ),
+             maxLines: 2,
+             overflow: TextOverflow.ellipsis,
           ),
-         Spacer(),
+          SizedBox(height: ScreenSizeUtil.screenHeight * .18)
 
         ],
       ),
