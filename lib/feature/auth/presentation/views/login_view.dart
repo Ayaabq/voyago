@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:voyago/feature/auth/presentation/views/widgets/login_body.dart';
 
-class MyWidget extends StatelessWidget {
-  const MyWidget({super.key});
+class LoginView extends StatelessWidget {
+  const LoginView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Scaffold(
+      body: LoginBodyView(),
+    );
   }
 }
