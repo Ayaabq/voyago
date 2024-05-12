@@ -14,4 +14,18 @@ class Styles {
     fontSize: 24,
     fontWeight: FontWeight.w900,
   );
+
+  static const TextStyle textStyle25W700 = TextStyle(
+    fontSize: 25,
+    fontWeight: FontWeight.w700,
+  );
+
+  static const TextStyle textStyle16W700 = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w700,
+  );
+  static const TextStyle textStyle16W400 = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+  );
 }
