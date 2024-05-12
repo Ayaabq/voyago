@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:voyago/core/utils/screen_size_util.dart';
-import 'package:voyago/feature/get_started/presentation/views/get_started.dart';
 
 import 'core/utils/app_router.dart';
 
@@ -15,14 +14,14 @@ class VoyagoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScreenSizeUtil.init(context);
-    return   MaterialApp.router(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       routerConfig: AppRouter.router,
       theme: ThemeData.light().copyWith(
+          textTheme:
+              GoogleFonts.montserratTextTheme(ThemeData.light().textTheme)),
 
-          textTheme: GoogleFonts.montserratTextTheme(ThemeData.light().textTheme)),
-
-     // home: const GetStarted(),
+      // home: const GetStarted(),
     );
   }
 }
