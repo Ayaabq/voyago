@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:onboarding_animation/onboarding_animation.dart';
+import 'package:voyago/core/utils/app_router.dart';
 
 import '../../../../../core/utils/custom_colors.dart';
 import '../../../../../core/utils/screen_size_util.dart';
@@ -46,7 +48,7 @@ class _PageIndicatorState extends State<PageIndicator> {
                   curve: Curves.easeInOut);
               setState(() {});
             } else {
-              // go to register
+              GoRouter.of(context).push(AppRouter.kLoginView);
             }
           },
         ),
