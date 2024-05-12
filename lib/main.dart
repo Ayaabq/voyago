@@ -14,6 +14,7 @@ class VoyagoApp extends StatelessWidget {
   Widget build(BuildContext context) {
     ScreenSizeUtil.init(context);
     return   MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData.light().copyWith(
 
           textTheme: GoogleFonts.montserratTextTheme(ThemeData.light().textTheme)),

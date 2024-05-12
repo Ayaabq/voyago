@@ -13,7 +13,7 @@ class Styles {
     fontWeight: FontWeight.w500,
   );
 
-  static const  TextStyle textStyle24W700= TextStyle(
+  static const  TextStyle textStyle24W900= TextStyle(
     fontSize: 24,
     fontWeight: FontWeight.w900,
 

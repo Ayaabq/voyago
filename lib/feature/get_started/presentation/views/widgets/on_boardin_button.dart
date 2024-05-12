@@ -10,7 +10,10 @@ class OnBoardingButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 38),
+      padding: const EdgeInsets.symmetric(horizontal:
+      // 38
+      17
+      ),
       child: ElevatedButton(
         onPressed: onTap,
         style: ElevatedButton.styleFrom(
@@ -29,10 +32,19 @@ class OnBoardingButton extends StatelessWidget {
               child: Text(
                 title,
                 textAlign: TextAlign.center,
-                style: Styles.textStyle24W700,
+                style: Styles.textStyle24W900.copyWith(
+                  shadows: [
+                    const Shadow(
+                      color: Colors.white,
+                      blurRadius: 2,
+                      offset: Offset(1, 1),
+                    ),
+                  ],
+                ),
+                ),
               ),
             )),
-      ),
+
     );
   }
 }
