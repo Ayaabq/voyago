@@ -1,20 +1,17 @@
 import 'package:go_router/go_router.dart';
+import 'package:voyago/feature/get_started/presentation/views/get_started.dart';
 
 
 abstract class AppRouter {
 
-  static const kOnboardingView = "/OnBoarding";
+  static const kGetStartedView = "/GetStartedView";
   static const kSplashView = "/";
   static final router = GoRouter(
     routes: [
-      // GoRoute(
-      //   path: kSplashView,
-      //   builder: (ctx, state) => const SplashView(),
-      // ),
-      // GoRoute(
-      //   path: kOnboardingView,
-      //   builder: (ctx, state) => const HomeView(),
-      // ),
+      GoRoute(
+        path: '/',
+        builder: (ctx, state) => const GetStarted(),
+      ),
 
     ],
   );
