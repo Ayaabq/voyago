@@ -38,6 +38,7 @@ flutter:
   assets:
     - assets/images/on_boarding/
     - assets/images/main/
+    - assets/images/login/
 
 flutter_native_splash:
   # This package generates native code to customize Flutter's default white native splash screen
