@@ -3,6 +3,7 @@ class Assets {
   Assets._();
 
   static const String imagesOnBoardingOnBoarding5 = 'assets/images/on_boarding/on_boarding_5.dart';
+  static const String mainLogo = 'assets/images/main/logo.png';
   static const String mainLogoAllWhite = 'assets/images/main/logo_all_white.png';
   static const String mainMiniLogoWhite = 'assets/images/main/mini_logo_white.png';
   static const String onBoardingOnBoarding1 = 'assets/images/on_boarding/on_boarding_1.png';
