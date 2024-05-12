@@ -37,4 +37,5 @@ flutter:
   assets:
     - assets/images/on_boarding/
     - assets/images/main/
+    - assets/images/login/
 
