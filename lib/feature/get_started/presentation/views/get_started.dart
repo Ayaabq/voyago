@@ -11,8 +11,8 @@ class GetStarted extends StatelessWidget {
     return   BlocProvider(
 
       create: (context) => OnBoardingCubitCubit(),
-      child: Scaffold(
-         body: GetStartedBody(),
+      child: const Scaffold(
+         body:  GetStartedBody(),
     
         ),
     );
