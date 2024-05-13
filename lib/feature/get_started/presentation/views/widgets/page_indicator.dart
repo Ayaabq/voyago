@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:onboarding_animation/onboarding_animation.dart';
 import 'package:voyago/core/utils/app_router.dart';
@@ -48,7 +49,8 @@ class PageIndicator extends StatelessWidget {
                       curve: Curves.easeInOut);
 
                 } else {
-                  // go to register
+                  GoRouter.of(context).push(AppRouter.kLoginView);
+
                 }
               },
             ),
