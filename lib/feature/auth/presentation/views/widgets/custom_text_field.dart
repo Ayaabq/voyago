@@ -17,6 +17,7 @@ class TextFieldCustom extends StatelessWidget {
       decoration: InputDecoration(
         labelText: hint,
         suffixIcon: IconButton(onPressed: onPressedIcon, icon: icon),
+        suffixIconColor: CustomColors.kMove[4],
         enabledBorder: buildBorder(),
         focusedBorder: buildBorder(CustomColors.kMove[4]),
       ),
