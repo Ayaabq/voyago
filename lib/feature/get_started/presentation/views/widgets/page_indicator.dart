@@ -19,9 +19,9 @@ class PageIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+  
     return BlocBuilder<OnBoardingCubitCubit, OnBoardingCubitState>(
-      builder: (BuildContext context, state){
+      builder: (BuildContext context, state) {
         final bool isNotLast = state is! OnBoardingLastState;
         return Column(
           mainAxisSize: MainAxisSize.max,
@@ -47,10 +47,8 @@ class PageIndicator extends StatelessWidget {
                   pageController.nextPage(
                       duration: const Duration(seconds: 1),
                       curve: Curves.easeInOut);
-
                 } else {
                   GoRouter.of(context).push(AppRouter.kLoginView);
-
                 }
               },
             ),
@@ -58,7 +56,6 @@ class PageIndicator extends StatelessWidget {
           ],
         );
       },
-
     );
   }
 }
