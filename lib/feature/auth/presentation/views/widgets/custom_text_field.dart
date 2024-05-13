@@ -19,6 +19,7 @@ class TextFieldCustom extends HookWidget {
       focusNode: focusNode,
       decoration: InputDecoration(
         labelText: hint,
+        labelStyle: TextStyle(fontSize: 12, color: CustomColors.kGrey[0]),
         suffixIcon: IconButton(
             onPressed: onPressedIcon,
             icon: icon,
