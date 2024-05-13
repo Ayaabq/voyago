@@ -32,14 +32,14 @@ class CustomBackground extends StatelessWidget {
                 colors: [
                   CustomColors.kMove[5],
                   const Color.fromARGB(196, 176, 139, 207),
-                  // Color.fromARGB(232, 215, 193, 234),
-                  const Color.fromARGB(254, 255, 255, 255),
+                  const Color.fromARGB(229, 196, 184, 233),
+                  const Color.fromARGB(250, 255, 255, 255),
                 ],
                 stops: const [
                   0.15,
                   0.4,
-                  // 0.6,
-                  0.8
+                  0.55,
+                  .9
                 ]),
           ),
         )
