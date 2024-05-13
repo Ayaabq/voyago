@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-import 'package:go_router/go_router.dart';
-=======
+
 import 'package:flutter_bloc/flutter_bloc.dart';
->>>>>>> bb671e073b847e8225a30a4eea713f948cdc9ed8
+
 import 'package:onboarding_animation/onboarding_animation.dart';
 import 'package:voyago/core/utils/app_router.dart';
 
@@ -20,42 +18,6 @@ class PageIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
-    final bool isNotLast = widget.pageController.page == null ||
-        widget.pageController.page!.toInt() != 3;
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        SmoothPageIndicator(
-          controller: widget.pageController,
-          count: widget.backgrounds.length,
-          effect: ExpandingDotsEffect(
-              activeDotColor: CustomColors.kWhite[0],
-              dotColor: const Color(0xffA2A1A1),
-              dotHeight: 8.0,
-              dotWidth: 7.0,
-              radius: 18.0),
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        OnBoardingButton(
-          title: !isNotLast ? "Register" : "Next",
-          onTap: () {
-            if (isNotLast) {
-              widget.pageController.nextPage(
-                  duration: const Duration(seconds: 1),
-                  curve: Curves.easeInOut);
-              setState(() {});
-            } else {
-              GoRouter.of(context).push(AppRouter.kLoginView);
-            }
-          },
-        ),
-        SizedBox(height: ScreenSizeUtil.screenHeight * .08)
-      ],
-=======
 
     return BlocBuilder<OnBoardingCubitCubit, OnBoardingCubitState>(
       builder: (BuildContext context, state){
@@ -94,7 +56,7 @@ class PageIndicator extends StatelessWidget {
           ],
         );
       },
->>>>>>> bb671e073b847e8225a30a4eea713f948cdc9ed8
+
     );
   }
 }
