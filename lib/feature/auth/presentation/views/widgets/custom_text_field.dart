@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:voyago/core/utils/custom_colors.dart';
 
 class TextFieldCustom extends StatelessWidget {
   const TextFieldCustom(
@@ -17,7 +18,7 @@ class TextFieldCustom extends StatelessWidget {
         labelText: hint,
         suffixIcon: IconButton(onPressed: onPressedIcon, icon: icon),
         enabledBorder: buildBorder(),
-        focusedBorder: buildBorder(const Color(0xff8879CF)),
+        focusedBorder: buildBorder(CustomColors.kMove[4]),
       ),
     );
   }
@@ -26,6 +27,6 @@ class TextFieldCustom extends StatelessWidget {
     return OutlineInputBorder(
         borderRadius: BorderRadius.circular(14),
         borderSide:
-            BorderSide(color: color ?? const Color(0xffC4C4C4), width: 1));
+            BorderSide(color: color ?? CustomColors.kGrey[0], width: 1));
   }
 }
