@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:voyago/feature/get_started/data/maneger/on_boarding_cubit/on_boarding_cubit_cubit.dart';
 import 'package:voyago/feature/get_started/data/models/on_boarding_model.dart';
 import 'package:voyago/feature/get_started/presentation/views/widgets/on_boarding_page.dart';
 import 'package:voyago/feature/get_started/presentation/views/widgets/page_indicator.dart';
 
 import '../../../../../core/utils/assets.dart';
+import '../../maneger/on_boarding_cubit/on_boarding_cubit_cubit.dart';
 
 class GetStartedBody extends StatelessWidget {
   const GetStartedBody({super.key});

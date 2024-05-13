@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:onboarding_animation/onboarding_animation.dart';
-import 'package:voyago/feature/get_started/data/maneger/on_boarding_cubit/on_boarding_cubit_cubit.dart';
 
 import '../../../../../core/utils/custom_colors.dart';
 import '../../../../../core/utils/screen_size_util.dart';
+import '../../maneger/on_boarding_cubit/on_boarding_cubit_cubit.dart';
 import 'on_boardin_button.dart';
 
 class PageIndicator extends StatelessWidget {
