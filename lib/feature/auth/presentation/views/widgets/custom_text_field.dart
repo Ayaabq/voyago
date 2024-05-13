@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 
-class TextFieldCustom extends StatelessWidget {
+class TextFieldCustom extends HookWidget {
   const TextFieldCustom(
       {super.key,
       required this.hint,
@@ -10,14 +11,20 @@ class TextFieldCustom extends StatelessWidget {
 
   final String hint;
   final void Function() onPressedIcon;
-  final Widget icon;
+  final Icon icon;
   @override
   Widget build(BuildContext context) {
+    final focusNode = useFocusNode();
     return TextFormField(
+      focusNode: focusNode,
       decoration: InputDecoration(
         labelText: hint,
-        suffixIcon: IconButton(onPressed: onPressedIcon, icon: icon),
-        suffixIconColor: CustomColors.kMove[4],
+        suffixIcon: IconButton(
+            onPressed: onPressedIcon,
+            icon: icon,
+            color: focusNode.hasFocus
+                ? CustomColors.kMove[4]
+                : CustomColors.kGrey[0]),
         enabledBorder: buildBorder(),
         focusedBorder: buildBorder(CustomColors.kMove[4]),
       ),
