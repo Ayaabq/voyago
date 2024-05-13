@@ -26,13 +26,11 @@ class RegisterBodyView extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Welcome!",
-                    style: Styles.textStyle25W700
-                        .copyWith(fontWeight: FontWeight.w900)),
+                Text("Welcome!", style: Styles.textStyle25W700),
                 const SizedBox(height: 14),
                 Text("Create your Account ",
                     style: Styles.textStyle20W700.copyWith(
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w600,
                         color: CustomColors.kBlack[3])),
                 const SizedBox(height: 32),
                 const FormRegister(),
