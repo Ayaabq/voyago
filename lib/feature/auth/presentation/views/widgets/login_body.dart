@@ -13,8 +13,8 @@ class LoginBodyView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
+    return ListView(children: [
+      Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const HeaderAuth(),
@@ -31,7 +31,7 @@ class LoginBodyView extends StatelessWidget {
                 const FormLogin(),
                 const SizedBox(height: 20),
                 const ForGot(),
-                SizedBox(height: ScreenSizeUtil.screenHeight * 0.28),
+                //  SizedBox(height: ScreenSizeUtil.screenHeight * 0.28),
                 ButtonAuth(title: "Login", onTap: () {}),
                 const SizedBox(height: 14),
                 DontAccount(
@@ -47,6 +47,6 @@ class LoginBodyView extends StatelessWidget {
           // SizedBox(height: ScreenSizeUtil.screenHeight * .2),
         ],
       ),
-    );
+    ]);
   }
 }
