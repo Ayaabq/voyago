@@ -32,7 +32,11 @@ class LoginBodyView extends StatelessWidget {
                 const SizedBox(height: 20),
                 const ForGot(),
                 //  SizedBox(height: ScreenSizeUtil.screenHeight * 0.28),
-                ButtonAuth(title: "Login", onTap: () {}),
+                ButtonAuth(
+                    title: "Login",
+                    onTap: () {
+                      GoRouter.of(context).push(AppRouter.kHomeView);
+                    }),
                 const SizedBox(height: 14),
                 DontAccount(
                   text: "Don't  have an account? ",
