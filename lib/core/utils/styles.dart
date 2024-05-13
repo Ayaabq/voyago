@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:voyago/core/utils/custom_colors.dart';
 
 class Styles {
   static const TextStyle textStyle32W700 = TextStyle(
@@ -15,10 +16,8 @@ class Styles {
     fontWeight: FontWeight.w900,
   );
 
-  static const TextStyle textStyle25W700 = TextStyle(
-    fontSize: 25,
-    fontWeight: FontWeight.w700,
-  );
+  static TextStyle textStyle25W700 = TextStyle(
+      fontSize: 25, fontWeight: FontWeight.w700, color: CustomColors.kMove[7]);
 
   static const TextStyle textStyle16W700 = TextStyle(
     fontSize: 16,
@@ -27,5 +26,9 @@ class Styles {
   static const TextStyle textStyle16W400 = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w400,
+  );
+  static const TextStyle textStyle20W700 = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w700,
   );
 }
