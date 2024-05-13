@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:voyago/core/utils/app_router.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/core/utils/styles.dart';
 
@@ -39,7 +41,9 @@ class DontAccount extends StatelessWidget {
               .copyWith(color: CustomColors.kBlack[3]),
         ),
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            GoRouter.of(context).push(AppRouter.kRegisterView);
+          },
           child: Text(
             "Create Now",
             style: Styles.textStyle16W700.copyWith(
