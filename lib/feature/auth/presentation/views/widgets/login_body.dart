@@ -42,8 +42,3 @@ class LoginBodyView extends StatelessWidget {
     );
   }
 }
-
-
-// login 700 20
-//Don't  have an account? 400 16
-//Create Now 700 16

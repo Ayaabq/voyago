@@ -4,9 +4,14 @@ import 'package:voyago/core/utils/custom_colors.dart';
 import '../../../../../core/utils/styles.dart';
 
 class ButtonAuth extends StatelessWidget {
-  const ButtonAuth({super.key, required this.title, required this.onTap});
+  const ButtonAuth(
+      {super.key,
+      required this.title,
+      required this.onTap,
+      this.isLoading = false});
   final String title;
   final void Function() onTap;
+  final bool isLoading;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -24,18 +29,10 @@ class ButtonAuth extends StatelessWidget {
           height: 48,
           width: double.infinity,
           child: Center(
-            child: Text(title,
-                textAlign: TextAlign.center, style: Styles.textStyle20W700
-                // copyWith(
-                //   shadows: [
-                //     const Shadow(
-                //       color: Colors.white,
-                //       blurRadius: 2,
-                //       offset: Offset(1, 1),
-                //     ),
-                //   ],
-                // ),
-                ),
+            child: isLoading
+                ? CircularProgressIndicator(color: CustomColors.kWhite[0])
+                : Text(title,
+                    textAlign: TextAlign.center, style: Styles.textStyle20W700),
           ),
         ));
   }
