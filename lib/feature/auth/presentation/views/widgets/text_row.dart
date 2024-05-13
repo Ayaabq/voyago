@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:voyago/core/utils/app_router.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/core/utils/styles.dart';
 
@@ -28,24 +26,31 @@ class ForGot extends StatelessWidget {
 class DontAccount extends StatelessWidget {
   const DontAccount({
     super.key,
+    required this.text,
+    required this.create,
+    required this.onTap,
   });
-
+  final String text;
+  final String create;
+  final Function() onTap;
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Text(
-          "Don't  have an account? ",
+          text
+          // "Don't  have an account? "
+          ,
           style: Styles.textStyle16W400
               .copyWith(fontWeight: FontWeight.w500)
               .copyWith(color: CustomColors.kBlack[3]),
         ),
         GestureDetector(
-          onTap: () {
-            GoRouter.of(context).push(AppRouter.kRegisterView);
-          },
+          onTap: onTap,
           child: Text(
-            "Create Now",
+            create
+            // "Create Now"
+            ,
             style: Styles.textStyle16W700.copyWith(
                 color: CustomColors.kMove[7], fontWeight: FontWeight.w900),
           ),

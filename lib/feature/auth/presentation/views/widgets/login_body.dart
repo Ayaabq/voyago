@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:voyago/core/utils/app_router.dart';
 import 'package:voyago/core/utils/screen_size_util.dart';
 import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/feature/auth/presentation/views/widgets/button_auth.dart';
-import 'package:voyago/feature/auth/presentation/views/widgets/from.dart';
+import 'package:voyago/feature/auth/presentation/views/widgets/form_login.dart';
 import 'package:voyago/feature/auth/presentation/views/widgets/header_auth.dart';
 import 'package:voyago/feature/auth/presentation/views/widgets/text_row.dart';
 
@@ -32,7 +34,13 @@ class LoginBodyView extends StatelessWidget {
                 SizedBox(height: ScreenSizeUtil.screenHeight * 0.28),
                 ButtonAuth(title: "Login", onTap: () {}),
                 const SizedBox(height: 14),
-                const DontAccount(),
+                DontAccount(
+                  text: "Don't  have an account? ",
+                  create: "Create Now",
+                  onTap: () {
+                    GoRouter.of(context).push(AppRouter.kRegisterView);
+                  },
+                ),
               ],
             ),
           ),

@@ -13,6 +13,11 @@ class FormRegister extends StatelessWidget {
     return Column(
       children: [
         TextFieldCustom(
+            hint: "User name",
+            onPressedIcon: () {},
+            icon: const Icon(FontAwesomeIcons.userAstronaut)),
+        const SizedBox(height: 22),
+        TextFieldCustom(
             hint: "Email",
             onPressedIcon: () {},
             icon: const Icon(Iconsax.profile)),
