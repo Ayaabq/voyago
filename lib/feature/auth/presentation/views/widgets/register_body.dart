@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:voyago/core/utils/app_router.dart';
+import 'package:voyago/core/utils/assets.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/core/utils/screen_size_util.dart';
 import 'package:voyago/core/utils/styles.dart';
@@ -9,6 +10,7 @@ import 'package:voyago/feature/auth/presentation/views/widgets/form_register.dar
 import 'package:voyago/feature/auth/presentation/views/widgets/header_auth.dart';
 
 import 'package:voyago/feature/auth/presentation/views/widgets/text_row.dart';
+import 'package:voyago/generated/assets.dart';
 
 class RegisterBodyView extends StatelessWidget {
   const RegisterBodyView({super.key});
@@ -19,7 +21,10 @@ class RegisterBodyView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const HeaderAuth(),
+          const HeaderAuth(
+            imageUrl: AssetsData.logoAllColors,
+            padding: EdgeInsets.only(top: 50),
+          ),
           const SizedBox(height: 11),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24),

@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class AssetsData {
   static const logoAllWhite = "assets/images/main/logo_all_white.png";
   static const miniLogo = "assets/images/main/mini_logo_white.png";
@@ -15,10 +17,13 @@ class OnBoardingAssets extends AssetsData {
 class LoginAssets extends AssetsData {
   static const vector1 = "assets/images/login/Vector1.png";
   static const vector2 = "assets/images/login/Vector2.png";
+  static const forgot = "assets/images/login/forgot.png";
 }
+
 
 class HomeAssets extends AssetsData{
   static const skyBackground ="assets/images/home/backgroun_sky.png";
   static const categoryTripsIcon ="assets/images/home/category_trips_icon.png";
   static const categoryAttractionIcon ="assets/images/home/category_attractions_icon.png";
 }
+
