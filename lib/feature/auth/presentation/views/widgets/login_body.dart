@@ -19,7 +19,10 @@ class LoginBodyView extends StatelessWidget {
       Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const HeaderAuth(imageUrl: AssetsData.logoAllColors, padding: EdgeInsets.only(top: 66),),
+          const HeaderAuth(
+            imageUrl: AssetsData.logoAllColors,
+            padding: EdgeInsets.only(top: 66),
+          ),
           const SizedBox(height: 32),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -29,11 +32,11 @@ class LoginBodyView extends StatelessWidget {
                 Text("Welcome back!",
                     style: Styles.textStyle25W700
                         .copyWith(fontWeight: FontWeight.w800)),
-                const SizedBox(height: 32),
-                const FormLogin(),
                 const SizedBox(height: 20),
+                const FormLogin(),
+                const SizedBox(height: 16),
                 const ForGot(),
-                //  SizedBox(height: ScreenSizeUtil.screenHeight * 0.28),
+                SizedBox(height: ScreenSizeUtil.screenHeight * .22),
                 ButtonAuth(
                     title: "Login",
                     onTap: () {
@@ -50,7 +53,7 @@ class LoginBodyView extends StatelessWidget {
               ],
             ),
           ),
-          // SizedBox(height: ScreenSizeUtil.screenHeight * .2),
+        //  SizedBox(height: ScreenSizeUtil.screenHeight * 0.1),
         ],
       ),
     ]);

@@ -17,30 +17,30 @@ class RegisterBodyView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children:[ Column(
+    return ListView(children: [
+      Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const HeaderAuth(
             imageUrl: AssetsData.logoAllColors,
             padding: EdgeInsets.only(top: 50),
           ),
-          const SizedBox(height: 11),
+          const SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text("Welcome!", style: Styles.textStyle25W700),
-                const SizedBox(height: 14),
+                const SizedBox(height: 10),
                 Text("Create your Account ",
                     style: Styles.textStyle20W700.copyWith(
                         fontWeight: FontWeight.w600,
                         color: CustomColors.kBlack[3])),
-                const SizedBox(height: 32),
+                const SizedBox(height: 18),
                 const FormRegister(),
                 //const SizedBox(height: 24),
-                SizedBox(height: MediaQuery.of(context).size.height * .12),
+                SizedBox(height: MediaQuery.of(context).size.height * .1),
                 ButtonAuth(
                     title: "Sign up",
                     onTap: () {
@@ -55,12 +55,13 @@ class RegisterBodyView extends StatelessWidget {
                     GoRouter.of(context).push(AppRouter.kLoginView);
                   },
                 ),
-                //      SizedBox(height: MediaQuery.of(context).size.height * .1),
+                const SizedBox(height: 18)
+                //    SizedBox(height: MediaQuery.of(context).size.height * 0.1),
               ],
             ),
           )
         ],
-      ),]
-    );
+      ),
+    ]);
   }
 }

@@ -34,12 +34,12 @@ class NewPasswordBody extends StatelessWidget {
                   TextFieldCustom(
                       hint: "password",
                       onPressedIcon: () {},
-                      icon: const Icon(Iconsax.eye)),
+                      icon: const Icon(Icons.visibility_off_outlined)),
                   const SizedBox(height: 16),
                   TextFieldCustom(
                       hint: "confirm password",
                       onPressedIcon: () {},
-                      icon: const Icon(Iconsax.eye)),
+                      icon: const Icon(Icons.visibility_off_outlined)),
                   SizedBox(height: MediaQuery.of(context).size.height * .26),
                   ButtonAuth(
                       title: "Reset Password",

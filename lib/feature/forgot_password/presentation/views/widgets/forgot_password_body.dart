@@ -31,7 +31,7 @@ class ForgotPasswordBody extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 const Text(
-                    " Don’t worry you can get a new one Please enter the email address linked with your email"),
+                    "Don’t worry you can get a new one Please enter the email address linked with your email"),
                 const SizedBox(height: 40),
                 TextFieldCustom(
                     hint: "Email",

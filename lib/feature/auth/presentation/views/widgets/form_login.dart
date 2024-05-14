@@ -17,7 +17,7 @@ class FormLogin extends StatelessWidget {
           icon: const Icon(Icons.email_outlined),
           onPressedIcon: () {},
         ),
-        const SizedBox(height: 28),
+        const SizedBox(height: 20),
         TextFieldCustom(
           hint: "Password",
           icon: const Icon(Icons.remove_red_eye_outlined),
