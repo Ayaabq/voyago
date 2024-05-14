@@ -9,7 +9,7 @@ import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/feature/auth/presentation/views/widgets/button_auth.dart';
 import 'package:voyago/feature/auth/presentation/views/widgets/header_auth.dart';
 import 'package:voyago/feature/auth/presentation/views/widgets/text_row.dart';
-import 'package:voyago/feature/forgot_password/presentation/views/widgets/row_otp.dart';
+import 'package:voyago/feature/forgot_password/presentation/views/widgets/otp.dart';
 
 class VerificationCodeBody extends StatelessWidget {
   const VerificationCodeBody({super.key});
@@ -83,5 +83,3 @@ class OtpView extends StatelessWidget {
     );
   }
 }
-
-

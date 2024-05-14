@@ -6,6 +6,6 @@ class VerificationCodeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: const VerificationCodeBody());
+    return const Scaffold(body: VerificationCodeBody());
   }
 }

@@ -15,18 +15,21 @@ class FormRegister extends StatelessWidget {
         TextFieldCustom(
             hint: "User name",
             onPressedIcon: () {},
-            icon: const Icon(FontAwesomeIcons.userAstronaut)),
+            icon: const Icon(FontAwesomeIcons.user)),
         const SizedBox(height: 22),
         TextFieldCustom(
             hint: "Email",
             onPressedIcon: () {},
-            icon: const Icon(Iconsax.profile)),
+            icon: const Icon(Icons.email_outlined)),
         const SizedBox(height: 22),
         TextFieldCustom(
             hint: "Phone",
             onPressedIcon: () {},
-            icon: const Icon(FontAwesomeIcons.phone)),
-        const SizedBox(height: 22),
+            icon: const Icon(
+              Icons.phone_outlined,
+              //     size: 28,
+            )),
+        const SizedBox(height: 20),
         TextFieldCustom(
             hint: "Password",
             onPressedIcon: () {},
