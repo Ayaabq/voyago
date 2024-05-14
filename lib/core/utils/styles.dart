@@ -31,4 +31,17 @@ class Styles {
     fontSize: 20,
     fontWeight: FontWeight.w700,
   );
+  static const TextStyle textStyle10W400 = TextStyle(
+    fontSize: 10,
+    fontWeight: FontWeight.w400,
+  );
+  static const TextStyle textStyle12W400 = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.w700,
+  );
+  static const TextStyle textStyle8W400 = TextStyle(
+    fontSize: 8,
+    // fontWeight: FontWeight.w400,
+  );
+
 }
