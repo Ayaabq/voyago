@@ -8,19 +8,22 @@ class CategoriesRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        CategoryItem(
-          title: "Trips",
-          icon: Image.asset(HomeAssets.categoryTripsIcon),
-        ),
-        const SizedBox(width: 24,),
-        CategoryItem(
-          title: "Attractions",
-          icon: Image.asset(HomeAssets.categoryAttractionIcon),
-        ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal:  11),
+      child: Row(
+        children: [
+          CategoryItem(
+            title: "Trips",
+            icon: Image.asset(HomeAssets.categoryTripsIcon),
+          ),
+          const SizedBox(width: 24,),
+          CategoryItem(
+            title: "Attractions",
+            icon: Image.asset(HomeAssets.categoryAttractionIcon),
+          ),
 
-      ],
+        ],
+      ),
     );
   }
 }

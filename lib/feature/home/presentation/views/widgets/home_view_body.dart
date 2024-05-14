@@ -5,6 +5,7 @@ import 'package:voyago/feature/home/presentation/views/widgets/app_bar/custom_ap
 import 'package:voyago/feature/home/presentation/views/widgets/beckround_section.dart';
 import 'package:voyago/feature/home/presentation/views/widgets/categories/categories_row.dart';
 import 'package:voyago/feature/home/presentation/views/widgets/custom_back_ground.dart';
+import 'package:voyago/feature/home/presentation/views/widgets/custom_home_list.dart';
 import 'package:voyago/feature/home/presentation/views/widgets/dummy_discount.dart';
 import 'package:voyago/feature/home/presentation/views/widgets/whether_info.dart';
 
@@ -18,10 +19,16 @@ class HomeViewBody extends StatelessWidget {
         slivers: [
           BackgroundSection(),
           SliverToBoxAdapter(
-            child: Column(
-              children: [
-
-              ],
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                    CustomHomeList(title: "Spacial offers"),
+                    CustomHomeList(title: "Top Attractions"),
+                    CustomHomeList(title: "Top destenations"),
+                ],
+              ),
             ),
           )
         ],

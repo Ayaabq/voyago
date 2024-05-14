@@ -17,7 +17,7 @@ class BackgroundSection extends StatelessWidget {
           CustomBackground(),
           SafeArea(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 21),
+              padding: EdgeInsets.symmetric(horizontal: 10),
               child: Column(
                 children: [
                   CustomAppBar(),
@@ -29,6 +29,9 @@ class BackgroundSection extends StatelessWidget {
                     height: 8,
                   ),
                   CategoriesRow(),
+                  SizedBox(
+                    height: 17,
+                  ),
                   DummyDiscount()
                 ],
               ),

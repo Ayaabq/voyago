@@ -26,5 +26,6 @@ class HomeAssets extends AssetsData{
   static const categoryTripsIcon ="assets/images/home/category_trips_icon.png";
   static const categoryAttractionIcon ="assets/images/home/category_attractions_icon.png";
   static const dummyDiscount ="assets/images/home/dummy_discount.png";
+  static const dummyOffers ="assets/images/home/dummy_offer.png";
 }
 

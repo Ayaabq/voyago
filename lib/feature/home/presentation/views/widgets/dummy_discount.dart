@@ -9,16 +9,19 @@ class DummyDiscount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height:  150,
+      height:  130,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
+
         itemCount: 5,
 
         itemBuilder: (context, index) {
           return Padding(
-            padding: const EdgeInsets.symmetric(vertical: 17.0,),
+            padding: const EdgeInsets.symmetric(
+            horizontal: 5),
             child: Image.asset(HomeAssets.dummyDiscount,
             height: 110,
+              fit: BoxFit.fill,
             ),
           );
         }

@@ -5,7 +5,8 @@ class Assets {
   static const String homeBackgrounSky = 'assets/images/home/backgroun_sky.png';
   static const String homeCategoryAttractionsIcon = 'assets/images/home/category_attractions_icon.png';
   static const String homeCategoryTripsIcon = 'assets/images/home/category_trips_icon.png';
-  static const String homeDummyDiscounts = 'assets/images/home/dummy_discount.png';
+  static const String homeDummyDiscount = 'assets/images/home/dummy_discount.png';
+  static const String homeDummyOffer = 'assets/images/home/dummy_offer.png';
   static const String imagesOnBoardingOnBoarding5 = 'assets/images/on_boarding/on_boarding_5.dart';
   static const String loginForgot = 'assets/images/login/forgot.png';
   static const String loginVector1 = 'assets/images/login/Vector1.png';
