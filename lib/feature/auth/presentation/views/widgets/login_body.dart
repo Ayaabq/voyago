@@ -19,7 +19,7 @@ class LoginBodyView extends StatelessWidget {
       Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const HeaderAuth(imageUrl: AssetsData.logoAllColors,),
+          const HeaderAuth(imageUrl: AssetsData.logoAllColors, padding: EdgeInsets.only(top: 66),),
           const SizedBox(height: 32),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24),

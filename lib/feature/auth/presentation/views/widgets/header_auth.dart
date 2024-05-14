@@ -5,10 +5,11 @@ import 'package:voyago/feature/auth/presentation/views/widgets/header_vector.dar
 class HeaderAuth extends StatelessWidget {
   const HeaderAuth({
     super.key,
-    required this.imageUrl,
+    required this.imageUrl, required this.padding,
   });
 
   final String imageUrl;
+  final EdgeInsetsGeometry padding;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -17,12 +18,12 @@ class HeaderAuth extends StatelessWidget {
         const SizedBox(height: 11),
         Positioned(
           child: Padding(
-            padding: const EdgeInsets.only(top: 52),
+            padding: padding,
             child: AspectRatio(
               aspectRatio: 2.2,
               child: Image(
                 image: AssetImage(imageUrl
-//AssetsData.logoAllColors
+
                     ),
               ),
             ),

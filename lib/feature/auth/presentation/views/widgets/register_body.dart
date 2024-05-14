@@ -21,7 +21,10 @@ class RegisterBodyView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const HeaderAuth(imageUrl: AssetsData.logoAllColors,),
+          const HeaderAuth(
+            imageUrl: AssetsData.logoAllColors,
+            padding: EdgeInsets.only(top: 50),
+          ),
           const SizedBox(height: 11),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24),

@@ -10,7 +10,10 @@ class ForgotPasswordBody extends StatelessWidget {
     return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        HeaderAuth(imageUrl: AssetsData.logoAllColors,),
+        HeaderAuth(
+          imageUrl: LoginAssets.forgot,
+          padding: EdgeInsets.only(top: 42),
+        ),
       ],
     );
   }
