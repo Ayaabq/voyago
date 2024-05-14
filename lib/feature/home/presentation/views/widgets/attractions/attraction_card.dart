@@ -1,26 +1,24 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:voyago/core/widgets/favorite_icon_button.dart';
-import 'package:voyago/core/widgets/location_with_country.dart';
-import 'package:voyago/core/widgets/price_offer_display.dart';
-import 'package:voyago/feature/home/presentation/views/widgets/offers_details_column.dart';
+import 'package:voyago/core/utils/custom_colors.dart';
+import 'package:voyago/core/utils/styles.dart';
+import 'package:voyago/core/widgets/custom_rate.dart';
 
-import '../../../../../core/utils/assets.dart';
-import '../../../../../core/utils/styles.dart';
-import '../../../../../core/widgets/custom_rate.dart';
-class CustomCardBackground extends StatelessWidget {
-  const CustomCardBackground({super.key});
+import '../../../../../../core/utils/assets.dart';
+import '../../../../../../core/widgets/favorite_icon_button.dart';
+
+class AttractionCard extends StatelessWidget {
+  const AttractionCard({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5),
+    return  AspectRatio(
+      aspectRatio: 1,
       child: Card(
         elevation: 4,
         child: Container(
 
           width: 150,
-          height: 160,
+          height: 170,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(16),
@@ -37,7 +35,7 @@ class CustomCardBackground extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(16),
                     child: Image.asset(
-                      HomeAssets.dummyOffers,
+                      HomeAssets.dummyAttraction,
                       width: 130,
                       height: 150,
                       fit: BoxFit.cover, // This ensures the image covers the entire area
@@ -58,23 +56,42 @@ class CustomCardBackground extends StatelessWidget {
                     ],
                     stops: [
                       0.0,
-                      0.6,
-                      0.65,
+                      0.55,
+                      0.75,
                     ],
                   ),
                 ),
               ),
-              const Positioned(
-                top: 11,
-                right: 16,
-                child: FavoriteButton(),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Row(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+
+                        color: CustomColors.kWhite[0]
+                      ),
+                      child: const Padding(
+                        padding: EdgeInsets.all(3.0),
+                        child: CustomRating(rate: 4.7),
+                      ),
+                    ),
+                    const Spacer(),
+                    const FavoriteButton(),
+
+                  ],
+                ),
               ),
-              const Positioned(
-                top: 110,
-                // right: 15,
-                left: 10,
-                child: OffersDetailsColumn(),
-              ),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 10.0),
+                  child: Text("Belvedere Castle",
+                  style: Styles.textStyle14W600,),
+                ),
+              )
+
             ],
           ),
         ),

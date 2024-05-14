@@ -10,6 +10,10 @@ class Styles {
     fontSize: 19,
     fontWeight: FontWeight.w500,
   );
+  static const TextStyle textStyle18W700 = TextStyle(
+    fontSize: 19,
+    fontWeight: FontWeight.w900,
+  );
 
   static const TextStyle textStyle24W900 = TextStyle(
     fontSize: 24,
@@ -51,6 +55,10 @@ class Styles {
     fontSize: 20,
     fontWeight: FontWeight.w400,
     color: CustomColors.kBlack[2],
+  );
+  static TextStyle textStyle14W600 = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
   );
 
 }
