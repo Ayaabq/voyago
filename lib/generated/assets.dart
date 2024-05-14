@@ -2,8 +2,14 @@
 class Assets {
   Assets._();
 
+  static const String homeBackgrounSky = 'assets/images/home/backgroun_sky.png';
+  static const String homeCategoryAttractionsIcon = 'assets/images/home/category_attractions_icon.png';
+  static const String homeCategoryTripsIcon = 'assets/images/home/category_trips_icon.png';
   static const String imagesOnBoardingOnBoarding5 = 'assets/images/on_boarding/on_boarding_5.dart';
+  static const String loginVector1 = 'assets/images/login/Vector1.png';
+  static const String loginVector2 = 'assets/images/login/Vector2.png';
   static const String mainLogo = 'assets/images/main/logo.png';
+  static const String mainLogoAllColors = 'assets/images/main/Logo_all_colors.png';
   static const String mainLogoAllWhite = 'assets/images/main/logo_all_white.png';
   static const String mainMiniLogoWhite = 'assets/images/main/mini_logo_white.png';
   static const String onBoardingOnBoarding1 = 'assets/images/on_boarding/on_boarding_1.png';
