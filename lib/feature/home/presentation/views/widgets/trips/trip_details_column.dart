@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:voyago/core/widgets/days_and_price.dart';
 
-import '../../../../../core/utils/styles.dart';
-import '../../../../../core/widgets/custom_rate.dart';
-import '../../../../../core/widgets/location_with_country.dart';
-import '../../../../../core/widgets/price_offer_display.dart';
+import '../../../../../../core/utils/styles.dart';
+import '../../../../../../core/widgets/custom_rate.dart';
 
-class OffersDetailsColumn extends StatelessWidget {
-  const OffersDetailsColumn({super.key});
+import '../../../../../../core/widgets/location_with_country.dart';
+
+class TripDetailsColumn extends StatelessWidget {
+  const TripDetailsColumn({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class OffersDetailsColumn extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
-          width: 130,
+          width: double.infinity,
           height: 148,
           child: Column(
             children: [
@@ -30,7 +31,7 @@ class OffersDetailsColumn extends StatelessWidget {
                 ],
               ),
               LocationWithCountry(country: "Damascus"),
-              PriceDisplay(oldPrice: "90\$", newPrice: "85\$", ratio: 10,)
+              DaysAndPriceWidget(days: "5", fromPrice: "99")
             ],
           ),
         )

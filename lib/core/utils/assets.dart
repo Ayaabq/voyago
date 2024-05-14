@@ -31,5 +31,9 @@ class HomeAssets extends AssetsData{
   static const categoryAttractionIcon ="assets/images/home/category_attractions_icon.png";
   static const dummyDiscount ="assets/images/home/dummy_discount.png";
   static const dummyOffers ="assets/images/home/dummy_offer.png";
+  static const dummyDestination ="assets/images/home/dummy_destination.png";
+  static const dummyTrip ="assets/images/home/dummy_trip.png";
+  static const dummyAttraction ="assets/images/home/dummy_attraction.png";
+
 }
 

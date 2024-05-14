@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:voyago/core/utils/assets.dart';
 
 class DummyDiscount extends StatelessWidget {
