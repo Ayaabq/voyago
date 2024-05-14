@@ -17,8 +17,8 @@ class RegisterBodyView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
+    return ListView(
+      children:[ Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const HeaderAuth(
@@ -60,7 +60,7 @@ class RegisterBodyView extends StatelessWidget {
             ),
           )
         ],
-      ),
+      ),]
     );
   }
 }
