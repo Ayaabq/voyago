@@ -25,5 +25,6 @@ class HomeAssets extends AssetsData{
   static const skyBackground ="assets/images/home/backgroun_sky.png";
   static const categoryTripsIcon ="assets/images/home/category_trips_icon.png";
   static const categoryAttractionIcon ="assets/images/home/category_attractions_icon.png";
+  static const dummyDiscount ="assets/images/home/dummy_discount.png";
 }
 
