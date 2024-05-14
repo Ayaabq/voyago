@@ -18,6 +18,8 @@ class LoginAssets extends AssetsData {
   static const vector1 = "assets/images/login/Vector1.png";
   static const vector2 = "assets/images/login/Vector2.png";
   static const forgot = "assets/images/login/forgot.png";
+  static const verificationCode = "assets/images/login/VerificationCode.png";
+  static const newpassword = "assets/images/login/newpassword.png";
 }
 
 
