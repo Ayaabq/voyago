@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:voyago/core/utils/assets.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/core/utils/styles.dart';
+import 'package:voyago/core/widgets/custom_rate.dart';
 import 'package:voyago/feature/home/presentation/views/widgets/custom_card_background.dart';
 
 class CustomHomeList extends StatelessWidget {
@@ -27,7 +28,7 @@ class CustomHomeList extends StatelessWidget {
           height: 10,
         ),
         SizedBox(
-          height:  150,
+          height:  170,
           child: ListView.builder(
             // physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,

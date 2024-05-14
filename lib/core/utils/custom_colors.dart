@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 abstract class CustomColors {
+  static const kHighlightMove =Color(0xffA04DF6);
   static const kMove = [
     Color(0xffF1EFF9),
     Color(0xffDCD8F1),
