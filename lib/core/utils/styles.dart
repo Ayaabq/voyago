@@ -31,4 +31,10 @@ class Styles {
     fontSize: 20,
     fontWeight: FontWeight.w700,
   );
+
+  static TextStyle textStyle30W600 = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w400,
+    color: CustomColors.kBlack[2],
+  );
 }
