@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:voyago/feature/auth/presentation/views/widgets/login_body.dart';
 
 class LoginView extends StatelessWidget {
@@ -7,7 +8,12 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: LoginBodyView(),
-    );
+        body: AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.dark,
+      ),
+      child: SafeArea(child: LoginBodyView()),
+    ));
   }
 }
