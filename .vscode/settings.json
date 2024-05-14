@@ -1,0 +1,17 @@
+{
+    "bladeFormatter.format.enabled": true,
+    "editor.defaultFormatter": "Dart-Code.flutter",
+    "editor.formatOnSave": true,
+    "dart.enableSdkFormatter": true,
+    "editor.trimAutoWhitespace": false,
+    "editor.autoClosingDelete": "auto",
+    "files.autoSave": "afterDelay",
+    "editor.autoClosingOvertype": "auto",
+    "editor.autoIndent": "none",
+    "files.autoSaveWhenNoErrors": true,
+    "editor.renderWhitespace": "selection",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "files.trimTrailingWhitespaceInRegexAndStrings": false,
+    "debug.console.acceptSuggestionOnEnter": "on",
+    "workbench.editor.centeredLayoutAutoResize": false
+}

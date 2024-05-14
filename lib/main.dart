@@ -26,7 +26,7 @@ class VoyagoApp extends StatelessWidget {
       routerConfig: AppRouter.router,
       theme: ThemeData.light().copyWith(
           textTheme:
-              GoogleFonts.montserratTextTheme(ThemeData.light().textTheme)),
+              GoogleFonts.montserratTextTheme(ThemeData.light().textTheme),),
 
       // home: const GetStarted(),
     );

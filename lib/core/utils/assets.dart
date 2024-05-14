@@ -16,3 +16,9 @@ class LoginAssets extends AssetsData {
   static const vector1 = "assets/images/login/Vector1.png";
   static const vector2 = "assets/images/login/Vector2.png";
 }
+
+class HomeAssets extends AssetsData{
+  static const skyBackground ="assets/images/home/backgroun_sky.png";
+  static const categoryTripsIcon ="assets/images/home/category_trips_icon.png";
+  static const categoryAttractionIcon ="assets/images/home/category_attraction_icon.png";
+}
