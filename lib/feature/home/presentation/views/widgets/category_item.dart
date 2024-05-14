@@ -4,14 +4,14 @@ import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/core/utils/styles.dart';
 
 class CategoryItem extends StatelessWidget {
-  const CategoryItem({super.key});
-
+  const CategoryItem({super.key, required this.icon, required this.title});
+  final Widget icon;
+  final String title;
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        margin: EdgeInsets.all(8.5),
-      
+
         height: 64,
       
         decoration: BoxDecoration(
@@ -24,16 +24,18 @@ class CategoryItem extends StatelessWidget {
       
       
           },
-          icon: Image.asset(HomeAssets.categoryTripsIcon),
+          icon: icon,
           label: Text(
-            'Trips',
+            title,
             style: Styles.textStyle16W400.copyWith(
               color: CustomColors.kMove[9],
             )
           ),
           style: TextButton.styleFrom(
-            foregroundColor: Colors.blue,
-            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            padding: const EdgeInsets.symmetric(
+                horizontal: 11.0,
+                vertical: 8.0
+            ),
           ),
         ),
       ),

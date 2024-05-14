@@ -24,9 +24,10 @@ class LoginAssets extends AssetsData {
   static const frame = "assets/images/login/Frame.png";
 }
 
-class HomeAssets extends AssetsData {
-  static const skyBackground = "assets/images/home/backgroun_sky.png";
-  static const categoryTripsIcon = "assets/images/home/category_trips_icon.png";
-  static const categoryAttractionIcon =
-      "assets/images/home/category_attraction_icon.png";
+
+class HomeAssets extends AssetsData{
+  static const skyBackground ="assets/images/home/backgroun_sky.png";
+  static const categoryTripsIcon ="assets/images/home/category_trips_icon.png";
+  static const categoryAttractionIcon ="assets/images/home/category_attractions_icon.png";
 }
+

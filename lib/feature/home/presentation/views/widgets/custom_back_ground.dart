@@ -11,13 +11,16 @@ class CustomBackground extends StatelessWidget {
     return Stack(
       children: [
         SizedBox(
-          width: double.infinity,
-          height: ScreenSizeUtil.screenHeight * .47,
+         width: double.infinity,
+          height: ScreenSizeUtil.screenHeight * .4,
 
           child: FittedBox(
-            child: Image.asset(
-              HomeAssets.skyBackground,
               fit: BoxFit.cover,
+            child: Image.asset(
+
+              HomeAssets.skyBackground,
+              fit: BoxFit.cover
+
             ),
           ),
           // height: 100,
