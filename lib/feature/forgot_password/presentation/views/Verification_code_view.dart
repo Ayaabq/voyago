@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:voyago/feature/forgot_password/presentation/views/widgets/Verification_code_body.dart';
+import 'package:voyago/feature/forgot_password/presentation/views/widgets/verification_code_body.dart';
 
 class VerificationCodeView extends StatelessWidget {
   const VerificationCodeView({super.key});

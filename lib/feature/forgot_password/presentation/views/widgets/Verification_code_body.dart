@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+
 import 'package:go_router/go_router.dart';
 import 'package:voyago/constants.dart';
 import 'package:voyago/core/utils/app_router.dart';
 import 'package:voyago/core/utils/assets.dart';
-import 'package:voyago/core/utils/custom_colors.dart';
+
 import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/feature/auth/presentation/views/widgets/button_auth.dart';
 import 'package:voyago/feature/auth/presentation/views/widgets/header_auth.dart';
 import 'package:voyago/feature/auth/presentation/views/widgets/text_row.dart';
+import 'package:voyago/feature/forgot_password/presentation/views/widgets/row_otp.dart';
 
 class VerificationCodeBody extends StatelessWidget {
   const VerificationCodeBody({super.key});
@@ -83,40 +84,4 @@ class OtpView extends StatelessWidget {
   }
 }
 
-class Otp extends StatelessWidget {
-  const Otp({
-    super.key,
-  });
 
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 50,
-      width: 50,
-      child: TextFormField(
-        decoration: InputDecoration(
-          enabledBorder: buildBorder(),
-          focusedBorder: buildBorder(CustomColors.kMove[4]),
-        ),
-        onChanged: (value) {
-          if (value.length == 1) {
-            FocusScope.of(context).nextFocus();
-          }
-        },
-        style: Theme.of(context).textTheme.headlineSmall,
-        keyboardType: TextInputType.number,
-        textAlign: TextAlign.center,
-        inputFormatters: [
-          LengthLimitingTextInputFormatter(1),
-          FilteringTextInputFormatter.digitsOnly
-        ],
-      ),
-    );
-  }
-}
-
-OutlineInputBorder buildBorder([color]) {
-  return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(14),
-      borderSide: BorderSide(color: color ?? CustomColors.kGrey[0], width: 1));
-}
