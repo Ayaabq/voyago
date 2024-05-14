@@ -3,6 +3,7 @@ import 'package:voyago/feature/auth/presentation/views/login_view.dart';
 import 'package:voyago/feature/auth/presentation/views/register_view.dart';
 import 'package:voyago/feature/forgot_password/presentation/views/Verification_code_view.dart';
 import 'package:voyago/feature/forgot_password/presentation/views/forgot_password_view.dart';
+import 'package:voyago/feature/forgot_password/presentation/views/new_password_view.dart';
 import 'package:voyago/feature/get_started/presentation/views/get_started.dart';
 import 'package:voyago/feature/home/presentation/views/home_view.dart';
 
@@ -13,6 +14,7 @@ abstract class AppRouter {
   static const kRegisterView = "/RegisterView";
   static const kForgotPasswordView = "/ForgotPasswordView";
   static const kVerificationCodeView = "/VerificationCodeView";
+  static const kNewPassword = "/NewPasswordView";
   static const kHomeView = "/HomeView";
   static final router = GoRouter(
     routes: [
@@ -35,6 +37,10 @@ abstract class AppRouter {
       GoRoute(
         path: kVerificationCodeView,
         builder: (context, state) => const VerificationCodeView(),
+      ),
+      GoRoute(
+        path: kNewPassword,
+        builder: (context, state) => const NewPasswordView(),
       ),
       GoRoute(
         path: kHomeView,
