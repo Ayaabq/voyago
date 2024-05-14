@@ -41,7 +41,12 @@ class RegisterBodyView extends StatelessWidget {
                 const FormRegister(),
                 //const SizedBox(height: 24),
                 SizedBox(height: MediaQuery.of(context).size.height * .12),
-                ButtonAuth(title: "Sign up", onTap: () {}),
+                ButtonAuth(
+                    title: "Sign up",
+                    onTap: () {
+                      GoRouter.of(context)
+                          .pushReplacement(AppRouter.kSuccessSginUp);
+                    }),
                 const SizedBox(height: 14),
                 DontAccount(
                   text: "Already have an account? ",

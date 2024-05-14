@@ -40,14 +40,13 @@ class NewPasswordBody extends StatelessWidget {
                       hint: "confirm password",
                       onPressedIcon: () {},
                       icon: const Icon(Iconsax.eye)),
- SizedBox(height: MediaQuery.of(context).size.height * .26),
-                ButtonAuth(
-                    title: "Reset Password",
-                    onTap: () {
-                      
-                      GoRouter.of(context)
-                          .pushReplacement(AppRouter.kLoginView);
-                    }),
+                  SizedBox(height: MediaQuery.of(context).size.height * .26),
+                  ButtonAuth(
+                      title: "Reset Password",
+                      onTap: () {
+                        GoRouter.of(context)
+                            .pushReplacement(AppRouter.kSuccessPasswor);
+                      }),
                 ],
               ),
             )
