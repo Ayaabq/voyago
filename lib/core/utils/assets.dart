@@ -20,6 +20,8 @@ class LoginAssets extends AssetsData {
   static const forgot = "assets/images/login/forgot.png";
   static const verificationCode = "assets/images/login/VerificationCode.png";
   static const newpassword = "assets/images/login/newpassword.png";
+  static const successSginUp = "assets/images/login/successSginup.png";
+  static const frame = "assets/images/login/Frame.png";
 }
 
 class HomeAssets extends AssetsData {
