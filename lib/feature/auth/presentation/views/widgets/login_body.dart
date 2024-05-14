@@ -44,7 +44,7 @@ class LoginBodyView extends StatelessWidget {
                     }),
                 const SizedBox(height: 14),
                 DontAccount(
-                  text: "Don't  have an account? ",
+                  text: "Don't have an account? ",
                   create: "Create Now",
                   onTap: () {
                     GoRouter.of(context).push(AppRouter.kRegisterView);
