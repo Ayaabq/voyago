@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:voyago/core/widgets/favorite_icon_button.dart';
 import 'package:voyago/core/widgets/location_with_country.dart';
 import 'package:voyago/core/widgets/price_offer_display.dart';
+import 'package:voyago/feature/home/presentation/views/widgets/offers_details_column.dart';
 
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
@@ -72,32 +73,7 @@ class CustomCardBackground extends StatelessWidget {
                 top: 110,
                 // right: 15,
                 left: 10,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      width: 130,
-                      height: 148,
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-
-                            children: [
-                              Text("Damas hotel",
-                                style: Styles.textStyle12W400,),
-                              Spacer(),
-                              CustomRating(rate: 4.2),
-                            ],
-                          ),
-                          LocationWithCountry(country: "Damascus"),
-                          PriceDisplay(oldPrice: "90\$", newPrice: "85\$", ratio: 10,)
-                        ],
-                      ),
-                    )
-                  ],
-                ),
+                child: OffersDetailsColumn(),
               ),
             ],
           ),

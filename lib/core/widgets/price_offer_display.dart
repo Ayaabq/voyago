@@ -19,6 +19,7 @@ class PriceDisplay extends StatelessWidget {
       children: [
         Text(
           oldPrice,
+          textAlign: TextAlign.center,
           style: Styles.textStyle10W400.copyWith(
             decoration: TextDecoration.lineThrough,
 
@@ -27,6 +28,7 @@ class PriceDisplay extends StatelessWidget {
         const SizedBox(width: 8),
         Text(
           newPrice,
+          textAlign: TextAlign.center,
           style: const TextStyle(
             fontSize: 13,
             fontWeight: FontWeight.bold
