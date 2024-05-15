@@ -5,18 +5,20 @@ import 'package:voyago/core/widgets/favorite_icon_button.dart';
 import 'package:voyago/feature/home/presentation/views/widgets/offers/offers_details_column.dart';
 
 import '../../../../../../core/utils/assets.dart';
+import '../../../../../../core/utils/screen_size_util.dart';
 
 class OfferCard extends StatelessWidget {
   const OfferCard({super.key});
 
   @override
   Widget build(BuildContext context) {
+    ScreenSizeUtil.init(context);
     return Card(
       elevation: 4,
       child: Container(
 
-        width: 150,
-        height: 170,
+        width: ScreenSizeUtil.screenWidth * 0.35,
+        height: ScreenSizeUtil.screenHeight  * 0.45,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(16),
@@ -34,8 +36,6 @@ class OfferCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16),
                   child: Image.asset(
                     HomeAssets.dummyOffers,
-                    width: 130,
-                    height: 150,
                     fit: BoxFit.cover, // This ensures the image covers the entire area
                   ),
                 ),

@@ -17,7 +17,7 @@ class TripDetailsColumn extends StatelessWidget {
       children: [
         SizedBox(
           width: double.infinity,
-          height: 148,
+
           child: Column(
             children: [
               Row(
