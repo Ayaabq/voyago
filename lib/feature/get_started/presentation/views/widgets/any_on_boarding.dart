@@ -11,6 +11,7 @@ class AnyOnBoarding extends StatelessWidget {
   final OnBoardingModel onBoardingModel;
   @override
   Widget build(BuildContext context) {
+    ScreenSizeUtil.init(context);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

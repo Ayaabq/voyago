@@ -19,7 +19,7 @@ class PageIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  
+  ScreenSizeUtil.init(context);
     return BlocBuilder<OnBoardingCubitCubit, OnBoardingCubitState>(
       builder: (BuildContext context, state) {
         final bool isNotLast = state is! OnBoardingLastState;

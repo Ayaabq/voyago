@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:voyago/core/utils/screen_size_util.dart';
 
 class BackgroundImage extends StatelessWidget {
   const BackgroundImage({super.key, required this.imageUrl});
@@ -10,7 +11,7 @@ class BackgroundImage extends StatelessWidget {
         width: double.infinity,
         height: double.infinity,
         imageUrl,
-        fit: BoxFit.fill,
+        fit: BoxFit.cover,
       ),
       Container(
           width: double.infinity,

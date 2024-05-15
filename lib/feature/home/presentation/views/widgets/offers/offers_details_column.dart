@@ -15,8 +15,7 @@ class OffersDetailsColumn extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
-          width: 130,
-          height: 148,
+          width: double.infinity,
           child: Column(
             children: [
               Row(
