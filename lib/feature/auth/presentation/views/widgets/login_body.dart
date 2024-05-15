@@ -42,7 +42,7 @@ class LoginBodyView extends StatelessWidget {
                     onTap: () {
                       GoRouter.of(context).push(AppRouter.kHomeView);
                     }),
-                const SizedBox(height: 14),
+                const SizedBox(height: 10),
                 DontAccount(
                   text: "Don't have an account? ",
                   create: "Create Now",
@@ -53,7 +53,7 @@ class LoginBodyView extends StatelessWidget {
               ],
             ),
           ),
-        //  SizedBox(height: ScreenSizeUtil.screenHeight * 0.1),
+          SizedBox(height: ScreenSizeUtil.screenHeight * 0.1),
         ],
       ),
     ]);

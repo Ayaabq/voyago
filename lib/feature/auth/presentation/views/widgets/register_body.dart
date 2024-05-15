@@ -47,7 +47,7 @@ class RegisterBodyView extends StatelessWidget {
                       GoRouter.of(context)
                           .pushReplacement(AppRouter.kSuccessSginUp);
                     }),
-                const SizedBox(height: 14),
+                const SizedBox(height: 10),
                 DontAccount(
                   text: "Already have an account? ",
                   create: "Login",
