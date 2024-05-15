@@ -36,7 +36,7 @@ class ForgotPasswordBody extends StatelessWidget {
                 TextFieldCustom(
                     hint: "Email",
                     onPressedIcon: () {},
-                    icon: const Icon(Icons.email_outlined)),
+                    icon: const Icon(Icons.email_outlined), keyboardType: TextInputType.emailAddress,),
                 SizedBox(height: MediaQuery.of(context).size.height * .26),
                 ButtonAuth(
                     title: "Send code",

@@ -114,15 +114,18 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 
 class TextFieldCustom extends HookWidget {
-  const TextFieldCustom(
-      {super.key,
-      required this.hint,
-      required this.onPressedIcon,
-      required this.icon});
+  const TextFieldCustom({
+    super.key,
+    required this.hint,
+    required this.onPressedIcon,
+    required this.icon,
+    required this.keyboardType,
+  });
 
   final String hint;
   final void Function() onPressedIcon;
   final Icon icon;
+  final TextInputType keyboardType;
 
   @override
   Widget build(BuildContext context) {
@@ -131,6 +134,7 @@ class TextFieldCustom extends HookWidget {
     return SizedBox(
       height: 50,
       child: TextFormField(
+        keyboardType: TextInputType.number,
         focusNode: focusNode,
         decoration: InputDecoration(
           labelText: hint,
