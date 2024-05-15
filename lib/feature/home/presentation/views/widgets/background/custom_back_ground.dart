@@ -8,16 +8,19 @@ class CustomBackground extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ScreenSizeUtil.init(context);
+
     return Stack(
       children: [
         SizedBox(
          width: double.infinity,
-          height: ScreenSizeUtil.screenHeight * .3,
+          // height: ScreenSizeUtil.screenHeight * .3,
 
           child: FittedBox(
               fit: BoxFit.cover,
             child: Image.asset(
-
+                height: ScreenSizeUtil.screenHeight * .3,
+                width: ScreenSizeUtil.screenWidth,
               HomeAssets.skyBackground,
               fit: BoxFit.cover
 
@@ -26,7 +29,7 @@ class CustomBackground extends StatelessWidget {
           // height: 100,
         ),
         Container(
-          height: ScreenSizeUtil.screenHeight * .43,
+          height: ScreenSizeUtil.screenHeight * .3,
           width: ScreenSizeUtil.screenWidth,
           decoration: BoxDecoration(
             gradient: LinearGradient(

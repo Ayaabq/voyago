@@ -13,5 +13,6 @@
     "diffEditor.ignoreTrimWhitespace": false,
     "files.trimTrailingWhitespaceInRegexAndStrings": false,
     "debug.console.acceptSuggestionOnEnter": "on",
-    "workbench.editor.centeredLayoutAutoResize": false
+    "workbench.editor.centeredLayoutAutoResize": false,
+    "workbench.editor.centeredLayoutFixedWidth": true
 }
