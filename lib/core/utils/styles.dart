@@ -5,47 +5,59 @@ class Styles {
   static const TextStyle textStyle32W700 = TextStyle(
     fontSize: 32,
     fontWeight: FontWeight.w900,
+    overflow: TextOverflow.fade
   );
   static const TextStyle textStyle18W400 = TextStyle(
     fontSize: 19,
     fontWeight: FontWeight.w500,
+      overflow: TextOverflow.fade
   );
   static const TextStyle textStyle18W700 = TextStyle(
     fontSize: 19,
     fontWeight: FontWeight.w900,
+      overflow: TextOverflow.fade
   );
 
   static const TextStyle textStyle24W900 = TextStyle(
     fontSize: 24,
     fontWeight: FontWeight.w900,
+      overflow: TextOverflow.fade
   );
 
   static TextStyle textStyle25W700 = TextStyle(
-      fontSize: 25, fontWeight: FontWeight.w700, color: CustomColors.kMove[7]);
+      fontSize: 25, fontWeight: FontWeight.w700, color: CustomColors.kMove[7],
+      overflow: TextOverflow.fade
+  );
 
   static const TextStyle textStyle16W700 = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w700,
+      overflow: TextOverflow.fade
   );
   static const TextStyle textStyle16W400 = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w400,
+      overflow: TextOverflow.fade
   );
   static const TextStyle textStyle20W700 = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w700,
+      overflow: TextOverflow.fade
   );
 
   static const TextStyle textStyle10W400 = TextStyle(
     fontSize: 10,
     fontWeight: FontWeight.w400,
+      overflow: TextOverflow.fade
   );
   static const TextStyle textStyle12W400 = TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.w700,
+      overflow: TextOverflow.fade
   );
   static const TextStyle textStyle8W400 = TextStyle(
     fontSize: 8,
+      overflow: TextOverflow.fade
     // fontWeight: FontWeight.w400,
   );
 
@@ -55,10 +67,12 @@ class Styles {
     fontSize: 20,
     fontWeight: FontWeight.w400,
     color: CustomColors.kBlack[2],
+      overflow: TextOverflow.fade
   );
   static TextStyle textStyle14W600 = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w600,
+      overflow: TextOverflow.fade
   );
 
 }
