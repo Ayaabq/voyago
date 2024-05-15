@@ -1,13 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:voyago/feature/home/presentation/views/widgets/app_bar/custom_app_bar.dart';
-import 'package:voyago/feature/home/presentation/views/widgets/beckround_section.dart';
-import 'package:voyago/feature/home/presentation/views/widgets/categories/categories_row.dart';
-import 'package:voyago/feature/home/presentation/views/widgets/custom_back_ground.dart';
+import 'package:voyago/feature/home/presentation/views/widgets/attractions/top_attraction_list_view.dart';
+import 'package:voyago/feature/home/presentation/views/widgets/background/beckround_section.dart';
 import 'package:voyago/feature/home/presentation/views/widgets/custom_home_list.dart';
-import 'package:voyago/feature/home/presentation/views/widgets/dummy_discount.dart';
-import 'package:voyago/feature/home/presentation/views/widgets/whether_info.dart';
+import 'package:voyago/feature/home/presentation/views/widgets/distenations/destination_list.dart';
+import 'package:voyago/feature/home/presentation/views/widgets/offers/offers_list_view.dart';
+import 'package:voyago/feature/home/presentation/views/widgets/trips/top_trips_list_view.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -24,9 +21,30 @@ class HomeViewBody extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                    CustomHomeList(title: "Spacial offers"),
-                    CustomHomeList(title: "Top Attractions"),
-                    CustomHomeList(title: "Top destenations"),
+                  CustomHomeList(
+                    title: "Spacial offers",
+                    sizedList: OffersListView(),
+                  ),
+                  CustomHomeList(
+                    title: "Trending Destinations",
+                    sizedList: DestinationListView(),
+                  ),
+                  CustomHomeList(
+                    title: "Top Attractions",
+                    sizedList: TopAttractionListView(),
+                  ),
+                  CustomHomeList(
+                    title: "Top Trips",
+                    sizedList: TopTripsListView(),
+                  ),
+                  CustomHomeList(
+                    title: "Popular Attractions",
+                    sizedList: TopAttractionListView(),
+                  ),
+                  CustomHomeList(
+                    title: "Popular trips",
+                    sizedList: TopTripsListView(),
+                  ),
                 ],
               ),
             ),
