@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:voyago/constants.dart';
 import 'package:voyago/core/utils/app_router.dart';
 import 'package:voyago/core/utils/assets.dart';
+import 'package:voyago/core/utils/screen_size_util.dart';
 import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/feature/auth/presentation/views/widgets/button_auth.dart';
 
@@ -41,7 +42,7 @@ class SuccessPasswordView extends StatelessWidget {
               style: Styles.textStyle18W400.copyWith(fontSize: 20),
             ),
           ),
-          SizedBox(height: MediaQuery.of(context).size.height * .26),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.1),
           Padding(
             padding: kPaddingHoriz24,
             child: ButtonAuth(
@@ -50,6 +51,7 @@ class SuccessPasswordView extends StatelessWidget {
                   GoRouter.of(context).pushReplacement(AppRouter.kLoginView);
                 }),
           ),
+          SizedBox(height: ScreenSizeUtil.screenHeight * 0.1),
         ],
       ),
     );
