@@ -13,15 +13,17 @@ class FormLogin extends StatelessWidget {
         child: Column(
       children: [
         TextFieldCustom(
+
           hint: "Email",
           icon: const Icon(Icons.email_outlined),
-          onPressedIcon: () {},
+          onPressedIcon: () {}, keyboardType: TextInputType.emailAddress,
         ),
         const SizedBox(height: 20),
         TextFieldCustom(
+
           hint: "Password",
           icon: const Icon(Icons.remove_red_eye_outlined),
-          onPressedIcon: () {},
+          onPressedIcon: () {}, keyboardType: TextInputType.visiblePassword,
         )
       ],
     ));
