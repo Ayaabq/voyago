@@ -7,7 +7,7 @@ import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/feature/auth/presentation/views/widgets/button_auth.dart';
 import 'package:voyago/feature/auth/presentation/views/widgets/header_auth.dart';
 import 'package:voyago/feature/auth/presentation/views/widgets/text_row.dart';
-import 'package:voyago/feature/forgot_password/presentation/views/widgets/verification_code_body.dart';
+import 'package:voyago/feature/forgot_password/presentation/views/widgets/verification_code_body_password.dart';
 
 class VerificationSginUpBody extends StatelessWidget {
   const VerificationSginUpBody({super.key});
