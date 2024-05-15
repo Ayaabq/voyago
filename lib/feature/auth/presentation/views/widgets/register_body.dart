@@ -52,7 +52,7 @@ class RegisterBodyView extends StatelessWidget {
                   text: "Already have an account? ",
                   create: "Login",
                   onTap: () {
-                    GoRouter.of(context).push(AppRouter.kLoginView);
+                    GoRouter.of(context).push(AppRouter.kSuccessSginUp);
                   },
                 ),
                 const SizedBox(height: 18)
