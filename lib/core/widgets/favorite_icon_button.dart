@@ -17,7 +17,7 @@ class FavoriteButton extends StatelessWidget {
         child: IconButton(
           icon: const Icon(Icons.favorite_border,
           size: 18,),
-          color: CustomColors.kHighlightMove, // Icon color
+          color: CustomColors.kHighlightMove  , // Icon color
           onPressed: () {
             // Your onPressed code here
             print('Icon Button Pressed');
