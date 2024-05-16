@@ -9,26 +9,11 @@ class CategoriesRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ScreenSizeUtil.init(context);
     return
-    //   Padding(
-    //   padding: const EdgeInsets.symmetric(horizontal:  11),
-    //   child: Row(
-    //     children: [
-    //       CategoryItem(
-    //         title: "Trips",
-    //         icon: Image.asset(HomeAssets.categoryTripsIcon),
-    //       ),
-    //       const SizedBox(width: 24,),
-    //       CategoryItem(
-    //         title: "Attractions",
-    //         icon: Image.asset(HomeAssets.categoryAttractionIcon),
-    //       ),
-    //
-    //     ],
-    //   ),
-    // );
+
       Padding(
-        padding: EdgeInsets.all(ScreenSizeUtil.dynamicWidth(0.05)), // 5% of the screen width padding
+        padding: EdgeInsets.all(ScreenSizeUtil.dynamicWidth(0.005)), // 5% of the screen width padding
         child: Row(
           children: [
             CategoryItem(
