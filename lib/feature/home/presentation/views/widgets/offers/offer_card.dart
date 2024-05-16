@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:voyago/core/widgets/favorite_icon_button.dart';
@@ -84,7 +86,7 @@ class OfferCard extends StatelessWidget {
       elevation: 4,
       child: Container(
         // Use a fraction of the screen width and height instead of fixed values
-        width: ScreenSizeUtil.screenWidth * 0.5,
+        width: max(ScreenSizeUtil.screenWidth * 0.35, 150),
         // height: ScreenSizeUtil.screenHeight  * 0.5,
         decoration: BoxDecoration(
           color: Colors.white,
@@ -100,7 +102,7 @@ class OfferCard extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(16),
                 child: Image.asset(
-                  HomeAssets.dummyTrip,
+                  HomeAssets.dummyOffers,
                   // Use a fraction of the container width and height instead of fixed values
                   width: ScreenSizeUtil.screenWidth * 0.4 * 0.8,
                //   height: ScreenSizeUtil.screenHeight  * 0.3 * 0.7,

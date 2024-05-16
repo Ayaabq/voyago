@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:voyago/core/utils/assets.dart';
 import 'package:voyago/feature/auth/presentation/views/widgets/header_vector.dart';
 
 class HeaderAuth extends StatelessWidget {

@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 
 class AssetsData {
   static const logoAllWhite = "assets/images/main/logo_all_white.png";

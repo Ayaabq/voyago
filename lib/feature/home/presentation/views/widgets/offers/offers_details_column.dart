@@ -65,7 +65,7 @@ class OffersDetailsColumn extends StatelessWidget {
                 ),
                 LocationWithCountry(country: "Damascus"),
                 // DaysAndPriceWidget(days: "5", fromPrice: "99"),
-                PriceDisplay(oldPrice: "1", newPrice: "100", ratio: 1)
+                PriceDisplay(oldPrice: "200", newPrice: "100", ratio: 10)
               ],
             ),
           )
