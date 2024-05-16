@@ -53,17 +53,17 @@ class TripDetailsColumn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Get the screen size
   ScreenSizeUtil.init(context);
-    return  Column(
+    return  const Column(
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
-          // Use a fraction of the screen width and height instead of fixed values
-          width: ScreenSizeUtil.screenWidth * 0.8,
-          height:ScreenSizeUtil.screenHeight * 0.2,
-          child: const Column(
+
+          width: double.infinity,
+
+          child: Column(
+
             children: [
               Row(
                 mainAxisSize: MainAxisSize.max,

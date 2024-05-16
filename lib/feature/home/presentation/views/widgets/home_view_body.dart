@@ -27,6 +27,10 @@ class HomeViewBody extends StatelessWidget {
                     sizedList: OffersListView(),
                   ),
                   CustomHomeList(
+                    title: "Spacial offers",
+                    sizedList: OffersListView(),
+                  ),
+                  CustomHomeList(
                     title: "Trending Destinations",
                     sizedList: DestinationListView(),
                   ),

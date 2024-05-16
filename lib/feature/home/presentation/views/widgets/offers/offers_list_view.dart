@@ -8,16 +8,16 @@ class OffersListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 180,
+      height: 175,
       child: ListView.builder(
         // physics: NeverScrollableScrollPhysics(),
         // shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         itemCount: 10,
         itemBuilder: (context, index) {
-          return Row(
+          return const Row(
             children: [
-              const OfferCard(),
+              OfferCard(),
               SizedBox(width: 3,)
             ],
           );
