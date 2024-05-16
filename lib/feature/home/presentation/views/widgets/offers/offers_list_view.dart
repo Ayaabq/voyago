@@ -15,9 +15,9 @@ class OffersListView extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: 10,
         itemBuilder: (context, index) {
-          return Row(
+          return const Row(
             children: [
-              const OfferCard(),
+              OfferCard(),
               SizedBox(width: 3,)
             ],
           );

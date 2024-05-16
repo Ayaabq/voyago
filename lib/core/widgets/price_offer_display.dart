@@ -15,7 +15,7 @@ class PriceDisplay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
           oldPrice,
@@ -29,9 +29,9 @@ class PriceDisplay extends StatelessWidget {
         Text(
           newPrice,
           textAlign: TextAlign.center,
-          style: const TextStyle(
-            fontSize: 13,
-            fontWeight: FontWeight.bold
+          style: Styles.textStyle12W400.copyWith(
+
+              fontWeight: FontWeight.bold
           ),
         ),
         const Spacer(),

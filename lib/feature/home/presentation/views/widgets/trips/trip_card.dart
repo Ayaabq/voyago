@@ -21,7 +21,7 @@ class TripCard extends StatelessWidget {
       child: Container(
         // Use a fraction of the screen width and height instead of fixed values
         width: ScreenSizeUtil.screenWidth * 0.4,
-        height: ScreenSizeUtil.screenHeight  * 0.5,
+        // height: ScreenSizeUtil.screenHeight  * 0.5,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(16),
