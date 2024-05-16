@@ -45,14 +45,14 @@ class RegisterBodyView extends StatelessWidget {
                     title: "Sign up",
                     onTap: () {
                       GoRouter.of(context)
-                          .pushReplacement(AppRouter.kSuccessSginUp);
+                          .pushReplacement(AppRouter.kVerificationSginUpView);
                     }),
                 const SizedBox(height: 10),
                 DontAccount(
                   text: "Already have an account? ",
                   create: "Login",
                   onTap: () {
-                    GoRouter.of(context).push(AppRouter.kSuccessSginUp);
+                    GoRouter.of(context).push(AppRouter.kLoginView);
                   },
                 ),
                 const SizedBox(height: 18)

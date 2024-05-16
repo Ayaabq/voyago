@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-
 import 'package:go_router/go_router.dart';
 import 'package:voyago/constants.dart';
 import 'package:voyago/core/utils/app_router.dart';
 import 'package:voyago/core/utils/assets.dart';
-
 import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/feature/auth/presentation/views/widgets/button_auth.dart';
 import 'package:voyago/feature/auth/presentation/views/widgets/header_auth.dart';
 import 'package:voyago/feature/auth/presentation/views/widgets/text_row.dart';
-import 'package:voyago/feature/forgot_password/presentation/views/widgets/otp.dart';
+import 'package:voyago/feature/forgot_password/presentation/views/widgets/verification_code_body_password.dart';
 
-class VerificationCodeBody extends StatelessWidget {
-  const VerificationCodeBody({super.key});
+class VerificationSginUpBody extends StatelessWidget {
+  const VerificationSginUpBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +50,7 @@ class VerificationCodeBody extends StatelessWidget {
                 ButtonAuth(
                     title: "Verify",
                     onTap: () {
-                      GoRouter.of(context).push(AppRouter.kNewPassword);
+                      GoRouter.of(context).push(AppRouter.kSuccessSginUp);
                     }),
               ],
             ),
@@ -60,26 +58,5 @@ class VerificationCodeBody extends StatelessWidget {
         ],
       ),
     ]);
-  }
-}
-
-class OtpView extends StatelessWidget {
-  const OtpView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Form(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Otp(),
-          Otp(),
-          Otp(),
-          Otp(),
-          Otp(),
-          Otp(),
-        ],
-      ),
-    );
   }
 }
