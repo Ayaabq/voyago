@@ -14,43 +14,46 @@ class PriceDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          oldPrice,
-          textAlign: TextAlign.center,
-          style: Styles.textStyle10W400.copyWith(
-            decoration: TextDecoration.lineThrough,
-
-          ),
-        ),
-        const SizedBox(width: 8),
-        Text(
-          newPrice,
-          textAlign: TextAlign.center,
-          style: Styles.textStyle12W400.copyWith(
-
-              fontWeight: FontWeight.bold
-          ),
-        ),
-        const Spacer(),
-        Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(7),
-            color: CustomColors.kHighlightMove
-
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(2.0),
-            child: Text("- $ratio %",
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 3.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            "$oldPrice\$",
+            textAlign: TextAlign.center,
             style: Styles.textStyle10W400.copyWith(
-              fontWeight: FontWeight.w500,
-              color: CustomColors.kWhite[0]
-            ),),
+              decoration: TextDecoration.lineThrough,
+
+            ),
           ),
-        )
-      ],
+          const SizedBox(width: 8),
+          Text(
+            "$newPrice\$",
+            textAlign: TextAlign.center,
+            style: Styles.textStyle12W400.copyWith(
+
+                fontWeight: FontWeight.bold
+            ),
+          ),
+          const Spacer(),
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(7),
+              color: CustomColors.kHighlightMove
+
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: Text("- $ratio %",
+              style: Styles.textStyle10W400.copyWith(
+                fontWeight: FontWeight.w500,
+                color: CustomColors.kWhite[0]
+              ),),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
