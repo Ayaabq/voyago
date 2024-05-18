@@ -6,7 +6,7 @@ import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/core/widgets/custom_rate.dart';
 import 'package:voyago/core/widgets/favorite_icon_button.dart';
 import 'package:voyago/core/widgets/location_with_country.dart';
-import 'package:voyago/feature/home/presentation/views/widgets/trip_search/icons_text.dart';
+import 'package:voyago/core/widgets/icons_text.dart';
 import 'package:voyago/feature/home/presentation/views/widgets/trip_search/time_trip.dart';
 
 class TripSearchCard extends StatelessWidget {
@@ -23,8 +23,7 @@ class TripSearchCard extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               image: const DecorationImage(
-                image: AssetImage(
-                    'assets/images/dummy_offer.png'),
+                image: AssetImage('assets/images/dummy_offer.png'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -92,7 +91,13 @@ class TripSearchCard extends StatelessWidget {
                             ),
                           ],
                         ),
-                        const TimeTrip(day: "1"),
+                    //    const TimeTrip(day: "1"),
+
+                        IconsText(
+                            text: "day",
+                            icon: Iconsax.timer,
+                            colorIcon: CustomColors.kWhite[0],
+                            sizeIcon: 10),
                         Row(
                           children: [
                             IconsText(
@@ -132,4 +137,3 @@ class TripSearchCard extends StatelessWidget {
     );
   }
 }
-
