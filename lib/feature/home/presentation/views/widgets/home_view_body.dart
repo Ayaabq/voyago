@@ -4,6 +4,7 @@ import 'package:voyago/feature/home/presentation/views/widgets/background/beckro
 import 'package:voyago/feature/home/presentation/views/widgets/custom_home_list.dart';
 import 'package:voyago/feature/home/presentation/views/widgets/distenations/destination_list.dart';
 import 'package:voyago/feature/home/presentation/views/widgets/offers/offers_list_view.dart';
+import 'package:voyago/feature/home/presentation/views/widgets/trip_search/trip_search_list_view.dart';
 import 'package:voyago/feature/home/presentation/views/widgets/trips/top_trips_list_view.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -16,7 +17,6 @@ class HomeViewBody extends StatelessWidget {
         slivers: [
           BackgroundSection(),
           SliverToBoxAdapter(
-
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 10),
               child: Column(
@@ -46,6 +46,8 @@ class HomeViewBody extends StatelessWidget {
                     title: "Popular trips",
                     sizedList: TopTripsListView(),
                   ),
+                  CustomHomeList(
+                      title: "search trip", sizedList: SearchTripsListView())
                 ],
               ),
             ),

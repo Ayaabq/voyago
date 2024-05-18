@@ -8,7 +8,8 @@ class IconsText extends StatelessWidget {
       required this.text,
       required this.icon,
       required this.colorIcon,
-      required this.sizeIcon, this.style});
+      required this.sizeIcon,
+      this.style});
   final String text;
   final IconData icon;
   final Color colorIcon;
@@ -28,10 +29,10 @@ class IconsText extends StatelessWidget {
         //   color: CustomColors.kGrey[2],
         //   size: 10,
         // ),
-        const SizedBox(width: 2),
+        const SizedBox(width: 4),
         Text(
           text,
-          style: Styles.textStyle10W400,
+          style: Styles.textStyle10W600,
         ),
       ],
     );

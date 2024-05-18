@@ -30,6 +30,7 @@ abstract class CustomColors {
     Color(0xff515151),
   ];
 
+
   static const kBlack = [
     Color(0xff353535),
     Color(0xff2E2E2E),
