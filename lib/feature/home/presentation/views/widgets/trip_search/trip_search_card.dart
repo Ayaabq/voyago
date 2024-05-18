@@ -23,6 +23,7 @@ class TripSearchCard extends StatelessWidget {
               right: 16,
               child: FavoriteButton(),
             ),
+
           ],
         ),
       ),
