@@ -31,6 +31,7 @@ class TripSearchCard extends StatelessWidget {
               ),
             ],
           ),
+
         ),
       ),
     );
