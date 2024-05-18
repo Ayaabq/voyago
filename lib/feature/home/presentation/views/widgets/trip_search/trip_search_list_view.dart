@@ -12,7 +12,7 @@ class SearchTripsListView extends StatelessWidget {
     return SizedBox(
       height: 180,
       child: ListView.builder(
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         scrollDirection: Axis.vertical,
         itemCount: 10,
@@ -20,6 +20,7 @@ class SearchTripsListView extends StatelessWidget {
           return const Row(
             children: [
               TripSearchCard(
+
                 fromPrice: '80',
               ),
               SizedBox(

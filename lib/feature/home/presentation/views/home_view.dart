@@ -3,28 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:voyago/feature/home/presentation/views/widgets/home_view_body.dart';
 
-import '../../../../core/utils/custom_colors.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.transparent,
-        buttonBackgroundColor: CustomColors.kMove[0],
-        color: CustomColors.kMove[1],
-        animationDuration: const Duration(microseconds: 300),
-        items: const [
-          Icon(Iconsax.home),
-          Icon(Iconsax.bag_2),
-          Icon(Iconsax.heart),
-          Icon(Iconsax.user),
-        ],
+    return const HomeViewBody();
 
-      ) ,
-      body: HomeViewBody(),
-    );
   }
 }

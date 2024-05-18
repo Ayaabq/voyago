@@ -8,7 +8,9 @@ import 'package:voyago/feature/forgot_password/presentation/views/success_sginup
 import 'package:voyago/feature/auth/presentation/views/verification_sginup_view.dart';
 import 'package:voyago/feature/forgot_password/presentation/views/verification_code_passwordview.dart';
 import 'package:voyago/feature/get_started/presentation/views/get_started.dart';
-import 'package:voyago/feature/home/presentation/views/home_view.dart';
+import 'package:voyago/feature/trip&booking/presentation/views/trip_view.dart';
+
+import '../widgets/bottom_bar.dart';
 
 abstract class AppRouter {
   static const kGetStartedView = "/GetStartedView";
@@ -22,6 +24,7 @@ abstract class AppRouter {
   static const kSuccessPasswor = "/SuccessPasswordView";
   static const kVerificationSginUpView = "/VerificationSginUpView";
   static const kHomeView = "/HomeView";
+  static const kTripDetailsView ="/TripDetailsView";
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -62,8 +65,13 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kHomeView,
-        builder: (context, state) => const HomeView(),
+        builder: (context, state) =>  BottomBar(),
       ),
+      GoRoute(
+        path: kTripDetailsView,
+        builder: (context, state) => const TripView(),
+      ),
+
     ],
   );
 }
