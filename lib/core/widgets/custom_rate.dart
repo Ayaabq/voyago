@@ -19,7 +19,7 @@ final double rate;
         ),
         Text(
           rate.toString(),
-          style: Styles.textStyle10W400,
+          style: Styles.textStyle13W400,
         ),],
     );
   }

@@ -27,6 +27,8 @@ class Styles {
 
   static const TextStyle textStyle10W400 = TextStyle(
       fontSize: 10, fontWeight: FontWeight.w400, overflow: TextOverflow.fade);
+  static const TextStyle textStyle13W400 = TextStyle(
+      fontSize: 13, fontWeight: FontWeight.w400, overflow: TextOverflow.fade);
   static const TextStyle textStyle12W400 = TextStyle(
       fontSize: 12, fontWeight: FontWeight.w700, overflow: TextOverflow.fade);
   static const TextStyle textStyle8W400 =

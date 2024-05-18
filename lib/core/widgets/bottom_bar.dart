@@ -19,16 +19,21 @@ final List<Widget> tapViews=const [ HomeView()];
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+      extendBody: true, // Ensure the body extends behind the navigation bar
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Colors.transparent,
-        buttonBackgroundColor: CustomColors.kMove[0],
+        buttonBackgroundColor: CustomColors.kMove[4],
         color: CustomColors.kMove[1],
         animationDuration: const Duration(microseconds: 300),
-        items: const [
-          Icon(Iconsax.home),
-          Icon(Iconsax.bag),
-          Icon(Iconsax.heart),
-          Icon(Iconsax.user),
+        items:  [
+          Icon(Iconsax.home,
+          color:  CustomColors.kMove[5],),
+          Icon(Iconsax.bag,
+            color: CustomColors.kMove[5],),
+          Icon(Iconsax.heart,
+            color: CustomColors.kMove[5],),
+          Icon(Iconsax.user,
+            color: CustomColors.kMove[5],),
         ],
         onTap: (index){
           setState(() {

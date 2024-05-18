@@ -19,7 +19,7 @@ class LocationWithCountry extends StatelessWidget {
         const SizedBox(width: 2),
         Text(
           country,
-          style: Styles.textStyle10W400,
+          style: Styles.textStyle13W400,
         ),
       ],
     );

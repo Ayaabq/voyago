@@ -15,26 +15,24 @@ class BackgroundSection extends StatelessWidget {
       child: Stack(
         children: [
           CustomBackground(),
-          SafeArea(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              child: Column(
-                children: [
-                  CustomAppBar(),
-                  WhetherInfo(
-                    country: "Damascus",
-                    degree: 17,
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  CategoriesRow(),
-                  SizedBox(
-                    height: 17,
-                  ),
-                  DummyDiscount()
-                ],
-              ),
+          Padding(
+            padding: EdgeInsets.only(left: 10,right: 10, top: 40),
+            child: Column(
+              children: [
+                CustomAppBar(),
+                WhetherInfo(
+                  country: "Damascus",
+                  degree: 17,
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                CategoriesRow(),
+                SizedBox(
+                  height: 17,
+                ),
+                DummyDiscount()
+              ],
             ),
           )
         ],

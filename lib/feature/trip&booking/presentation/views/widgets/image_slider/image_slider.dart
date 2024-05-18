@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:voyago/feature/trip&booking/presentation/views/widgets/custom_image_list_view.dart';
+import 'package:voyago/feature/trip&booking/presentation/views/widgets/image_slider/custom_image_list_view.dart';
 
-import '../../../../../core/utils/assets.dart';
-import '../../../../../core/utils/screen_size_util.dart';
+import '../../../../../../core/utils/assets.dart';
+import '../../../../../../core/utils/screen_size_util.dart';
 
 class ImageSlider extends StatefulWidget {
    ImageSlider({super.key});

@@ -14,7 +14,7 @@ class CustomBackground extends StatelessWidget {
       children: [
         SizedBox(
          width: double.infinity,
-          // height: ScreenSizeUtil.screenHeight * .3,
+          height: ScreenSizeUtil.screenHeight * .2,
 
           child: FittedBox(
               fit: BoxFit.cover,
