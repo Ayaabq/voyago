@@ -12,8 +12,8 @@ class SearchTripsListView extends StatelessWidget {
     return SizedBox(
       height: 180,
       child: ListView.builder(
-        // physics: NeverScrollableScrollPhysics(),
-        // shrinkWrap: true,
+        physics: NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
         scrollDirection: Axis.vertical,
         itemCount: 10,
         itemBuilder: (context, index) {

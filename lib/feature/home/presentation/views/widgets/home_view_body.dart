@@ -46,12 +46,18 @@ class HomeViewBody extends StatelessWidget {
                     title: "Popular trips",
                     sizedList: TopTripsListView(),
                   ),
-                  CustomHomeList(
-                      title: "search trip", sizedList: SearchTripsListView())
+
                 ],
               ),
             ),
-          )
+          ),
+
+          SliverFillRemaining(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: SearchTripsListView(),
+            ),
+          ),
         ],
       ),
     );
