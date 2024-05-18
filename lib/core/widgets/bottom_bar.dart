@@ -16,13 +16,13 @@ class BottomBar extends StatelessWidget {
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Colors.transparent,
         buttonBackgroundColor: CustomColors.kMove[0],
-        color: CustomColors.kMove[0],
+        color: CustomColors.kMove[1],
         animationDuration: const Duration(microseconds: 300),
         items: const [
           Icon(Iconsax.home),
           Icon(Iconsax.bag),
           Icon(Iconsax.heart),
-          Icon(Iconsax.profile),
+          Icon(Iconsax.user),
         ],
 
       ) ,

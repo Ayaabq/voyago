@@ -14,13 +14,13 @@ class HomeView extends StatelessWidget {
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Colors.transparent,
         buttonBackgroundColor: CustomColors.kMove[0],
-        color: CustomColors.kMove[0],
+        color: CustomColors.kMove[1],
         animationDuration: const Duration(microseconds: 300),
         items: const [
           Icon(Iconsax.home),
           Icon(Iconsax.bag_2),
           Icon(Iconsax.heart),
-          Icon(Iconsax.profile_add),
+          Icon(Iconsax.user),
         ],
 
       ) ,
