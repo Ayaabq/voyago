@@ -32,12 +32,12 @@ class RegisterBodyView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text("Welcome!", style: Styles.textStyle25W700),
-                const SizedBox(height: 10),
+                const SizedBox(height: 14),
                 Text("Create your Account ",
                     style: Styles.textStyle20W700.copyWith(
                         fontWeight: FontWeight.w600,
                         color: CustomColors.kBlack[3])),
-                const SizedBox(height: 18),
+                const SizedBox(height: 22),
                 const FormRegister(),
                 //const SizedBox(height: 24),
                 SizedBox(height: MediaQuery.of(context).size.height * .1),

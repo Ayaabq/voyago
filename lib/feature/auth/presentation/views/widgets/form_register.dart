@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:voyago/feature/auth/presentation/views/widgets/custom_text_field.dart';
 import 'package:regexpattern/regexpattern.dart';
+
 class FormRegister extends StatelessWidget {
   const FormRegister({
     super.key,
@@ -16,30 +17,30 @@ class FormRegister extends StatelessWidget {
           hint: "User name",
           onPressedIcon: () {},
           icon: const Icon(FontAwesomeIcons.user),
-          keyboardType: TextInputType.name, 
+          keyboardType: TextInputType.name,
         ),
         const SizedBox(height: 12),
         TextFieldCustom(
           hint: "Email",
           onPressedIcon: () {},
           icon: const Icon(Icons.email_outlined),
-          keyboardType: TextInputType.emailAddress, 
+          keyboardType: TextInputType.emailAddress,
         ),
         const SizedBox(height: 12),
-        TextFieldCustom(
-          hint: "Phone",
-          onPressedIcon: () {},
-          icon: const Icon(
-            Icons.phone_outlined,
-          ),
-          keyboardType: TextInputType.number,
-        ),
-        const SizedBox(height: 12),
+        // TextFieldCustom(
+        //   hint: "Phone",
+        //   onPressedIcon: () {},
+        //   icon: const Icon(
+        //     Icons.phone_outlined,
+        //   ),
+        //   keyboardType: TextInputType.number,
+        // ),
+        //const SizedBox(height: 12),
         TextFieldCustom(
           hint: "Password",
           onPressedIcon: () {},
           icon: const Icon(Icons.remove_red_eye_outlined),
-          keyboardType: TextInputType.visiblePassword, 
+          keyboardType: TextInputType.visiblePassword,
         ),
         const SizedBox(height: 12),
         TextFieldCustom(
@@ -47,8 +48,6 @@ class FormRegister extends StatelessWidget {
           onPressedIcon: () {},
           icon: const Icon(Icons.visibility_off_outlined),
           keyboardType: TextInputType.visiblePassword,
-         
-
         ),
       ],
     );

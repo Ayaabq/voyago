@@ -16,7 +16,7 @@ class StateTrips extends StatelessWidget {
       ),
       child: Text(state,
           style: Styles.textStyle10W400.copyWith(
-              fontWeight: FontWeight.w500, color: CustomColors.kGrey[3])),
+              fontWeight: FontWeight.w500, color: CustomColors.kWhite[0])),
     );
   }
 }

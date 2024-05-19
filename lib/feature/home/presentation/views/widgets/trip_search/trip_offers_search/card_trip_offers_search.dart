@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:voyago/core/utils/assets.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
+import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/core/widgets/custom_rate.dart';
 import 'package:voyago/core/widgets/favorite_icon_button.dart';
 import 'package:voyago/feature/home/presentation/views/widgets/trip_search/trip_offers_search/colunm_offer_trip.dart';
@@ -90,9 +91,13 @@ class TripOfferSearchCard extends StatelessWidget {
                         topLeft: Radius.circular(16),
                         bottomLeft: Radius.circular(16)),
                     color: CustomColors.kMove[3]),
-                child: const Padding(
-                  padding: EdgeInsets.all(4.0),
-                  child: Text("-30% "),
+                child: Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Text(
+                    "-30%  ",
+                    style: Styles.textStyle18W700
+                        .copyWith(fontSize: 12, color: CustomColors.kWhite[0]),
+                  ),
                 ),
               ),
             ),
