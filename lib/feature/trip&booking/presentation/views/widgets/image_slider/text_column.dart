@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 
 import '../../../../../../core/utils/styles.dart';
@@ -12,48 +14,73 @@ class TexColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        const Text(
-          "Berlin: 3-Hours City Tour by Boat ",
-          style: Styles.textStyle20W700,
-          textAlign: TextAlign.start,
-        ),
-        const SizedBox(height: 6,),
-        Row(
-          children: [
-            const LocationWithCountry(country: "Berlin, Germany"),
-            const Spacer(),
-            InkWell(
-              onTap: (){},
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 5),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  color: CustomColors.kGrey[0]
-                ),
-                child: const LocationWithCountry(country: "View on Map", ),
-              ),
-            )
-          ],
-        ),
-        const SizedBox(height: 6,),
-        Row(
-          children: [
-            const CustomRating(rate: 4.8),
-            const Spacer(),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 5),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  color: CustomColors.kGrey[0]
-              ),
-              child: const Text("113 reviw",
-              style: Styles.textStyle13W400,),
-            ),
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final isSmallScreen = constraints.maxWidth < 380;
+          final padding = 10.0;
+          final textSizeTitle = isSmallScreen ? 16.0 : 20.0;
+          final textSizeReview = isSmallScreen ? 11.0 : 13.0;
 
-          ],
-        )
-      ]),
-    );
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Berlin: 3-Hours City Tour by Boat",
+                style: TextStyle(
+                  fontSize: textSizeTitle,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.start,
+              ),
+              SizedBox(height: 6),
+              Row(
+                // alignment: WrapAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                children: [
+                  LocationWithCountry(country: "Berlin, Germany"),
+                  SizedBox(width: 10),
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: padding, vertical: 2),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        color: Colors.grey[300],
+                      ),
+                      child: LocationWithCountry(country: "View on Map"),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 6),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                // alignment: WrapAlignment.spaceBetween,
+                children: [
+                  CustomRating(rate: 4.8),
+                  SizedBox(width: 10),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: padding, vertical: 2),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      color: Colors.grey[300],
+                    ),
+                    child: Text(
+                      "113 reviews",
+                      style: TextStyle(
+                        fontSize: textSizeReview,
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          );
+        },
+      ),
+    )
+    ;
   }
 }

@@ -13,7 +13,7 @@ class ImageCard extends StatelessWidget {
       elevation: 4,
       child: SizedBox(
 
-        height: ScreenSizeUtil.dynamicHeight(467/812),
+        height: ScreenSizeUtil.dynamicHeight(475/812),
         width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
