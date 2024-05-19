@@ -7,6 +7,7 @@ import 'package:voyago/core/widgets/location_with_country.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/image_slider/image_card.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/image_slider/image_slider.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/image_slider/text_column.dart';
+import 'package:voyago/feature/trip&booking/presentation/views/widgets/over_view_card/over_view_card.dart';
 
 class TripViewBody extends StatelessWidget {
   const TripViewBody({super.key});
@@ -15,7 +16,8 @@ class TripViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-       ImageCard()
+       ImageCard(),
+        OverViewCard()
       ],
     );
   }

@@ -10,20 +10,24 @@ class ImageCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return   Card(
+
       elevation: 4,
-      child: SizedBox(
+      child: Padding(
+        padding: const EdgeInsets.all(0),
+        child: SizedBox(
 
-        height: ScreenSizeUtil.dynamicHeight(475/812),
-        width: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          height: ScreenSizeUtil.dynamicHeight(475/812),
+          width: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
 
-          children: [
-            ImageSlider(),
-            const TexColumn()
-          ],
+            children: [
+              ImageSlider(),
+              const TexColumn()
+            ],
+          ),
+
         ),
-
       ),
     );
   }
