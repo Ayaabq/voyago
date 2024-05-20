@@ -14,6 +14,7 @@ import 'package:voyago/feature/trip&booking/presentation/views/widgets/meeting_p
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/notes_card.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/over_view_card/over_view_card.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/places_card.dart';
+import 'package:voyago/feature/trip&booking/presentation/views/widgets/reviews_card.dart';
 
 class TripViewBody extends StatelessWidget {
   const TripViewBody({super.key});
@@ -24,13 +25,18 @@ class TripViewBody extends StatelessWidget {
       child: Column(
         children: [
          ImageCard(),
+          SizedBox(height: 5,),
           OverViewCard(),
           DescriptionCard(),
           IncludedCard(),
           MeetingPointCard(),
           ItineraryCard(),
           NotesCard(),
-          PlacesCard()
+          PlacesCard(),
+          ReviewsCard(),
+          SizedBox(
+            height: 60,
+          )
         ],
       ),
     );
