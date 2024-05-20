@@ -1,11 +1,11 @@
 import 'package:go_router/go_router.dart';
 import 'package:voyago/feature/auth/presentation/views/login_view.dart';
-import 'package:voyago/feature/auth/presentation/views/register_view.dart';
+import 'package:voyago/feature/auth/register/presitions/views/register_view.dart';
 import 'package:voyago/feature/forgot_password/presentation/views/forgot_password_view.dart';
 import 'package:voyago/feature/forgot_password/presentation/views/new_password_view.dart';
 import 'package:voyago/feature/forgot_password/presentation/views/success_password_view.dart';
 import 'package:voyago/feature/forgot_password/presentation/views/success_sginup_view.dart';
-import 'package:voyago/feature/auth/presentation/views/verification_sginup_view.dart';
+import 'package:voyago/feature/auth/register/presitions/views/verification_sginup_view.dart';
 import 'package:voyago/feature/forgot_password/presentation/views/verification_code_passwordview.dart';
 import 'package:voyago/feature/get_started/presentation/views/get_started.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/trip_view.dart';

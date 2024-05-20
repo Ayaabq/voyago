@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:voyago/feature/forgot_password/presentation/views/widgets/verification_sginup_body.dart';
+import 'package:voyago/feature/auth/register/presitions/views/widgets/verification_sginup_body.dart';
 
 class VerificationSginUpView extends StatelessWidget {
   const VerificationSginUpView({super.key});

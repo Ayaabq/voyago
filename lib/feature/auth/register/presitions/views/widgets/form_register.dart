@@ -8,7 +8,8 @@ class FormRegister extends StatelessWidget {
   const FormRegister({
     super.key,
   });
-
+//  final GlobalKey<FormState> formKey;
+//   final TextEditingController usernameController;
   @override
   Widget build(BuildContext context) {
     return Column(
