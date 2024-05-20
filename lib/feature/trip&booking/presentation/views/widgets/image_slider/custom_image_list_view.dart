@@ -32,7 +32,7 @@ class CustomImageListView extends StatelessWidget {
                     },
                     child: Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
+                        borderRadius: BorderRadius.circular(20),
                         border: isChosen(index)?Border.all(
                           color: CustomColors.kMove[5], // Set the border color here
                           width: 3.0, // Set the border width here
