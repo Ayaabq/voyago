@@ -8,6 +8,7 @@ import 'package:voyago/feature/trip&booking/presentation/views/widgets/image_sli
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/image_slider/image_slider.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/image_slider/text_column.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/included_card/included_card.dart';
+import 'package:voyago/feature/trip&booking/presentation/views/widgets/meeting_point_card.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/over_view_card/over_view_card.dart';
 
 class TripViewBody extends StatelessWidget {
@@ -15,12 +16,13 @@ class TripViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return const SingleChildScrollView(
       child: Column(
         children: [
          ImageCard(),
           OverViewCard(),
-          IncludedCard()
+          IncludedCard(),
+          MeetingPointCard()
         ],
       ),
     );

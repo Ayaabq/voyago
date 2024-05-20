@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
-import 'package:voyago/core/utils/custom_colors.dart';
-import 'package:voyago/core/utils/styles.dart';
-import 'package:voyago/core/widgets/icons_text.dart';
+
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/included_card/active_included.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/included_card/inactive_included.dart';
 
@@ -19,15 +16,15 @@ class IncludedColumn extends StatelessWidget {
     return Column(
       children: [
         airCondition? const ActiveIncluded(title: "Air-Condition") : const InActiveIncluded(title: "Air-Condition"),
-        Divider(),
+        const Divider(),
         tourGuide? const ActiveIncluded(title: "Local tour guide") : const InActiveIncluded(title: "Local tour guide"),
-        Divider(),
+        const Divider(),
 
         breakfast? const ActiveIncluded(title: "Breakfast") : const InActiveIncluded(title: "Breakfast"),
-        Divider(),
+        const Divider(),
 
         wifi? const ActiveIncluded(title: "WiFi") : const InActiveIncluded(title: "WiFi"),
-        Divider(),
+        const Divider(),
 
         lanch? const ActiveIncluded(title: "Lunch & snacks ") : const InActiveIncluded(title: "Lunch & snacks "),
 
