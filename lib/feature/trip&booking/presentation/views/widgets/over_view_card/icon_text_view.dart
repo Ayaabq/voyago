@@ -4,11 +4,12 @@ import 'higlight_text.dart';
 
 
 class IconText extends StatelessWidget {
-  const IconText({super.key, required this.icon, required this.title, this.isLast=false, this.higlightedText});
+  const IconText({super.key, required this.icon, required this.title, this.isLast=false, this.higlightedText, this.price});
   final IconData icon;
   final String title;
   final bool isLast;
   final String? higlightedText;
+  final double? price;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -22,6 +23,9 @@ class IconText extends StatelessWidget {
                 const SizedBox(width: 2,),
                 Text(title,
                 style: Styles.textStyle13W400,),
+                if(price!=null)
+                  Text("$price \$",
+                  style: Styles.textStyle14W600,)
 
               ],
                      ),
