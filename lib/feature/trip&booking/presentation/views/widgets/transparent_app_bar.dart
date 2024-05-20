@@ -3,13 +3,33 @@ import 'package:iconsax/iconsax.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 
 class TransparentAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final bool showTabs;
+  final TabController tabController;
+  final void Function(int index) onTap;
+
+  const TransparentAppBar({super.key, required this.showTabs, required this.tabController, required this.onTap});
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.transparent,
+      bottom:  showTabs
+          ? TabBar(
+          //isScrollable: true,
+
+        controller: tabController,
+
+        tabs: [
+          Text("Details"), Text("Itinerary"),
+          // Text("Notes"),
+          // Text("Places"),
+          Text("Reviews")
+        ],
+        onTap: onTap,
+      )
+          : null,
+      backgroundColor: showTabs?CustomColors.kWhite[0]:Colors.transparent,
       elevation: 0,
       leading: IconButton(
         icon: Container(

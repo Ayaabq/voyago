@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:voyago/core/utils/assets.dart';
-import 'package:voyago/core/utils/screen_size_util.dart';
-import 'package:voyago/core/utils/styles.dart';
-import 'package:voyago/core/widgets/custom_rate.dart';
-import 'package:voyago/core/widgets/location_with_country.dart';
+
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/Itinerary_card.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/description_card.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/image_slider/image_card.dart';
-import 'package:voyago/feature/trip&booking/presentation/views/widgets/image_slider/image_slider.dart';
-import 'package:voyago/feature/trip&booking/presentation/views/widgets/image_slider/text_column.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/included_card/included_card.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/meeting_point_card.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/notes_card.dart';
@@ -17,12 +11,13 @@ import 'package:voyago/feature/trip&booking/presentation/views/widgets/places_ca
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/reviews_card.dart';
 
 class TripViewBody extends StatelessWidget {
-  const TripViewBody({super.key});
-
+  const TripViewBody({super.key, required this.controller});
+  final ScrollController controller;
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
-      child: Column(
+    return  SingleChildScrollView(
+      controller: controller,
+      child: const Column(
         children: [
          ImageCard(),
           SizedBox(height: 5,),
