@@ -5,15 +5,22 @@ import 'package:voyago/feature/auth/presentation/views/widgets/custom_text_field
 import 'package:regexpattern/regexpattern.dart';
 
 class FormRegister extends StatelessWidget {
-  const FormRegister({
+  FormRegister({
     super.key,
   });
-
+  final GlobalKey<FormState> formKey = GlobalKey();
+//   final TextEditingController usernameController;
+  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         TextFieldCustom(
+          controller: usernameController,
           hint: "User name",
           onPressedIcon: () {},
           icon: const Icon(FontAwesomeIcons.user),
@@ -21,6 +28,7 @@ class FormRegister extends StatelessWidget {
         ),
         const SizedBox(height: 12),
         TextFieldCustom(
+          controller: emailController,
           hint: "Email",
           onPressedIcon: () {},
           icon: const Icon(Icons.email_outlined),
@@ -37,17 +45,21 @@ class FormRegister extends StatelessWidget {
         // ),
         //const SizedBox(height: 12),
         TextFieldCustom(
+          controller: passwordController,
           hint: "Password",
           onPressedIcon: () {},
           icon: const Icon(Icons.remove_red_eye_outlined),
           keyboardType: TextInputType.visiblePassword,
+          obscureText: true,
         ),
         const SizedBox(height: 12),
         TextFieldCustom(
+          controller: confirmPasswordController,
           hint: "confirm password",
           onPressedIcon: () {},
           icon: const Icon(Icons.visibility_off_outlined),
           keyboardType: TextInputType.visiblePassword,
+          obscureText: true,
         ),
       ],
     );

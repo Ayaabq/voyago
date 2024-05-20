@@ -6,14 +6,16 @@ import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/core/utils/screen_size_util.dart';
 import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/feature/auth/presentation/views/widgets/button_auth.dart';
-import 'package:voyago/feature/auth/presentation/views/widgets/form_register.dart';
+import 'package:voyago/feature/auth/register/presitions/views/widgets/form_register.dart';
 import 'package:voyago/feature/auth/presentation/views/widgets/header_auth.dart';
 
 import 'package:voyago/feature/auth/presentation/views/widgets/text_row.dart';
 import 'package:voyago/generated/assets.dart';
 
 class RegisterBodyView extends StatelessWidget {
-  const RegisterBodyView({super.key});
+const   RegisterBodyView({super.key});
+
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +40,7 @@ class RegisterBodyView extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                         color: CustomColors.kBlack[3])),
                 const SizedBox(height: 22),
-                const FormRegister(),
+                FormRegister(),
                 //const SizedBox(height: 24),
                 SizedBox(height: MediaQuery.of(context).size.height * .1),
                 ButtonAuth(

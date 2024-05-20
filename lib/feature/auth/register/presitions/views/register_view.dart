@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:voyago/feature/auth/presentation/views/widgets/register_body.dart';
+import 'package:voyago/feature/auth/register/presitions/views/widgets/register_body.dart';
 
 class RegisterView extends StatelessWidget {
   const RegisterView({super.key});
