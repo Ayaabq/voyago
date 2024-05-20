@@ -21,8 +21,8 @@ class IconText extends StatelessWidget {
               children: [
                 Icon(icon),
                 const SizedBox(width: 2,),
-                Text(title,
-                style: Styles.textStyle13W400,),
+                Text(" $title",
+                style: Styles.textStyle14W400,),
                 if(price!=null)
                   Text("$price \$",
                   style: Styles.textStyle14W600,)

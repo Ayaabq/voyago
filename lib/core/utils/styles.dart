@@ -43,11 +43,14 @@ class Styles {
     color: CustomColors.kWhite[0],
   );
 
-  static TextStyle textStyle30W600 = TextStyle(
+  static   TextStyle textStyle30W600 = TextStyle(
       fontSize: 20,
       fontWeight: FontWeight.w400,
       color: CustomColors.kBlack[2],
       overflow: TextOverflow.fade);
-  static TextStyle textStyle14W600 = const TextStyle(
+  static const  TextStyle textStyle14W600 = TextStyle(
       fontSize: 14, fontWeight: FontWeight.w600, overflow: TextOverflow.fade);
+  static const TextStyle textStyle14W400 = TextStyle(
+    fontWeight: FontWeight.w400,
+      fontSize: 14, overflow: TextOverflow.fade);
 }

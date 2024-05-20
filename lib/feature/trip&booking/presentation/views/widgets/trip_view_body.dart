@@ -4,12 +4,16 @@ import 'package:voyago/core/utils/screen_size_util.dart';
 import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/core/widgets/custom_rate.dart';
 import 'package:voyago/core/widgets/location_with_country.dart';
+import 'package:voyago/feature/trip&booking/presentation/views/widgets/Itinerary_card.dart';
+import 'package:voyago/feature/trip&booking/presentation/views/widgets/description_card.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/image_slider/image_card.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/image_slider/image_slider.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/image_slider/text_column.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/included_card/included_card.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/meeting_point_card.dart';
+import 'package:voyago/feature/trip&booking/presentation/views/widgets/notes_card.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/over_view_card/over_view_card.dart';
+import 'package:voyago/feature/trip&booking/presentation/views/widgets/places_card.dart';
 
 class TripViewBody extends StatelessWidget {
   const TripViewBody({super.key});
@@ -21,8 +25,12 @@ class TripViewBody extends StatelessWidget {
         children: [
          ImageCard(),
           OverViewCard(),
+          DescriptionCard(),
           IncludedCard(),
-          MeetingPointCard()
+          MeetingPointCard(),
+          ItineraryCard(),
+          NotesCard(),
+          PlacesCard()
         ],
       ),
     );

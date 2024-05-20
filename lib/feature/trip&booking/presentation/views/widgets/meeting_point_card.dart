@@ -14,7 +14,7 @@ class MeetingPointCard extends StatelessWidget {
         "Meet at the “Stern und Kreisschiffahrt” ticket pavilion in "
         "the Nikolaiviertel. On the opposite bank of the river "
         "to the Humboldt Forum.",
-        style: Styles.textStyle13W400,
+        style: Styles.textStyle14W400,
       ),
     );
   }

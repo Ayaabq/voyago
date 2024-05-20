@@ -15,7 +15,7 @@ class ActiveIncluded extends StatelessWidget {
       icon: Iconsax.tick_circle,
       colorIcon: CustomColors.kBlack[3],
       sizeIcon: 25,
-      style: Styles.textStyle13W400.copyWith(color: CustomColors.kBlack[3]),
+      style: Styles.textStyle14W400.copyWith(color: CustomColors.kBlack[3]),
     );
   }
 }
