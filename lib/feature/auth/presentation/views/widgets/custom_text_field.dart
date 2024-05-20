@@ -10,6 +10,8 @@ class TextFieldCustom extends HookWidget {
     required this.onPressedIcon,
     required this.icon,
     required this.keyboardType,
+    this.controller,
+    this.obscureText = false,
     // required this.validator,
   });
 
@@ -17,6 +19,8 @@ class TextFieldCustom extends HookWidget {
   final void Function() onPressedIcon;
   final Icon icon;
   final TextInputType keyboardType;
+  final TextEditingController? controller;
+  final bool obscureText;
   // final String Function(String?) validator;
   @override
   Widget build(BuildContext context) {
@@ -26,6 +30,7 @@ class TextFieldCustom extends HookWidget {
       height: 50,
       child: TextFormField(
         //    validator: validator,
+        controller: controller,
         keyboardType: keyboardType,
         focusNode: focusNode,
         decoration: InputDecoration(
@@ -48,6 +53,7 @@ class TextFieldCustom extends HookWidget {
           enabledBorder: buildBorder(),
           focusedBorder: buildBorder(CustomColors.kMove[4]),
         ),
+        obscureText: obscureText,
       ),
     );
   }
