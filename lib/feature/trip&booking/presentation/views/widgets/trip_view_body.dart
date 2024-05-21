@@ -15,6 +15,7 @@ class TripViewBody extends StatelessWidget {
   final ScrollController controller;
   @override
   Widget build(BuildContext context) {
+
     return  SingleChildScrollView(
       controller: controller,
       child: const Column(

@@ -19,7 +19,7 @@ class _TripViewState extends State<TripView> with SingleTickerProviderStateMixin
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 5, vsync: this);
+    _tabController = TabController(length: 3, vsync: this);
 
     _scrollController.addListener(() {
       if (_scrollController.offset > 0 && !_showTabs) {
@@ -31,11 +31,15 @@ class _TripViewState extends State<TripView> with SingleTickerProviderStateMixin
           _showTabs = false;
         });
       }
-      final sectionHeight = 200.0 + (50.0 * 20);
-      int sectionIndex = (_scrollController.offset / sectionHeight).round();
-      // if(_scrollController.offset==500)
-      //   sectionIndex=2;
-      // Update the TabController's index
+      final sectionHeight = 800.0;
+      int sectionIndex =0;
+      if(_scrollController.offset <1000)
+        sectionIndex=0;
+      else if(_scrollController.offset <2000)
+        sectionIndex=1;
+      else
+        sectionIndex=2;
+      _tabController.animateTo(sectionIndex);
       if (sectionIndex != _tabController.index) {
         _tabController.animateTo(sectionIndex);
       }
@@ -49,7 +53,7 @@ class _TripViewState extends State<TripView> with SingleTickerProviderStateMixin
     super.dispose();
   }
   void _scrollToSection(int index) {
-    final sectionHeight = 200.0 + (50.0 * 20); // Header height + content height per section
+    final sectionHeight = 800.0;
     final offset = index * sectionHeight;
     _scrollController.animateTo(
       offset,
@@ -66,7 +70,7 @@ class _TripViewState extends State<TripView> with SingleTickerProviderStateMixin
       appBar: TransparentAppBar(showTabs: _showTabs,
         tabController: _tabController,
         onTap: (int index) {
-          _scrollToSection(index);
+         // _scrollToSection(index);
         },),
       body:  TripViewBody(
         controller: _scrollController,
