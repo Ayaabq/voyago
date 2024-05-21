@@ -30,12 +30,15 @@ class _TripViewState extends State<TripView> with SingleTickerProviderStateMixin
         setState(() {
           _showTabs = false;
         });
+        setState(() {
+
+        });
       }
       final sectionHeight = 800.0;
       int sectionIndex =0;
-      if(_scrollController.offset <1000)
+      if(_scrollController.offset <1200)
         sectionIndex=0;
-      else if(_scrollController.offset <2000)
+      else if(_scrollController.offset <2400)
         sectionIndex=1;
       else
         sectionIndex=2;
@@ -53,7 +56,7 @@ class _TripViewState extends State<TripView> with SingleTickerProviderStateMixin
     super.dispose();
   }
   void _scrollToSection(int index) {
-    final sectionHeight = 800.0;
+    final sectionHeight = 1200.0;
     final offset = index * sectionHeight;
     _scrollController.animateTo(
       offset,
@@ -67,10 +70,13 @@ class _TripViewState extends State<TripView> with SingleTickerProviderStateMixin
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: const FloatingBookButton(),
       extendBodyBehindAppBar: true,
-      appBar: TransparentAppBar(showTabs: _showTabs,
+      appBar: TransparentAppBar(
+        title:  "Berlin: 3-Hours City Tour by Boat" ,
+
+        showTabs: _showTabs,
         tabController: _tabController,
         onTap: (int index) {
-         // _scrollToSection(index);
+         _scrollToSection(index);
         },),
       body:  TripViewBody(
         controller: _scrollController,

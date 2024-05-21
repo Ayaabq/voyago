@@ -45,7 +45,7 @@ class FloatingBookButton extends StatelessWidget {
               // Add your onPressed code here!
             },
             style: ElevatedButton.styleFrom(
-              backgroundColor: CustomColors.kHighlightMove, // Button color
+              backgroundColor: CustomColors.kMove[4], // Button color
               foregroundColor: CustomColors.kWhite[0], // Text color
               minimumSize: const Size(160, 35), // Width and height
               shape: RoundedRectangleBorder(
