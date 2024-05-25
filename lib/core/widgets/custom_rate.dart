@@ -9,6 +9,7 @@ final double rate;
   @override
   Widget build(BuildContext context) {
     return  Row(
+      mainAxisSize: MainAxisSize.min,
       children: [  const Icon(
         size: 14,
         FontAwesomeIcons.solidStar,

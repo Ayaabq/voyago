@@ -19,10 +19,6 @@ class HomeViewBody extends StatelessWidget {
         slivers: [
           BackgroundSection(),
           SliverToBoxAdapter(
-
-  
-
-
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 10,
               ),
