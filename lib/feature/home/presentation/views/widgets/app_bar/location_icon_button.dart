@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
 import '../../../../../../core/utils/custom_colors.dart';
 
@@ -10,8 +11,8 @@ class LocationIconButton extends StatelessWidget {
     return IconButton(
       onPressed: onTap,
       icon: Icon(
-        Icons.location_on,
-        size: 30,
+        Iconsax.location,
+        size: 40,
         color: CustomColors.kWhite[0],
       ),
     );

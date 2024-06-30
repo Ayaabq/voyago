@@ -1,4 +1,8 @@
 {
+"[dart]": {
+   "editor.defaultFormatter": "Dart-Code.dart-code",
+   "editor.formatOnSave": true
+},
     "bladeFormatter.format.enabled": true,
     "editor.defaultFormatter": "Dart-Code.flutter",
     "editor.formatOnSave": true,
@@ -10,9 +14,15 @@
     "editor.autoIndent": "none",
     "files.autoSaveWhenNoErrors": true,
     "editor.renderWhitespace": "selection",
-    "diffEditor.ignoreTrimWhitespace": true,
-    "files.trimTrailingWhitespaceInRegexAndStrings": false,
+
+    "diffEditor.ignoreTrimWhitespace": false,
+    "files.trimTrailingWhitespaceInRegexAndStrings": true,
     "debug.console.acceptSuggestionOnEnter": "on",
     "workbench.editor.centeredLayoutAutoResize": false,
-    "workbench.editor.centeredLayoutFixedWidth": true
+    "workbench.editor.centeredLayoutFixedWidth": true,
+    "files.autoSaveWorkspaceFilesOnly": true,
+    "editor.formatOnType": true,
+    "diffEditor.codeLens": true,
+    "files.insertFinalNewline": true,
+    "editor.detectIndentation": false
 }

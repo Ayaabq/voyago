@@ -3,13 +3,59 @@ import 'package:iconsax/iconsax.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 
 class TransparentAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final bool showTabs;
+  final TabController tabController;
+  final void Function(int index) onTap;
+  final String title;
+  const TransparentAppBar(
+      {super.key,
+      required this.showTabs,
+      required this.tabController,
+      required this.onTap,
+      required this.title});
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.transparent,
+      title: showTabs ? Text(title) : null,
+      bottom: showTabs
+          ? TabBar(
+              //isScrollable: true,
+
+              controller: tabController,
+        indicator: BoxDecoration(
+          color: CustomColors.kMove[3],
+          borderRadius: BorderRadius.circular(30.0),
+        ),
+              tabs: [
+                Container(
+
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        ),
+                    child: Container(child: Text("Details"))),
+                Container(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        ),
+                    child: Text("Itinerary")),
+                // Text("Notes"),
+                // Text("Places"),
+                Container(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        ),
+                    child: Text("Reviews"))
+              ],
+              onTap: onTap,
+            )
+          : null,
+      backgroundColor: showTabs ? CustomColors.kWhite[0] : Colors.transparent,
       elevation: 0,
       leading: IconButton(
         icon: Container(
@@ -30,7 +76,7 @@ class TransparentAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: [
         IconButton(
-          icon:  Container(
+          icon: Container(
             width: 35,
             height: 35,
             decoration: const BoxDecoration(
