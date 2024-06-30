@@ -19,6 +19,7 @@ final List<Widget> tapViews=const [ HomeView()];
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+
       extendBody: true, // Ensure the body extends behind the navigation bar
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Colors.transparent,
