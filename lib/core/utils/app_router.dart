@@ -1,5 +1,11 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:regexpattern/regexpattern.dart';
+import 'package:voyago/core/utils/services_locater.dart';
 import 'package:voyago/feature/auth/presentation/views/login_view.dart';
+import 'package:voyago/feature/auth/register/data/models/register_model.dart';
+import 'package:voyago/feature/auth/register/data/repo/register_repo_imp.dart';
+import 'package:voyago/feature/auth/register/presitions/manger/register_cubit/register_cubit.dart';
 import 'package:voyago/feature/auth/register/presitions/views/register_view.dart';
 import 'package:voyago/feature/forgot_password/presentation/views/forgot_password_view.dart';
 import 'package:voyago/feature/forgot_password/presentation/views/new_password_view.dart';
@@ -8,6 +14,7 @@ import 'package:voyago/feature/forgot_password/presentation/views/success_sginup
 import 'package:voyago/feature/auth/register/presitions/views/verification_sginup_view.dart';
 import 'package:voyago/feature/forgot_password/presentation/views/verification_code_passwordview.dart';
 import 'package:voyago/feature/get_started/presentation/views/get_started.dart';
+import 'package:voyago/feature/search/presentation/views/search_view.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/trip_view.dart';
 
 import '../widgets/bottom_bar.dart';
@@ -24,7 +31,8 @@ abstract class AppRouter {
   static const kSuccessPasswor = "/SuccessPasswordView";
   static const kVerificationSginUpView = "/VerificationSginUpView";
   static const kHomeView = "/HomeView";
-  static const kTripDetailsView ="/TripDetailsView";
+  static const kTripDetailsView = "/TripDetailsView";
+  static const kSearchView = "/SearchView";
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -37,7 +45,10 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kRegisterView,
-        builder: (context, state) => const RegisterView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) => RegisterCubit(getIt.get<RegisterRepoImp>()),
+          child: const RegisterView(),
+        ),
       ),
       GoRoute(
         path: kForgotPasswordView,
@@ -65,13 +76,16 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kHomeView,
-        builder: (context, state) =>  BottomBar(),
+        builder: (context, state) => BottomBar(),
       ),
       GoRoute(
         path: kTripDetailsView,
         builder: (context, state) => const TripView(),
       ),
-
+      GoRoute(
+        path: kSearchView,
+        builder: (context, state) => const SearchView(),
+      ),
     ],
   );
 }

@@ -1,4 +1,3 @@
-
 class AssetsData {
   static const logoAllWhite = "assets/images/main/logo_all_white.png";
   static const miniLogo = "assets/images/main/mini_logo_white.png";
@@ -23,16 +22,16 @@ class LoginAssets extends AssetsData {
   static const frame = "assets/images/login/Frame.png";
 }
 
-
-class HomeAssets extends AssetsData{
-  static const skyBackground ="assets/images/home/backgroun_sky.png";
-  static const categoryTripsIcon ="assets/images/home/category_trips_icon.png";
-  static const categoryAttractionIcon ="assets/images/home/category_attractions_icon.png";
-  static const dummyDiscount ="assets/images/home/dummy_discount.png";
-  static const dummyOffers ="assets/images/home/dummy_offer.png";
-  static const dummyDestination ="assets/images/home/dummy_destination.png";
-  static const dummyTrip ="assets/images/home/dummy_trip.png";
-  static const dummyAttraction ="assets/images/home/dummy_attraction.png";
-
+class HomeAssets extends AssetsData {
+  static const skyBackground = "assets/images/home/backgroun_sky.png";
+  static const categoryTripsIcon = "assets/images/home/category_trips_icon.png";
+  static const categoryAttractionIcon =
+      "assets/images/home/category_attractions_icon.png";
+  static const categoryTopsIcon = "assets/images/home/category_award.png";
+  static const locationIcons = "assets/images/home/location.png";
+  static const dummyDiscount = "assets/images/home/dummy_discount.png";
+  static const dummyOffers = "assets/images/home/dummy_offer.png";
+  static const dummyDestination = "assets/images/home/dummy_destination.png";
+  static const dummyTrip = "assets/images/home/dummy_trip.png";
+  static const dummyAttraction = "assets/images/home/dummy_attraction.png";
 }
-

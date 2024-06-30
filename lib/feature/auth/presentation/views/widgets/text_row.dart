@@ -78,3 +78,15 @@ class DontAccount extends StatelessWidget {
     );
   }
 }
+//text rich
+class TextWidget extends StatelessWidget {
+  const TextWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return RichText(
+      text: const TextSpan(text: "Dont Have An Account?"),
+
+    );
+  }
+}

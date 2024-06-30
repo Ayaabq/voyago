@@ -5,14 +5,16 @@ import 'package:voyago/core/utils/custom_colors.dart';
 class Otp extends StatelessWidget {
   const Otp({
     super.key,
+   // required this.controller,
   });
-
+ // final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 50,
       width: 50,
       child: TextFormField(
+//controller: controller,
         decoration: InputDecoration(
           enabledBorder: buildBorder(),
           focusedBorder: buildBorder(CustomColors.kMove[4]),

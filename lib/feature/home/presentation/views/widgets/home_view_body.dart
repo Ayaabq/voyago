@@ -14,56 +14,56 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  CustomScrollView(
-        slivers: [
-          BackgroundSection(),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10,
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  CustomHomeList(
-                    title: "Spacial offers",
-                    sizedList: OffersListView(),
-                  ),
-                  CustomHomeList(
-                    title: "Trending Destinations",
-                    sizedList: DestinationListView(),
-                  ),
-                  CustomHomeList(
-                    title: "Top Attractions",
-                    sizedList: TopAttractionListView(),
-                  ),
-                  CustomHomeList(
-                    title: "Top Trips",
-                    sizedList: TopTripsListView(),
-                  ),
-                  CustomHomeList(
-                    title: "Popular Attractions",
-                    sizedList: TopAttractionListView(),
-                  ),
-                  CustomHomeList(
-                    title: "Popular trips",
-                    sizedList: TopTripsListView(),
-                  ),
-                  CustomHomeList(
-                    title: "Offers trips",
-                    sizedList: TripsOffersListView(),
-                  ),
-                ],
-              ),
+    return const CustomScrollView(
+      slivers: [
+        BackgroundSection(),
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 10,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                CustomHomeList(
+                  title: "Spacial offers",
+                  sizedList: OffersListView(),
+                ),
+                CustomHomeList(
+                  title: "Trending Destinations",
+                  sizedList: DestinationListView(),
+                ),
+                CustomHomeList(
+                  title: "Top Attractions",
+                  sizedList: TopAttractionListView(),
+                ),
+                CustomHomeList(
+                  title: "Top Trips",
+                  sizedList: TopTripsListView(),
+                ),
+                CustomHomeList(
+                  title: "Popular Attractions",
+                  sizedList: TopAttractionListView(),
+                ),
+                CustomHomeList(
+                  title: "Popular trips",
+                  sizedList: TopTripsListView(),
+                ),
+                CustomHomeList(
+                  title: "Offers trips",
+                  sizedList: TripsOffersListView(),
+                ),
+              ],
             ),
           ),
-          SliverFillRemaining(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              child: SearchTripsListView(),
-            ),
+        ),
+        SliverFillRemaining(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            child: SearchTripsListView(),
           ),
-        ],
-
+        ),
+      ],
     );
   }
 }

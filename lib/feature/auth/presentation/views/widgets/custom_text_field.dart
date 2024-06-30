@@ -29,6 +29,9 @@ class TextFieldCustom extends HookWidget {
     return SizedBox(
       height: 50,
       child: TextFormField(
+//auto
+        autovalidateMode: AutovalidateMode.always,
+        //   : AutovalidateMode.disabled,
         //    validator: validator,
         controller: controller,
         keyboardType: keyboardType,

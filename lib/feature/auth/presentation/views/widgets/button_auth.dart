@@ -8,10 +8,11 @@ class ButtonAuth extends StatelessWidget {
       {super.key,
       required this.title,
       required this.onTap,
-      this.isLoading = false});
+      this.isLoading = false, this.onPressed});
   final String title;
   final void Function() onTap;
   final bool isLoading;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(

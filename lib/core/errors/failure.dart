@@ -38,13 +38,16 @@ class ServiecesFailure extends Failure {
 
   factory ServiecesFailure.fromResponse(dynamic statusCode, dynamic respones) {
     if (statusCode == 400 || statusCode == 401) {
-      return ServiecesFailure(respones[0]);
+      print(statusCode);
+      return ServiecesFailure(respones["err"]);
     } else if (statusCode == 500) {
       return ServiecesFailure('INternal server Error , Please try later');
     } else if (statusCode == 404) {
       return ServiecesFailure('Method not found , Please try later');
     } else if (statusCode == 403) {
       return ServiecesFailure(' Forbidden , Please try later');
+    } else if (statusCode == 406) {
+      return ServiecesFailure('406, Please try later');
     } else {
       return ServiecesFailure('Opps ther was an Error , Please try again');
     }
