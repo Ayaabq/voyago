@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:voyago/feature/trip&booking/presentation/views/widgets/reviews/make_review.dart';
 
 import '../../../../../../core/utils/custom_colors.dart';
 import '../../../../../../core/utils/styles.dart';
-import '../over_view_card/icon_text_view.dart';
 
 class FloatingAddReview extends StatelessWidget {
-  const FloatingAddReview({super.key});
+  const FloatingAddReview({super.key, this.onPressed, this.title});
+  final void Function()? onPressed;
+  final String? title;
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +35,8 @@ class FloatingAddReview extends StatelessWidget {
         children: [
 
           ElevatedButton(
-            onPressed: () {
-              // Add your onPressed code here!
+            onPressed: onPressed??() {
+              showModalBottomSheet(context: context, builder: (context)=>MakeReview());
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: CustomColors.kMove[4], // Button color
@@ -46,7 +47,7 @@ class FloatingAddReview extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16), // Border radius
               ),
             ),
-            child: const Text("Write a Review", style: Styles.textStyle16W700),
+            child:Text(title??"Write a Review", style: Styles.textStyle16W700),
           )
         ],
       ),
