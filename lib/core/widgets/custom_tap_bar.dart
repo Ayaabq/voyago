@@ -12,20 +12,23 @@ class CustomTapBar extends StatelessWidget implements PreferredSizeWidget {
   final void Function(int) onTap;
   @override
   Widget build(BuildContext context) {
+    print(taps.length);
     var content =TabBar(
+
         onTap: onTap,
-        isScrollable: true,
-        indicatorPadding: const EdgeInsets.symmetric(vertical: 8),
+        isScrollable: inScroll,
+        indicatorPadding: const EdgeInsets.symmetric(vertical: 10),
         controller: tapController,
         indicator: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: CustomColors.kMove[1],
+          color: CustomColors.kMove[3],
         ),
         labelColor: CustomColors.kWhite[0],
         unselectedLabelColor: CustomColors.kGrey[2],
+
         tabs: taps
             .map((e) => Padding(
-          padding: const EdgeInsets.all(8),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
           child: Tab(
             text: e,
           ),

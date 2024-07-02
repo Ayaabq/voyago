@@ -8,7 +8,7 @@ import 'package:voyago/feature/trip&booking/presentation/views/widgets/meeting_p
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/notes_card.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/over_view_card/over_view_card.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/places_card.dart';
-import 'package:voyago/feature/trip&booking/presentation/views/widgets/reviews_card.dart';
+import 'package:voyago/feature/trip&booking/presentation/views/widgets/reviews/reviews_card.dart';
 
 class TripViewBody extends StatelessWidget {
   const TripViewBody({super.key, required this.controller});
