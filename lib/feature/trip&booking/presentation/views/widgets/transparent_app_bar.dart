@@ -84,6 +84,7 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 
+import '../../../../../core/widgets/back_icon_app_bar.dart';
 import '../../../../../core/widgets/custom_tap_bar.dart';
 
 class TransparentAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -129,18 +130,7 @@ class TransparentAppBar extends StatelessWidget implements PreferredSizeWidget {
           : null,
       backgroundColor: showTabs ? CustomColors.kWhite[0] : Colors.transparent,
       elevation: 0,
-      leading: IconButton(
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(CustomColors.kWhite[3]),
-        ),
-        icon: Icon(
-          Icons.arrow_back_ios_new,
-          color: CustomColors.kMove[4],
-        ),
-        onPressed: () {
-          // Handle the leading icon button press
-        },
-      ),
+      leading: BackIconAppBar(color:CustomColors.kWhite[3]),
       actions: [
         IconButton(
           icon: Icon(

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/reviews/make_review.dart';
 
-import '../../../../../../core/utils/custom_colors.dart';
-import '../../../../../../core/utils/styles.dart';
+import 'custom_colors.dart';
+import 'styles.dart';
 
-class FloatingAddReview extends StatelessWidget {
-  const FloatingAddReview({super.key, this.onPressed, this.title});
+class CustomFloatingButton extends StatelessWidget {
+  const CustomFloatingButton({super.key, this.onPressed, this.title, this.content});
   final void Function()? onPressed;
   final String? title;
+  final Widget? content;
 
   @override
   Widget build(BuildContext context) {
@@ -30,13 +31,16 @@ class FloatingAddReview extends StatelessWidget {
           topRight: Radius.circular(30.0), // Top right border radius
         ),
       ),
-      child: Row(
+      child:content?? Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
 
           ElevatedButton(
             onPressed: onPressed??() {
-              showModalBottomSheet(context: context, builder: (context)=>MakeReview());
+               showModalBottomSheet(
+                 isScrollControlled: true,
+                   context: context, builder: (context)=>MakeReview());
+             // showBottomSheet(context: context, builder: (context)=>MakeReview());
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: CustomColors.kMove[4], // Button color

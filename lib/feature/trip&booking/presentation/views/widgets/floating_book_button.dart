@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/core/utils/styles.dart';
 
+import '../../../../../core/utils/app_router.dart';
 import 'over_view_card/icon_text_view.dart';
 
 class FloatingBookButton extends StatelessWidget {
@@ -42,7 +44,7 @@ class FloatingBookButton extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () {
-              // Add your onPressed code here!
+              GoRouter.of(context).push(AppRouter.kCheckoutView);
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: CustomColors.kMove[4], // Button color

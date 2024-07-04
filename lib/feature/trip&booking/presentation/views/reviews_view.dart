@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:voyago/feature/trip&booking/presentation/views/widgets/reviews/floating_add_review.dart';
+import 'package:voyago/core/utils/custom_floating_button.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/reviews/review_view_body.dart';
 
 
@@ -9,16 +9,14 @@ class ReviewView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return  Scaffold(
         appBar: AppBar(
-          title: Text('Reviews'),
+          title: const Text('Reviews'),
         ),
-        body: ReviewsViewBody(),
-        floatingActionButton: FloatingAddReview(),
+        body: const ReviewsViewBody(),
+        floatingActionButton: const CustomFloatingButton(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
-      ),
     );
   }
 }
