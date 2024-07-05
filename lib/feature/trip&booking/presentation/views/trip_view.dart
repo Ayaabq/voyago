@@ -14,12 +14,12 @@ class TripView extends StatefulWidget {
 class _TripViewState extends State<TripView> with SingleTickerProviderStateMixin{
   late TabController _tabController;
   final ScrollController _scrollController = ScrollController();
-  // final List<String> _sections = ["Section 1", "Section 2", "Section 3"];
+  List <double> endPoints=[0,600,830,1100,1250,1800,2050,2300];
   bool _showTabs = false;
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 8, vsync: this);
 
     _scrollController.addListener(() {
       if (_scrollController.offset > 0 && !_showTabs) {
@@ -34,14 +34,27 @@ class _TripViewState extends State<TripView> with SingleTickerProviderStateMixin
 
         });
       }
-      final sectionHeight = 800.0;
       int sectionIndex =0;
-      if(_scrollController.offset <1200)
+      //overview
+      if(_scrollController.offset <600) {
         sectionIndex=0;
-      else if(_scrollController.offset <2400)
+      } else if(_scrollController.offset <830)
         sectionIndex=1;
-      else
+      //what's included
+      else if(_scrollController.offset <1100)
         sectionIndex=2;
+      //meeting point
+      else if(_scrollController.offset <1250)
+        sectionIndex=3;
+      else if(_scrollController.offset <1800)
+        sectionIndex=4;
+      else if(_scrollController.offset <2050)
+        sectionIndex=5;
+      else if(_scrollController.offset <2300)
+        sectionIndex=6;
+
+      else
+        sectionIndex=7;
       _tabController.animateTo(sectionIndex);
       if (sectionIndex != _tabController.index) {
         _tabController.animateTo(sectionIndex);
@@ -56,10 +69,9 @@ class _TripViewState extends State<TripView> with SingleTickerProviderStateMixin
     super.dispose();
   }
   void _scrollToSection(int index) {
-    final sectionHeight = 1200.0;
-    final offset = index * sectionHeight;
+    const sectionHeight = 1200.0;
     _scrollController.animateTo(
-      offset,
+      endPoints[index],
       duration: const Duration(milliseconds: 500),
       curve: Curves.easeInOut,
     );

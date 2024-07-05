@@ -21,6 +21,7 @@ abstract class CustomColors {
     Color(0xffF5F5F5),
     Color(0xffF1F1F1),
     Color(0xffDBDBDB),
+    Color(0xfff4f2fe),
   ];
 
   static const kGrey = [

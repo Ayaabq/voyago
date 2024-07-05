@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:iconsax/iconsax.dart';
-import 'package:voyago/core/utils/custom_colors.dart';
-import 'package:voyago/core/utils/styles.dart';
+import 'package:voyago/feature/trip&booking/presentation/views/widgets/reviews/make_review.dart';
 
-import '../../../../../core/utils/app_router.dart';
-import 'over_view_card/icon_text_view.dart';
+import 'custom_colors.dart';
+import 'styles.dart';
 
-class FloatingBookButton extends StatelessWidget {
-  const FloatingBookButton({super.key});
+class CustomFloatingButton extends StatelessWidget {
+  const CustomFloatingButton({super.key, this.onPressed, this.title, this.content});
+  final void Function()? onPressed;
+  final String? title;
+  final Widget? content;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return  Container(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       height: 56.0,
       width: double.infinity,
@@ -31,30 +31,27 @@ class FloatingBookButton extends StatelessWidget {
           topRight: Radius.circular(30.0), // Top right border radius
         ),
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child:content?? Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Padding(
-            padding: EdgeInsets.only(top: 15.0),
-            child: IconText(
-              icon: Iconsax.coin,
-              price: 80,
-              title: "From ",
-            ),
-          ),
+
           ElevatedButton(
-            onPressed: () {
-              GoRouter.of(context).push(AppRouter.kCheckoutView);
+            onPressed: onPressed??() {
+               showModalBottomSheet(
+                 isScrollControlled: true,
+                   context: context, builder: (context)=>MakeReview());
+             // showBottomSheet(context: context, builder: (context)=>MakeReview());
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: CustomColors.kMove[4], // Button color
               foregroundColor: CustomColors.kWhite[0], // Text color
-              minimumSize: const Size(160, 35), // Width and height
+              minimumSize: const Size(320, 35), // Width and height
+              maximumSize: const Size(320, 35), // Width and height
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16), // Border radius
               ),
             ),
-            child: const Text("Book now", style: Styles.textStyle16W700),
+            child:Text(title??"Write a Review", style: Styles.textStyle16W700),
           )
         ],
       ),

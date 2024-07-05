@@ -5,8 +5,8 @@ import 'package:voyago/core/utils/screen_size_util.dart';
 
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:voyago/core/utils/services_locater.dart';
-import 'package:voyago/feature/auth/register/data/repo/auth_register_repo_imp.dart';
-import 'package:voyago/feature/auth/register/presentation/manger/register_cubit/register_cubit.dart';
+
+
 
 import 'core/utils/app_router.dart';
 
@@ -26,16 +26,27 @@ class VoyagoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScreenSizeUtil.init(context);
-    return MaterialApp.router(
+    return
+      MaterialApp.router(
       debugShowCheckedModeBanner: false,
-    
+
       routerConfig: AppRouter.router,
       theme: ThemeData.light().copyWith(
         textTheme:
             GoogleFonts.montserratTextTheme(ThemeData.light().textTheme),
       ),
-    
+
       // home: const GetStarted(),
     );
+    // MaterialApp(
+    //     debugShowCheckedModeBanner: false,
+    //
+    // theme: ThemeData.light().copyWith(
+    //       textTheme:
+    //           GoogleFonts.montserratTextTheme(ThemeData.light().textTheme),
+    //     ),
+    //   home: TripView(),
+    //
+    // );
   }
 }
