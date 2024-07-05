@@ -4,7 +4,7 @@ import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/feature/search/presentation/views/widgets/search_elv.dart';
 
 import '../../../../../core/utils/styles.dart';
-import '../../../../auth/presentation/views/widgets/button_auth.dart';
+import '../../../../auth/login/presentation/views/widgets/button_auth.dart';
 import 'package:intl/intl.dart';
 
 class FilterSearchTrips extends StatefulWidget {

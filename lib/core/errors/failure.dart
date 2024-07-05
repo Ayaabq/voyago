@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 
 abstract class Failure {
@@ -19,7 +21,7 @@ class ServiecesFailure extends Failure {
       case DioExceptionType.badCertificate:
         return ServiecesFailure('Bad Requset Timeout with Server');
       case DioExceptionType.badResponse:
-        return ServiecesFailure.fromResponse(
+        return ServiecesFailure.fromJson(
             dioError.response!.statusCode!, dioError.response!.data);
       case DioExceptionType.cancel:
         return ServiecesFailure('Request to Server was canceled');
@@ -36,10 +38,14 @@ class ServiecesFailure extends Failure {
     }
   }
 
-  factory ServiecesFailure.fromResponse(dynamic statusCode, dynamic respones) {
+  factory ServiecesFailure.fromJson(dynamic statusCode, dynamic response) {
     if (statusCode == 400 || statusCode == 401) {
       print(statusCode);
-      return ServiecesFailure(respones["err"]);
+    Map<String, dynamic> data = jsonDecode(response);
+    
+ print(data['err']);
+      return ServiecesFailure(data['err']);
+
     } else if (statusCode == 500) {
       return ServiecesFailure('INternal server Error , Please try later');
     } else if (statusCode == 404) {

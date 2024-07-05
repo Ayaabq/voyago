@@ -5,8 +5,8 @@ import 'package:voyago/core/utils/screen_size_util.dart';
 
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:voyago/core/utils/services_locater.dart';
-import 'package:voyago/feature/auth/register/data/repo/register_repo_imp.dart';
-import 'package:voyago/feature/auth/register/presitions/manger/register_cubit/register_cubit.dart';
+import 'package:voyago/feature/auth/register/data/repo/auth_register_repo_imp.dart';
+import 'package:voyago/feature/auth/register/presentation/manger/register_cubit/register_cubit.dart';
 
 import 'core/utils/app_router.dart';
 

@@ -11,6 +11,10 @@ class RegisterModel {
     required this.confirmPassword,
   });
 
+  static RegisterModel fromJson(response) {
+    return response;
+  }
+
   // Map<String, dynamic> toJson() {
   //   return {
   //     "username": username,
