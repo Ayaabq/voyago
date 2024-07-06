@@ -57,8 +57,8 @@ class _Step2PageState extends State<Step2Page> {
           ),
           title: 'Notes',
         ),
-         SizedBox(
-          height: MediaQuery.of(context).viewInsets.bottom,
+         const SizedBox(
+          height: 60,
         ),
       ],
     );

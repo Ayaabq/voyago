@@ -3,6 +3,7 @@ import 'package:voyago/core/utils/custom_floating_button.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/checkout/floatin_checkout.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/checkout/step1_page.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/checkout/step2_page.dart';
+import 'package:voyago/feature/trip&booking/presentation/views/widgets/checkout/step3_payment_page.dart';
 
 import '../../../../core/widgets/back_icon_app_bar.dart';
 import 'widgets/checkout/side_indicator.dart';
@@ -63,7 +64,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 Step1Page(),
 
                 Step2Page(),
-                StepContent(step: 3),
+                Step3PaymentPage(),
               ],
             ),
           ),
@@ -73,18 +74,3 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   }
 }
 
-class StepContent extends StatelessWidget {
-  final int step;
-
-  const StepContent({super.key, required this.step});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Content for Step $step',
-        style: const TextStyle(fontSize: 24),
-      ),
-    );
-  }
-}
