@@ -14,6 +14,7 @@ import 'package:voyago/feature/trip&booking/presentation/views/reviews_view.dart
 import 'package:voyago/feature/trip&booking/presentation/views/checkout_view.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/trip_view.dart';
 
+import '../../constants.dart';
 import '../../feature/auth/login/presentation/views/login_view.dart';
 import '../../feature/auth/register/data/models/verification_model.dart';
 import '../../feature/auth/register/data/repo/auth_register_repo_imp.dart';
@@ -24,7 +25,8 @@ import '../../feature/forgot_password/presentation/manger/restPassword/rest_pass
 import '../../feature/forgot_password/presentation/views/widgets/verification_code_body_password.dart';
 import '../widgets/bottom_bar.dart';
 
-abstract class AppRouter {
+ class AppRouter {
+  
   static const kGetStartedView = "/GetStartedView";
   static const kSplashView = "/";
   static const kLoginView = "/LoginView";
@@ -41,6 +43,7 @@ abstract class AppRouter {
   static const kReviewsView = "/ReviewsView";
   static const kCheckoutView = "/CheckoutView";
   static final router = GoRouter(
+      initialLocation: initial,
     routes: [
       GoRoute(
         path: '/',

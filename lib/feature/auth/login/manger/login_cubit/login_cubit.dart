@@ -30,6 +30,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:voyago/core/errors/failure.dart';
+import 'package:voyago/core/utils/storge_token.dart';
 import 'package:voyago/feature/auth/login/data/repo/login_repo.dart';
 
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -50,14 +51,21 @@ class LoginCubit extends Cubit<LoginState> {
     result.fold(
       (failure) => emit(LoginFailure(failure.errMessage)),
       (success) async {
-        await _storeTokens(success.accessToken, success.refreshToken);
+        //    await _storeTokens(success.accessToken, success.refreshToken);
+        await AppStorage.instance
+            .writeData(AppStorage.TOKEN, success.accessToken);
+        await AppStorage.instance
+            .writeData(AppStorage.REFTOKEN, success.refreshToken);
         emit(LoginSuccess(success.accessToken, success.refreshToken));
+
+        dynamic token = await AppStorage.instance.readData(AppStorage.TOKEN);
+        print(token);
       },
     );
   }
 
-  Future<void> _storeTokens(String accessToken, String refreshToken) async {
-    await secureStorage.write(key: 'accessToken', value: accessToken);
-    await secureStorage.write(key: 'refreshToken', value: refreshToken);
-  }
+  // Future<void> _storeTokens(String accessToken, String refreshToken) async {
+  //   await secureStorage.write(key: 'accessToken', value: accessToken);
+  //   await secureStorage.write(key: 'refreshToken', value: refreshToken);
+  // }
 }

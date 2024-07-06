@@ -41,6 +41,8 @@ class AppStorage {
 
   /// Keys
   static const String TOKEN = 'access_token';
+  static const String REFTOKEN = 'refresh_token';
+
   static const String LOGIN_TIME = 'login_time';
   static const String FIRST_TIME = 'first_time';
   static const String LANGUAGE_CODE = 'language_code';
