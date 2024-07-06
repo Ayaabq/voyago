@@ -1,7 +1,9 @@
 
 import 'package:flutter/material.dart';
 
-import '../../../../../auth/presentation/views/widgets/custom_text_field.dart';
+import '../../../../../../core/utils/validator_manager.dart';
+import '../../../../../auth/login/presentation/views/widgets/custom_text_field.dart';
+
 
 class ContactDetailsSection extends StatelessWidget {
   const ContactDetailsSection({super.key, required this.emailController, required this.phoneController});
@@ -22,7 +24,8 @@ class ContactDetailsSection extends StatelessWidget {
           hint: "Email",
           onPressedIcon: () {},
           icon: const Icon(Icons.email_outlined),
-          keyboardType: TextInputType.emailAddress,
+          keyboardType: TextInputType.emailAddress, validator: (value) =>
+                              ValidatorManager().validateEmail(value!),
         ),
         const SizedBox(
           height: 12,
@@ -32,7 +35,8 @@ class ContactDetailsSection extends StatelessWidget {
           hint: "Phone",
           onPressedIcon: () {},
           icon: const Icon(Icons.phone),
-          keyboardType: TextInputType.number,
+          keyboardType: TextInputType.number, validator: (value) =>
+                              ValidatorManager().validatePhone(value!),
         ),
       ],
     );
