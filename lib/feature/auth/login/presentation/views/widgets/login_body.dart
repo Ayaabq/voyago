@@ -98,10 +98,12 @@ class LoginBodyView extends StatelessWidget {
                                     usernameController.text,
                                     passwordController.text);
                               }
-                              if (state is LoginLoading) {
-                                 Center(
-                                    child: CircularProgressIndicator());
-                              }
+                            }),
+const SizedBox(height: 10),
+                        ButtonAuth(
+                            title: "لا تكبس هون",
+                            onTap: () {
+                              GoRouter.of(context).push(AppRouter.kHomeView);
                             }),
                         const SizedBox(height: 10),
                         DontAccount(

@@ -6,13 +6,15 @@ import 'package:dio/dio.dart';
 import 'package:voyago/core/domain/services/api.dart';
 import 'package:voyago/core/utils/confg.dart';
 
+import '../../utils/storge_token.dart';
+
 class ApiServicesImp implements ApiServices {
   final Dio _dio;
   late Map<String, dynamic> _headers;
 
   ApiServicesImp(this._dio) {
     _dio.options
-// if you use mobile 
+// if you use mobile
       ..baseUrl = Confg.mobileUrl
 //if you use eml or edge
       //..baseUrl = Confg.baseUrl
@@ -30,9 +32,7 @@ class ApiServicesImp implements ApiServices {
 
       "accept-timezone": DateTime.now().timeZoneName,
       "Authorization": hasToken
-          ? "Bearer ${
-//( AppStorage.instance.readData(AppStorage.TOKEN))
-              ""}"
+          ? "Bearer ${(AppStorage.instance.readData(AppStorage.TOKEN))}"
           : null,
       // "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhaG1hZDEiLCJleHAiOjE2NzE4Nzc2MTMsImlhdCI6MTY3MTUxNzYxM30.ipa9KNJP2QhloBMtC0g0P0lwfGZlhGw9aWXQTC02G74":null,
     };
@@ -232,7 +232,4 @@ class ApiServicesImp implements ApiServices {
     log("└------------------------------------------------------------------------------");
     handler.next(error); //continue
   });
-  
- 
-  
 }
