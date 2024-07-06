@@ -38,4 +38,6 @@ abstract class CustomColors {
     Color(0xff242424),
     Color(0xff111111),
   ];
+  static const errorColor = Colors.red;
+  static const successColor = Colors.green;
 }

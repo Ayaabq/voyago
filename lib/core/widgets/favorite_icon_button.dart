@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 
 class FavoriteButton extends StatelessWidget {
-  const FavoriteButton({super.key});
+  const FavoriteButton({super.key, this.isFavorite=false});
+ final bool isFavorite;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +17,7 @@ class FavoriteButton extends StatelessWidget {
       ),
       child: Center(
         child: IconButton(
-          icon: const Icon(Icons.favorite_border,
+          icon:  Icon(isFavorite!?Iconsax.heart5:Iconsax.heart,
           size: 18,),
           color: CustomColors.kHighlightMove  , // Icon color
           onPressed: () {

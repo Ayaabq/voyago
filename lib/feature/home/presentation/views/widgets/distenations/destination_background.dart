@@ -3,17 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/core/utils/styles.dart';
+import 'package:voyago/feature/home/data/models/destination_model.dart';
 
 import '../../../../../../core/utils/assets.dart';
+import '../../../../../../core/widgets/favorite_icon_button.dart';
 
 class DestinationBackground extends StatelessWidget {
-  const DestinationBackground({super.key});
-
+  const DestinationBackground({super.key, required this.destinationModel});
+  final DestinationModel destinationModel;
   @override
   Widget build(BuildContext context) {
     return Stack(
       fit: StackFit.expand,
       children: [
+
         Image.asset(
           HomeAssets.dummyDestination,
           fit: BoxFit.cover,
@@ -40,12 +43,19 @@ class DestinationBackground extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.only(bottom: 8.0),
             child: Text(
-              "London",
+              destinationModel.name,
               style:
                   Styles.textStyle18W700.copyWith(color: CustomColors.kWhite[0]),
             ),
           ),
-        )
+        ),
+        Positioned(
+          top: 11,
+          right: 16,
+          child: FavoriteButton(
+            isFavorite: destinationModel.isFavourite,
+          ),
+        ),
       ],
     );
   }
