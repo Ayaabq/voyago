@@ -39,7 +39,7 @@ class ServiecesFailure extends Failure {
   }
 
   factory ServiecesFailure.fromJson(dynamic statusCode, dynamic response) {
-    if (statusCode == 400 || statusCode == 401) {
+    if (statusCode == 400 || statusCode == 401 || statusCode == 406) {
       print(statusCode);
     Map<String, dynamic> data = jsonDecode(response);
     

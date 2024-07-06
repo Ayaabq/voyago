@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 //import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:voyago/feature/auth/login/data/repo/login_repo_impl.dart';
 import 'package:voyago/feature/auth/login/manger/login_cubit/login_cubit.dart';
@@ -20,11 +21,11 @@ class LoginView extends StatelessWidget {
         statusBarIconBrightness: Brightness.dark,
       ),
       child: SafeArea(
-        //   child: BlocProvider(
-        // create: (context) => LoginCubit(getIt.get<LoginRepoImp>(),FlutterSecureStorage()),
+          child: BlocProvider(
+        create: (context) => LoginCubit(getIt.get<LoginRepoImp>(),FlutterSecureStorage()),
         child: LoginBodyView(),
       )),
-   // ),
+    ),
 );
   }
 }

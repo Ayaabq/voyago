@@ -25,19 +25,18 @@ class LoginBodyView extends StatelessWidget {
   final TextEditingController usernameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-   // return
-//  BlocConsumer<LoginCubit, LoginState>(
-//       listener: (context, state) {
-//         if (state is LoginLoading) {
-//           context.showLoadingToast();
-//         } else if (state is LoginSuccess) {
-//           GoRouter.of(context).push(AppRouter.kHomeView);
-//         }
-//         if (state is LoginFailure) {
-//           context.showFailureToast(state.errorMessage);
-//         }
-//       },
-//       builder: (context, state) {
+    return BlocConsumer<LoginCubit, LoginState>(
+      listener: (context, state) {
+        if (state is LoginLoading) {
+          context.showLoadingToast();
+        } else if (state is LoginSuccess) {
+          GoRouter.of(context).push(AppRouter.kHomeView);
+        }
+        if (state is LoginFailure) {
+          context.showFailureToast(state.errorMessage);
+        }
+      },
+      builder: (context, state) {
         return ListView(children: [
           Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             const HeaderAuth(
@@ -71,7 +70,7 @@ class LoginBodyView extends StatelessWidget {
                         ),
                         const SizedBox(height: 20),
                         TextFieldCustom(
-obscureText: true,
+                          obscureText: true,
                           controller: passwordController,
                           hint: "Password",
                           icon: const Icon(Icons.remove_red_eye_outlined),
@@ -88,16 +87,20 @@ obscureText: true,
                         ButtonAuth(
                             title: "Login",
                             onTap: () {
-                                 GoRouter.of(context).push(AppRouter.kHomeView);
+                              //   GoRouter.of(context).push(AppRouter.kHomeView);
                               if (formKey.currentState!.validate()) {
                                 final loginModel = LoginModel(
                                   username: usernameController.text,
                                   password: passwordController.text,
                                 );
                                 print(loginModel);
-                                // context.read<LoginCubit>().fetchLogin(
-                                //     usernameController.text,
-                                //     passwordController.text);
+                                context.read<LoginCubit>().fetchLogin(
+                                    usernameController.text,
+                                    passwordController.text);
+                              }
+                              if (state is LoginLoading) {
+                                 Center(
+                                    child: CircularProgressIndicator());
                               }
                             }),
                         const SizedBox(height: 10),
@@ -117,7 +120,7 @@ obscureText: true,
             )
           ])
         ]);
-    //  },
- //   );
+      },
+    );
   }
 }
