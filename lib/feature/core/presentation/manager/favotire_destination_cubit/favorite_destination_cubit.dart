@@ -6,28 +6,27 @@ import 'favorite_destination_state.dart';
 
 class ChangeFavoriteDestinationCubit extends Cubit<ChangeDestinationFavoriteState> {
   final CoreRepo coreRepo;
+  bool hasShownFailureToast = false;
 
-  ChangeFavoriteDestinationCubit( this.coreRepo): super(ChangeDestinationFavoriteInitial());
+  ChangeFavoriteDestinationCubit(this.coreRepo) : super(ChangeDestinationFavoriteInitial());
+
   Future<void> addTrendingDestination2Favourite(DestinationModel destinationModel) async {
     emit(ChangeDestinationFavoriteLoading());
 
     var result = await coreRepo.addDestination2Favourite(destinationModel);
     print(result);
     result.fold(
-          (failure) => emit(
-              ChangeDestinationFavouriteFailure(errorMessage:  failure.errMessage)
-
-      ),
+          (failure) {
+        emit(ChangeDestinationFavouriteFailure(errorMessage: failure.errMessage));
+      },
           (success) async {
-
-        emit(ChangeDestinationFavouriteSuccess(
-            destinationModel, message:  success.message));
-
+        emit(ChangeDestinationFavouriteSuccess(destinationModel, message: success.message));
+        hasShownFailureToast = false;  // Reset the flag on success
       },
     );
   }
 
-
-
-
+  void resetFailureToastFlag() {
+    hasShownFailureToast = false;
+  }
 }

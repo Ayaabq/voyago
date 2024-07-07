@@ -15,38 +15,35 @@ import '../../../../../../core/widgets/favorite_icon_button.dart';
 class DestinationBackground extends StatelessWidget {
   const DestinationBackground({super.key, this.destinationModel});
   final DestinationModel? destinationModel;
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ChangeFavoriteDestinationCubit,
         ChangeDestinationFavoriteState>(
       builder: (ctx, state) {
-        // if(state is ChangeDestinationFavoriteInitial)
-        //   return
-
         return Stack(
           fit: StackFit.expand,
           children: [
             Image.asset(
               HomeAssets.dummyDestination,
               fit: BoxFit.cover,
-
-              // This ensures the image covers the entire area
             ),
             Container(
-                width: double.infinity,
-                height: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  gradient: const LinearGradient(
-                    colors: [
-                      Color.fromARGB(140, 0, 0, 0),
-                      Color.fromARGB(0, 1, 1, 1),
-                    ],
-                    stops: [0.0, 0.8],
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter,
-                  ),
-                )),
+              width: double.infinity,
+              height: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                gradient: const LinearGradient(
+                  colors: [
+                    Color.fromARGB(140, 0, 0, 0),
+                    Color.fromARGB(0, 1, 1, 1),
+                  ],
+                  stops: [0.0, 0.8],
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                ),
+              ),
+            ),
             Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
@@ -63,8 +60,7 @@ class DestinationBackground extends StatelessWidget {
               right: 16,
               child: FavoriteButton(
                 onPressed: () {
-                  print("aya");
-                  print(destinationModel);
+
                   context
                       .read<ChangeFavoriteDestinationCubit>()
                       .addTrendingDestination2Favourite(destinationModel!);
@@ -75,17 +71,17 @@ class DestinationBackground extends StatelessWidget {
           ],
         );
       },
+
+
       listener: (BuildContext context, ChangeDestinationFavoriteState state) {
-        // if (state is ChangeDestinationFavoriteLoading) {
-        //   context.showLoadingToast();
-        // } else if (state is ChangeDestinationFavouriteSuccess) {
-        //   context.showSuccessToast(state.message);
-        // } else
-          if (state is ChangeDestinationFavouriteFailure) {
-          print(state.errorMessage);
+        final cubit = context.read<ChangeFavoriteDestinationCubit>();
+        if (state is ChangeDestinationFavouriteFailure &&
+            !cubit.hasShownFailureToast) {
           context.showFailureToast(state.errorMessage);
-        } else {
-          print("eror404");
+          cubit.hasShownFailureToast =
+              true; // Set the flag after showing the toast
+        } else if (state is ChangeDestinationFavouriteSuccess) {
+          cubit.resetFailureToastFlag(); // Reset the flag on success
         }
       },
     );
