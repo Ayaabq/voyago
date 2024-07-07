@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:voyago/core/widgets/custom_card.dart';
 import 'package:voyago/feature/home/presentation/views/widgets/attractions/top_attraction_list_view.dart';
-import 'package:voyago/feature/home/presentation/views/widgets/distenations/destination_list.dart';
 
 import '../../../../../core/utils/styles.dart';
+import '../../../../core/presentation/views/distenations/destination_item.dart';
 
 class PlacesCard extends StatelessWidget {
   const PlacesCard({super.key});
@@ -14,7 +14,9 @@ class PlacesCard extends StatelessWidget {
         content: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            DestinationListView(),
+           SizedBox(
+             height: 140,
+               child: DestinationItem()),
             SizedBox(height: 11,),
             Text("Attraction",
               style: Styles.textStyle20W700,),

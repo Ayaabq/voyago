@@ -14,6 +14,8 @@ class Confg {
 //     'Authorization': 'Bearer $token',
 //     'content-Type': 'application/json',
 //   };
+  //home
   static const String trendingDestinationsUrl = "/trending_destenation";
+  static const String addDestenationDavouriteUrl = "/add_destenation_favourite/";
 
 }

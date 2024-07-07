@@ -20,7 +20,9 @@ class DestinationModel {
       isFavourite: json['is_favourite'],
     );
   }
-
+  void changeFavouriteStatus(){
+    isFavourite=!isFavourite;
+  }
   // Method to convert a Destination object to JSON
   Map<String, dynamic> toJson() {
     return {

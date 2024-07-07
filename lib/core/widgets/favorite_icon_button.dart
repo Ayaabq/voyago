@@ -3,9 +3,9 @@ import 'package:iconsax/iconsax.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 
 class FavoriteButton extends StatelessWidget {
-  const FavoriteButton({super.key, this.isFavorite=false});
+  const FavoriteButton({super.key, this.isFavorite=false, this.onPressed});
  final bool isFavorite;
-
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,7 +20,7 @@ class FavoriteButton extends StatelessWidget {
           icon:  Icon(isFavorite!?Iconsax.heart5:Iconsax.heart,
           size: 18,),
           color: CustomColors.kHighlightMove  , // Icon color
-          onPressed: () {
+          onPressed: onPressed??() {
             // Your onPressed code here
             print('Icon Button Pressed');
           },
