@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:voyago/feature/home/presentation/views/widgets/distenations/destination_background.dart';
+import 'package:voyago/feature/core/data/models/destination_model.dart';
 
 import '../../../../../../core/utils/assets.dart';
+import 'destination_background.dart';
 
 class DestinationItem extends StatelessWidget {
-  const DestinationItem({super.key});
-
+  const DestinationItem({super.key,  this.destinationModel});
+  final DestinationModel? destinationModel;
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
@@ -16,7 +17,7 @@ class DestinationItem extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
-        child: DestinationBackground()
+        child: DestinationBackground(destinationModel: destinationModel,)
       ),
     );
   }

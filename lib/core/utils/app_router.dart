@@ -46,7 +46,7 @@ import '../widgets/bottom_bar.dart';
       initialLocation: initial,
     routes: [
       GoRoute(
-        path: '/',
+        path: kGetStartedView,
         builder: (ctx, state) => const GetStarted(),
       ),
       GoRoute(

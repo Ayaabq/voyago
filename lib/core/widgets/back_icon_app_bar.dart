@@ -10,7 +10,9 @@ class BackIconAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
 
-      style: const ButtonStyle(
+      style:  ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(color),
+
       ),
       icon: Icon(
         Icons.arrow_back_ios_new,

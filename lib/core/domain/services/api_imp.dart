@@ -15,9 +15,9 @@ class ApiServicesImp implements ApiServices {
   ApiServicesImp(this._dio) {
     _dio.options
 // if you use mobile
-      ..baseUrl = Confg.mobileUrl
+//       ..baseUrl = Confg.mobileUrl
 //if you use eml or edge
-      //..baseUrl = Confg.baseUrl
+      ..baseUrl = Confg.baseUrl
       ..responseType = ResponseType.plain
       ..sendTimeout = const Duration(minutes: 1)
       ..receiveTimeout = const Duration(minutes: 1)
@@ -27,14 +27,14 @@ class ApiServicesImp implements ApiServices {
   }
 
   Future<void> setHeaders(bool hasToken) async {
+     var token = await AppStorage.instance.readData(AppStorage.TOKEN);
     _headers = {
       "Accept": "application/json",
 
       "accept-timezone": DateTime.now().timeZoneName,
       "Authorization": hasToken
-          ? "Bearer ${(AppStorage.instance.readData(AppStorage.TOKEN))}"
+          ? "Bearer ${token}"
           : null,
-      // "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhaG1hZDEiLCJleHAiOjE2NzE4Nzc2MTMsImlhdCI6MTY3MTUxNzYxM30.ipa9KNJP2QhloBMtC0g0P0lwfGZlhGw9aWXQTC02G74":null,
     };
   }
 

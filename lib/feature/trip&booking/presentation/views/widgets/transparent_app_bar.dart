@@ -110,6 +110,7 @@ class TransparentAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+
       title: showTabs ? Text(title) : null,
       bottom: showTabs
           ? CustomTapBar(
