@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:voyago/core/utils/app_router.dart';
 import 'package:voyago/feature/profile/presentation/views/widgets/info_user.dart';
 
 import '../../../../../core/utils/custom_colors.dart';
@@ -8,14 +10,12 @@ import '../../../../auth/login/presentation/views/widgets/button_auth.dart';
 import 'appbar_profile.dart';
 import 'edit_image_prof.dart';
 
-
 class PersonalInformationBody extends StatelessWidget {
   const PersonalInformationBody({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: ProfileAppBar(),
       body: Column(
         children: [
           const ProfileAppBar(
@@ -62,7 +62,10 @@ class PersonalInformationBody extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: ButtonAuth(
-                title: "Edit my personal informations", onTap: () {}),
+                title: "Edit my personal informations",
+                onTap: () {
+                  GoRouter.of(context).push(AppRouter.kEditProfileView);
+                }),
           ),
           const SizedBox(height: 10),
           Padding(

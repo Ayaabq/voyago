@@ -47,3 +47,11 @@ class InformationRow extends StatelessWidget {
     );
   }
 }
+
+/* /**/ 
+
+import 'package:flutter/material.dart';
+
+import '../../../../../core/utils/custom_colors.dart';
+import '../../../../../core/utils/styles.dart';
+*/
