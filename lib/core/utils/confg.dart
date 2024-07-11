@@ -1,7 +1,7 @@
 class Confg {
   static const String baseUrl = "http://localhost:3000/api";
   static const String mobileUrl = "http://192.168.223.18:3000/api";
-//"http://192.168.1.102:3000/api";
+//"http://192.168.1.102:3000/api"; 
 
   //  "http://10.65.11.34:3000";
   static const String registerUrl = "/register";

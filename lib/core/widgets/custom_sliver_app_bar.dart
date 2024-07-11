@@ -13,6 +13,7 @@ class CustomSliverAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     ScreenSizeUtil.init(context);
     return SliverAppBar(
+backgroundColor: color,
       title: title,
       actions: actions,
       expandedHeight: ScreenSizeUtil.dynamicHeight(.3),
