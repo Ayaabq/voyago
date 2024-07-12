@@ -2,7 +2,7 @@
 // import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 // import 'package:go_router/go_router.dart';
-// import 'package:voyago/core/utils/app_router.dart';
+// import 'package:voyago/destination/utils/app_router.dart';
 // import 'package:voyago/feature/auth/presentation/views/widgets/button_auth.dart';
 
 // import 'package:voyago/feature/auth/presentation/views/widgets/custom_text_field.dart';
@@ -10,7 +10,7 @@
 // import 'package:voyago/feature/auth/register/data/models/register_model.dart';
 // import 'package:voyago/feature/auth/register/presitions/manger/register_cubit/register_cubit.dart';
 
-// import '../../../../../../core/utils/validator_manager.dart';
+// import '../../../../../../destination/utils/validator_manager.dart';
 
 // class FormRegister extends StatelessWidget {
 //   FormRegister({

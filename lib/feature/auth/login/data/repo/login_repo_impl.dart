@@ -1,15 +1,15 @@
 // import 'package:dartz/dartz.dart';
 // import 'package:dio/dio.dart';
 
-// import 'package:voyago/core/errors/failure.dart';
+// import 'package:voyago/destination/errors/failure.dart';
 
 // import 'package:voyago/feature/auth/login/data/model/login_model.dart';
 
 // import 'package:voyago/feature/auth/login/manger/login_cubit/login_state.dart';
 
-// import '../../../../../core/domain/services/api.dart';
-// import '../../../../../core/utils/confg.dart';
-// import '../../../../../core/utils/storge_token.dart';
+// import '../../../../../destination/domain/services/api.dart';
+// import '../../../../../destination/utils/confg.dart';
+// import '../../../../../destination/utils/storge_token.dart';
 // import 'login_repo.dart';
 
 // class LoginRepoImp implements LoginRepo {

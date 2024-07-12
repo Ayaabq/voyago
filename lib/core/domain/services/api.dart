@@ -1,7 +1,7 @@
 // import 'dart:convert';
 
 // import 'package:dio/dio.dart';
-// import 'package:voyago/core/utils/confg.dart';
+// import 'package:voyago/destination/utils/confg.dart';
 
 // class Api {
 //   final base = Confg.mobileUrl;

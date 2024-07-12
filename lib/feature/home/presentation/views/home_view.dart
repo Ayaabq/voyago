@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:voyago/core/utils/services_locater.dart';
-import 'package:voyago/feature/core/data/repo/core_impl.dart';
-import 'package:voyago/feature/core/presentation/manager/favotire_destination_cubit/favorite_destination_cubit.dart';
+import 'package:voyago/feature/favorite/data/repo/favorite_repo_impl.dart';
 import 'package:voyago/feature/home/presentation/views/widgets/home_view_body.dart';
 
-import '../../../core/presentation/manager/destination_cubit/destination_cubit.dart';
+import '../../../destination/data/repo/core_impl.dart';
+import '../../../destination/presentation/manager/destination_cubit/destination_cubit.dart';
+import '../../../favorite/presentation/manager/change_favorite_cubit/favorite_destination_cubit.dart';
 
 
 class HomeView extends StatelessWidget {
@@ -17,11 +18,11 @@ class HomeView extends StatelessWidget {
     return MultiBlocProvider(
         providers: [
           BlocProvider(
-            create: (context) => DestinationCubit(getIt.get<CoreRepoImp>()),
+            create: (context) => DestinationCubit(getIt.get<DestinationRepoImp>()),
           )
           ,
           BlocProvider(
-            create: (context) => ChangeFavoriteDestinationCubit(getIt.get<CoreRepoImp>()),
+            create: (context) => ChangeFavoriteCubit(getIt.get<FavoriteRepoImp>()),
           )
           ,
         ],

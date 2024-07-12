@@ -1,7 +1,7 @@
 // import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 // import 'package:flutter/material.dart';
 // import 'package:iconsax/iconsax.dart';
-// import 'package:voyago/core/utils/custom_colors.dart';
+// import 'package:voyago/destination/utils/custom_colors.dart';
 // import 'package:voyago/feature/profile/presentation/views/profile_view.dart';
 
 // import '../../feature/home/presentation/views/home_view.dart';

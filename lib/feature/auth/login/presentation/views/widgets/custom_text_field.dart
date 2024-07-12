@@ -74,8 +74,8 @@ class TextFieldCustom extends HookWidget {
 // import 'package:flutter/material.dart';
 // import 'package:flutter_hooks/flutter_hooks.dart';
 // import 'package:regexpattern/regexpattern.dart';
-// import 'package:voyago/core/utils/custom_colors.dart';
-// import 'package:voyago/core/utils/styles.dart';
+// import 'package:voyago/destination/utils/custom_colors.dart';
+// import 'package:voyago/destination/utils/styles.dart';
 
 // class TextFieldCustom extends HookWidget {
 //   const TextFieldCustom({
