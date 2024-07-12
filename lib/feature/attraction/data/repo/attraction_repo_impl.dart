@@ -2,25 +2,24 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
 import 'package:voyago/core/errors/failure.dart';
-import 'package:voyago/core/utils/confg.dart';
+import 'package:voyago/feature/attraction/data/repo/attraction_repo.dart';
+import 'package:voyago/feature/attraction/presentation/manager/attraction_state.dart';
 
 import '../../../../core/domain/services/api.dart';
-import '../../presentation/manager/destination_cubit/destination_state.dart';
 
-import 'core_repo.dart';
 
-class DestinationRepoImp implements DestinationRepo {
+class AttractionRepoImp implements AttractionRepo {
   final ApiServices api;
 
-  DestinationRepoImp(this.api);
+  AttractionRepoImp(this.api);
   @override
-  Future<Either<Failure, DestinationSuccess>> getDestination(
+  Future<Either<Failure, AttractionSuccess>> getAttraction(
       String url) async {
 
     try {
       var response = await api.get(url, hasToken: true);
       print(response);
-      return right(DestinationSuccess.fromJson(response));
+      return right(AttractionSuccess.fromJson(response));
     } catch (e) {
       if (e is DioException) {
         return left(ServiecesFailure.fromDioError(e));

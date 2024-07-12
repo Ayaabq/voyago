@@ -47,7 +47,7 @@ class DestinationListView extends StatelessWidget {
                 },
               ),
           );
-        }else if (state is TrendingDestinationFailure)
+        }else if (state is DestinationFailure)
         {
           return CustomFailureError(errMessage: state.errorMessage);
         }else

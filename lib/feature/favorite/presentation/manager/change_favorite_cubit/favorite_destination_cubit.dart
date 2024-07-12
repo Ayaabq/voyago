@@ -1,8 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:voyago/feature/attraction/data/models/attraction_model.dart';
 import 'package:voyago/feature/favorite/data/repo/favorite_repo.dart';
 
 import '../../../../destination/data/models/destination_model.dart';
-import '../../../../destination/data/repo/core_repo.dart';
+import '../../../../destination/data/repo/destination_repo.dart';
 import 'favorite_destination_state.dart';
 
 class ChangeFavoriteCubit extends Cubit<ChangeFavoriteState> {
@@ -12,7 +13,7 @@ class ChangeFavoriteCubit extends Cubit<ChangeFavoriteState> {
   ChangeFavoriteCubit(this.favoriteRepo) : super(ChangeFavoriteInitial());
 
   Future<void> addTrendingDestination2Favourite(int id , String url,
-      {DestinationModel? destinationModel, }) async {
+      {DestinationModel? destinationModel, AttractionModel? attractionModel}) async {
     emit(ChangeDestinationFavoriteLoading());
 
     var result = await favoriteRepo.addID2Favourite(id,url);
@@ -24,6 +25,7 @@ class ChangeFavoriteCubit extends Cubit<ChangeFavoriteState> {
           (success) async {
         emit(ChangeFavouriteSuccess( message: success.message, id: success.id));
         if(destinationModel!=null)destinationModel.changeFavouriteStatus();
+        if(attractionModel!=null)attractionModel.changeFavouriteStatus();
         hasShownFailureToast = false;  // Reset the flag on success
       },
     );
