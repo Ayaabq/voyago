@@ -23,7 +23,7 @@ class TextFieldCustom extends HookWidget {
   final TextEditingController? controller;
   final bool obscureText;
   // final  Function() validator;
-  final String? Function(dynamic?)? validator;
+  final String? Function(dynamic)? validator;
   @override
   Widget build(BuildContext context) {
     final focusNode = useFocusNode();
@@ -71,6 +71,9 @@ class TextFieldCustom extends HookWidget {
     );
   }
 }
+
+
+
 // import 'package:flutter/material.dart';
 // import 'package:flutter_hooks/flutter_hooks.dart';
 // import 'package:regexpattern/regexpattern.dart';

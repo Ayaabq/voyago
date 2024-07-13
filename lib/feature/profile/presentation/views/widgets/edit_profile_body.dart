@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:voyago/core/utils/validator_manager.dart';
+import 'package:voyago/feature/auth/login/presentation/views/widgets/custom_text_field.dart';
+import 'package:voyago/feature/profile/presentation/views/widgets/profile_textfield.dart';
 
 import '../../../../../core/utils/app_router.dart';
 import '../../../../../core/utils/custom_colors.dart';
@@ -17,8 +20,8 @@ class EditProfileBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        children:[ Column(
+      body: SingleChildScrollView(
+        child: Column(
           children: [
             const ProfileAppBar(
               titel: 'Edit Personal Information',
@@ -26,25 +29,44 @@ class EditProfileBody extends StatelessWidget {
             const SizedBox(height: 30),
             const ProfilePictureEdit(),
             const SizedBox(height: 30),
-            const InformationEdit(
+            InformationEdit(
               icon: Iconsax.user,
               label: 'User name',
               value: 'Ayalmalla',
+              child: TextFieldProfile(
+                  hint: "",
+                  keyboardType: TextInputType.name,
+                  validator: (value) => ValidatorManager().validateName(value)),
             ),
-            const InformationEdit(
+            InformationEdit(
               icon: Icons.email_outlined,
               label: 'Email',
               value: 'ayalmallah@gmail.com',
+              child: TextFieldProfile(
+                  hint: "",
+                  keyboardType: TextInputType.emailAddress,
+                  validator: (value) =>
+                      ValidatorManager().validateEmail(value)),
             ),
-            const InformationEdit(
+            InformationEdit(
               icon: Icons.phone,
               label: 'Phone Number',
               value: '0964682070',
+              child: TextFieldProfile(
+                  hint: "",
+                  keyboardType: TextInputType.number,
+                  validator: (value) =>
+                      ValidatorManager().validatePhone(value)),
             ),
-            const InformationEdit(
+            InformationEdit(
               icon: Icons.location_on,
               label: 'Hometown',
               value: 'Damascus, Syria',
+              child: TextFieldProfile(
+                  hint: "",
+                  keyboardType: TextInputType.name,
+                  validator: (value) =>
+                      ValidatorManager().validateLocation(value)),
             ),
             SizedBox(
               height: ScreenSizeUtil.screenHeight * 0.15,
@@ -60,22 +82,22 @@ class EditProfileBody extends StatelessWidget {
             const SizedBox(height: 10),
           ],
         ),
-     ] ),
+      ),
     );
   }
 }
-
 
 class InformationEdit extends StatelessWidget {
   final IconData icon;
   final String label;
   final String value;
-
+  final Widget? child;
   const InformationEdit({
     super.key,
     required this.icon,
     required this.label,
     required this.value,
+    this.child,
   });
 
   @override
@@ -100,16 +122,8 @@ class InformationEdit extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 4),
-          Padding(
-              padding: const EdgeInsets.only(left: 32),
-              child:
- //Text(value)
-TextFormField(
-             ),
-),
-            //  ),
-
+          const SizedBox(height: 6),
+          Padding(padding: const EdgeInsets.only(left: 0), child: child),
         ],
       ),
     );
