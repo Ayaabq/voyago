@@ -16,6 +16,9 @@ class Confg {
 //   };
   //home
   static const String trendingDestinationsUrl = "/trending_destenation";
+  static const String topAttractionsUrl = "/top_attractions";
+
+
   //favorite
   static const String addDestinationFavouriteUrl = "/add_destenation_favourite/";
   static const String addTripFavouriteUrl = "/add_trip_favourite/";

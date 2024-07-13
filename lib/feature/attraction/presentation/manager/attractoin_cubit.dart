@@ -28,30 +28,32 @@
 // }
 
 import 'package:bloc/bloc.dart';
+import 'package:voyago/feature/attraction/data/repo/attraction_repo.dart';
+import 'package:voyago/feature/attraction/presentation/manager/attraction_state.dart';
 
-import '../../../../destination/data/repo/destination_repo.dart';
-import 'destination_state.dart';
 
 
-class DestinationCubit extends Cubit<DestinationState> {
-  final DestinationRepo destinationRepo;
+class AttractionCubit extends Cubit<AttractionState> {
+  final AttractionRepo attractionRepo;
 
-  DestinationCubit( this.destinationRepo) : super(DestinationInitial());
+  AttractionCubit( this.attractionRepo) : super(AttractionInitial());
 
-  Future<void> fetchDestinationInitial(String url) async {
-    emit(DestinationLoading());
+  Future<void> fetchAttractionInitial(String url) async {
 
-    var result = await destinationRepo.getDestination(url);
+    emit(AttractionLoading());
+
+    var result = await attractionRepo.getAttraction(url);
     print(result);
     result.fold(
           (failure)
-          {
-            emit(DestinationFailure(failure.errMessage));
-            // emit(DestinationInitial());
-            },
-          (success) async {
+      {
 
-        emit(DestinationSuccess(success.destinationModels));
+        emit( AttractionFailure(failure.errMessage));
+        // emit(AttractionInitial());
+      },
+          (success) async {
+            print("doneeeeeeee");
+        emit(AttractionSuccess(success.attractionModel));
 
       },
     );

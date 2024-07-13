@@ -8,6 +8,7 @@ import 'package:voyago/core/utils/screen_size_util.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:voyago/core/utils/services_locater.dart';
 import 'package:voyago/core/utils/storge_token.dart';
+import 'package:voyago/feature/destination/presentation/views/widgets/destination_details_view.dart';
 
 import 'core/utils/app_router.dart';
 
@@ -29,25 +30,26 @@ class VoyagoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScreenSizeUtil.init(context);
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-
-      routerConfig: AppRouter.router,
-      theme: ThemeData.light().copyWith(
-        textTheme: GoogleFonts.montserratTextTheme(ThemeData.light().textTheme),
-      ),
-
-      // home: const GetStarted(),
-    );
-    // MaterialApp(
-    //     debugShowCheckedModeBanner: false,
+    return
+    //   MaterialApp.router(
+    //   debugShowCheckedModeBanner: false,
     //
-    // theme: ThemeData.light().copyWith(
-    //       textTheme:
-    //           GoogleFonts.montserratTextTheme(ThemeData.light().textTheme),
-    //     ),
-    //   home: TripView(),
+    //   routerConfig: AppRouter.router,
+    //   theme: ThemeData.light().copyWith(
+    //     textTheme: GoogleFonts.montserratTextTheme(ThemeData.light().textTheme),
+    //   ),
     //
+    //   // home: const GetStarted(),
     // );
+    MaterialApp(
+        debugShowCheckedModeBanner: false,
+
+    theme: ThemeData.light().copyWith(
+          textTheme:
+              GoogleFonts.montserratTextTheme(ThemeData.light().textTheme),
+        ),
+      home: DestinationDetailsView(),
+
+    );
   }
 }

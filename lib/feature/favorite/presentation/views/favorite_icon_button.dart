@@ -4,6 +4,7 @@ import 'package:voyago/core/utils/custom_colors.dart';
 
 class FavoriteButton extends StatelessWidget {
   const FavoriteButton({super.key, this.isFavorite=false, this.onPressed});
+
  final bool isFavorite;
   final void Function()? onPressed;
   @override

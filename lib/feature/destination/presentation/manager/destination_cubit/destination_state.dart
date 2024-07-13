@@ -22,12 +22,12 @@ class DestinationSuccess extends DestinationState {
 }
 
 
-class TrendingDestinationFailure extends DestinationState {
+class DestinationFailure extends DestinationState {
   final String errorMessage;
-  TrendingDestinationFailure(this.errorMessage);
+  DestinationFailure(this.errorMessage);
 
-  static TrendingDestinationFailure fromJson(Map<String, dynamic> response) {
-    return TrendingDestinationFailure(response['err'] ?? 'Unknown error');
+  static DestinationFailure fromJson(Map<String, dynamic> response) {
+    return DestinationFailure(response['err'] ?? 'Unknown error');
   }
 
 

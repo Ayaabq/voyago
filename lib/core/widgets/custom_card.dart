@@ -4,9 +4,10 @@ import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/core/utils/styles.dart';
 
 class CustomCard extends StatelessWidget {
-  const CustomCard({super.key,  this.title, required this.content,  this.onTap});
+  const CustomCard({super.key,  this.title, required this.content,  this.onTap, this.titleStyle});
   final String? title;
   final Widget content;
+  final TextStyle? titleStyle;
   final void Function()? onTap;
 
   @override
@@ -35,7 +36,7 @@ class CustomCard extends StatelessWidget {
                   children: [
                     Text(
                       title!,
-                      style: Styles.textStyle20W700,
+                      style: titleStyle??Styles.textStyle20W700,
                     ),
 
                       if(onTap!=null) TextButton(

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:voyago/feature/home/presentation/views/widgets/attractions/attraction_card.dart';
+import 'package:voyago/feature/trip&booking/presentation/views/widgets/trips/trip_card.dart';
 
-class TopAttractionListView extends StatelessWidget {
-  const TopAttractionListView({super.key});
+import '../../../../../../core/utils/screen_size_util.dart';
+
+class TopTripsListView extends StatelessWidget {
+  const TopTripsListView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    ScreenSizeUtil.init(context);
     return SizedBox(
-      height: 180,
+      height: 200,
       child: ListView.builder(
         // physics: NeverScrollableScrollPhysics(),
         // shrinkWrap: true,
@@ -16,7 +19,7 @@ class TopAttractionListView extends StatelessWidget {
         itemBuilder: (context, index) {
           return const Row(
             children: [
-              AttractionCard(),
+              TripCard(),
               SizedBox(width: 3,)
             ],
           );
