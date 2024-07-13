@@ -13,12 +13,21 @@ class ValidatorManager {
       return 'Please enter your name';
     }
 
-if(value.length < 3 )
-{
- return 'user name must be at least 3 characters';
-}
+    if (value.length < 3) {
+      return 'user name must be at least 3 characters';
+    }
     return null;
-   
+  }
+
+  String? validateLocation(String value) {
+    if (value.isEmpty) {
+      return 'Please enter your Location';
+    }
+
+    if (value.length < 3) {
+      return 'Location must be at least 3 characters';
+    }
+    return null;
   }
 
   String? validateEmail(String value) {
@@ -32,7 +41,6 @@ if(value.length < 3 )
   }
 
   String? validatePhone(String value) {
-
     if (value.isEmpty) {
       return 'Please enter your phone number';
     }
@@ -45,7 +53,6 @@ if(value.length < 3 )
   String? validatePassword(String value) {
     // Define your password criteria
     const int minLength = 8;
-
 
     // Check for empty input
     if (value.isEmpty) {
@@ -95,8 +102,6 @@ if(value.length < 3 )
     // Passwords match
     return null;
   }
-
-
 }
 
 class RegularExpressions {

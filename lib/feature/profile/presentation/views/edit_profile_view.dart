@@ -1,5 +1,4 @@
-import 'package:flutter/cupertino.dart';
-
+import 'package:flutter/material.dart';
 import 'widgets/edit_profile_body.dart';
 
 class EditProfileView extends StatelessWidget {
