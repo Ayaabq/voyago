@@ -31,6 +31,16 @@ class VoyagoApp extends StatelessWidget {
   Widget build(BuildContext context) {
     ScreenSizeUtil.init(context);
     return
+    //   MaterialApp.router(
+    //   debugShowCheckedModeBanner: false,
+    //
+    //   routerConfig: AppRouter.router,
+    //   theme: ThemeData.light().copyWith(
+    //     textTheme: GoogleFonts.montserratTextTheme(ThemeData.light().textTheme),
+    //   ),
+    //
+    //   // home: const GetStarted(),
+    // );
     MaterialApp(
         debugShowCheckedModeBanner: false,
 
