@@ -3,10 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:voyago/feature/attraction/data/models/attraction_model.dart';
 import 'package:voyago/feature/attraction/presentation/manager/attraction_state.dart';
 import 'package:voyago/feature/attraction/presentation/manager/attractoin_cubit.dart';
-import 'package:voyago/feature/attraction/presentation/views/attraction_card.dart';
+import 'package:voyago/feature/attraction/presentation/views/attractions/attraction_card.dart';
 
-import '../../../../core/widgets/custom_failure_error.dart';
-import '../../../../core/widgets/shimmer/load_List.dart';
+import '../../../../../core/widgets/custom_failure_error.dart';
+import '../../../../../core/widgets/shimmer/load_List.dart';
 
 class AttractionListView extends StatelessWidget {
   const AttractionListView({super.key, required this.url});

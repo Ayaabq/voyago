@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:voyago/core/widgets/custom_card.dart';
-import 'package:voyago/feature/attraction/presentation/views/top_attraction_list_view.dart';
+import 'package:voyago/feature/attraction/presentation/views/attractions/attraction_view.dart';
+import 'package:voyago/feature/attraction/presentation/views/attractions/top_attraction_list_view.dart';
 
+import '../../../../../core/utils/confg.dart';
 import '../../../../../core/utils/styles.dart';
-import '../../../../destination/presentation/views/distenations/destination_item.dart';
+import '../../../../destination/presentation/views/widgets/distenations/destination_item.dart';
 
 class PlacesCard extends StatelessWidget {
   const PlacesCard({super.key});
@@ -21,7 +23,7 @@ class PlacesCard extends StatelessWidget {
             Text("Attraction",
               style: Styles.textStyle20W700,),
             SizedBox(height: 11,),
-            AttractionListView(url: "later",)
+            AttractionView(url: Confg.topAttractionsUrl)
           ],
         ));
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/utils/assets.dart';
-import '../../../data/models/destination_model.dart';
+import '../../../../data/models/destination_model.dart';
 import 'destination_background.dart';
 
 class DestinationItem extends StatelessWidget {

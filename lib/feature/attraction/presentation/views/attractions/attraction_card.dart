@@ -6,11 +6,11 @@ import 'package:voyago/core/widgets/custom_rate.dart';
 import 'package:voyago/core/widgets/toast/toast_extensions.dart';
 import 'package:voyago/feature/attraction/data/models/attraction_model.dart';
 
-import '../../../../core/utils/assets.dart';
-import '../../../../core/utils/confg.dart';
-import '../../../../core/widgets/favorite_icon_button.dart';
-import '../../../favorite/presentation/manager/change_favorite_cubit/favorite_destination_cubit.dart';
-import '../../../favorite/presentation/manager/change_favorite_cubit/favorite_destination_state.dart';
+import '../../../../../core/utils/assets.dart';
+import '../../../../../core/utils/confg.dart';
+import '../../../../favorite/presentation/views/favorite_icon_button.dart';
+import '../../../../favorite/presentation/manager/change_favorite_cubit/favorite_destination_cubit.dart';
+import '../../../../favorite/presentation/manager/change_favorite_cubit/favorite_destination_state.dart';
 
 class AttractionCard extends StatelessWidget {
   const AttractionCard({super.key, required this.attractionModel});

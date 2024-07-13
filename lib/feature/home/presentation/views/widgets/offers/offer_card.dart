@@ -1,14 +1,12 @@
 import 'dart:math';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:voyago/core/widgets/favorite_icon_button.dart';
+import 'package:voyago/feature/favorite/presentation/views/favorite_icon_button.dart';
 
 import 'package:voyago/feature/home/presentation/views/widgets/offers/offers_details_column.dart';
 
 import '../../../../../../core/utils/assets.dart';
 import '../../../../../../core/utils/screen_size_util.dart';
-import '../trips/trip_details_column.dart';
 
 class OfferCard extends StatelessWidget {
   const OfferCard({super.key});

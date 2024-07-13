@@ -3,10 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:voyago/core/utils/confg.dart';
 import 'package:voyago/core/widgets/shimmer/load_List.dart';
 
+
 import '../../../../../../core/widgets/custom_failure_error.dart';
-import '../../../data/models/destination_model.dart';
-import '../../manager/destination_cubit/destination_cubit.dart';
-import '../../manager/destination_cubit/destination_state.dart';
+import '../../../../data/models/destination_model.dart';
+import '../../../manager/destination_cubit/destination_cubit.dart';
+import '../../../manager/destination_cubit/destination_state.dart';
 import 'destination_item.dart';
 
 

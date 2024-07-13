@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:voyago/feature/home/presentation/views/widgets/trip_search/trip_offers_search/card_trip_offers_search.dart';
-import 'package:voyago/feature/home/presentation/views/widgets/trips/trip_card.dart';
 
 import '../../../../../../../core/utils/screen_size_util.dart';
 

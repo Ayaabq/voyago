@@ -4,7 +4,6 @@ import 'package:voyago/core/widgets/days_and_price.dart';
 
 import '../../../../../../core/utils/styles.dart';
 import '../../../../../../core/widgets/custom_rate.dart';
-
 import '../../../../../../core/widgets/location_with_country.dart';
 
 // class TripDetailsColumn extends StatelessWidget {
@@ -40,13 +39,7 @@ import '../../../../../../core/widgets/location_with_country.dart';
 //     );
 //   }
 // }
-import 'package:flutter/material.dart';
-import 'package:voyago/core/widgets/days_and_price.dart';
 
-import '../../../../../../core/utils/styles.dart';
-import '../../../../../../core/widgets/custom_rate.dart';
-
-import '../../../../../../core/widgets/location_with_country.dart';
 
 class TripDetailsColumn extends StatelessWidget {
   const TripDetailsColumn({super.key});
