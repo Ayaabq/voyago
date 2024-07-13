@@ -15,6 +15,7 @@ abstract class CustomColors {
     Color(0xff312959)
   ];
 
+
   static const kWhite = [
     Color(0xffFFFFFF),
     Color(0xffFDFDFD),

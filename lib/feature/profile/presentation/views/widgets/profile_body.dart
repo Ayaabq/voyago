@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
@@ -42,7 +41,7 @@ class ProfileBody extends StatelessWidget {
                 icon: Iconsax.wallet_24,
                 title: 'My wallet',
                 onTap: () {
-                  // Handle tap
+                  GoRouter.of(context).push(AppRouter.kWalletView);
                 },
               ),
               Divider(
@@ -202,4 +201,3 @@ class ProfilePicture extends StatelessWidget {
     );
   }
 }
-
