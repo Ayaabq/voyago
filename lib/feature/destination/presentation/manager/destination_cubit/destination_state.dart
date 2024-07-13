@@ -1,5 +1,6 @@
 
-import 'package:voyago/feature/core/data/models/destination_model.dart';
+
+import '../../../data/models/destination_model.dart';
 
 abstract class DestinationState {}
 

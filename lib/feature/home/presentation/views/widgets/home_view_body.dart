@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:voyago/core/data/enums/destination_enum.dart';
 import 'package:voyago/feature/home/presentation/views/widgets/custom_home_list.dart';
 import 'package:voyago/feature/home/presentation/views/widgets/offers/offers_list_view.dart';
 import 'package:voyago/feature/home/presentation/views/widgets/trips/top_trips_list_view.dart';
@@ -8,7 +7,8 @@ import 'package:voyago/feature/home/presentation/views/widgets/trip_search/trip_
 import 'package:voyago/feature/home/presentation/views/widgets/attractions/top_attraction_list_view.dart';
 import 'package:voyago/feature/home/presentation/views/widgets/trip_search/trip_offers_search/trip_offer_listview.dart';
 
-import '../../../../core/presentation/views/distenations/destination_list.dart';
+import '../../../../../core/utils/confg.dart';
+import '../../../../destination/presentation/views/distenations/destination_list.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -35,7 +35,7 @@ class HomeViewBody extends StatelessWidget {
                 ),
                 CustomHomeList(
                   title: "Trending Destinations",
-                  sizedList: DestinationListView(type: DestinationListType.trending,),
+                  sizedList: DestinationListView(url: Confg.trendingDestinationsUrl,),
                 ),
                 CustomHomeList(
                   title: "Top Attractions",

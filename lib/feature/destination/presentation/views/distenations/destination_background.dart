@@ -4,13 +4,14 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/core/utils/styles.dart';
-import 'package:voyago/feature/core/data/models/destination_model.dart';
-import 'package:voyago/feature/core/presentation/manager/favotire_destination_cubit/favorite_destination_cubit.dart';
-import 'package:voyago/feature/core/presentation/manager/favotire_destination_cubit/favorite_destination_state.dart';
 import 'package:voyago/core/widgets/toast/toast_extensions.dart';
 
 import '../../../../../../core/utils/assets.dart';
 import '../../../../../../core/widgets/favorite_icon_button.dart';
+import '../../../../../core/utils/confg.dart';
+import '../../../../favorite/presentation/manager/change_favorite_cubit/favorite_destination_cubit.dart';
+import '../../../../favorite/presentation/manager/change_favorite_cubit/favorite_destination_state.dart';
+import '../../../data/models/destination_model.dart';
 
 class DestinationBackground extends StatelessWidget {
   const DestinationBackground({super.key, this.destinationModel});
@@ -18,8 +19,8 @@ class DestinationBackground extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<ChangeFavoriteDestinationCubit,
-        ChangeDestinationFavoriteState>(
+    return BlocConsumer<ChangeFavoriteCubit,
+        ChangeFavoriteState>(
       builder: (ctx, state) {
         return Stack(
           fit: StackFit.expand,
@@ -62,8 +63,10 @@ class DestinationBackground extends StatelessWidget {
                 onPressed: () {
 
                   context
-                      .read<ChangeFavoriteDestinationCubit>()
-                      .addTrendingDestination2Favourite(destinationModel!);
+                      .read<ChangeFavoriteCubit>()
+                      .addTrendingDestination2Favourite(destinationModel!.id,
+                      Confg.addDestinationFavouriteUrl,
+                  destinationModel: destinationModel);
                 },
                 isFavorite: (destinationModel?.isFavourite) ?? true,
               ),
@@ -73,14 +76,14 @@ class DestinationBackground extends StatelessWidget {
       },
 
 
-      listener: (BuildContext context, ChangeDestinationFavoriteState state) {
-        final cubit = context.read<ChangeFavoriteDestinationCubit>();
-        if (state is ChangeDestinationFavouriteFailure &&
+      listener: (BuildContext context, ChangeFavoriteState state) {
+        final cubit = context.read<ChangeFavoriteCubit>();
+        if (state is ChangeFavouriteFailure &&
             !cubit.hasShownFailureToast) {
           context.showFailureToast(state.errorMessage);
           cubit.hasShownFailureToast =
               true; // Set the flag after showing the toast
-        } else if (state is ChangeDestinationFavouriteSuccess) {
+        } else if (state is ChangeFavouriteSuccess) {
           cubit.resetFailureToastFlag(); // Reset the flag on success
         }
       },

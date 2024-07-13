@@ -3,7 +3,7 @@ import 'package:voyago/core/widgets/custom_card.dart';
 import 'package:voyago/feature/home/presentation/views/widgets/attractions/top_attraction_list_view.dart';
 
 import '../../../../../core/utils/styles.dart';
-import '../../../../core/presentation/views/distenations/destination_item.dart';
+import '../../../../destination/presentation/views/distenations/destination_item.dart';
 
 class PlacesCard extends StatelessWidget {
   const PlacesCard({super.key});

@@ -1,8 +1,8 @@
 // import 'package:flutter/material.dart';
 // import 'package:iconsax/iconsax.dart';
-// import 'package:voyago/core/utils/custom_colors.dart';
+// import 'package:voyago/destination/utils/custom_colors.dart';
 //
-// import '../../../../../core/widgets/custom_tap_bar.dart';
+// import '../../../../../destination/widgets/custom_tap_bar.dart';
 //
 // class TransparentAppBar extends StatelessWidget implements PreferredSizeWidget {
 //   final bool showTabs;

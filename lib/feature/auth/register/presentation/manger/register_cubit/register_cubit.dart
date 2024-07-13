@@ -1,9 +1,9 @@
 // import 'package:bloc/bloc.dart';
 // import 'package:dio/dio.dart';
 // import 'package:meta/meta.dart';
-// import 'package:voyago/core/errors/failure.dart';
-// import 'package:voyago/core/utils/api.dart';
-// import 'package:voyago/core/utils/confg.dart';
+// import 'package:voyago/destination/errors/failure.dart';
+// import 'package:voyago/destination/utils/api.dart';
+// import 'package:voyago/destination/utils/confg.dart';
 // import 'package:voyago/feature/auth/register/data/models/register_model.dart';
 // import 'package:voyago/feature/auth/register/data/repo/register_repo.dart';
 // import 'package:voyago/feature/auth/register/data/repo/register_repo_imp.dart';

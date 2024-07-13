@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:voyago/core/utils/confg.dart';
 import 'package:voyago/core/widgets/shimmer/load_List.dart';
-import 'package:voyago/feature/core/data/models/destination_model.dart';
-import 'package:voyago/feature/core/presentation/manager/destination_cubit/destination_state.dart';
 
 import '../../../../../../core/widgets/custom_failure_error.dart';
-import '../../../../../core/data/enums/destination_enum.dart';
+import '../../../data/models/destination_model.dart';
 import '../../manager/destination_cubit/destination_cubit.dart';
+import '../../manager/destination_cubit/destination_state.dart';
 import 'destination_item.dart';
 
 
 
 class DestinationListView extends StatelessWidget {
-  const DestinationListView({super.key, required this.type});
-  final DestinationListType type;
+  const DestinationListView({super.key, required this.url});
+  final String url;
   @override
 
   @override
   Widget build(BuildContext context) {
 
-    context.read<DestinationCubit>().fetchDestinationInitial(type);
+    context.read<DestinationCubit>().fetchDestinationInitial(url);
 
     return BlocBuilder<DestinationCubit, DestinationState>(
       builder: (ctx,state){
