@@ -9,6 +9,7 @@ import 'package:voyago/feature/forgot_password/presentation/views/success_sginup
 import 'package:voyago/feature/forgot_password/presentation/views/verification_code_passwordview.dart';
 import 'package:voyago/feature/get_started/presentation/views/get_started.dart';
 import 'package:voyago/feature/profile/presentation/views/edit_profile_view.dart';
+import 'package:voyago/feature/profile/presentation/views/setting_view.dart';
 import 'package:voyago/feature/search/presentation/views/search_view.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/reviews_view.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/checkout_view.dart';
@@ -52,6 +53,7 @@ class AppRouter {
   static const kFillWalletView = "/FillWalletView";
   static const kHistoryWalletView = "/HistoryWalletView";
   static const kDetilesWaletHistoryView = "/DetilesWaletHistoryView";
+static const kSettingsView= "/SettingsView";
 
 //// ****** //////////////////////////////
   static final router = GoRouter(
@@ -150,6 +152,10 @@ class AppRouter {
       GoRoute(
         path: kDetilesWaletHistoryView,
         builder: (context, state) => const DetilesWaletHistoryView(),
+      ),
+GoRoute(
+        path: kSettingsView,
+        builder: (context, state) => SettingsView(),
       ),
     ],
   );

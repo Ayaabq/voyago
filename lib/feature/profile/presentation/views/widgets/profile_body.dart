@@ -61,7 +61,7 @@ class ProfileBody extends StatelessWidget {
                 icon: Iconsax.setting_2,
                 title: 'App settings',
                 onTap: () {
-                  // Handle tap
+                  GoRouter.of(context).push(AppRouter.kSettingsView);
                 },
               ),
               Divider(
