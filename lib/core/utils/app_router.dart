@@ -26,6 +26,7 @@ import '../../feature/auth/register/presentation/manger/register_cubit/register_
 import '../../feature/auth/register/presentation/views/register_view.dart';
 import '../../feature/forgot_password/presentation/manger/codeForgotPass/code_forgot_password_cubit.dart';
 import '../../feature/forgot_password/presentation/manger/restPassword/rest_password_cubit.dart';
+import '../../feature/profile/presentation/views/help_view.dart';
 import '../../feature/profile/presentation/views/personal_info_view.dart';
 import '../widgets/bottom_bar.dart';
 
@@ -53,7 +54,8 @@ class AppRouter {
   static const kFillWalletView = "/FillWalletView";
   static const kHistoryWalletView = "/HistoryWalletView";
   static const kDetilesWaletHistoryView = "/DetilesWaletHistoryView";
-static const kSettingsView= "/SettingsView";
+  static const kSettingsView = "/SettingsView";
+  static const kHelpView = "/HelpView";
 
 //// ****** //////////////////////////////
   static final router = GoRouter(
@@ -153,9 +155,13 @@ static const kSettingsView= "/SettingsView";
         path: kDetilesWaletHistoryView,
         builder: (context, state) => const DetilesWaletHistoryView(),
       ),
-GoRoute(
+      GoRoute(
         path: kSettingsView,
-        builder: (context, state) => SettingsView(),
+        builder: (context, state) => const SettingsView(),
+      ),
+      GoRoute(
+        path: kHelpView,
+        builder: (context, state) => const HelpView(),
       ),
     ],
   );

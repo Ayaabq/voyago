@@ -71,7 +71,7 @@ class ProfileBody extends StatelessWidget {
                 icon: Iconsax.message_question,
                 title: 'Help and support',
                 onTap: () {
-                  // Handle tap
+                  GoRouter.of(context).push(AppRouter.kHelpView);
                 },
               ),
               Divider(
@@ -176,12 +176,16 @@ class ProfilePicture extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Stack(
+    return Stack(
       children: [
         Center(
           child: CircleAvatar(
-            radius: 60,
-            backgroundImage: AssetImage(Assets.homeDummyOffer),
+            radius: 62,
+            backgroundColor: CustomColors.kWhite[0],
+            child: const CircleAvatar(
+              radius: 60,
+              backgroundImage: AssetImage(Assets.homeDummyOffer),
+            ),
           ),
         ),
         // Positioned(
