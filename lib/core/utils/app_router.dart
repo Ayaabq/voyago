@@ -13,7 +13,9 @@ import 'package:voyago/feature/search/presentation/views/search_view.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/reviews_view.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/checkout_view.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/trip_view.dart';
+import 'package:voyago/feature/wallet/presentation/views/detiles_wallet_history.dart';
 import 'package:voyago/feature/wallet/presentation/views/fill_wallet.dart';
+import 'package:voyago/feature/wallet/presentation/views/hestory_wallet.dart';
 import 'package:voyago/feature/wallet/presentation/views/wallet_view.dart';
 
 import '../../constants.dart';
@@ -48,6 +50,8 @@ class AppRouter {
   static const kEditProfileView = "/EditProfileView";
   static const kWalletView = "/WalletView";
   static const kFillWalletView = "/FillWalletView";
+  static const kHistoryWalletView = "/HistoryWalletView";
+  static const kDetilesWaletHistoryView = "/DetilesWaletHistoryView";
 
 //// ****** //////////////////////////////
   static final router = GoRouter(
@@ -120,7 +124,7 @@ class AppRouter {
         builder: (context, state) => const CheckoutScreen(),
       ),
 
-// **** profile ***////
+// **** profile   &  wallet  ***////
 
       GoRoute(
         path: kPersonalInformationView,
@@ -138,6 +142,14 @@ class AppRouter {
       GoRoute(
         path: kFillWalletView,
         builder: (context, state) => const FillWalletView(),
+      ),
+      GoRoute(
+        path: kHistoryWalletView,
+        builder: (context, state) => const HistoryWalletView(),
+      ),
+      GoRoute(
+        path: kDetilesWaletHistoryView,
+        builder: (context, state) => const DetilesWaletHistoryView(),
       ),
     ],
   );

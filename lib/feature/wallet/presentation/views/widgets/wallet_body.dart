@@ -4,7 +4,6 @@ import 'package:voyago/constants.dart';
 import 'package:voyago/core/utils/app_router.dart';
 import 'package:voyago/core/utils/assets.dart';
 import 'package:voyago/feature/auth/login/presentation/views/widgets/button_auth.dart';
-import 'package:voyago/generated/assets.dart';
 
 import '../../../../profile/presentation/views/widgets/appbar_profile.dart';
 
@@ -37,7 +36,12 @@ class WalletBody extends StatelessWidget {
         const SizedBox(height: 16),
         Padding(
           padding: kPaddingHoriz24,
-          child: ButtonAuth(title: "Wallet history", onTap: () {}),
+          child: ButtonAuth(
+              title: "Wallet history",
+              onTap: () {
+                GoRouter.of(context)
+                    .pushReplacement(AppRouter.kHistoryWalletView);
+              }),
         ),
       ]),
     );
