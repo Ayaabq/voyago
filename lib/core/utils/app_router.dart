@@ -1,16 +1,15 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:voyago/core/utils/services_locater.dart';
+import 'package:voyago/feature/destination/presentation/views/widgets/destination_details_view.dart';
 
 import 'package:voyago/feature/forgot_password/presentation/views/forgot_password_view.dart';
 import 'package:voyago/feature/forgot_password/presentation/views/new_password_view.dart';
 import 'package:voyago/feature/forgot_password/presentation/views/success_password_view.dart';
 import 'package:voyago/feature/forgot_password/presentation/views/success_sginup_view.dart';
-import 'package:voyago/feature/auth/register/presentation/views/verification_sginup_view.dart';
 import 'package:voyago/feature/forgot_password/presentation/views/verification_code_passwordview.dart';
 import 'package:voyago/feature/get_started/presentation/views/get_started.dart';
 import 'package:voyago/feature/profile/presentation/views/edit_profile_view.dart';
-import 'package:voyago/feature/profile/presentation/views/widgets/profile_body.dart';
 import 'package:voyago/feature/search/presentation/views/search_view.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/reviews_view.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/checkout_view.dart';
@@ -18,13 +17,11 @@ import 'package:voyago/feature/trip&booking/presentation/views/trip_view.dart';
 
 import '../../constants.dart';
 import '../../feature/auth/login/presentation/views/login_view.dart';
-import '../../feature/auth/register/data/models/verification_model.dart';
 import '../../feature/auth/register/data/repo/auth_register_repo_imp.dart';
 import '../../feature/auth/register/presentation/manger/register_cubit/register_cubit.dart';
 import '../../feature/auth/register/presentation/views/register_view.dart';
 import '../../feature/forgot_password/presentation/manger/codeForgotPass/code_forgot_password_cubit.dart';
 import '../../feature/forgot_password/presentation/manger/restPassword/rest_password_cubit.dart';
-import '../../feature/forgot_password/presentation/views/widgets/verification_code_body_password.dart';
 import '../../feature/profile/presentation/views/personal_info_view.dart';
 import '../widgets/bottom_bar.dart';
 
@@ -47,8 +44,10 @@ class AppRouter {
 
   ///*****          profile     **** */
   static const kPersonalInformationView = "/PersonalInformationView";
-static const kEditProfileView = "/EditProfileView";
-////
+  static const kEditProfileView = "/EditProfileView";
+  ///*****          destination     *****///
+  static const kDestinationDetailsView = "/DestinationDetailsView";
+
   static final router = GoRouter(
     initialLocation: initial,
     routes: [
@@ -71,7 +70,7 @@ static const kEditProfileView = "/EditProfileView";
         path: kForgotPasswordView,
         builder: (context, state) => const ForgotPasswordView(),
       ),
-     
+
       GoRoute(
         path: kVerificationCodeView,
         builder: (context, state) {
@@ -119,16 +118,22 @@ static const kEditProfileView = "/EditProfileView";
         builder: (context, state) => const CheckoutScreen(),
       ),
 
-// **** profile ***////
+      // **** profile ***////
 
       GoRoute(
         path: kPersonalInformationView,
         builder: (context, state) => const PersonalInformationView(),
       ),
 
- GoRoute(
+      GoRoute(
         path: kEditProfileView,
         builder: (context, state) => const EditProfileView(),
+      ),
+
+      // **** destination ***////
+      GoRoute(
+        path: kDestinationDetailsView,
+        builder: (context, state) => const DestinationDetailsView(),
       ),
     ],
   );

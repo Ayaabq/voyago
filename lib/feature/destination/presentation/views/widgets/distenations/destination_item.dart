@@ -12,12 +12,14 @@ class DestinationItem extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 1,
       child: Card(
+
         elevation: 4,
           clipBehavior: Clip.antiAlias,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
-        child: DestinationBackground(destinationModel: destinationModel,)
+        child: DestinationBackground(destinationModel: destinationModel,),
+
       ),
     );
   }
