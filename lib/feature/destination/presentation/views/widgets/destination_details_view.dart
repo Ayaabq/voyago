@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/core/widgets/custom_card.dart';
-import 'package:voyago/feature/destination/presentation/views/widgets/destination_background.dart';
+import 'package:voyago/feature/destination/presentation/views/widgets/destination_details_background.dart';
 import 'package:voyago/feature/destination/presentation/views/widgets/pictures_list.dart';
 import 'package:voyago/feature/destination/presentation/views/widgets/place_details.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/trips/trips_list_view.dart';
@@ -21,7 +21,7 @@ class DestinationDetailsView extends StatelessWidget {
       body: SingleChildScrollView(
         child: Stack(
           children: [
-           const DestinationBackground(),
+           const DestinationDetailsBackground(),
         
              Padding(
                padding:  EdgeInsets.only(

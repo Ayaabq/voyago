@@ -5,7 +5,7 @@ import 'package:voyago/core/errors/failure.dart';
 import 'package:voyago/feature/favorite/data/repo/favorite_repo.dart';
 
 import '../../../../core/domain/services/api.dart';
-import '../../presentation/manager/change_favorite_cubit/favorite_destination_state.dart';
+import '../../presentation/manager/change_favorite_cubit/favorite_state.dart';
 
 
 class FavoriteRepoImp implements FavoriteRepo {

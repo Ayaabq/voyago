@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/screen_size_util.dart';
 
-class DestinationBackground extends StatelessWidget {
-  const DestinationBackground({super.key});
+class DestinationDetailsBackground extends StatelessWidget {
+  const DestinationDetailsBackground({super.key});
 
   @override
   Widget build(BuildContext context) {
