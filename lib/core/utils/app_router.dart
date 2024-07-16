@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:voyago/core/utils/services_locater.dart';
+import 'package:voyago/feature/books/presentation/views/widgets/detiles_books_view.dart';
 
 import 'package:voyago/feature/forgot_password/presentation/views/forgot_password_view.dart';
 import 'package:voyago/feature/forgot_password/presentation/views/new_password_view.dart';
@@ -56,6 +57,9 @@ class AppRouter {
   static const kDetilesWaletHistoryView = "/DetilesWaletHistoryView";
   static const kSettingsView = "/SettingsView";
   static const kHelpView = "/HelpView";
+
+//***   books */
+static const kDetilesBooksView = "/DetilesBooksView";
 
 //// ****** //////////////////////////////
   static final router = GoRouter(
@@ -162,6 +166,12 @@ class AppRouter {
       GoRoute(
         path: kHelpView,
         builder: (context, state) => const HelpView(),
+      ),
+
+/* ///  books    /// */
+GoRoute(
+        path: kDetilesBooksView,
+        builder: (context, state) => const DetilesBooksView(),
       ),
     ],
   );

@@ -43,4 +43,5 @@ class Wallet extends AssetsData {
   static const failureDialog = "assets/images/wallet/failure_dialog.png";
   static const successDialog = "assets/images/wallet/success_dialog.png";
   static const bankImage = "assets/images/wallet/bank.png";
+static const booksEmpty = "assets/images/wallet/books.png";
 }

@@ -59,6 +59,7 @@ library;
 
 import 'package:flutter/material.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
+import 'package:voyago/feature/books/presentation/views/books_view.dart';
 
 import '../../../../main.dart';
 
@@ -82,7 +83,7 @@ class _BottomBarState extends State<BottomBar> {
 
   final List<Widget> _screens = [
     const HomeView(),
-    Container(),
+    const BooksView(),
     Container(),
     const ProfileView(),
   ];

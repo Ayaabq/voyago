@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:voyago/core/utils/validator_manager.dart';
-import 'package:voyago/feature/auth/login/presentation/views/widgets/custom_text_field.dart';
 import 'package:voyago/feature/profile/presentation/views/widgets/profile_textfield.dart';
 
-import '../../../../../core/utils/app_router.dart';
 import '../../../../../core/utils/custom_colors.dart';
 import '../../../../../core/utils/screen_size_util.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../auth/login/presentation/views/widgets/button_auth.dart';
 import 'appbar_profile.dart';
 import 'edit_image_prof.dart';
-import 'info_user.dart';
 
 class EditProfileBody extends StatelessWidget {
   const EditProfileBody({super.key});
