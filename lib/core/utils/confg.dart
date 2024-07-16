@@ -17,6 +17,9 @@ class Confg {
   //home
   static const String trendingDestinationsUrl = "/trending_destenation";
   static const String topAttractionsUrl = "/top_attractions";
+  static const String popularAttractionsUrl = "/top_attractions";
+  static const String topTrips = "/top_trips";
+  static const String popularTrips = "/popular_trips";
 
 
   //favorite

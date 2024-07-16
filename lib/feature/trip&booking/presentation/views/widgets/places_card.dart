@@ -23,7 +23,7 @@ class PlacesCard extends StatelessWidget {
             Text("Attraction",
               style: Styles.textStyle20W700,),
             SizedBox(height: 11,),
-            AttractionView(url: Confg.topAttractionsUrl)
+            AttractionView(url: Confg.topAttractionsUrl,viewKey: Key("value"),)
           ],
         ));
   }

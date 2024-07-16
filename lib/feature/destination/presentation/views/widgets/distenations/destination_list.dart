@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:voyago/core/utils/confg.dart';
+import 'package:go_router/go_router.dart';
+import 'package:voyago/core/utils/app_router.dart';
 import 'package:voyago/core/widgets/shimmer/load_List.dart';
 
 
@@ -39,7 +40,9 @@ class DestinationListView extends StatelessWidget {
 
                           child: DestinationItem(
                             destinationModel: destinations[index] ,),
-                        onTap: (){}
+                        onTap: (){
+                          GoRouter.of(context).push(AppRouter.kDestinationDetailsView);
+                        }
 
                       ),
                       SizedBox(width: 5,)

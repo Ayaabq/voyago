@@ -8,7 +8,7 @@ import 'package:voyago/feature/home/presentation/views/widgets/home_view_body.da
 
 import '../../../destination/data/repo/destination_repo_impl.dart';
 import '../../../destination/presentation/manager/destination_cubit/destination_cubit.dart';
-import '../../../favorite/presentation/manager/change_favorite_cubit/favorite_destination_cubit.dart';
+import '../../../favorite/presentation/manager/change_favorite_cubit/favorite_cubit.dart';
 
 
 class HomeView extends StatelessWidget {

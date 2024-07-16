@@ -8,8 +8,8 @@ import 'package:voyago/core/widgets/toast/toast_extensions.dart';
 
 import '../../../../../../core/utils/assets.dart';
 import '../../../../../../core/utils/confg.dart';
-import '../../../../../favorite/presentation/manager/change_favorite_cubit/favorite_destination_cubit.dart';
-import '../../../../../favorite/presentation/manager/change_favorite_cubit/favorite_destination_state.dart';
+import '../../../../../favorite/presentation/manager/change_favorite_cubit/favorite_cubit.dart';
+import '../../../../../favorite/presentation/manager/change_favorite_cubit/favorite_state.dart';
 import '../../../../../favorite/presentation/views/favorite_icon_button.dart';
 import '../../../../data/models/destination_model.dart';
 
@@ -64,7 +64,7 @@ class DestinationBackground extends StatelessWidget {
 
                   context
                       .read<ChangeFavoriteCubit>()
-                      .addTrendingDestination2Favourite(destinationModel!.id,
+                      .addIDItem2Favourite(destinationModel!.id,
                       Confg.addDestinationFavouriteUrl,
                   destinationModel: destinationModel);
                 },

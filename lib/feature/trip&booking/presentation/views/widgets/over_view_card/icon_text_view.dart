@@ -25,6 +25,8 @@ class IconText extends StatelessWidget {
                 color: iconColor,),
                 const SizedBox(width: 2,),
                 Text(" $title",
+                overflow: TextOverflow.visible,
+                maxLines: 10,
                 style: textStyle??Styles.textStyle14W400,),
                 if(price!=null)
                   Text("$price \$",

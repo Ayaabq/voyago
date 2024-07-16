@@ -1,7 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:voyago/core/utils/services_locater.dart';
-import 'package:voyago/feature/books/presentation/views/widgets/detiles_books_view.dart';
 
 import 'package:voyago/feature/forgot_password/presentation/views/forgot_password_view.dart';
 import 'package:voyago/feature/forgot_password/presentation/views/new_password_view.dart';
@@ -10,7 +9,7 @@ import 'package:voyago/feature/forgot_password/presentation/views/success_sginup
 import 'package:voyago/feature/forgot_password/presentation/views/verification_code_passwordview.dart';
 import 'package:voyago/feature/get_started/presentation/views/get_started.dart';
 import 'package:voyago/feature/profile/presentation/views/edit_profile_view.dart';
-import 'package:voyago/feature/profile/presentation/views/setting_view.dart';
+
 import 'package:voyago/feature/search/presentation/views/search_view.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/reviews_view.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/checkout_view.dart';
@@ -25,10 +24,15 @@ import '../../feature/auth/login/presentation/views/login_view.dart';
 import '../../feature/auth/register/data/repo/auth_register_repo_imp.dart';
 import '../../feature/auth/register/presentation/manger/register_cubit/register_cubit.dart';
 import '../../feature/auth/register/presentation/views/register_view.dart';
+import '../../feature/books/presentation/views/widgets/detiles_books_view.dart';
+import '../../feature/destination/presentation/views/widgets/destination_details_view.dart';
 import '../../feature/forgot_password/presentation/manger/codeForgotPass/code_forgot_password_cubit.dart';
 import '../../feature/forgot_password/presentation/manger/restPassword/rest_password_cubit.dart';
+
+
 import '../../feature/profile/presentation/views/help_view.dart';
 import '../../feature/profile/presentation/views/personal_info_view.dart';
+import '../../feature/profile/presentation/views/setting_view.dart';
 import '../widgets/bottom_bar.dart';
 
 class AppRouter {
@@ -51,6 +55,9 @@ class AppRouter {
   ///*****          profile     **** */
   static const kPersonalInformationView = "/PersonalInformationView";
   static const kEditProfileView = "/EditProfileView";
+  ///*****          destination     *****///
+  static const kDestinationDetailsView = "/DestinationDetailsView";
+
   static const kWalletView = "/WalletView";
   static const kFillWalletView = "/FillWalletView";
   static const kHistoryWalletView = "/HistoryWalletView";
@@ -62,6 +69,7 @@ class AppRouter {
 static const kDetilesBooksView = "/DetilesBooksView";
 
 //// ****** //////////////////////////////
+
   static final router = GoRouter(
     initialLocation: initial,
     routes: [
@@ -132,6 +140,7 @@ static const kDetilesBooksView = "/DetilesBooksView";
         builder: (context, state) => const CheckoutScreen(),
       ),
 
+
 // **** profile   &  wallet  ***////
 
       GoRoute(
@@ -143,6 +152,11 @@ static const kDetilesBooksView = "/DetilesBooksView";
         path: kEditProfileView,
         builder: (context, state) => const EditProfileView(),
       ),
+
+      // **** destination ***////
+      GoRoute(
+        path: kDestinationDetailsView,
+        builder: (context, state) => const DestinationDetailsView(),),
       GoRoute(
         path: kWalletView,
         builder: (context, state) => const WalletView(),
