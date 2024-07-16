@@ -16,6 +16,7 @@ class DestinationDetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     ScreenSizeUtil.init(context);
     return Scaffold(
+
       body: SingleChildScrollView(
         child: Stack(
           children: [

@@ -13,8 +13,8 @@ void main() async {
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   await Future.delayed(const Duration(seconds: 2));
   // things to do when the splash is viewing
- // dynamic hasToken = await AppStorage.instance.isReadData(AppStorage.TOKEN);
- // if (hasToken) initial = AppRouter.kHomeView;
+  // dynamic hasToken = await AppStorage.instance.isReadData(AppStorage.TOKEN);
+  // if (hasToken) initial = AppRouter.kHomeView;
   FlutterNativeSplash.remove();
   setUpServiceLocater();
   runApp(const VoyagoApp());
@@ -47,5 +47,6 @@ class VoyagoApp extends StatelessWidget {
     //   home: DestinationDetailsView(),
     //
     // );
+
   }
 }

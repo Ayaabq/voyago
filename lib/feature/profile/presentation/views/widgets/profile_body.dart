@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
@@ -42,7 +41,7 @@ class ProfileBody extends StatelessWidget {
                 icon: Iconsax.wallet_24,
                 title: 'My wallet',
                 onTap: () {
-                  // Handle tap
+                  GoRouter.of(context).push(AppRouter.kWalletView);
                 },
               ),
               Divider(
@@ -62,7 +61,7 @@ class ProfileBody extends StatelessWidget {
                 icon: Iconsax.setting_2,
                 title: 'App settings',
                 onTap: () {
-                  // Handle tap
+                  GoRouter.of(context).push(AppRouter.kSettingsView);
                 },
               ),
               Divider(
@@ -72,7 +71,7 @@ class ProfileBody extends StatelessWidget {
                 icon: Iconsax.message_question,
                 title: 'Help and support',
                 onTap: () {
-                  // Handle tap
+                  GoRouter.of(context).push(AppRouter.kHelpView);
                 },
               ),
               Divider(
@@ -177,12 +176,16 @@ class ProfilePicture extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Stack(
+    return Stack(
       children: [
         Center(
           child: CircleAvatar(
-            radius: 60,
-            backgroundImage: AssetImage(Assets.homeDummyOffer),
+            radius: 62,
+            backgroundColor: CustomColors.kWhite[0],
+            child: const CircleAvatar(
+              radius: 60,
+              backgroundImage: AssetImage(Assets.homeDummyOffer),
+            ),
           ),
         ),
         // Positioned(
@@ -202,4 +205,3 @@ class ProfilePicture extends StatelessWidget {
     );
   }
 }
-

@@ -35,3 +35,12 @@ class HomeAssets extends AssetsData {
   static const dummyTrip = "assets/images/home/dummy_trip.png";
   static const dummyAttraction = "assets/images/home/dummy_attraction.png";
 }
+
+class Wallet extends AssetsData {
+  static const walletImage = "assets/images/wallet/wallet.png";
+  static const fillWalletImage = "assets/images/wallet/fill_wallet.png";
+  static const wattingDialog = "assets/images/wallet/watting.png";
+  static const failureDialog = "assets/images/wallet/failure_dialog.png";
+  static const successDialog = "assets/images/wallet/success_dialog.png";
+  static const bankImage = "assets/images/wallet/bank.png";
+}

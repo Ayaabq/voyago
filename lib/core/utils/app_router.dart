@@ -10,10 +10,15 @@ import 'package:voyago/feature/forgot_password/presentation/views/success_sginup
 import 'package:voyago/feature/forgot_password/presentation/views/verification_code_passwordview.dart';
 import 'package:voyago/feature/get_started/presentation/views/get_started.dart';
 import 'package:voyago/feature/profile/presentation/views/edit_profile_view.dart';
+
 import 'package:voyago/feature/search/presentation/views/search_view.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/reviews_view.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/checkout_view.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/trip_view.dart';
+import 'package:voyago/feature/wallet/presentation/views/detiles_wallet_history.dart';
+import 'package:voyago/feature/wallet/presentation/views/fill_wallet.dart';
+import 'package:voyago/feature/wallet/presentation/views/hestory_wallet.dart';
+import 'package:voyago/feature/wallet/presentation/views/wallet_view.dart';
 
 import '../../constants.dart';
 import '../../feature/auth/login/presentation/views/login_view.dart';
@@ -22,7 +27,11 @@ import '../../feature/auth/register/presentation/manger/register_cubit/register_
 import '../../feature/auth/register/presentation/views/register_view.dart';
 import '../../feature/forgot_password/presentation/manger/codeForgotPass/code_forgot_password_cubit.dart';
 import '../../feature/forgot_password/presentation/manger/restPassword/rest_password_cubit.dart';
+
+
+import '../../feature/profile/presentation/views/help_view.dart';
 import '../../feature/profile/presentation/views/personal_info_view.dart';
+import '../../feature/profile/presentation/views/setting_view.dart';
 import '../widgets/bottom_bar.dart';
 
 class AppRouter {
@@ -47,6 +56,15 @@ class AppRouter {
   static const kEditProfileView = "/EditProfileView";
   ///*****          destination     *****///
   static const kDestinationDetailsView = "/DestinationDetailsView";
+
+  static const kWalletView = "/WalletView";
+  static const kFillWalletView = "/FillWalletView";
+  static const kHistoryWalletView = "/HistoryWalletView";
+  static const kDetilesWaletHistoryView = "/DetilesWaletHistoryView";
+  static const kSettingsView = "/SettingsView";
+  static const kHelpView = "/HelpView";
+
+//// ****** //////////////////////////////
 
   static final router = GoRouter(
     initialLocation: initial,
@@ -118,7 +136,8 @@ class AppRouter {
         builder: (context, state) => const CheckoutScreen(),
       ),
 
-      // **** profile ***////
+
+// **** profile   &  wallet  ***////
 
       GoRoute(
         path: kPersonalInformationView,
@@ -133,7 +152,30 @@ class AppRouter {
       // **** destination ***////
       GoRoute(
         path: kDestinationDetailsView,
-        builder: (context, state) => const DestinationDetailsView(),
+        builder: (context, state) => const DestinationDetailsView(),),
+      GoRoute(
+        path: kWalletView,
+        builder: (context, state) => const WalletView(),
+      ),
+      GoRoute(
+        path: kFillWalletView,
+        builder: (context, state) => const FillWalletView(),
+      ),
+      GoRoute(
+        path: kHistoryWalletView,
+        builder: (context, state) => const HistoryWalletView(),
+      ),
+      GoRoute(
+        path: kDetilesWaletHistoryView,
+        builder: (context, state) => const DetilesWaletHistoryView(),
+      ),
+      GoRoute(
+        path: kSettingsView,
+        builder: (context, state) => const SettingsView(),
+      ),
+      GoRoute(
+        path: kHelpView,
+        builder: (context, state) => const HelpView(),
       ),
     ],
   );

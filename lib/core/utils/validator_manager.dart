@@ -50,6 +50,16 @@ class ValidatorManager {
     return null;
   }
 
+  String? validateWallet(String value) {
+    if (value.isEmpty) {
+      return 'Please enter your number';
+    }
+    if (!regExp.digitRegex.hasMatch(value)) {
+      return 'Please enter a valid digit number';
+    }
+    return null;
+  }
+
   String? validatePassword(String value) {
     // Define your password criteria
     const int minLength = 8;
