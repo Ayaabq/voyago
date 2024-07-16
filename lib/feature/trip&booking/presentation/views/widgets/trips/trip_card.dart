@@ -4,13 +4,14 @@ import 'package:voyago/feature/trip&booking/presentation/views/widgets/trips/tri
 
 import '../../../../../../core/utils/assets.dart';
 import '../../../../../favorite/presentation/views/favorite_icon_button.dart';
+import '../../../../data/models/trip_model.dart';
 
 
 
 
 class TripCard extends StatelessWidget {
-  const TripCard({super.key});
-
+  const TripCard({super.key, required this.tripModel});
+  final TripModel tripModel;
   @override
   Widget build(BuildContext context) {
     // Get the screen size
@@ -69,12 +70,12 @@ class TripCard extends StatelessWidget {
               child: FavoriteButton(),
             ),
 
-            const Positioned(
+             Positioned(
               top: 125,
               // right: 15,
               left: 10,
               right: 10,
-              child: TripDetailsColumn(),
+              child: TripDetailsColumn(tripModel: tripModel,),
             ),
           ],
         ),

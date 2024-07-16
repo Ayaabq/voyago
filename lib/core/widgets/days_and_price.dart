@@ -3,14 +3,14 @@ import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/core/utils/styles.dart';
 
 class DaysAndPriceWidget extends StatelessWidget {
-  final String days;
-  final String fromPrice;
+  final int days;
+  final double fromPrice;
 
   const DaysAndPriceWidget({
-    Key? key,
+    super.key,
     required this.days,
     required this.fromPrice,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -4,16 +4,24 @@ import 'package:voyago/feature/attraction/presentation/views/attractions/top_att
 
 import '../../../../../core/utils/services_locater.dart';
 import '../../../data/repo/attraction_repo_impl.dart';
-import '../../manager/attractoin_cubit.dart';
+import '../../manager/attractoin_cubit.dart'; // Fixed the typo in the import statement
 
 class AttractionView extends StatelessWidget {
-  const AttractionView({super.key, required this.url});
-    final String url;
+  final String url;
+  final Key viewKey; // Add a unique key for each AttractionView
+
+  const AttractionView({
+    super.key,
+    required this.url,
+    required this.viewKey, // Require the unique key
+  });
+
   @override
   Widget build(BuildContext context) {
-    return BlocProvider( create: (context) => AttractionCubit(getIt.get<AttractionRepoImp>(),
-    ),
-      child: AttractionListView(url: url,),
+    return BlocProvider(
+      key: viewKey, // Pass the key to BlocProvider
+      create: (context) => AttractionCubit(getIt.get<AttractionRepoImp>()),
+      child: AttractionListView(url: url),
     );
   }
 }

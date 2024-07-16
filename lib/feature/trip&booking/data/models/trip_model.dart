@@ -3,27 +3,40 @@ class TripModel {
   String name;
   String image;
   bool isFavourite;
+  num duration;
+  String destination;
+  num price;
+  double rate;
 
   TripModel({
     required this.id,
     required this.name,
     required this.image,
     required this.isFavourite,
-  });
+    required this.rate,
+    required this.price,
+    required this.destination,
+    required this.duration
+  }) ;
 
-  // Factory constructor to create a Destination object from JSON
+  // Factory constructor to create a trip object from JSON
+
   factory TripModel.fromJson(Map<String, dynamic> json) {
     return TripModel(
       id: json['id'],
       name: json['name'],
       image: json['image'],
       isFavourite: json['is_favourite'],
+      rate: double.parse(json['rate'],) ,
+      price: json['price'],
+      destination: json['destenation'],
+      duration: json['duration'],
     );
   }
 
 
   void changeFavouriteStatus(){
-    this.isFavourite=!this.isFavourite;
+    isFavourite=!isFavourite;
   }
   // Method to convert a Destination object to JSON
   Map<String, dynamic> toJson() {
@@ -32,6 +45,10 @@ class TripModel {
       'name': name,
       'image': image,
       'is_favourite': isFavourite,
+      "duration": duration,
+      "destenation": destination,
+      "price": price,
+      "rate": rate,
     };
   }
 }

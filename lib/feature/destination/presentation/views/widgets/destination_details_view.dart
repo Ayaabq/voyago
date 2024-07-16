@@ -6,6 +6,7 @@ import 'package:voyago/feature/destination/presentation/views/widgets/pictures_l
 import 'package:voyago/feature/destination/presentation/views/widgets/place_details.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/trips/trips_list_view.dart';
 
+import '../../../../../core/utils/confg.dart';
 import '../../../../../core/utils/screen_size_util.dart';
 import '../../../../trip&booking/presentation/views/widgets/reviews/reviews_card.dart';
 
@@ -28,7 +29,7 @@ class DestinationDetailsView extends StatelessWidget {
                  left: 12,
                  right: 12
                ),
-               child:   const Column(
+               child:    const Column(
                 children: [
         
                   CustomCard(content:PlaceDetails(),
@@ -41,7 +42,8 @@ class DestinationDetailsView extends StatelessWidget {
                     
                   ),
                   CustomCard(
-                    content: TopTripsListView(),
+                    // TODO replace with the right url
+                    content: TripsListView(url:Confg.topTrips),
                     title: "Related trips",),
                   CustomCard(
                     title: "Pictures",
