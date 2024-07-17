@@ -1,15 +1,102 @@
+// import 'package:flutter/material.dart';
+// import 'package:iconsax/iconsax.dart';
+// import 'package:voyago/core/utils/validator_manager.dart';
+// import 'package:voyago/feature/profile/presentation/views/widgets/profile_textfield.dart';
+
+// import '../../../../../core/utils/custom_colors.dart';
+// import '../../../../../core/utils/screen_size_util.dart';
+// import '../../../../../core/utils/styles.dart';
+// import '../../../../auth/login/presentation/views/widgets/button_auth.dart';
+// import 'appbar_profile.dart';
+// import 'edit_image_prof.dart';
+
+// class EditProfileBody extends StatelessWidget {
+//   const EditProfileBody({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: SingleChildScrollView(
+//         child: Column(
+//           children: [
+//             const ProfileAppBar(
+//               titel: 'Edit Personal Information',
+//             ),
+//             const SizedBox(height: 30),
+//             const ProfilePictureEdit(),
+//             const SizedBox(height: 30),
+//             InformationEdit(
+//               icon: Iconsax.user,
+//               label: 'User name',
+//               value: 'Ayalmalla',
+//               child: TextFieldProfile(
+//                   hint: "",
+//                   keyboardType: TextInputType.name,
+//                   validator: (value) => ValidatorManager().validateName(value)),
+//             ),
+//             InformationEdit(
+//               icon: Icons.email_outlined,
+//               label: 'Email',
+//               value: 'ayalmallah@gmail.com',
+//               child: TextFieldProfile(
+//                   hint: "",
+//                   keyboardType: TextInputType.emailAddress,
+//                   validator: (value) =>
+//                       ValidatorManager().validateEmail(value)),
+//             ),
+//             InformationEdit(
+//               icon: Icons.phone,
+//               label: 'Phone Number',
+//               value: '0964682070',
+//               child: TextFieldProfile(
+//                   hint: "",
+//                   keyboardType: TextInputType.number,
+//                   validator: (value) =>
+//                       ValidatorManager().validatePhone(value)),
+//             ),
+//             InformationEdit(
+//               icon: Icons.location_on,
+//               label: 'Hometown',
+//               value: 'Damascus, Syria',
+//               child: TextFieldProfile(
+//                   hint: "",
+//                   keyboardType: TextInputType.name,
+//                   validator: (value) =>
+//                       ValidatorManager().validateLocation(value)),
+//             ),
+//             SizedBox(
+//               height: ScreenSizeUtil.screenHeight * 0.15,
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.symmetric(horizontal: 20),
+//               child: ButtonAuth(
+//                   title: "Edit",
+//                   onTap: () {
+//                     //   GoRouter.of(context).push(AppRouter.kEditProfileView);
+//                   }),
+//             ),
+//             const SizedBox(height: 10),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+
+
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:voyago/core/utils/validator_manager.dart';
 import 'package:voyago/feature/profile/presentation/views/widgets/profile_textfield.dart';
+
 
 import '../../../../../core/utils/custom_colors.dart';
 import '../../../../../core/utils/screen_size_util.dart';
 import '../../../../../core/utils/styles.dart';
+import '../../../../../core/utils/validator_manager.dart';
 import '../../../../auth/login/presentation/views/widgets/button_auth.dart';
 import 'appbar_profile.dart';
 import 'edit_image_prof.dart';
-
 class EditProfileBody extends StatelessWidget {
   const EditProfileBody({super.key});
 
@@ -23,7 +110,7 @@ class EditProfileBody extends StatelessWidget {
               titel: 'Edit Personal Information',
             ),
             const SizedBox(height: 30),
-            const ProfilePictureEdit(),
+ ProfilePictureEdit(),
             const SizedBox(height: 30),
             InformationEdit(
               icon: Iconsax.user,
@@ -37,7 +124,7 @@ class EditProfileBody extends StatelessWidget {
             InformationEdit(
               icon: Icons.email_outlined,
               label: 'Email',
-              value: 'ayalmallah@gmail.com',
+              value: 'ayaalmallah@gmail.com',
               child: TextFieldProfile(
                   hint: "",
                   keyboardType: TextInputType.emailAddress,
@@ -82,7 +169,6 @@ class EditProfileBody extends StatelessWidget {
     );
   }
 }
-
 class InformationEdit extends StatelessWidget {
   final IconData icon;
   final String label;
@@ -125,3 +211,5 @@ class InformationEdit extends StatelessWidget {
     );
   }
 }
+
+//8
