@@ -27,4 +27,9 @@ class Confg {
   static const String addTripFavouriteUrl = "/add_trip_favourite/";
   static const String addAttractionFavouriteUrl = "/add_attraction_favourite/";
 
+
+  // trip
+  static const String tripInfo1 = "/tripInfo1/";
+
+
 }
