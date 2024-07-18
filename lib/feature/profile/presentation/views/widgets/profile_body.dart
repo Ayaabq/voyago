@@ -3,13 +3,10 @@ import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:voyago/core/utils/app_router.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
-import 'package:voyago/core/utils/screen_size_util.dart';
 import 'package:voyago/core/utils/styles.dart';
-import 'package:voyago/core/widgets/custom_sliver_app_bar.dart';
 import 'package:voyago/feature/auth/login/presentation/views/widgets/button_auth.dart';
 import 'package:voyago/generated/assets.dart';
 
-import 'appbar_profile.dart';
 
 class ProfileBody extends StatelessWidget {
   const ProfileBody({super.key});
