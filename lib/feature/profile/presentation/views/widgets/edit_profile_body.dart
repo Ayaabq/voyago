@@ -97,9 +97,14 @@ import '../../../../../core/utils/validator_manager.dart';
 import '../../../../auth/login/presentation/views/widgets/button_auth.dart';
 import 'appbar_profile.dart';
 import 'edit_image_prof.dart';
-class EditProfileBody extends StatelessWidget {
+class EditProfileBody extends StatefulWidget {
   const EditProfileBody({super.key});
 
+  @override
+  State<EditProfileBody> createState() => _EditProfileBodyState();
+}
+
+class _EditProfileBodyState extends State<EditProfileBody> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
