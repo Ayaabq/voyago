@@ -1,31 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:voyago/core/utils/services_locater.dart';
+import 'package:voyago/feature/trip&booking/data/repo/trip_details_repo/trip_details_repo_impl.dart';
+import 'package:voyago/feature/trip&booking/presentation/views/maneger/trip_detials_cubit/trip_details_cubit.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/image_slider/text_column.dart';
 import '../../../../../../core/utils/screen_size_util.dart';
 import 'image_slider.dart';
 
 class ImageCard extends StatelessWidget {
-  const ImageCard({super.key});
-
+  const ImageCard({super.key, required this.id});
+    final int id;
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20), // Increase the radius here
-      ),
-      elevation: 4,
-      margin: EdgeInsets.zero, // Remove card margin
+    return
+    MultiBlocProvider(
+        providers:[ BlocProvider(
+          create: (_)=> TripDetailsCubit(getIt.get<TripDetailsRepoImp>()),
+        )],
+        child:
+        Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20), // Increase the radius here
+          ),
+          elevation: 4,
+          margin: EdgeInsets.zero, // Remove card margin
 
-      child: SizedBox(
-        height: ScreenSizeUtil.dynamicHeight(475 / 812),
-        width: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            ImageSlider(),
-            const TexColumn()
-          ],
-        ),
-      ),
+          child: SizedBox(
+            height: ScreenSizeUtil.dynamicHeight(475 / 812),
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                ImageSlider(),
+                 TexColumn(id: id,)
+              ],
+            ),
+          ),
+        )
     );
   }
 }

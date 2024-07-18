@@ -9,7 +9,8 @@ import 'package:voyago/feature/auth/register/data/repo/auth_register_repo_imp.da
 import 'package:voyago/feature/favorite/data/repo/favorite_repo_impl.dart';
 
 import '../../feature/destination/data/repo/destination_repo_impl.dart';
-import '../../feature/trip&booking/data/repo/trips_repo_impl.dart';
+import '../../feature/trip&booking/data/repo/trip_details_repo/trip_details_repo_impl.dart';
+import '../../feature/trip&booking/data/repo/trips_repo/trips_repo_impl.dart';
 
 final getIt = GetIt.instance;
 
@@ -21,4 +22,5 @@ getIt.registerSingleton<DestinationRepoImp>(DestinationRepoImp(getIt.get<ApiServ
 getIt.registerSingleton<FavoriteRepoImp>(FavoriteRepoImp(getIt.get<ApiServices>()));
 getIt.registerSingleton<AttractionRepoImp>(AttractionRepoImp(getIt.get<ApiServices>()));
 getIt.registerSingleton<TripsRepoImp>(TripsRepoImp(getIt.get<ApiServices>()));
+getIt.registerSingleton<TripDetailsRepoImp>(TripDetailsRepoImp(getIt.get<ApiServices>()));
 }

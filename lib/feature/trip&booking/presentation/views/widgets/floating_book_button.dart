@@ -8,8 +8,8 @@ import '../../../../../core/utils/app_router.dart';
 import 'over_view_card/icon_text_view.dart';
 
 class FloatingBookButton extends StatelessWidget {
-  const FloatingBookButton({super.key});
-
+  const FloatingBookButton({super.key, required this.price});
+  final double price;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,11 +34,11 @@ class FloatingBookButton extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Padding(
-            padding: EdgeInsets.only(top: 15.0),
+           Padding(
+            padding: const EdgeInsets.only(top: 15.0),
             child: IconText(
               icon: Iconsax.coin,
-              price: 80,
+              price: price,
               title: "From ",
             ),
           ),

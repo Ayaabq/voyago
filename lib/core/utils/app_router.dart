@@ -11,6 +11,7 @@ import 'package:voyago/feature/get_started/presentation/views/get_started.dart';
 import 'package:voyago/feature/profile/presentation/views/edit_profile_view.dart';
 
 import 'package:voyago/feature/search/presentation/views/search_view.dart';
+import 'package:voyago/feature/trip&booking/data/models/trip_model.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/reviews_view.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/checkout_view.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/trip_view.dart';
@@ -28,7 +29,6 @@ import '../../feature/books/presentation/views/widgets/detiles_books_view.dart';
 import '../../feature/destination/presentation/views/widgets/destination_details_view.dart';
 import '../../feature/forgot_password/presentation/manger/codeForgotPass/code_forgot_password_cubit.dart';
 import '../../feature/forgot_password/presentation/manger/restPassword/rest_password_cubit.dart';
-
 
 import '../../feature/profile/presentation/views/help_view.dart';
 import '../../feature/profile/presentation/views/personal_info_view.dart';
@@ -55,6 +55,7 @@ class AppRouter {
   ///*****          profile     **** */
   static const kPersonalInformationView = "/PersonalInformationView";
   static const kEditProfileView = "/EditProfileView";
+
   ///*****          destination     *****///
   static const kDestinationDetailsView = "/DestinationDetailsView";
 
@@ -66,7 +67,7 @@ class AppRouter {
   static const kHelpView = "/HelpView";
 
 //***   books */
-static const kDetilesBooksView = "/DetilesBooksView";
+  static const kDetilesBooksView = "/DetilesBooksView";
 
 //// ****** //////////////////////////////
 
@@ -74,6 +75,7 @@ static const kDetilesBooksView = "/DetilesBooksView";
     initialLocation: initial,
     routes: [
       GoRoute(
+
         path: kGetStartedView,
         builder: (ctx, state) => const GetStarted(),
       ),
@@ -125,8 +127,12 @@ static const kDetilesBooksView = "/DetilesBooksView";
       ),
       GoRoute(
         path: kTripDetailsView,
-        builder: (context, state) => const TripView(),
+        builder: (context, state) {
+          final TripModel trip = state.extra as TripModel; // Cast the extra to Trip
+          return TripView(tripModel: trip); // Pass the Trip model to the TripView
+        },
       ),
+
       GoRoute(
         path: kSearchView,
         builder: (context, state) => const SearchView(),
@@ -139,7 +145,6 @@ static const kDetilesBooksView = "/DetilesBooksView";
         path: kCheckoutView,
         builder: (context, state) => const CheckoutScreen(),
       ),
-
 
 // **** profile   &  wallet  ***////
 
@@ -156,7 +161,8 @@ static const kDetilesBooksView = "/DetilesBooksView";
       // **** destination ***////
       GoRoute(
         path: kDestinationDetailsView,
-        builder: (context, state) => const DestinationDetailsView(),),
+        builder: (context, state) => const DestinationDetailsView(),
+      ),
       GoRoute(
         path: kWalletView,
         builder: (context, state) => const WalletView(),
@@ -183,7 +189,7 @@ static const kDetilesBooksView = "/DetilesBooksView";
       ),
 
 /* ///  books    /// */
-GoRoute(
+      GoRoute(
         path: kDetilesBooksView,
         builder: (context, state) => const DetilesBooksView(),
       ),

@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:voyago/feature/trip&booking/data/models/trip_info_1_model.dart';
+import 'package:voyago/feature/trip&booking/data/models/trip_model.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/floating_book_button.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/trip_view_body.dart';
 
 import 'widgets/transparent_app_bar.dart';
 
 class TripView extends StatefulWidget {
-  const TripView({super.key});
+  final TripModel tripModel;
+  const TripView({super.key, required this.tripModel});
 
   @override
   State<TripView> createState() => _TripViewState();
@@ -80,10 +83,10 @@ class _TripViewState extends State<TripView> with SingleTickerProviderStateMixin
   Widget build(BuildContext context) {
     return   Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: const FloatingBookButton(),
+      floatingActionButton:  FloatingBookButton(price: widget.tripModel.price.toDouble(),),
       extendBodyBehindAppBar: true,
       appBar: TransparentAppBar(
-        title:  "Berlin: 3-Hours City Tour by Boat" ,
+        title:  widget.tripModel.name ,
 
         showTabs: _showTabs,
         tabController: _tabController,
@@ -91,6 +94,7 @@ class _TripViewState extends State<TripView> with SingleTickerProviderStateMixin
          _scrollToSection(index);
         },),
       body:  TripViewBody(
+        id: widget.tripModel.id,
         controller: _scrollController,
 
       ),

@@ -36,7 +36,9 @@ class TripsListView extends StatelessWidget {
 
                         child:  TripCard(tripModel:  trips[index],),
                         onTap: (){
-                          GoRouter.of(context).push(AppRouter.kTripDetailsView);
+                          GoRouter.of(context).push(AppRouter.kTripDetailsView,
+                          extra: trips[index]);
+
 
                         }
 

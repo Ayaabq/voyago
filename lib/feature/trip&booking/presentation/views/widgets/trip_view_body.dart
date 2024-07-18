@@ -11,16 +11,17 @@ import 'package:voyago/feature/trip&booking/presentation/views/widgets/places_ca
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/reviews/reviews_card.dart';
 
 class TripViewBody extends StatelessWidget {
-  const TripViewBody({super.key, required this.controller});
+  const TripViewBody({super.key, required this.controller, required this.id});
   final ScrollController controller;
+  final int id;
   @override
   Widget build(BuildContext context) {
 
     return  SingleChildScrollView(
       controller: controller,
-      child: const Column(
+      child:  Column(
         children: [
-         ImageCard(),
+         ImageCard(id: id,),
           SizedBox(height: 5,),
           OverViewCard(),
           DescriptionCard(),
