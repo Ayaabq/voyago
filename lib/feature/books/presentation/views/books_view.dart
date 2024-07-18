@@ -30,46 +30,62 @@ class BooksBody extends StatefulWidget {
 class _BooksBodyState extends State<BooksBody> {
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 3,
-      initialIndex: 0,
-      child: Scaffold(
-        appBar: AppBar(
-          elevation: 5,
-          shadowColor: CustomColors.kGrey[0],
-          title: const Text("My bookings"),
-          centerTitle: true,
-          automaticallyImplyLeading: false,
-          bottom: ButtonsTabBar(
-              radius: 20,
-              width: 120,
-              contentCenter: true,
-              labelStyle: Styles.textStyle14W600
-                  .copyWith(color: Colors.white, fontSize: 13),
-              backgroundColor: CustomColors.kMove[4],
-              unselectedBackgroundColor: CustomColors.kWhite[4],
-              contentPadding: const EdgeInsets.symmetric(
-                horizontal: 15,
-              ),
-              tabs: const [
-                Tab(
-                  text: "Upcoming",
-                ),
-                Tab(
-                  text: "Completed",
-                ),
-                Tab(
-                  text: "Cancelled",
-                ),
-              ]),
-        ),
-        body: const TabBarView(children: [
-          UpcomingBooksView(),
-          CompletedBooksView(),
-          Text("data"),
-        ]),
+    return CustomTabBar(tabs: const [
+      Tab(
+        text: "Upcoming",
       ),
-    );
+      Tab(
+        text: "Completed",
+      ),
+      Tab(
+        text: "Cancelled",
+      ),
+    ], tabViews: const [
+      UpcomingBooksView(),
+      CompletedBooksView(),
+      Text("data"),
+    ], titel: "My bookings");
+
+//  DefaultTabController(
+//       length: 3,
+//       initialIndex: 0,
+//       child: Scaffold(
+//         appBar: AppBar(
+//           elevation: 5,
+//           shadowColor: CustomColors.kGrey[0],
+//           title: const Text("My bookings"),
+//           centerTitle: true,
+//           automaticallyImplyLeading: false,
+//           bottom: ButtonsTabBar(
+//               radius: 20,
+//               width: 120,
+//               contentCenter: true,
+//               labelStyle: Styles.textStyle14W600
+//                   .copyWith(color: Colors.white, fontSize: 13),
+//               backgroundColor: CustomColors.kMove[4],
+//               unselectedBackgroundColor: CustomColors.kWhite[4],
+//               contentPadding: const EdgeInsets.symmetric(
+//                 horizontal: 15,
+//               ),
+//               tabs: const [
+//                 Tab(
+//                   text: "Upcoming",
+//                 ),
+//                 Tab(
+//                   text: "Completed",
+//                 ),
+//                 Tab(
+//                   text: "Cancelled",
+//                 ),
+//               ]),
+//         ),
+//         body: const TabBarView(children: [
+//           UpcomingBooksView(),
+//           CompletedBooksView(),
+//           Text("data"),
+//         ]),
+//       ),
+//     );
   }
 }
 
@@ -122,5 +138,53 @@ class CompletedBooksView extends StatelessWidget {
         ),
       ),
     ]);
+  }
+}
+
+///ىثص فثسف
+
+class CustomTabBar extends StatelessWidget {
+  final List<Widget> tabs;
+  final List<Widget> tabViews;
+  final int initialIndex;
+  final String titel;
+  const CustomTabBar({
+    super.key,
+    required this.tabs,
+    required this.tabViews,
+    this.initialIndex = 0,
+    required this.titel,
+  }) : assert(tabs.length == tabViews.length,
+            'Tabs and TabViews must have the same length.');
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: tabs.length,
+      initialIndex: initialIndex,
+      child: Scaffold(
+        appBar: AppBar(
+          elevation: 5,
+          shadowColor: CustomColors.kGrey[0],
+          title: Text(titel),
+          centerTitle: true,
+          automaticallyImplyLeading: false,
+          bottom: ButtonsTabBar(
+            radius: 20,
+            width: 120,
+            contentCenter: true,
+            labelStyle: Styles.textStyle14W600
+                .copyWith(color: Colors.white, fontSize: 13),
+            backgroundColor: CustomColors.kMove[4],
+            unselectedBackgroundColor: CustomColors.kWhite[4],
+            contentPadding: const EdgeInsets.symmetric(
+              horizontal: 15,
+            ),
+            tabs: tabs,
+          ),
+        ),
+        body: TabBarView(children: tabViews),
+      ),
+    );
   }
 }

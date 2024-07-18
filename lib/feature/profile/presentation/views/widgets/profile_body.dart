@@ -7,7 +7,6 @@ import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/feature/auth/login/presentation/views/widgets/button_auth.dart';
 import 'package:voyago/generated/assets.dart';
 
-
 class ProfileBody extends StatelessWidget {
   const ProfileBody({super.key});
 
@@ -48,7 +47,7 @@ class ProfileBody extends StatelessWidget {
                 icon: Iconsax.star,
                 title: 'My reviews',
                 onTap: () {
-                  // Handle tap
+                  GoRouter.of(context).push(AppRouter.kReviewsProfileView);
                 },
               ),
               Divider(

@@ -4,17 +4,17 @@ import '../../../../core/utils/assets.dart';
 import '../../../../core/utils/styles.dart';
 import '../../../books/presentation/views/books_view.dart';
 
-class ReviewsView extends StatelessWidget {
-  const ReviewsView({super.key});
+class FavoritesView extends StatelessWidget {
+  const FavoritesView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const ReviewsBody();
+    return const FavoritesBody();
   }
 }
 
-class ReviewsBody extends StatelessWidget {
-  const ReviewsBody({super.key});
+class FavoritesBody extends StatelessWidget {
+  const FavoritesBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +30,9 @@ class ReviewsBody extends StatelessWidget {
           text: "Trips ",
         ),
       ],
-      titel: 'My Reviews',
+      titel: 'My favorites',
       tabViews: const [
-        ReviewsEmpty(),
+        FavoritesEmpty(),
         Text("My favorites"),
         Text("My favorites"),
       ],
@@ -40,8 +40,8 @@ class ReviewsBody extends StatelessWidget {
   }
 }
 
-class ReviewsEmpty extends StatelessWidget {
-  const ReviewsEmpty({super.key});
+class FavoritesEmpty extends StatelessWidget {
+  const FavoritesEmpty({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +50,7 @@ class ReviewsEmpty extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Image.asset(
-          Wallet.reviewsEmpty,
+          Wallet.favoritesEmpty,
           height: 175,
           width: 235,
         ),
@@ -58,7 +58,7 @@ class ReviewsEmpty extends StatelessWidget {
         Center(
           child: Text(
             textAlign: TextAlign.center,
-            "You have no reviews yet!!",
+            "You have no favorites yet!!",
             style: Styles.textStyle30W600.copyWith(fontSize: 20),
           ),
         ),

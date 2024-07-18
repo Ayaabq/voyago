@@ -33,6 +33,8 @@ import '../../feature/forgot_password/presentation/manger/restPassword/rest_pass
 import '../../feature/profile/presentation/views/help_view.dart';
 import '../../feature/profile/presentation/views/personal_info_view.dart';
 import '../../feature/profile/presentation/views/setting_view.dart';
+import '../../feature/favorite/presentation/views/favorites_view.dart';
+import '../../feature/reviews/presentation/veiws/reviews_view.dart';
 import '../widgets/bottom_bar.dart';
 
 class AppRouter {
@@ -56,15 +58,18 @@ class AppRouter {
   static const kPersonalInformationView = "/PersonalInformationView";
   static const kEditProfileView = "/EditProfileView";
 
+  static const kSettingsView = "/SettingsView";
+  static const kHelpView = "/HelpView";
+  static const kReviewsProfileView = "/ReviewsProfileView";
+
   ///*****          destination     *****///
   static const kDestinationDetailsView = "/DestinationDetailsView";
 
+////******     wallet               ****** */
   static const kWalletView = "/WalletView";
   static const kFillWalletView = "/FillWalletView";
   static const kHistoryWalletView = "/HistoryWalletView";
   static const kDetilesWaletHistoryView = "/DetilesWaletHistoryView";
-  static const kSettingsView = "/SettingsView";
-  static const kHelpView = "/HelpView";
 
 //***   books */
   static const kDetilesBooksView = "/DetilesBooksView";
@@ -156,6 +161,10 @@ class AppRouter {
       GoRoute(
         path: kEditProfileView,
         builder: (context, state) => const EditProfileView(),
+      ),
+      GoRoute(
+        path: kReviewsProfileView,
+        builder: (context, state) => const ReviewsView(),
       ),
 
       // **** destination ***////
