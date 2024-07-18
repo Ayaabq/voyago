@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:voyago/core/utils/app_router.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/maneger/trips_cubit/trips_cubit.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/maneger/trips_cubit/trips_state.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/trips/trip_card.dart';
@@ -34,6 +36,8 @@ class TripsListView extends StatelessWidget {
 
                         child:  TripCard(tripModel:  trips[index],),
                         onTap: (){
+                          GoRouter.of(context).push(AppRouter.kTripDetailsView);
+
                         }
 
                     ),
