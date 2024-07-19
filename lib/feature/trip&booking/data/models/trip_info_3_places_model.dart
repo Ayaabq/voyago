@@ -13,9 +13,9 @@ class TripInfo3PlacesModel {
   factory TripInfo3PlacesModel.fromJson(Map<String, dynamic> json) {
     return TripInfo3PlacesModel(
       destination: DestinationModel.fromJson(json['Destenation']),
-      // attractions: json['Attraction'] != null
-      //     ? List<AttractionModel>.from(json['Attraction'].map((x) => AttractionModel.fromJson(x)))
-      //     : null,
+      attractions: json['Attraction'] != null
+          ? List<AttractionModel>.from(json['Attraction'].map((x) => AttractionModel.fromJson(x)))
+          : null,
     );
   }
 

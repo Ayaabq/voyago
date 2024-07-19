@@ -22,26 +22,33 @@ class PlacesCard extends StatelessWidget {
     return BlocBuilder<TripInfo3PlacesCubit, TripInfo3PlacesState>(
       builder: (context, state) {
         if (state is TripInfo3PlacesSuccess) {
+          print(state.tripInfo3Model.attractions);
+          print(state.tripInfo3Model.attractions);
+          print(state.tripInfo3Model.attractions);
+          print(state.tripInfo3Model.attractions);
+
           TripInfo3PlacesModel trip = state.tripInfo3Model;
-          return CustomCard(
+          return  CustomCard(
             title: "Destination",
             content: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 140, child: DestinationItem()),
-                SizedBox(
+                SizedBox(height: 140,
+                    child: DestinationItem(destinationModel: trip.destination,)),
+                const SizedBox(
                   height: 11,
                 ),
-                Text(
+                if(trip.attractions!=null)
+                  const Text(
                   "Attraction",
                   style: Styles.textStyle20W700,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 11,
                 ),
-                AttractionView(
-                  url: Confg.topAttractionsUrl,
-                  viewKey: Key("trip"),
+                if(trip.attractions!=null)
+                AttractionListView(
+                  attractions: trip.attractions,
                 )
               ],
             ),

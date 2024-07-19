@@ -16,8 +16,8 @@ class DestinationModel {
     return DestinationModel(
       id: json['id'],
       name: json['name'],
-      image: json['image']!=null ? json['image'] :null,
-      isFavourite: json['is_favourite'],
+      image: json['image'],
+      isFavourite: json['is_favourite'] ?? true,
     );
   }
 
