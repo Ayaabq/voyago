@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/checkout/highlights_card.dart';
-import 'package:voyago/feature/trip&booking/presentation/views/widgets/notes_card.dart';
 
 import '../../../../../../core/utils/custom_colors.dart';
 import '../../../../../../core/utils/styles.dart';

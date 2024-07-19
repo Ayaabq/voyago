@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:voyago/core/utils/services_locater.dart';
 import 'package:voyago/feature/trip&booking/data/repo/trip_details_repo/trip_details_repo_impl.dart';
-import 'package:voyago/feature/trip&booking/presentation/views/maneger/trip_detials_cubit/trip_details_cubit.dart';
+import 'package:voyago/feature/trip&booking/presentation/views/maneger/trip_detials_cubit/trip_info_1_cubit.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/image_slider/text_column.dart';
 import '../../../../../../core/utils/screen_size_util.dart';
 import 'image_slider.dart';

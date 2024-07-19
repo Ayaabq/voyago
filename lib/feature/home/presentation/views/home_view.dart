@@ -17,16 +17,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return MultiBlocProvider(
-        providers: [
-
-          BlocProvider(
-            create: (context) => ChangeFavoriteCubit(getIt.get<FavoriteRepoImp>()),
-          )
-
-          ,
-        ],
-    child: const HomeViewBody());
+    return  const HomeViewBody();
 
 
 

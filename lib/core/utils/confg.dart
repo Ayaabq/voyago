@@ -30,6 +30,8 @@ class Confg {
 
   // trip
   static const String tripInfo1 = "/tripInfo1/";
+  static const String tripInfo2 = "/tripInfo2/";
+  static const String tripInfo3 = "/tripInfo3/";
 
 
 }

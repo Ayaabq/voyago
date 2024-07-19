@@ -23,7 +23,7 @@ class IconText extends StatelessWidget {
               children: [
                 Icon(icon,
                 color: iconColor,),
-                const SizedBox(width: 2,),
+                const SizedBox(width: 3,),
                 Text(" $title",
                 overflow: TextOverflow.visible,
                 maxLines: 10,

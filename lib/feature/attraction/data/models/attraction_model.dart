@@ -1,14 +1,14 @@
 class AttractionModel {
   int id;
   String name;
-  String image;
+  String? image;
   bool isFavourite;
   double rate;
 
   AttractionModel({
     required this.id,
     required this.name,
-    required this.image,
+     this.image,
     required this.isFavourite,
     required this.rate
   }) ;

@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/Itinerary_card.dart';
-import 'package:voyago/feature/trip&booking/presentation/views/widgets/description_card.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/image_slider/image_card.dart';
-import 'package:voyago/feature/trip&booking/presentation/views/widgets/included_card/included_card.dart';
-import 'package:voyago/feature/trip&booking/presentation/views/widgets/meeting_point_card.dart';
-import 'package:voyago/feature/trip&booking/presentation/views/widgets/notes_card.dart';
-import 'package:voyago/feature/trip&booking/presentation/views/widgets/over_view_card/over_view_card.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/places_card.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/reviews/reviews_card.dart';
+import 'package:voyago/feature/trip&booking/presentation/views/widgets/trip_info_2_section/trip_info_2_section.dart';
+
+import '../../../../../core/utils/services_locater.dart';
+import '../../../data/repo/trip_details_repo/trip_details_repo_impl.dart';
+import '../maneger/trip_info_2_cubit/trip_info_2_cubit.dart';
+import '../maneger/trip_info_3_places_cubit/trip_info_3_places_cubit.dart';
 
 class TripViewBody extends StatelessWidget {
   const TripViewBody({super.key, required this.controller, required this.id});
@@ -16,22 +18,30 @@ class TripViewBody extends StatelessWidget {
   final int id;
   @override
   Widget build(BuildContext context) {
-
-    return  SingleChildScrollView(
+    return SingleChildScrollView(
       controller: controller,
-      child:  Column(
+      child: Column(
         children: [
-         ImageCard(id: id,),
-          SizedBox(height: 5,),
-          OverViewCard(),
-          DescriptionCard(),
-          IncludedCard(),
-          MeetingPointCard(),
+          ImageCard(
+            id: id,
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          BlocProvider(
+            create: (_) => TripInfo2Cubit(getIt.get<TripDetailsRepoImp>()),
+            child: TripInfo2Section(
+              id: id,
+            ),
+          ),
           ItineraryCard(),
-          NotesCard(),
-          PlacesCard(),
+          BlocProvider(
+            create: (_) => TripInfo3PlacesCubit(getIt.get<TripDetailsRepoImp>()),
+            child: PlacesCard(id: id,)
+          )
+          ,
           ReviewsCard(),
-          SizedBox(
+          const SizedBox(
             height: 60,
           )
         ],

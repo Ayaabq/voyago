@@ -1,13 +1,13 @@
 class DestinationModel {
   int id;
   String name;
-  String image;
+  String? image;
   bool isFavourite;
 
   DestinationModel({
     required this.id,
     required this.name,
-    required this.image,
+     this.image,
     required this.isFavourite,
   });
 
@@ -16,7 +16,7 @@ class DestinationModel {
     return DestinationModel(
       id: json['id'],
       name: json['name'],
-      image: json['image'],
+      image: json['image']!=null ? json['image'] :null,
       isFavourite: json['is_favourite'],
     );
   }

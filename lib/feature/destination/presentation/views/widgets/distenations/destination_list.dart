@@ -45,7 +45,7 @@ class DestinationListView extends StatelessWidget {
                         }
 
                       ),
-                      SizedBox(width: 5,)
+                      const SizedBox(width: 5,)
                     ],
                   );
                 },
@@ -56,11 +56,11 @@ class DestinationListView extends StatelessWidget {
           return CustomFailureError(errMessage: state.errorMessage);
         }else
         {
-          return SizedBox(
+          return const SizedBox(
             height: 140,
 
 
-            child: const LoadList(
+            child: LoadList(
                   isVertical: false,
                 ),
           );

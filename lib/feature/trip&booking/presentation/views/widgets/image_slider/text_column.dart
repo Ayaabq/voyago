@@ -5,8 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/core/widgets/shimmer/load_base.dart';
 import 'package:voyago/feature/trip&booking/data/models/trip_info_1_model.dart';
-import 'package:voyago/feature/trip&booking/presentation/views/maneger/trip_detials_cubit/trip_details_cubit.dart';
-import 'package:voyago/feature/trip&booking/presentation/views/maneger/trip_detials_cubit/trip_details_state.dart';
+import 'package:voyago/feature/trip&booking/presentation/views/maneger/trip_detials_cubit/trip_info_1_cubit.dart';
+import 'package:voyago/feature/trip&booking/presentation/views/maneger/trip_detials_cubit/trip_info_1_state.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/image_slider/column_shimmer_loading.dart';
 
 import '../../../../../../core/utils/styles.dart';
@@ -30,9 +30,9 @@ class TexColumn extends StatelessWidget {
           final textSizeTitle = isSmallScreen ? 16.0 : 20.0;
           final textSizeReview = isSmallScreen ? 11.0 : 13.0;
 
-          return BlocBuilder<TripDetailsCubit, TripDetailsState>(
+          return BlocBuilder<TripDetailsCubit, TripInfo1State>(
             builder: (context, state) {
-              if (state is TripDetailsSuccess) {
+              if (state is TripInfo1Success) {
                 TripInfo1Model trip = state.tripInfo1Model;
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,7 +93,7 @@ class TexColumn extends StatelessWidget {
                     ),
                   ],
                 );
-              } else if (state is TripDetailsFailure) {
+              } else if (state is TripInfo1Failure) {
                 return CustomFailureError(errMessage: state.errorMessage);
               } else {
                 return const LoadBase(

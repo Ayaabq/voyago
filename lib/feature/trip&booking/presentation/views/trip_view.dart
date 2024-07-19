@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:voyago/feature/trip&booking/data/models/trip_info_1_model.dart';
 import 'package:voyago/feature/trip&booking/data/models/trip_model.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/floating_book_button.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/trip_view_body.dart';
@@ -37,6 +36,8 @@ class _TripViewState extends State<TripView> with SingleTickerProviderStateMixin
 
         });
       }
+      // it: 1800-125=550
+      // note: 2050-1800=250
       int sectionIndex =0;
       //overview
       if(_scrollController.offset <600) {
@@ -49,7 +50,7 @@ class _TripViewState extends State<TripView> with SingleTickerProviderStateMixin
       //meeting point
       else if(_scrollController.offset <1250)
         sectionIndex=3;
-      else if(_scrollController.offset <1800)
+      else if(_scrollController.offset <1500)
         sectionIndex=4;
       else if(_scrollController.offset <2050)
         sectionIndex=5;

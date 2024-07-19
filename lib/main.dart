@@ -13,6 +13,8 @@ import 'package:voyago/feature/destination/presentation/views/widgets/destinatio
 import 'package:voyago/feature/get_started/presentation/views/get_started.dart';
 
 import 'core/utils/app_router.dart';
+import 'feature/favorite/data/repo/favorite_repo_impl.dart';
+import 'feature/favorite/presentation/manager/change_favorite_cubit/favorite_cubit.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -32,15 +34,22 @@ class VoyagoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScreenSizeUtil.init(context);
-    return
-          MaterialApp.router(
-          debugShowCheckedModeBanner: false,
-        
-          routerConfig: AppRouter.router,
-          theme: ThemeData.light().copyWith(
+    return MultiBlocProvider( providers: [
 
-            textTheme: GoogleFonts.montserratTextTheme(ThemeData.light().textTheme),
-          ),
+        BlocProvider(
+        create: (context) => ChangeFavoriteCubit(getIt.get<FavoriteRepoImp>()),
+    )
+
+    ,
+    ], child:  MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+
+      routerConfig: AppRouter.router,
+      theme: ThemeData.light().copyWith(
+
+        textTheme: GoogleFonts.montserratTextTheme(ThemeData.light().textTheme),
+      ),)
+
         //
         //   // home: const GetStarted(),
         // );
