@@ -3,8 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/core/widgets/custom_card.dart';
 import 'package:voyago/core/widgets/custom_rate.dart';
+import 'package:voyago/feature/reviews/presentation/widgets/reviews/review_card.dart';
 import 'package:voyago/feature/trip&booking/data/models/review_model.dart';
-import 'package:voyago/feature/trip&booking/presentation/views/widgets/reviews/review_card.dart';
 
 import '../../../../../../core/utils/app_router.dart';
 import '../../../../../../core/utils/styles.dart';

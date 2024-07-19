@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:voyago/feature/trip&booking/presentation/views/widgets/reviews/make_review.dart';
 
+import '../../feature/reviews/presentation/widgets/reviews/make_review.dart';
 import 'custom_colors.dart';
 import 'styles.dart';
 

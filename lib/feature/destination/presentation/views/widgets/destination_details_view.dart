@@ -8,7 +8,7 @@ import 'package:voyago/feature/trip&booking/presentation/views/widgets/trips/tri
 
 import '../../../../../core/utils/confg.dart';
 import '../../../../../core/utils/screen_size_util.dart';
-import '../../../../trip&booking/presentation/views/widgets/reviews/reviews_card.dart';
+import '../../../../reviews/presentation/widgets/reviews/reviews_card.dart';
 
 class DestinationDetailsView extends StatelessWidget {
   const DestinationDetailsView({super.key});

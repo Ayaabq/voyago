@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:voyago/feature/trip&booking/presentation/views/widgets/reviews/rating_column.dart';
-import 'package:voyago/feature/trip&booking/presentation/views/widgets/reviews/reviews_stars.dart';
+import 'package:voyago/feature/reviews/presentation/widgets/reviews/rating_column.dart';
+import 'package:voyago/feature/reviews/presentation/widgets/reviews/reviews_stars.dart';
 
 import '../../../../../../core/utils/styles.dart';
 import '../../../../../../core/widgets/custom_rate.dart';
