@@ -61,7 +61,8 @@ class PlaceDetails extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 8),
-         Text(
+        if(placeModel.tripsIncluded!=null)
+          Text(
           'Included in ${placeModel.tripsIncluded} trip(s)',
           style:Styles.textStyle14W600,)
 

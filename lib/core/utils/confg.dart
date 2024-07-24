@@ -37,6 +37,10 @@ class Confg {
   static const String attractionInfo2 = "/attractionInfo2/";
   static const String attractionInfo1 = "/attractionInfo1/";
 
+  // destination
+  static const String destinationInfo1="/destenationInfo1/";
+  static const String destinationInfo3="/destenationInfo3/";
+  static const String destinationInfo2="/destenationInfo2/";
 
 
 }

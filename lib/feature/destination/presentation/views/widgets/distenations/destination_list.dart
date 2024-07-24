@@ -41,7 +41,7 @@ class DestinationListView extends StatelessWidget {
                           child: DestinationItem(
                             destinationModel: destinations[index] ,),
                         onTap: (){
-                          GoRouter.of(context).push(AppRouter.kDestinationDetailsView);
+                          GoRouter.of(context).push(AppRouter.kDestinationDetailsView, extra:  destinations[index]);
                         }
 
                       ),

@@ -43,12 +43,13 @@ class ReviewCard extends StatelessWidget {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
                       color: CustomColors.kMove[3]),
-                  child: const CustomRating(rate: 4.5)),
+                  child:  CustomRating(rate: reviewModel.rate??0.0)),
             ],
           ),
           const SizedBox(height: 16.0),
           const SizedBox(height: 16.0),
-          Text(reviewModel.review, style: Styles.textStyle14W600),
+          if(reviewModel.review!=null)
+          Text(reviewModel.review!, style: Styles.textStyle14W600),
         ],
       ),
     );

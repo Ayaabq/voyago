@@ -178,7 +178,11 @@ class AppRouter {
       // **** destination ***////
       GoRoute(
         path: kDestinationDetailsView,
-        builder: (context, state) => const DestinationDetailsView(),
+        builder: (context, state) {
+          final DestinationModel destination =
+          state.extra as DestinationModel; //
+          return  DestinationDetailsView(destinationModel:destination,);
+        },
       ),
       GoRoute(
         path: kWalletView,

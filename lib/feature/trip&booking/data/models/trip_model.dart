@@ -1,7 +1,7 @@
 class TripModel {
   int id;
   String name;
-  String image;
+  String? image;
   bool isFavourite;
   num duration;
   String destination;
@@ -25,7 +25,7 @@ class TripModel {
     return TripModel(
       id: json['id'],
       name: json['name'],
-      image: json['image'],
+      image: json['image'] as String?,
       isFavourite: json['is_favourite'],
       rate: double.parse(json['rate'],) ,
       price: json['price'],
