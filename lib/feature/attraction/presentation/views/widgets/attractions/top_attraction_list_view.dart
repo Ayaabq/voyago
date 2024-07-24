@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:voyago/feature/attraction/data/models/attraction_model.dart';
 import 'package:voyago/feature/attraction/presentation/manager/attraction_state.dart';
 import 'package:voyago/feature/attraction/presentation/manager/attractoin_cubit.dart';
-import 'package:voyago/feature/attraction/presentation/views/attractions/attraction_card.dart';
 
-import '../../../../../core/widgets/custom_failure_error.dart';
-import '../../../../../core/widgets/shimmer/load_List.dart';
+import '../../../../../../core/utils/app_router.dart';
+import '../../../../../../core/widgets/custom_failure_error.dart';
+import '../../../../../../core/widgets/shimmer/load_List.dart';
+
+import 'attraction_card.dart';
 
 class AttractionListView extends StatelessWidget {
   const AttractionListView({super.key,  this.url, this.attractions});
@@ -31,7 +34,12 @@ class AttractionListView extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return  Row(
                     children: [
-                      AttractionCard(attractionModel: attractions[index],),
+                      InkWell(
+                        onTap: (){
+                          GoRouter.of(context).push(AppRouter.kAttractionDetailsView, extra:attractions[index] );
+
+                        },
+                          child: AttractionCard(attractionModel: attractions[index],)),
                       SizedBox(width: 3,)
                     ],
                   );

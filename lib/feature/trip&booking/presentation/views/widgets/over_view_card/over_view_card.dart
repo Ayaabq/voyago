@@ -25,7 +25,7 @@ class OverViewCard extends StatelessWidget {
           ),
           IconText(
             icon: Iconsax.calendar_tick,
-            title: DateTimeHelper.formatDate(tripInfo2Model.startDate),
+            title: DateTimeHelper.formatDateDMMM(tripInfo2Model.startDate),
             higlightedText: "Free cancellation",
 
           ),

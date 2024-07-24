@@ -7,7 +7,7 @@ import 'package:voyago/feature/trip&booking/presentation/views/widgets/places_ca
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/trip_info_2_section/trip_info_2_section.dart';
 
 import '../../../../../core/utils/services_locater.dart';
-import '../../../../reviews/presentation/widgets/reviews/reviews_card.dart';
+import '../../../../reviews/presentation/veiws/widgets/reviews/reviews_card.dart';
 import '../../../data/repo/trip_details_repo/trip_details_repo_impl.dart';
 import '../maneger/trip_info_2_cubit/trip_info_2_cubit.dart';
 import '../maneger/trip_info_3_places_cubit/trip_info_3_places_cubit.dart';

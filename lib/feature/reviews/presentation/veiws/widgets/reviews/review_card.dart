@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/core/widgets/custom_rate.dart';
-import 'package:voyago/feature/trip&booking/data/models/review_model.dart';
+import 'package:voyago/feature/reviews/data/models/review_model.dart';
 
 import '../../../../../../core/utils/styles.dart';
 

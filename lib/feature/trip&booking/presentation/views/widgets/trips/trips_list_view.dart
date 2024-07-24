@@ -12,11 +12,12 @@ import '../../../../../../core/widgets/shimmer/load_List.dart';
 import '../../../../data/models/trip_model.dart';
 
 class TripsListView extends StatelessWidget {
-  const TripsListView({super.key, required this.url});
+  const TripsListView({super.key, required this.url, required this.inData});
   final String url;
+  final bool inData;
   @override
   Widget build(BuildContext context) {
-    context.read<TripsCubit>().fetchTripsInitial(url);
+    context.read<TripsCubit>().fetchTripsInitial(url, inData);
 
     ScreenSizeUtil.init(context);
     return BlocBuilder<TripsCubit, TripsState>(

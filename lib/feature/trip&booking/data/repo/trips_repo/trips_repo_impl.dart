@@ -13,12 +13,12 @@ class TripsRepoImp implements TripsRepo {
   TripsRepoImp(this.api);
   @override
   Future<Either<Failure, TripsSuccess>> getTrips(
-      String url) async {
+      String url,  bool inData) async {
 
     try {
       var response = await api.get(url, hasToken: true);
       print(response);
-      return right(TripsSuccess.fromJson(response));
+      return right(TripsSuccess.fromJson(response, inData));
     } catch (e) {
       if (e is DioException) {
         return left(ServiecesFailure.fromDioError(e));

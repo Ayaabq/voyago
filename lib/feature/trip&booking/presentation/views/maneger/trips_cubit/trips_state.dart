@@ -37,6 +37,7 @@
 //
 // }
 import 'package:equatable/equatable.dart';
+import 'package:voyago/core/utils/confg.dart';
 import '../../../../data/models/trip_model.dart';
 
 abstract class TripsState extends Equatable {
@@ -58,10 +59,17 @@ class TripsSuccess extends TripsState {
   @override
   List<Object?> get props => [tripModels];
 
-  static TripsSuccess fromJson(Map<String, dynamic> response) {
-    final trips = (response['data']['result'] as List)
+  static TripsSuccess fromJson(Map<String, dynamic> response, bool inData) {
+    final  List<TripModel> trips;
+    if(inData) {
+      trips = (response['data'] as List)
+          .map((e) => TripModel.fromJson(e))
+          .toList();
+    } else {
+      trips = (response['data']['result'] as List)
         .map((e) => TripModel.fromJson(e))
         .toList();
+    }
     return TripsSuccess(trips);
   }
 }

@@ -7,5 +7,5 @@ import 'package:voyago/feature/trip&booking/presentation/views/maneger/trips_cub
 
 abstract class TripsRepo {
   Future<Either<Failure, TripsSuccess>>
-  getTrips(String url);
+  getTrips(String url, bool inData);
 }

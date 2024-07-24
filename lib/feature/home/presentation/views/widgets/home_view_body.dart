@@ -5,9 +5,9 @@ import 'package:voyago/feature/home/presentation/views/widgets/background/beckro
 import 'package:voyago/feature/home/presentation/views/widgets/trip_search/trip_search_list_view.dart';
 import 'package:voyago/feature/home/presentation/views/widgets/trip_search/trip_offers_search/trip_offer_listview.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/trips/trips_view.dart';
-import 'package:voyago/feature/attraction/presentation/views/attractions/attraction_view.dart';
 
 import '../../../../../core/utils/confg.dart';
+import '../../../../attraction/presentation/views/widgets/attractions/attraction_view.dart';
 import '../../../../destination/presentation/views/widgets/distenations/destinations_view.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -47,6 +47,7 @@ class HomeViewBody extends StatelessWidget {
                   sizedList: TripsView(
                     url: Confg.topTrips,
                     viewKey: Key('topTrips'),
+                    inData: false,
                   ),
                 ),
                 CustomHomeList(
@@ -61,6 +62,7 @@ class HomeViewBody extends StatelessWidget {
                   sizedList: TripsView(
                     url: Confg.popularTrips,
                     viewKey: Key('popularTrips'),
+                    inData: false,
                   ),
                 ),
                 CustomHomeList(

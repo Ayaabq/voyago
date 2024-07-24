@@ -1,6 +1,10 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:voyago/core/utils/services_locater.dart';
+import 'package:voyago/feature/attraction/data/models/attraction_model.dart';
+import 'package:voyago/feature/attraction/presentation/views/widgets/attraction_details.dart';
+import 'package:voyago/feature/attraction/presentation/views/widgets/attractions/attraction_view.dart';
+import 'package:voyago/feature/destination/data/models/destination_model.dart';
 
 import 'package:voyago/feature/forgot_password/presentation/views/forgot_password_view.dart';
 import 'package:voyago/feature/forgot_password/presentation/views/new_password_view.dart';
@@ -65,6 +69,9 @@ class AppRouter {
   ///*****          destination     *****///
   static const kDestinationDetailsView = "/DestinationDetailsView";
 
+  ///*****          attraction     *****///
+  static const kAttractionDetailsView = "/AttractionDetailsView";
+
 ////******     wallet               ****** */
   static const kWalletView = "/WalletView";
   static const kFillWalletView = "/FillWalletView";
@@ -80,7 +87,6 @@ class AppRouter {
     initialLocation: initial,
     routes: [
       GoRoute(
-
         path: kGetStartedView,
         builder: (ctx, state) => const GetStarted(),
       ),
@@ -133,8 +139,10 @@ class AppRouter {
       GoRoute(
         path: kTripDetailsView,
         builder: (context, state) {
-          final TripModel trip = state.extra as TripModel; // Cast the extra to Trip
-          return TripView(tripModel: trip); // Pass the Trip model to the TripView
+          final TripModel trip =
+              state.extra as TripModel; // Cast the extra to Trip
+          return TripView(
+              tripModel: trip); // Pass the Trip model to the TripView
         },
       ),
 
@@ -187,6 +195,18 @@ class AppRouter {
       GoRoute(
         path: kDetilesWaletHistoryView,
         builder: (context, state) => const DetilesWaletHistoryView(),
+      ),
+
+      /// ** attraction** ///
+      GoRoute(
+        path: kAttractionDetailsView,
+        builder: (context, state) {
+          final AttractionModel attraction =
+              state.extra as AttractionModel; // Cast the extra to Trip
+          return AttractionDetailsView(
+            attraction: attraction,
+          ); // Pass the Trip model to the TripView
+        },
       ),
       GoRoute(
         path: kSettingsView,

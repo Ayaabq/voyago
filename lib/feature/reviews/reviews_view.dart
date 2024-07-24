@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:voyago/core/utils/custom_floating_button.dart';
-import 'package:voyago/feature/reviews/presentation/widgets/reviews/review_view_body.dart';
+import 'package:voyago/feature/reviews/presentation/veiws/widgets/reviews/review_view_body.dart';
 
 
 

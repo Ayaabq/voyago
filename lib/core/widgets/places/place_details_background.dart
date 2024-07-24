@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/utils/assets.dart';
-import '../../../../../core/utils/screen_size_util.dart';
+import '../../utils/assets.dart';
+import '../../utils/screen_size_util.dart';
 
-class DestinationDetailsBackground extends StatelessWidget {
-  const DestinationDetailsBackground({super.key});
+class PlaceDetailsBackground extends StatelessWidget {
+  const PlaceDetailsBackground({super.key});
 
   @override
   Widget build(BuildContext context) {

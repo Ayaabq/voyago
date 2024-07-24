@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/utils/custom_colors.dart';
-import '../../../../../core/utils/styles.dart';
-import '../../../../../core/widgets/custom_rate.dart';
+import '../../utils/custom_colors.dart';
+import '../../utils/styles.dart';
+import '../custom_rate.dart';
 
 class PlaceDetails extends StatelessWidget {
   const PlaceDetails({super.key});

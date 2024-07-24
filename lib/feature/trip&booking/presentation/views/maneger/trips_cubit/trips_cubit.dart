@@ -39,9 +39,9 @@ class TripsCubit extends Cubit<TripsState> {
 
   TripsCubit(this.tripsRepo) : super(TripsInitial());
 
-  Future<void> fetchTripsInitial(String url) async {
+  Future<void> fetchTripsInitial(String url, bool inData) async {
     emit(TripsLoading());
-    final result = await tripsRepo.getTrips(url);
+    final result = await tripsRepo.getTrips(url, inData);
     result.fold(
           (failure) {
         emit(TripsFailure(failure.errMessage));

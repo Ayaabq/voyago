@@ -8,11 +8,12 @@ import '../../maneger/trips_cubit/trips_cubit.dart';
 class TripsView extends StatelessWidget {
   final String url;
   final Key viewKey; // Add a unique key for each TripsView
-
+ final bool inData;
   const TripsView({
     super.key,
     required this.url,
-    required this.viewKey, // Require the unique key
+    required this.viewKey,
+    required this.inData// Require the unique key
   });
 
   @override
@@ -20,7 +21,7 @@ class TripsView extends StatelessWidget {
     return BlocProvider(
       key: viewKey, // Pass the key to BlocProvider
       create: (context) => TripsCubit(getIt.get<TripsRepoImp>()),
-      child: TripsListView(url: url),
+      child: TripsListView(url: url, inData: inData,),
     );
   }
 }

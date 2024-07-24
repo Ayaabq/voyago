@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../feature/reviews/presentation/widgets/reviews/make_review.dart';
+import '../../feature/reviews/presentation/veiws/widgets/reviews/make_review.dart';
 import 'custom_colors.dart';
 import 'styles.dart';
 

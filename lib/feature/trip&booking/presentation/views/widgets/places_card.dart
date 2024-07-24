@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:voyago/core/widgets/custom_card.dart';
-import 'package:voyago/feature/attraction/presentation/views/attractions/attraction_view.dart';
-import 'package:voyago/feature/attraction/presentation/views/attractions/top_attraction_list_view.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/maneger/trip_info_3_places_cubit/trip_info_3_places_cubit.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/maneger/trip_info_3_places_cubit/trip_info_3_places_state.dart';
 
@@ -10,6 +8,7 @@ import '../../../../../core/utils/confg.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../../core/widgets/custom_failure_error.dart';
 import '../../../../../core/widgets/shimmer/load_base.dart';
+import '../../../../attraction/presentation/views/widgets/attractions/top_attraction_list_view.dart';
 import '../../../../destination/presentation/views/widgets/distenations/destination_item.dart';
 import '../../../data/models/trip_info_3_places_model.dart';
 

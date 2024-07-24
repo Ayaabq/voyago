@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:voyago/feature/reviews/presentation/widgets/reviews/ratig_diagram.dart';
-import 'package:voyago/feature/reviews/presentation/widgets/reviews/review_card.dart';
+import 'package:voyago/feature/reviews/presentation/veiws/widgets/reviews/ratig_diagram.dart';
+import 'package:voyago/feature/reviews/presentation/veiws/widgets/reviews/review_card.dart';
 
+import '../../../../data/models/review_model.dart';
 
-import '../../../../trip&booking/data/models/review_model.dart';
 
 class ReviewsViewBody extends StatelessWidget {
   const ReviewsViewBody({super.key});
