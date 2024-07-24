@@ -42,5 +42,11 @@ class Confg {
   static const String destinationInfo3="/destenationInfo3/";
   static const String destinationInfo2="/destenationInfo2/";
 
+  // reviews
+  static const String destinationReviews="/destenation_review/";
+  static const String attractionReviews = "/attraction_review/";
+  static const String tripReviews = "/reviews_trip/";
+
+
 
 }

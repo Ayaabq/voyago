@@ -16,7 +16,7 @@ class CustomCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical:  4.0),
       child: Card(
 
-        elevation: 4,
+        elevation: 1,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20), // Increase the radius here
         ),

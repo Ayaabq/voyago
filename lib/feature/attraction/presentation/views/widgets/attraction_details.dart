@@ -42,7 +42,8 @@ class AttractionDetailsView extends StatelessWidget {
                   const CustomCard(
                     title: "Pictures",
                     content: PicturesList(),),
-                  const ReviewsCard(),
+                   ReviewsCard(url: Confg.attractionReviews +attraction.id.toString(),
+                  ),
                 ],
               ),
             )

@@ -6,6 +6,7 @@ import 'package:voyago/feature/trip&booking/presentation/views/widgets/image_sli
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/places_card.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/trip_info_2_section/trip_info_2_section.dart';
 
+import '../../../../../core/utils/confg.dart';
 import '../../../../../core/utils/services_locater.dart';
 import '../../../../reviews/presentation/veiws/widgets/reviews/reviews_card.dart';
 import '../../../data/repo/trip_details_repo/trip_details_repo_impl.dart';
@@ -40,7 +41,7 @@ class TripViewBody extends StatelessWidget {
             child: PlacesCard(id: id,)
           )
           ,
-          ReviewsCard(),
+          ReviewsCard(url: Confg.tripReviews+ id.toString(),),
           const SizedBox(
             height: 60,
           )

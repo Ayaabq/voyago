@@ -25,7 +25,7 @@ class ReviewsSuccess extends ReviewsState {
     final reviews = (response['data']['reviews'] as List)
         .map((e) => ReviewModel.fromJson(e))
         .toList();
-    final int allReviews= response['cnt_reviews'];
+    final int allReviews= response['data']['cnt_reviews'];
     return ReviewsSuccess(reviews,allReviews);
   }
 }

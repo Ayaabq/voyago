@@ -4,7 +4,7 @@ class ReviewModel {
   final ImageProvider? image;
   final String userName;
   final String? review;
-  final double? rate;
+  final num? rate;
   final DateTime reviewedAt;
 
   ReviewModel({
@@ -20,7 +20,7 @@ class ReviewModel {
     return ReviewModel(
       userName: json['username'] as String,
       review: json['comment'] as String?,
-      rate: json['rate'] != null ? double.tryParse(json['rate']) : null,
+      rate: json['rate'] != null ? json['rate'] : null,
       reviewedAt:  DateTime.parse(json['createdAt']) ,
       image: null, // Handle image separately as it's not in the provided JSON
     );
@@ -37,3 +37,13 @@ class ReviewModel {
     };
   }
 }
+// "id": 1,
+// "comment": "KKK",
+// "rate": 1,
+// "createdAt": "2024-07-24T23:02:01.000Z",
+// "updatedAt": "2024-07-24T23:02:01.000Z",
+// "TripId": 1,
+// "UserId": 1,
+// "DestenationId": null,
+// "AttractionId": null,
+// "username": "Aya sareej"

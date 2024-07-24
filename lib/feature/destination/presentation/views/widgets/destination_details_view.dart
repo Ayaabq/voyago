@@ -53,7 +53,7 @@ class DestinationDetailsView extends StatelessWidget {
                     title: "Pictures",
                     content: PicturesList(),
                   ),
-                  const ReviewsCard(),
+                   ReviewsCard(url: Confg.destinationReviews+destinationModel.id.toString(),),
                 ],
               ),
             )
