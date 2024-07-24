@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../utils/assets.dart';
-import '../../utils/screen_size_util.dart';
+import '../../../../../core/utils/assets.dart';
+import '../../../../../core/utils/screen_size_util.dart';
 
 class PlaceDetailsBackground extends StatelessWidget {
   const PlaceDetailsBackground({super.key});

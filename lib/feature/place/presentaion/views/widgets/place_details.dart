@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:voyago/feature/place/data/models/place_model.dart';
 
-import '../../utils/custom_colors.dart';
-import '../../utils/styles.dart';
-import '../custom_rate.dart';
+import '../../../../../core/utils/custom_colors.dart';
+import '../../../../../core/utils/styles.dart';
+import '../../../../../core/widgets/custom_rate.dart';
+
 
 class PlaceDetails extends StatelessWidget {
-  const PlaceDetails({super.key});
-
+  const PlaceDetails({super.key, required this.placeModel});
+  final PlaceModel placeModel;
   @override
   Widget build(BuildContext context) {
     return   Column(
@@ -14,7 +16,7 @@ class PlaceDetails extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
 
-        const Row(
+         Row(
           children: [
             Icon(
               Icons.location_on,
@@ -24,7 +26,7 @@ class PlaceDetails extends StatelessWidget {
             SizedBox(width: 4),
             Expanded(
               child: Text(
-                  '30 Rockefeller Plaza, 50th Street, between 5th & 6th Avenues, New York City, NY 10111',
+                  placeModel.location,
                   style:Styles.textStyle13W400
               ),
             ),
@@ -41,17 +43,17 @@ class PlaceDetails extends StatelessWidget {
           icon: const Icon(Icons.map),
           label: const Text('View on Map'),
           style: ButtonStyle(
-              foregroundColor: MaterialStateProperty.all( CustomColors.kBlack[1]),
-              backgroundColor: MaterialStateProperty.all( CustomColors.kGrey[0])
+              foregroundColor: WidgetStateProperty.all( CustomColors.kBlack[1]),
+              backgroundColor: WidgetStateProperty.all( CustomColors.kGrey[0])
           ),
         ),
         const SizedBox(height: 2),
         Row(
           children: [
-            const CustomRating(rate: 4.1),
+             CustomRating(rate: placeModel.rate),
             const SizedBox(width: 4),
             Text(
-              '(2,780 Reviews)',
+              '(${placeModel.reviews} Reviews)',
               style: Styles.textStyle14W400.copyWith(
                   color: CustomColors.kGrey[2]
               ),
@@ -59,8 +61,8 @@ class PlaceDetails extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 8),
-        const Text(
-          'Included in 25 trip(s)',
+         Text(
+          'Included in ${placeModel.tripsIncluded} trip(s)',
           style:Styles.textStyle14W600,)
 
       ],

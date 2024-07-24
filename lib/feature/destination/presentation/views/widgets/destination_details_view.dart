@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/core/widgets/custom_card.dart';
-import 'package:voyago/core/widgets/places/place_details_background.dart';
-import 'package:voyago/core/widgets/places/pictures_list.dart';
-import 'package:voyago/core/widgets/places/place_details.dart';
+import 'package:voyago/feature/place/presentaion/views/widgets/pictures_list.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/trips/trips_list_view.dart';
 
 import '../../../../../core/utils/confg.dart';
 import '../../../../../core/utils/screen_size_util.dart';
+import '../../../../place/presentaion/views/widgets/place_details.dart';
+import '../../../../place/presentaion/views/widgets/place_details_background.dart';
 import '../../../../reviews/presentation/veiws/widgets/reviews/reviews_card.dart';
 
 class DestinationDetailsView extends StatelessWidget {
@@ -32,9 +32,9 @@ class DestinationDetailsView extends StatelessWidget {
                child:    const Column(
                 children: [
         
-                  CustomCard(content:PlaceDetails(),
-                  title: "Top of the Rock",
-                  titleStyle: Styles.textStyle24W900,),
+                  // CustomCard(content:PlaceDetails(),
+                  // title: "Top of the Rock",
+                  // titleStyle: Styles.textStyle24W900,),
                   CustomCard(content:
                   Text("The Top of the Rock "
                       "Observation Deck offers 360-degree views of the iconic Manhattan skyline from 70 floors above Rockefeller Center. Visitors can take in sweeping vistas of Central Park, the Hudson River, and the city's famous landmarks from the expansive outdoor decks. As a popular attraction for both tourists and locals, the observation deck provides an unparalleled elevated perspective to experience the grandeur of New York City."),

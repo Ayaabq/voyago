@@ -7,6 +7,7 @@ import 'package:voyago/feature/attraction/data/repo/attraction_repo_impl.dart';
 import 'package:voyago/feature/auth/login/data/repo/login_repo_impl.dart';
 import 'package:voyago/feature/auth/register/data/repo/auth_register_repo_imp.dart';
 import 'package:voyago/feature/favorite/data/repo/favorite_repo_impl.dart';
+import 'package:voyago/feature/place/data/repo/place_reop.dart';
 
 import '../../feature/destination/data/repo/destination_repo_impl.dart';
 import '../../feature/trip&booking/data/repo/trip_details_repo/trip_details_repo_impl.dart';
@@ -23,4 +24,5 @@ getIt.registerSingleton<FavoriteRepoImp>(FavoriteRepoImp(getIt.get<ApiServices>(
 getIt.registerSingleton<AttractionRepoImp>(AttractionRepoImp(getIt.get<ApiServices>()));
 getIt.registerSingleton<TripsRepoImp>(TripsRepoImp(getIt.get<ApiServices>()));
 getIt.registerSingleton<TripDetailsRepoImp>(TripDetailsRepoImp(getIt.get<ApiServices>()));
+getIt.registerSingleton<PlaceRepoImp>(PlaceRepoImp(getIt.get<ApiServices>()));
 }

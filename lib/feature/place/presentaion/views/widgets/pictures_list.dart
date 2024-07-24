@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../generated/assets.dart';
+import '../../../../../generated/assets.dart';
 
 class PicturesList extends StatelessWidget {
   const PicturesList({super.key});
