@@ -14,12 +14,12 @@ class CustomBackground extends StatelessWidget {
       children: [
         SizedBox(
          width: double.infinity,
-          height: ScreenSizeUtil.screenHeight * .2,
+          height: ScreenSizeUtil.screenHeight * .23,
 
           child: FittedBox(
               fit: BoxFit.cover,
             child: Image.asset(
-                height: ScreenSizeUtil.screenHeight * .3,
+                height: ScreenSizeUtil.screenHeight * .4,
                 width: ScreenSizeUtil.screenWidth,
               HomeAssets.skyBackground,
               fit: BoxFit.cover
@@ -29,7 +29,7 @@ class CustomBackground extends StatelessWidget {
           // height: 100,
         ),
         Container(
-          height: ScreenSizeUtil.screenHeight * .3,
+          height: ScreenSizeUtil.screenHeight * .4,
           width: ScreenSizeUtil.screenWidth,
           decoration: BoxDecoration(
             gradient: LinearGradient(

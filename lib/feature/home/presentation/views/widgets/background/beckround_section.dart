@@ -20,7 +20,7 @@ class BackgroundSection extends StatelessWidget {
         children: [
           const CustomBackground(),
           Padding(
-            padding: const EdgeInsets.only(left: 10,right: 10, top: 40),
+            padding: const EdgeInsets.only(left: 14,right: 10, top: 40),
             child: Column(
               children: [
                 const CustomAppBar(),
