@@ -35,14 +35,15 @@ class TripViewBody extends StatelessWidget {
               id: id,
             ),
           ),
-          ItineraryCard(),
+          const ItineraryCard(),
           BlocProvider(
             create: (_) => TripInfo3PlacesCubit(getIt.get<TripDetailsRepoImp>()),
             child: PlacesCard(id: id,)
           )
           ,
           ReviewsCard(url: Confg.tripReviews+ id.toString(),
-          fullUrl: Confg.tripReviews+ id.toString(),),
+          fullUrl: Confg.tripFullReviews+ id.toString(),
+          addUrl: Confg.tripAddReviews+ id.toString(),),
           const SizedBox(
             height: 60,
           )

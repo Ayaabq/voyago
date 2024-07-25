@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:voyago/core/widgets/custom_failure_error.dart';
+import 'package:voyago/feature/reviews/data/models/total_rate.dart';
 import 'package:voyago/feature/reviews/presentation/manager/reviews_cubit/reviews_cubit.dart';
 import 'package:voyago/feature/reviews/presentation/manager/reviews_cubit/reviews_state.dart';
 import 'package:voyago/feature/reviews/presentation/veiws/widgets/reviews/ratig_diagram.dart';
@@ -17,7 +18,8 @@ class ReviewsViewBody extends StatelessWidget {
     return BlocBuilder<ReviewsCubit, ReviewsState>(builder: (context, state) {
       if (state is ReviewsSuccess) {
         final List<ReviewModel> reviews = state.reviewModel;
-
+              print(state.rate);
+              print(state.total);
         return CustomScrollView(
           slivers: [
             SliverPadding(
@@ -25,7 +27,7 @@ class ReviewsViewBody extends StatelessWidget {
                 sliver: SliverToBoxAdapter(
                     child: RatingDiagram(
                   rate: state.rate,
-                  totalRate: state.totalRates!,
+                  totalRate: state.totalRates??TotalRate(zero: 0, one: 0, two: 0, three: 0, four: 0, five: 0),
                   totalReviews: state.total,
                 ))),
             SliverList.builder(

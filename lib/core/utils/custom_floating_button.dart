@@ -5,10 +5,11 @@ import 'custom_colors.dart';
 import 'styles.dart';
 
 class CustomFloatingButton extends StatelessWidget {
-  const CustomFloatingButton({super.key, this.onPressed, this.title, this.content});
+  const CustomFloatingButton({super.key, this.onPressed, this.title, this.content, this.url});
   final void Function()? onPressed;
   final String? title;
   final Widget? content;
+  final String? url;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +40,7 @@ class CustomFloatingButton extends StatelessWidget {
             onPressed: onPressed??() {
                showModalBottomSheet(
                  isScrollControlled: true,
-                   context: context, builder: (context)=>MakeReview());
+                   context: context, builder: (context)=>MakeReview(url: url!,));
              // showBottomSheet(context: context, builder: (context)=>MakeReview());
             },
             style: ElevatedButton.styleFrom(

@@ -46,9 +46,14 @@ class Confg {
   static const String destinationReviews="/destenation_review/";
   static const String attractionReviews = "/attraction_review/";
   static const String tripReviews = "/reviews_trip/";
+
   static const String destinationFullReviews="/destenation_full_review/";
   static const String attractionFullReviews = "/attraction_full_review/";
   static const String tripFullReviews = "/trip_full_review/";
+
+  static const String destinationAddReviews="/destenation_review/";
+  static const String attractionAddReviews = "/attraction_review/";
+  static const String tripAddReviews = "/trip_review/";
 
   // wheater
     static const String apiKey="UM5UVFHX57KP537TGZMM6DUW7";

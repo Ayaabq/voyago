@@ -151,8 +151,8 @@ class AppRouter {
       GoRoute(
         path: kReviewsView,
         builder: (context, state) {
-          final String url= state.extra as String ;
-          return  ReviewView(url: url,);
+          final List<String> url= state.extra as List<String> ;
+          return  ReviewView(url: url[0],addUrl: url[1],);
         },
       ),
       GoRoute(

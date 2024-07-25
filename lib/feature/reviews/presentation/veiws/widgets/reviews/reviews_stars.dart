@@ -37,7 +37,7 @@ class ReviewsStars extends StatelessWidget {
               height: 14,
               child: FractionallySizedBox(
                 alignment: Alignment.centerLeft,
-                widthFactor: count / total,
+                widthFactor: total>0?count / total: 0,
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(50),

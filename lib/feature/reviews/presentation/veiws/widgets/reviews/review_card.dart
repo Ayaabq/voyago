@@ -35,7 +35,7 @@ class ReviewCard extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(reviewModel.userName, style: Styles.textStyle16W700),
+                  Text(reviewModel.userName!, style: Styles.textStyle16W700),
                   Text(reviewModel.reviewedAt.toString(),
                       style: Styles.textStyle12W400
                           .copyWith(color: CustomColors.kGrey[1])),
