@@ -47,7 +47,10 @@ class ReviewCard extends StatelessWidget {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
                       color: CustomColors.kMove[3]),
-                  child: CustomRating(rate: reviewModel.rate!.toDouble() ?? 0.0)),
+                  child: CustomRating(
+                      rate: reviewModel.rate != null
+                          ? reviewModel.rate!.toDouble()
+                          : 0.0)),
             ],
           ),
           const SizedBox(height: 16.0),

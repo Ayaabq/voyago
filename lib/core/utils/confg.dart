@@ -47,6 +47,12 @@ class Confg {
   static const String attractionReviews = "/attraction_review/";
   static const String tripReviews = "/reviews_trip/";
 
-
+  // wheater
+    static const String apiKey="UM5UVFHX57KP537TGZMM6DUW7";
+    static String getWeatherUrl(double lat, double long){
+      return "https://weather.visualcrossing.com/VisualCrossingWebSe"
+          "rvices/rest/services/timeline/$lat,"
+          "$long?key=$apiKey";
+    }
 
 }

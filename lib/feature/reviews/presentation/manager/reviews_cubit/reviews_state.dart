@@ -17,7 +17,8 @@ class ReviewsLoading extends ReviewsState {}
 class ReviewsSuccess extends ReviewsState {
   final List<ReviewModel> reviewModel;
   final int total ;
-  ReviewsSuccess(this.reviewModel, this.total);
+  final double rate;
+  ReviewsSuccess(this.reviewModel, this.total, this.rate);
   @override
   List<Object?> get props => [reviewModel];
 
@@ -26,7 +27,8 @@ class ReviewsSuccess extends ReviewsState {
         .map((e) => ReviewModel.fromJson(e))
         .toList();
     final int allReviews= response['data']['cnt_reviews'];
-    return ReviewsSuccess(reviews,allReviews);
+    final double totalRate=double.parse( response['data']['rate']);
+    return ReviewsSuccess(reviews,allReviews, totalRate);
   }
 }
 

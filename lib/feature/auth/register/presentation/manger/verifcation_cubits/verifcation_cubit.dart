@@ -1,5 +1,5 @@
 // import 'package:flutter_bloc/flutter_bloc.dart';
-// import 'package:voyago/feature/auth/register/data/repo/register_repo.dart';
+// import 'package:voyago/feature/auth/register/data/weather_repo/register_repo.dart';
 
 // import '../../../data/models/verification_model.dart';
 // import 'verification_state.dart';
@@ -28,7 +28,7 @@
 // }
 
 // import 'package:bloc/bloc.dart';
-// import 'package:voyago/feature/auth/register/data/repo/register_repo_imp.dart';
+// import 'package:voyago/feature/auth/register/data/weather_repo/register_repo_imp.dart';
 // import 'package:voyago/feature/auth/register/presitions/manger/verifcation_cubits/verification_state.dart';
 
 // import '../../../data/models/verification_model.dart';

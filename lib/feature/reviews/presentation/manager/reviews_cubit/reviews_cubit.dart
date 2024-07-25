@@ -19,7 +19,7 @@ class ReviewsCubit extends Cubit<ReviewsState> {
         emit(ReviewsFailure(failure.errMessage));
       },
       (success) async {
-        emit(ReviewsSuccess(success.reviewModel, success.total));
+        emit(ReviewsSuccess(success.reviewModel, success.total, success.rate));
       },
     );
   }

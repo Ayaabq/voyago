@@ -35,8 +35,8 @@ class ReviewsConlumn extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  const CustomRating(
-                    rate: 4.8,
+                   CustomRating(
+                    rate: state.rate,
                     iconSize: 16,
                     fontStyle: Styles.textStyle14W600,
                   ),

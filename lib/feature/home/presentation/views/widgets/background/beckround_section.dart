@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:voyago/feature/home/data/repo/weather_repo/weather_repo_impl.dart';
+import 'package:voyago/feature/home/presentation/maneger/weather_cubit/weather_cubit.dart';
 import 'package:voyago/feature/home/presentation/views/widgets/whether_info.dart';
 
+import '../../../../../../core/utils/services_locater.dart';
 import '../app_bar/custom_app_bar.dart';
 import '../categories/categories_row.dart';
 import 'custom_back_ground.dart';
@@ -11,27 +15,29 @@ class BackgroundSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SliverToBoxAdapter(
+    return  SliverToBoxAdapter(
       child: Stack(
         children: [
-          CustomBackground(),
+          const CustomBackground(),
           Padding(
-            padding: EdgeInsets.only(left: 10,right: 10, top: 40),
+            padding: const EdgeInsets.only(left: 10,right: 10, top: 40),
             child: Column(
               children: [
-                CustomAppBar(),
-                WhetherInfo(
+                const CustomAppBar(),
+                BlocProvider(
+                create: (context) => WeatherCubit(getIt.get<WeatherRepoImpl>()),
+                child: const WhetherInfo(
                   country: "Damascus",
                   degree: 17,
-                ),
-                SizedBox(
+                ),),
+                const SizedBox(
                   height: 8,
                 ),
-                CategoriesRow(),
-                SizedBox(
+                const CategoriesRow(),
+                const SizedBox(
                   height: 17,
                 ),
-                DummyDiscount()
+                const DummyDiscount()
               ],
             ),
           )
