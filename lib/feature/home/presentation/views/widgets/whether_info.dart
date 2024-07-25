@@ -21,40 +21,63 @@ class WhetherInfo extends StatelessWidget {
         if (state is WeatherSuccess) {
           final WeatherModel weatherModel= state.weatherModel;
 
-        return Row(
-            crossAxisAlignment: CrossAxisAlignment.baseline,
-            textBaseline: TextBaseline.alphabetic,
-            children: [
-              Text(
-                "${weatherModel.celsiusTemp}℃  ",
-                style: Styles.textStyle32W700
-                    .copyWith(color: CustomColors.kWhite[0]),
+        return Column(
+          children: [
+            Row(
+                crossAxisAlignment: CrossAxisAlignment.baseline,
+                textBaseline: TextBaseline.alphabetic,
+                children: [
+                  Text(
+                    "${weatherModel.celsiusTemp}℃  ",
+                    style: Styles.textStyle32W700
+                        .copyWith(color: CustomColors.kWhite[0]),
+                  ),
+                  Text(
+                    weatherModel.address,
+                    style: Styles.textStyle20W700
+                        .copyWith(color: CustomColors.kWhite[0]),
+                  )
+                ],
+
               ),
-              Text(
-                weatherModel.address,
-                style: Styles.textStyle20W700
-                    .copyWith(color: CustomColors.kWhite[0]),
-              )
-            ],
-          );
+            Text(
+              weatherModel.description,
+              style: Styles.textStyle16W700
+                  .copyWith(color: CustomColors.kMove[7]),
+            )
+
+          ],
+        );
         } else if (state is WeatherFailure) {
           return CustomFailureError(errMessage: state.errorMessage);
         } else {
           return LoadBase(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.baseline,
-              textBaseline: TextBaseline.alphabetic,
+            child: Column(
               children: [
-                Text(
-                  " X℃  ",
-                  style: Styles.textStyle32W700
-                      .copyWith(color: CustomColors.kWhite[0]),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  textBaseline: TextBaseline.alphabetic,
+                  children: [
+                    Container(width: 100,height: 60,
+                    decoration: BoxDecoration(
+                        color: Colors.grey,
+                        borderRadius: BorderRadius.circular(30)
+                    ),),
+                    const SizedBox(width: 10,),
+                    Container(width: 180,height: 30,
+                        decoration: BoxDecoration(
+                          color: Colors.grey,
+                            borderRadius: BorderRadius.circular(30)
+                        )),
+
+                  ],
                 ),
-                Text(
-                  "country",
-                  style: Styles.textStyle20W700
-                      .copyWith(color: CustomColors.kWhite[0]),
-                )
+                const SizedBox(height: 10,),
+                Container(width: double.infinity,height: 20,
+                    decoration: BoxDecoration(
+                        color: Colors.grey,
+                        borderRadius: BorderRadius.circular(30)
+                    )),
               ],
             ),
           );
