@@ -10,14 +10,15 @@ import '../../../../data/repo/review_repo_impl.dart';
 import '../../../manager/reviews_cubit/reviews_cubit.dart';
 
 class ReviewsCard extends StatelessWidget {
-  const ReviewsCard({super.key, required this.url});
+  const ReviewsCard({super.key, required this.url, required this.fullUrl});
   final String url;
+  final String fullUrl;
   @override
   Widget build(BuildContext context) {
     return CustomCard(
       title: "Reviews",
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kReviewsView);
+        GoRouter.of(context).push(AppRouter.kReviewsView, extra: fullUrl);
       },
       content: BlocProvider(
         create: (context) => ReviewsCubit(getIt.get<ReviewRepoImp>()),

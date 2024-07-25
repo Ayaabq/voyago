@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:voyago/core/utils/services_locater.dart';
 import 'package:voyago/feature/attraction/data/models/attraction_model.dart';
 import 'package:voyago/feature/attraction/presentation/views/widgets/attraction_details.dart';
-import 'package:voyago/feature/attraction/presentation/views/widgets/attractions/attraction_view.dart';
 import 'package:voyago/feature/destination/data/models/destination_model.dart';
 
 import 'package:voyago/feature/forgot_password/presentation/views/forgot_password_view.dart';
@@ -37,7 +36,6 @@ import '../../feature/forgot_password/presentation/manger/restPassword/rest_pass
 import '../../feature/profile/presentation/views/help_view.dart';
 import '../../feature/profile/presentation/views/personal_info_view.dart';
 import '../../feature/profile/presentation/views/setting_view.dart';
-import '../../feature/favorite/presentation/views/favorites_view.dart';
 import '../../feature/reviews/presentation/veiws/reviews_view.dart';
 import '../widgets/bottom_bar.dart';
 
@@ -152,7 +150,10 @@ class AppRouter {
       ),
       GoRoute(
         path: kReviewsView,
-        builder: (context, state) => const ReviewView(),
+        builder: (context, state) {
+          final String url= state.extra as String ;
+          return  ReviewView(url: url,);
+        },
       ),
       GoRoute(
         path: kCheckoutView,

@@ -4,6 +4,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:voyago/feature/attraction/data/models/attraction_model.dart';
 import 'package:voyago/feature/reviews/data/models/review_model.dart';
+import 'package:voyago/feature/reviews/data/models/total_rate.dart';
 
 abstract class ReviewsState extends Equatable{
   @override
@@ -18,7 +19,9 @@ class ReviewsSuccess extends ReviewsState {
   final List<ReviewModel> reviewModel;
   final int total ;
   final double rate;
-  ReviewsSuccess(this.reviewModel, this.total, this.rate);
+  final TotalRate? totalRates;
+
+  ReviewsSuccess(this.reviewModel, this.total, this.rate, this.totalRates);
   @override
   List<Object?> get props => [reviewModel];
 
@@ -27,8 +30,10 @@ class ReviewsSuccess extends ReviewsState {
         .map((e) => ReviewModel.fromJson(e))
         .toList();
     final int allReviews= response['data']['cnt_reviews'];
-    final double totalRate=double.parse( response['data']['rate']);
-    return ReviewsSuccess(reviews,allReviews, totalRate);
+    final double rate=double.parse( response['data']['rate']);
+    final TotalRate? totalRates=TotalRate.fromJson(response['data']['cnt_rates']);
+
+    return ReviewsSuccess(reviews,allReviews, rate, totalRates);
   }
 }
 

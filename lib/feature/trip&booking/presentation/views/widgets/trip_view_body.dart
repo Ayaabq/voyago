@@ -41,7 +41,8 @@ class TripViewBody extends StatelessWidget {
             child: PlacesCard(id: id,)
           )
           ,
-          ReviewsCard(url: Confg.tripReviews+ id.toString(),),
+          ReviewsCard(url: Confg.tripReviews+ id.toString(),
+          fullUrl: Confg.tripReviews+ id.toString(),),
           const SizedBox(
             height: 60,
           )
