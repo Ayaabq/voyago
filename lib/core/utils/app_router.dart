@@ -11,6 +11,7 @@ import 'package:voyago/feature/forgot_password/presentation/views/success_passwo
 import 'package:voyago/feature/forgot_password/presentation/views/success_sginup_view.dart';
 import 'package:voyago/feature/forgot_password/presentation/views/verification_code_passwordview.dart';
 import 'package:voyago/feature/get_started/presentation/views/get_started.dart';
+import 'package:voyago/feature/location&map/presentation/views/widgets/location_input.dart';
 import 'package:voyago/feature/profile/presentation/views/edit_profile_view.dart';
 
 import 'package:voyago/feature/search/presentation/views/search_view.dart';
@@ -78,8 +79,11 @@ class AppRouter {
 
 //***   books */
   static const kDetilesBooksView = "/DetilesBooksView";
+  //// ***location*** /////
+  static const kLocationView = "/kLocationView";
 
 //// ****** //////////////////////////////
+  //// ***location*** /////
 
   static final router = GoRouter(
     initialLocation: initial,
@@ -226,6 +230,10 @@ class AppRouter {
       GoRoute(
         path: kDetilesBooksView,
         builder: (context, state) => const DetilesBooksView(),
+      ),
+      GoRoute(
+        path: kLocationView,
+        builder: (context, state) => const LocationInput(),
       ),
     ],
   );

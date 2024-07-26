@@ -15,6 +15,8 @@ import 'package:voyago/feature/get_started/presentation/views/get_started.dart';
 import 'core/utils/app_router.dart';
 import 'feature/favorite/data/repo/favorite_repo_impl.dart';
 import 'feature/favorite/presentation/manager/change_favorite_cubit/favorite_cubit.dart';
+import 'feature/location&map/data/repo/location_repo.dart';
+import 'feature/location&map/presentation/manager/location_cubit.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -38,9 +40,13 @@ class VoyagoApp extends StatelessWidget {
 
         BlocProvider(
         create: (context) => ChangeFavoriteCubit(getIt.get<FavoriteRepoImp>()),
+
     )
 
     ,
+      BlocProvider(
+        create: (context) => LocationCubit(getIt<LocationRepo>()),
+      )
     ], child:  MaterialApp.router(
       debugShowCheckedModeBanner: false,
 
