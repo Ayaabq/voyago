@@ -47,6 +47,7 @@ dependencies:
   location: ^6.0.2
   latlong2: ^0.9.1
   flutter_map: ^7.0.2
+  timeline_tile: ^2.0.0
 
 dev_dependencies:
   flutter_lints: ^4.0.0

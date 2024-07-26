@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:voyago/feature/trip&booking/presentation/views/maneger/itinerary_cubit/itinerary_cubit.dart';
 
-import 'package:voyago/feature/trip&booking/presentation/views/widgets/Itinerary_card.dart';
+import 'package:voyago/feature/trip&booking/presentation/views/widgets/itinerary/Itinerary_card.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/image_slider/image_card.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/places_card.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/trip_info_2_section/trip_info_2_section.dart';
@@ -35,7 +36,11 @@ class TripViewBody extends StatelessWidget {
               id: id,
             ),
           ),
-          const ItineraryCard(),
+            BlocProvider(
+            create: (_) => ItineraryCubit(getIt.get<TripDetailsRepoImp>()),
+            child: ItineraryCard(id: id,),
+          ),
+
           BlocProvider(
             create: (_) => TripInfo3PlacesCubit(getIt.get<TripDetailsRepoImp>()),
             child: PlacesCard(id: id,)

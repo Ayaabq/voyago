@@ -32,6 +32,7 @@ class Confg {
   static const String tripInfo1 = "/tripInfo1/";
   static const String tripInfo2 = "/tripInfo2/";
   static const String tripInfo3 = "/tripInfo3/";
+  static const String itinerary = "/itenerary/";
 
   //attraction
   static const String attractionInfo2 = "/attractionInfo2/";
@@ -55,7 +56,7 @@ class Confg {
   static const String attractionAddReviews = "/attraction_review/";
   static const String tripAddReviews = "/trip_review/";
 
-  // wheater
+  // weather
     static const String apiKey="UM5UVFHX57KP537TGZMM6DUW7";
     static String getWeatherUrl(double lat, double long){
       return "https://weather.visualcrossing.com/VisualCrossingWebSe"
