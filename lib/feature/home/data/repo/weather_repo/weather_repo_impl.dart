@@ -17,7 +17,6 @@ class WeatherRepoImpl implements WeatherRepo {
     final url=Confg.getWeatherUrl(lat, long);
     try {
       var response = await api.get(url);
-      print(response);
       return right(WeatherSuccess.fromJson(response));
     } catch (e) {
       if (e is DioException) {

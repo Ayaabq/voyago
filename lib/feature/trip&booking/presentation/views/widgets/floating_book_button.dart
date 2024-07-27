@@ -3,13 +3,14 @@ import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/core/utils/styles.dart';
+import 'package:voyago/feature/trip&booking/data/models/trip_model.dart';
 
 import '../../../../../core/utils/app_router.dart';
 import 'over_view_card/icon_text_view.dart';
 
 class FloatingBookButton extends StatelessWidget {
-  const FloatingBookButton({super.key, required this.price});
-  final double price;
+  const FloatingBookButton({super.key,  required this.trip});
+  final TripModel trip;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -38,13 +39,13 @@ class FloatingBookButton extends StatelessWidget {
             padding: const EdgeInsets.only(top: 15.0),
             child: IconText(
               icon: Iconsax.coin,
-              price: price,
+              price: trip.price.toDouble(),
               title: "From ",
             ),
           ),
           ElevatedButton(
             onPressed: () {
-              GoRouter.of(context).push(AppRouter.kCheckoutView);
+              GoRouter.of(context).push(AppRouter.kCheckoutView, extra: trip);
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: CustomColors.kMove[4], // Button color

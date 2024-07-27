@@ -1,33 +1,40 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:voyago/feature/trip&booking/presentation/views/widgets/checkout/optional_choices.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:voyago/feature/trip&booking/presentation/views/maneger/trip_info_2_cubit/trip_info_2_cubit.dart';
+import 'package:voyago/feature/trip&booking/presentation/views/maneger/trip_info_2_cubit/trip_info_2_state.dart';
+import 'package:voyago/feature/trip&booking/presentation/views/widgets/checkout/optinal_choices_list.dart';
+import 'package:voyago/feature/trip&booking/presentation/views/widgets/checkout/optional_choice_item.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/checkout/rules_section.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/checkout/travler_number.dart';
 
 import '../../../../../../core/widgets/custom_card.dart';
 
-class Step1Page extends StatefulWidget {
-  const Step1Page({super.key});
-
-  @override
-  State<Step1Page> createState() => _Step1PageState();
-}
-
-class _Step1PageState extends State<Step1Page> {
-
-
+class Step1Page extends StatelessWidget {
+  final int id;
+  const Step1Page({
+    super.key,
+    required this.id,
+  });
   @override
   Widget build(BuildContext context) {
-    return   ListView(
-      children: const [
-       CustomCard(
-          content: TravelerNumber(),
+    final trip = context.read<TripInfo2Cubit>().tripInfo2Model!;
+    return ListView(
+      children: [
+        CustomCard(
+          content: TravelerNumber(
+            max: trip.available,
+          ),
           title: 'Number of travelers',
         ),
         CustomCard(
-            title: 'Optional choices',
-            content: OptionalChoices()),
-        CustomCard(content: RulesSection()),
-        SizedBox(height: 70,)
+          title: 'Optional choices',
+          content: OptionalChoicesList(id: id),
+        ),
+        const CustomCard(content: RulesSection()),
+        const SizedBox(
+          height: 70,
+        )
       ],
     );
   }

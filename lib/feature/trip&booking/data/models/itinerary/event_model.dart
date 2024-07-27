@@ -7,11 +7,11 @@ class EventModel {
   final DateTime startDate;
   final double duration;
   final String description;
-  final String type;
+  final bool type;
   final double? priceAdult;
   final double? priceChild;
   final String additionalNote;
-  final int dayTripId;
+  final int? dayTripId;
   final int? attractionId;
 
   EventModel({
@@ -37,7 +37,7 @@ class EventModel {
       startDate: DateFormat('dd-MM-yyyy').parse(json['start_date']),
       duration: json['duration'].toDouble(),
       description: json['description'],
-      type: json['type'],
+      type: json['type']==null? true:false,
       priceAdult: json['price_adult']?.toDouble(),
       priceChild: json['price_child']?.toDouble(),
       additionalNote: json['additional_note'],

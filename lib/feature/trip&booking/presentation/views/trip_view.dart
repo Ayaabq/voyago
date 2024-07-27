@@ -84,7 +84,7 @@ class _TripViewState extends State<TripView> with SingleTickerProviderStateMixin
   Widget build(BuildContext context) {
     return   Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton:  FloatingBookButton(price: widget.tripModel.price.toDouble(),),
+      floatingActionButton:  FloatingBookButton(trip: widget.tripModel,),
       extendBodyBehindAppBar: true,
       appBar: TransparentAppBar(
         title:  widget.tripModel.name ,

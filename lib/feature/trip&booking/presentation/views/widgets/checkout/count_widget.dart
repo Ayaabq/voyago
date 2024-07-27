@@ -6,11 +6,14 @@ import '../../../../../../core/utils/styles.dart';
 class ItemCountWidget extends StatefulWidget {
   final String title;
   final int initialCount;
-
+  final int? max;
+  final void Function(int i) onPressed;
   const ItemCountWidget({
     super.key,
     required this.title,
     this.initialCount = 0,
+    required this.onPressed,
+    this.max,
   });
 
   @override
@@ -27,15 +30,17 @@ class _ItemCountWidgetState extends State<ItemCountWidget> {
   }
 
   void _increment() {
-    setState(() {
-      if (_count < 15) _count++;
-    });
+    if (widget.max != null && _count + 1 <= widget.max!) {
+      _count++;
+    }
+    widget.onPressed(_count);
   }
 
   void _decrement() {
-    setState(() {
-      if (_count > 0) _count--;
-    });
+    if (_count > 0) {
+      _count--;
+    }
+    widget.onPressed(_count);
   }
 
   @override
@@ -51,16 +56,16 @@ class _ItemCountWidgetState extends State<ItemCountWidget> {
         IconButton(
           icon: const Icon(Icons.arrow_circle_up_rounded,
               color: CustomColors.kHighlightMove),
-          onPressed: _decrement,
+          onPressed: _increment,
         ),
         Text(
-          '$_count',
+          '${widget.initialCount}',
           style: const TextStyle(fontSize: 18),
         ),
         IconButton(
           icon: const Icon(Icons.arrow_circle_down_rounded,
               color: CustomColors.kHighlightMove),
-          onPressed: _increment,
+          onPressed: _decrement,
         ),
       ],
     );

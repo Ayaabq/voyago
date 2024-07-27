@@ -17,7 +17,7 @@ import 'package:voyago/feature/profile/presentation/views/edit_profile_view.dart
 import 'package:voyago/feature/search/presentation/views/search_view.dart';
 import 'package:voyago/feature/trip&booking/data/models/trip_model.dart';
 import 'package:voyago/feature/reviews/reviews_view.dart';
-import 'package:voyago/feature/trip&booking/presentation/views/checkout_view.dart';
+import 'package:voyago/feature/trip&booking/presentation/views/widgets/checkout/checkout_view_body.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/trip_view.dart';
 import 'package:voyago/feature/wallet/presentation/views/detiles_wallet_history.dart';
 import 'package:voyago/feature/wallet/presentation/views/fill_wallet.dart';
@@ -161,7 +161,11 @@ class AppRouter {
       ),
       GoRoute(
         path: kCheckoutView,
-        builder: (context, state) => const CheckoutScreen(),
+        builder: (context, state) {
+          final trip=state.extra as TripModel;
+
+          return  CheckoutViewBody(tripModel: trip,);
+        },
       ),
 
 // **** profile   &  wallet  ***////
@@ -233,7 +237,9 @@ class AppRouter {
       ),
       GoRoute(
         path: kLocationView,
-        builder: (context, state) => const LocationInput(),
+        builder: (context, state) {
+          return const LocationInput();
+        },
       ),
     ],
   );
