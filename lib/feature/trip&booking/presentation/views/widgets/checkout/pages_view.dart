@@ -10,10 +10,9 @@ import '../../maneger/trip_info_2_cubit/trip_info_2_cubit.dart';
 import '../../maneger/trip_info_2_cubit/trip_info_2_state.dart';
 
 class PagesView extends StatelessWidget {
-  const PagesView({super.key, required this.pageController, required this.onPageChanged, required this.tripModel});
+  const PagesView({super.key, required this.pageController,  required this.tripModel});
   final PageController pageController;
   final TripModel tripModel;
-  final void Function(int) onPageChanged;
   @override
   Widget build(BuildContext context) {
     context.read<TripInfo2Cubit>().fetchTripDetailsInfo1(tripModel.id);
@@ -23,9 +22,9 @@ class PagesView extends StatelessWidget {
         builder: (_, state) {
           if (state is TripInfo2Success) {
             return PageView(
+
               physics: const NeverScrollableScrollPhysics(),
               controller: pageController,
-              onPageChanged: onPageChanged,
               children:  [
                 Step1Page(id:tripModel.id ,),
                 Step2Page(),
