@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:voyago/core/utils/styles.dart';
 
+import '../../../../core/helper/localization_checker.dart';
 import '../../../../core/utils/custom_colors.dart';
 
 class SettingsView extends StatefulWidget {
@@ -111,6 +112,7 @@ class LanguageRow extends StatelessWidget {
                   child: const Text('English'),
                   onTap: () {
                     onLanguageChanged('English');
+                    LocalizationChecker.changeLanguage(context, Locale("en"));
                     Navigator.of(context).pop();
                   },
                 ),
@@ -119,6 +121,8 @@ class LanguageRow extends StatelessWidget {
                   child: const Text('Spanish'),
                   onTap: () {
                     onLanguageChanged('Spanish');
+                    LocalizationChecker.changeLanguage(context, Locale("ar"));
+
                     Navigator.of(context).pop();
                   },
                 ),

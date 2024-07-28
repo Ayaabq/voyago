@@ -39,24 +39,24 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   }
 
   bool valid() {
-    var validator= ValidatorManager();
+    var validator = ValidatorManager();
     if (_currentPage == 0) {
-      return (manager.agree &&
-          manager.adults! > 0 &&
-          manager.adults != null);
-    } else if(_currentPage ==1){
-      String? email=manager.email;
-      String? phoneNumber=manager.phoneNumber;
-      return(
-          email !=null && email.isNotEmpty &&
-             validator.validateEmail(email)==null &&
-          phoneNumber !=null && phoneNumber.isNotEmpty &&
-              validator.validatePhone(phoneNumber)==null
-
-      )   ;
+      return (manager.agree && manager.adults! > 0 && manager.adults != null);
+    } else if (_currentPage == 1) {
+      String? email = manager.email;
+      String? phoneNumber = manager.phoneNumber;
+      return (email != null &&
+          email.isNotEmpty &&
+          validator.validateEmail(email) == null &&
+          phoneNumber != null &&
+          phoneNumber.isNotEmpty &&
+          validator.validatePhone(phoneNumber) == null);
+    } else if (_currentPage == 2) {
+      return (manager.password != null &&
+          manager.password!.isNotEmpty &&
+          validator.validatePassword(manager.password!) == null);
     }
     return true;
-
   }
 
   void _onNextTapped() {
@@ -81,6 +81,12 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
     context.read<PageCubit>().setPage(_currentPage);
   }
 
+  void _onBookTaped() {
+    if(valid()){
+      print("yeeeeeeeeeesssssssss");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,7 +101,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
           content: FloatingCheckout(
             currentPage: context.read<PageCubit>().imageIndex,
             onBackTapped: _onBackTapped,
-            onBookTapped: () {},
+            onBookTapped: _onBookTaped,
             onNextTapped: _onNextTapped,
           ),
         );

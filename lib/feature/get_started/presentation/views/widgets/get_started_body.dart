@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:voyago/feature/get_started/data/models/on_boarding_model.dart';
@@ -38,7 +39,7 @@ List<Widget> backgrounds = [
   OnBoardingPage(
     imageUrl: OnBoardingAssets.onBoarding1,
     onBoardingModel: OnBoardingModel(
-      descreptionTitle: "Discover the best of the world with us",
+      descreptionTitle: "get_started1".tr(),
     ),
   ),
   OnBoardingPage(

@@ -4,12 +4,14 @@ class Assets {
 
   static const String homeBackgrounSky = 'assets/images/home/backgroun_sky.png';
   static const String homeCategoryAttractionsIcon = 'assets/images/home/category_attractions_icon.png';
+  static const String homeCategoryAward = 'assets/images/home/category_award.png';
   static const String homeCategoryTripsIcon = 'assets/images/home/category_trips_icon.png';
   static const String homeDummyAttraction = 'assets/images/home/dummy_attraction.png';
   static const String homeDummyDestination = 'assets/images/home/dummy_destination.png';
   static const String homeDummyDiscount = 'assets/images/home/dummy_discount.png';
   static const String homeDummyOffer = 'assets/images/home/dummy_offer.png';
   static const String homeDummyTrip = 'assets/images/home/dummy_trip.png';
+  static const String homeLocation = 'assets/images/home/location.png';
   static const String imagesOnBoardingOnBoarding5 = 'assets/images/on_boarding/on_boarding_5.dart';
   static const String loginForgot = 'assets/images/login/forgot.png';
   static const String loginFrame = 'assets/images/login/Frame.png';
@@ -27,5 +29,16 @@ class Assets {
   static const String onBoardingOnBoarding3 = 'assets/images/on_boarding/on_boarding_3.png';
   static const String onBoardingOnBoarding4 = 'assets/images/on_boarding/on_boarding_4.png';
   static const String onBoardingOnBoarding5 = 'assets/images/on_boarding/on_boarding_5.png';
+  static const String translationAr = 'assets/translation/ar.json';
+  static const String translationEn = 'assets/translation/en.json';
+  static const String walletBank = 'assets/images/wallet/bank.png';
+  static const String walletBooks = 'assets/images/wallet/books.png';
+  static const String walletEmptyFavorites = 'assets/images/wallet/empty_favorites.png';
+  static const String walletFailureDialog = 'assets/images/wallet/failure_dialog.png';
+  static const String walletFillWallet = 'assets/images/wallet/fill_wallet.png';
+  static const String walletReviewsEmpty = 'assets/images/wallet/reviews_empty.png';
+  static const String walletSuccessDialog = 'assets/images/wallet/success_dialog.png';
+  static const String walletWallet = 'assets/images/wallet/wallet.png';
+  static const String walletWatting = 'assets/images/wallet/watting.png';
 
 }

@@ -9,6 +9,7 @@ class FloatingCheckout extends StatelessWidget {
   final void Function() onBackTapped;
   final void Function() onNextTapped;
   final void Function() onBookTapped;
+
   @override
   Widget build(BuildContext context) {
     return  Row(
