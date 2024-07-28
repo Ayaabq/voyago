@@ -18,7 +18,6 @@ class ChangeFavoriteCubit extends Cubit<ChangeFavoriteState> {
     emit(ChangeDestinationFavoriteLoading());
 
     var result = await favoriteRepo.addID2Favourite(id,url);
-    print(result);
     result.fold(
           (failure) {
         emit(ChangeFavouriteFailure(errorMessage: failure.errMessage));

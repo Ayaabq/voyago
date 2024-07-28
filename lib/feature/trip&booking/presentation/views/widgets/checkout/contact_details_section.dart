@@ -20,6 +20,7 @@ class ContactDetailsSection extends StatelessWidget {
           height: 16,
         ),
         TextFieldCustom(
+
           controller: emailController,
           hint: "Email",
           onPressedIcon: () {},

@@ -18,7 +18,6 @@ class ReviewsViewBody extends StatelessWidget {
     return BlocBuilder<ReviewsCubit, ReviewsState>(builder: (context, state) {
       if (state is ReviewsSuccess) {
         final List<ReviewModel> reviews = state.reviewModel;
-              print(state.rate);
               print(state.total);
         return CustomScrollView(
           slivers: [

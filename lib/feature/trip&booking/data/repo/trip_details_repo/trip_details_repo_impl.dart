@@ -26,7 +26,6 @@ class TripDetailsRepoImp implements TripDetailsRepo {
 
     try {
       var response = await api.get(Confg.tripInfo1+id.toString(), hasToken: true);
-      print(response);
       return right(TripInfo1Success.fromJson(response));
     } catch (e) {
       if (e is DioException) {
@@ -45,7 +44,6 @@ class TripDetailsRepoImp implements TripDetailsRepo {
 
     try {
       var response = await api.get(Confg.tripInfo2+id.toString(), hasToken: true);
-      print(response);
       return right(TripInfo2Success.fromJson(response));
     } catch (e) {
       if (e is DioException) {
@@ -60,7 +58,6 @@ class TripDetailsRepoImp implements TripDetailsRepo {
 
     try {
       var response = await api.get(Confg.tripInfo3+id.toString(), hasToken: true);
-      print(response);
       return right(TripInfo3PlacesSuccess.fromJson(response));
     } catch (e) {
       if (e is DioException) {
@@ -74,7 +71,6 @@ class TripDetailsRepoImp implements TripDetailsRepo {
   Future<Either<Failure, ItinerarySuccess>> itinerary(int id) async{
     try {
       var response = await api.get(Confg.itinerary+id.toString(), hasToken: true);
-      print(response);
       return right(ItinerarySuccess.fromJson(response));
     } catch (e) {
       if (e is DioException) {

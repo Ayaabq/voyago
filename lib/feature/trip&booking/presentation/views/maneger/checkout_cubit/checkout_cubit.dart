@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:voyago/feature/trip&booking/data/models/itinerary/event_model.dart';
 import 'package:voyago/feature/trip&booking/data/repo/trip_details_repo/trip_details_repo.dart';
 import '../../../../data/models/checkout/optional_choice_model.dart';
 import 'checkout_state.dart';
@@ -6,21 +7,21 @@ import 'checkout_state.dart';
 class CheckoutCubit extends Cubit<CheckoutState> {
   CheckoutCubit(this.tripDetailsRepo) : super(CheckoutInitial());
   final TripDetailsRepo tripDetailsRepo;
-  int? adults;
-  int? child;
-  String? firstName;
-  String? lastName;
+  int? adults=0;
+  int? child=0;
+  bool agree = false;
+  String? email;
   String? phoneNumber;
   String? password;
-  List<OptionalChoiceModel>? optionalChoices;
+
+  List<OptionalChoiceModel>? optionalChoices = [];
 
   void updateAdults(int adults) {
     this.adults = adults;
     emit(CheckoutLoaded(
       adults: adults,
       child: child ?? 0,
-      firstName: firstName ?? '',
-      lastName: lastName ?? '',
+      email: email ?? '',
       phoneNumber: phoneNumber ?? '',
       password: password ?? '',
       optionalChoices: optionalChoices ?? [],
@@ -32,34 +33,19 @@ class CheckoutCubit extends Cubit<CheckoutState> {
     emit(CheckoutLoaded(
       adults: adults ?? 0,
       child: child,
-      firstName: firstName ?? '',
-      lastName: lastName ?? '',
+      email: email ?? '',
       phoneNumber: phoneNumber ?? '',
       password: password ?? '',
       optionalChoices: optionalChoices ?? [],
     ));
   }
 
-  void updateFirstName(String firstName) {
-    this.firstName = firstName;
+  void updateEmail(String email) {
+    this.email = email;
     emit(CheckoutLoaded(
       adults: adults ?? 0,
       child: child ?? 0,
-      firstName: firstName,
-      lastName: lastName ?? '',
-      phoneNumber: phoneNumber ?? '',
-      password: password ?? '',
-      optionalChoices: optionalChoices ?? [],
-    ));
-  }
-
-  void updateLastName(String lastName) {
-    this.lastName = lastName;
-    emit(CheckoutLoaded(
-      adults: adults ?? 0,
-      child: child ?? 0,
-      firstName: firstName ?? '',
-      lastName: lastName,
+      email: email,
       phoneNumber: phoneNumber ?? '',
       password: password ?? '',
       optionalChoices: optionalChoices ?? [],
@@ -71,8 +57,7 @@ class CheckoutCubit extends Cubit<CheckoutState> {
     emit(CheckoutLoaded(
       adults: adults ?? 0,
       child: child ?? 0,
-      firstName: firstName ?? '',
-      lastName: lastName ?? '',
+      email: email ?? '',
       phoneNumber: phoneNumber,
       password: password ?? '',
       optionalChoices: optionalChoices ?? [],
@@ -84,8 +69,7 @@ class CheckoutCubit extends Cubit<CheckoutState> {
     emit(CheckoutLoaded(
       adults: adults ?? 0,
       child: child ?? 0,
-      firstName: firstName ?? '',
-      lastName: lastName ?? '',
+      email: email ?? '',
       phoneNumber: phoneNumber ?? '',
       password: password,
       optionalChoices: optionalChoices ?? [],
@@ -97,12 +81,103 @@ class CheckoutCubit extends Cubit<CheckoutState> {
     emit(CheckoutLoaded(
       adults: adults ?? 0,
       child: child ?? 0,
-      firstName: firstName ?? '',
-      lastName: lastName ?? '',
+      email: email ?? '',
       phoneNumber: phoneNumber ?? '',
       password: password ?? '',
       optionalChoices: optionalChoices,
     ));
+  }
+
+  void addOptionalChoice(EventModel event) {
+    bool exsist=false;
+    for(var e in optionalChoices!){
+      if (e.id==event.id) {
+        exsist=true;
+      }
+    }
+    if(!exsist) {
+      optionalChoices!.add(OptionalChoiceModel(
+        id: event.id, child: 0,
+        adults: 0,
+      adultPrice: event.priceAdult??0,
+      childPrice: event.priceChild??0,
+      title: event.title
+    ));
+    }
+    emit(CheckoutLoaded(
+      adults: adults ?? 0,
+      child: child ?? 0,
+      email: email ?? '',
+      phoneNumber: phoneNumber ?? '',
+      password: password ?? '',
+      optionalChoices: optionalChoices!,
+    ));
+  }
+
+  void remOptionalChoice(int id) {
+    // Check if optionalChoices is not null
+    if (optionalChoices != null) {
+      // Remove the optional choice with the given id
+      optionalChoices!.removeWhere((choice) => choice.id == id);
+    }
+
+    // Emit the updated CheckoutLoaded state
+    emit(CheckoutLoaded(
+      adults: adults ?? 0,
+      child: child ?? 0,
+      email: email ?? '',
+      phoneNumber: phoneNumber ?? '',
+      password: password ?? '',
+      optionalChoices: optionalChoices!,
+    ));
+  }
+
+  void addChildOptionalChoice(int id, int c) {
+    if (optionalChoices != null) {
+      for (var e in optionalChoices!) {
+        if (e.id == id) {
+          if(e.child +c >0) {
+            e.child += c;
+          }
+        }
+      }
+    }
+    emit(CheckoutLoaded(
+      adults: adults ?? 0,
+      child: child ?? 0,
+      email: email ?? '',
+      phoneNumber: phoneNumber ?? '',
+      password: password ?? '',
+      optionalChoices: optionalChoices!,
+    ));
+  }
+
+  void addAdultOptionalChoice(int id, int c) {
+    if (optionalChoices != null) {
+      for (var e in optionalChoices!) {
+        if (e.id == id) {
+          e.adults += c;
+        }
+      }
+    }
+    emit(CheckoutLoaded(
+      adults: adults ?? 0,
+      child: child ?? 0,
+      email: email ?? '',
+      phoneNumber: phoneNumber ?? '',
+      password: password ?? '',
+      optionalChoices: optionalChoices!,
+    ));
+  }
+
+  double getTotalPrice(double tripPrice) {
+    double tot=0;
+    tot+=(tripPrice*(child??0))+(tripPrice*adults!);
+    for(var e in optionalChoices!){
+      tot+=(e.adults * e.adultPrice);
+      tot+=(e.child * e.childPrice);
+    }
+    return tot;
   }
 
   void submitCheckout() async {
@@ -113,8 +188,7 @@ class CheckoutCubit extends Cubit<CheckoutState> {
       emit(CheckoutLoaded(
         adults: adults!,
         child: child!,
-        firstName: firstName!,
-        lastName: lastName!,
+        email: email!,
         phoneNumber: phoneNumber!,
         password: password!,
         optionalChoices: optionalChoices!,
@@ -122,5 +196,9 @@ class CheckoutCubit extends Cubit<CheckoutState> {
     } catch (e) {
       emit(CheckoutError(e.toString()));
     }
+  }
+
+  void agreeToCondition() {
+    agree = !agree;
   }
 }

@@ -89,7 +89,6 @@ class VerificationPasswordCodeBody extends StatelessWidget {
                     ButtonAuth(
                         title: "Verify",
                         onTap: () {
-                          print(model);
 
                           context
                               .read<CodeForgotPasswordCubit>()

@@ -11,7 +11,8 @@ class TravelerNumber extends StatelessWidget {
   final int max;
   @override
   Widget build(BuildContext context) {
-    return  BlocBuilder<CheckoutCubit,CheckoutState>(builder: (context, state){
+    return  BlocBuilder<CheckoutCubit,CheckoutState>(
+        builder: (context, state){
 
         return  Column(
           crossAxisAlignment: CrossAxisAlignment.start,

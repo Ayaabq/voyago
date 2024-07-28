@@ -13,6 +13,8 @@ class EventModel {
   final String additionalNote;
   final int? dayTripId;
   final int? attractionId;
+  int? child;
+  int? adults;
 
   EventModel({
     required this.id,
@@ -27,6 +29,9 @@ class EventModel {
     required this.additionalNote,
     required this.dayTripId,
     this.attractionId,
+    this.adults=0,
+    this.child=0
+
   });
 
   factory EventModel.fromJson(Map<String, dynamic> json) {

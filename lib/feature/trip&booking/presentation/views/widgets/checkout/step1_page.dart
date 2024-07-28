@@ -16,9 +16,11 @@ class Step1Page extends StatelessWidget {
     super.key,
     required this.id,
   });
+
   @override
   Widget build(BuildContext context) {
     final trip = context.read<TripInfo2Cubit>().tripInfo2Model!;
+
     return ListView(
       children: [
         CustomCard(
@@ -29,9 +31,9 @@ class Step1Page extends StatelessWidget {
         ),
         CustomCard(
           title: 'Optional choices',
-          content: OptionalChoicesList(id: id),
+          content: OptionalChoicesList(id: id,  max: trip.available,),
         ),
-        const CustomCard(content: RulesSection()),
+         CustomCard(content: RulesSection(timeCancel:trip.timeCancellation,)),
         const SizedBox(
           height: 70,
         )

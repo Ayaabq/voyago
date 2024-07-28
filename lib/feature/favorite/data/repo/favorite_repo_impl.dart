@@ -16,12 +16,10 @@ class FavoriteRepoImp implements FavoriteRepo {
   @override
   Future<Either<Failure, ChangeFavouriteSuccess>>
   addID2Favourite(int id, String url) async {
-    print("yeees");
     try {
       var response = await api.put(
           url + id.toString(),
           hasToken: true);
-      print(response);
       return right(ChangeFavouriteSuccess.fromJson(
           response, id));
     } catch (e) {

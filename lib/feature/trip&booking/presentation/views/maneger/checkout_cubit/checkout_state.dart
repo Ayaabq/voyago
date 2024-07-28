@@ -15,8 +15,7 @@ class CheckoutLoading extends CheckoutState {}
 class CheckoutLoaded extends CheckoutState {
   final int adults;
   final int child;
-  final String firstName;
-  final String lastName;
+  final String email;
   final String phoneNumber;
   final String password;
   final List<OptionalChoiceModel> optionalChoices;
@@ -24,15 +23,14 @@ class CheckoutLoaded extends CheckoutState {
   const CheckoutLoaded({
     required this.adults,
     required this.child,
-    required this.firstName,
-    required this.lastName,
+    required this.email,
     required this.phoneNumber,
     required this.password,
     required this.optionalChoices,
   });
 
   @override
-  List<Object?> get props => [adults, child, firstName, lastName, phoneNumber, password, optionalChoices];
+  List<Object?> get props => [adults, child, email, phoneNumber, password, optionalChoices];
 }
 
 class CheckoutError extends CheckoutState {

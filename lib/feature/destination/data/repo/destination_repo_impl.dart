@@ -18,7 +18,6 @@ class DestinationRepoImp implements DestinationRepo {
 
     try {
       var response = await api.get(url, hasToken: true);
-      print(response);
       return right(DestinationSuccess.fromJson(response));
     } catch (e) {
       if (e is DioException) {

@@ -12,7 +12,6 @@ class CustomTapBar extends StatelessWidget implements PreferredSizeWidget {
   final void Function(int) onTap;
   @override
   Widget build(BuildContext context) {
-    print(taps.length);
     var content =TabBar(
 
         onTap: onTap,

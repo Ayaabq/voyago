@@ -15,7 +15,6 @@ class DestinationCubit extends Cubit<DestinationState> {
     emit(DestinationLoading());
 
     var result = await destinationRepo.getDestination(url);
-    print(result);
     result.fold(
           (failure)
           {

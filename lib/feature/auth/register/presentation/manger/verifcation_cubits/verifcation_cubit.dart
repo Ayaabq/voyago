@@ -72,7 +72,6 @@ class VerificationCubit extends Cubit<VerificationState> {
     emit(VerificationLoading());
 
     var result = await verificationRepo.verifyCode(model);
-    print(result);
     result.fold(
       (failure) => emit(VerificationFailure(failure.errMessage)),
       (success) => emit(VerificationSuccess(success.message)),

@@ -33,11 +33,12 @@
 import 'package:bloc/bloc.dart';
 import 'package:voyago/feature/trip&booking/data/repo/trip_details_repo/trip_details_repo.dart';
 
+import '../../../../data/models/itinerary/event_model.dart';
 import 'optional_choices_state.dart';
 
 class OptionalEventsCubit extends Cubit<OptionalEventState> {
   final TripDetailsRepo tripsRepo;
-
+  List<EventModel>? events;
   OptionalEventsCubit(this.tripsRepo) : super(OptionalEventInitial());
 
   Future<void> fetchEventsInitial(int id) async {
@@ -48,6 +49,7 @@ class OptionalEventsCubit extends Cubit<OptionalEventState> {
         emit(OptionalEventFailure(failure.errMessage));
       },
           (success) {
+            events=success.events;
         emit(OptionalEventSuccess(success.events));
       },
     );

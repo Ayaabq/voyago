@@ -73,9 +73,7 @@ class LoginRepoImp implements LoginRepo {
         "username": username,
         "password": password,
       };
-      print(requestBody);
       var response = await api.post(Confg.loginUrl, body: requestBody);
-      print(response);
       return right(LoginSuccess.fromJson(response));
     } catch (e) {
       if (e is DioException) {

@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:voyago/feature/trip&booking/presentation/views/maneger/checkout_cubit/checkout_cubit.dart';
 
 class RulesSection extends StatefulWidget {
-  const RulesSection({super.key});
-
+ const  RulesSection({super.key, required this.timeCancel});
+   final int timeCancel;
   @override
-  _RulesSectionState createState() => _RulesSectionState();
+   _RulesSectionState createState() => _RulesSectionState();
 }
 
 class _RulesSectionState extends State<RulesSection> {
-  bool _agree = false;
 
   void _toggleAgreement(bool? value) {
     setState(() {
-      _agree = value ?? false;
+      // _agree = value ?? false;
+      context.read<CheckoutCubit>().agreeToCondition();
     });
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +39,9 @@ class _RulesSectionState extends State<RulesSection> {
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 8.0),
-        const Text(
-          '• Up to 24 hours in advance.\n'
-              '• For a full refund, you must cancel at least 24 hours before the trip\'s start time.\n'
+         Text(
+          '• Up to ${widget.timeCancel} days in advance.\n'
+              '• For a full refund, you must cancel at least ${widget.timeCancel} days before the trip\'s start time.\n'
               '• This trip requires a minimum number of travelers. If it’s canceled because the minimum isn’t met, you’ll be offered a different date/trip or a full refund.',
           style: TextStyle(fontSize: 16),
         ),
@@ -57,7 +60,7 @@ class _RulesSectionState extends State<RulesSection> {
         Row(
           children: [
             Checkbox(
-              value: _agree,
+              value:  context.read<CheckoutCubit>().agree,
               onChanged: _toggleAgreement,
             ),
             const Expanded(

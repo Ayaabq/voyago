@@ -23,8 +23,6 @@ class PlacesCard extends StatelessWidget {
         if (state is TripInfo3PlacesSuccess) {
           print(state.tripInfo3Model.attractions);
           print(state.tripInfo3Model.attractions);
-          print(state.tripInfo3Model.attractions);
-          print(state.tripInfo3Model.attractions);
 
           TripInfo3PlacesModel trip = state.tripInfo3Model;
           return  CustomCard(

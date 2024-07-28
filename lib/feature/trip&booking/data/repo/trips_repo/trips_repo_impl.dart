@@ -17,7 +17,6 @@ class TripsRepoImp implements TripsRepo {
 
     try {
       var response = await api.get(url, hasToken: true);
-      print(response);
       return right(TripsSuccess.fromJson(response, inData));
     } catch (e) {
       if (e is DioException) {

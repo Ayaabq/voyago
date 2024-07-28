@@ -17,7 +17,6 @@ class ReviewRepoImp implements ReviewRepo {
   Future<Either<Failure, ReviewsSuccess>> getReviews(String url) async {
     try {
       var response = await api.get(url, hasToken: true);
-      print(response);
       return right(ReviewsSuccess.fromJson(response));
     } catch (e) {
       if (e is DioException) {
@@ -32,7 +31,6 @@ class ReviewRepoImp implements ReviewRepo {
       String url, ReviewModel review) async {
     try {
       var response = await api.post(url, hasToken: true, body: review.toJson());
-      print(response);
       return right(SingleReviewSuccess());
     } catch (e) {
       if (e is DioException) {

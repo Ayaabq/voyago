@@ -10,7 +10,7 @@ import '../../maneger/trip_info_2_cubit/trip_info_2_cubit.dart';
 import '../../maneger/trip_info_2_cubit/trip_info_2_state.dart';
 
 class PagesView extends StatelessWidget {
-  const PagesView({super.key, required this.pageController,  required this.tripModel});
+  const PagesView({super.key, required this.pageController,  required this.tripModel,});
   final PageController pageController;
   final TripModel tripModel;
   @override
@@ -26,9 +26,9 @@ class PagesView extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               controller: pageController,
               children:  [
-                Step1Page(id:tripModel.id ,),
-                Step2Page(),
-                Step3PaymentPage(),
+                Step1Page(id:tripModel.id,),
+                Step2Page(trip: state.tripInfo2Model,name:tripModel.name ,),
+                Step3PaymentPage(tripPrice: tripModel.price.toDouble(),),
               ],
             );
           } else if (state is TripInfo2Failure) {

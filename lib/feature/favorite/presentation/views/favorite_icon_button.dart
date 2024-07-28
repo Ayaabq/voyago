@@ -23,7 +23,6 @@ class FavoriteButton extends StatelessWidget {
           color: CustomColors.kHighlightMove  , // Icon color
           onPressed: onPressed??() {
             // Your onPressed code here
-            print('Icon Button Pressed');
           },
             padding: const EdgeInsets.all(0), // Remove default padding
             constraints: const BoxConstraints()

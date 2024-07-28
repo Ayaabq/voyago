@@ -18,7 +18,6 @@ class AttractionRepoImp implements AttractionRepo {
 
     try {
       var response = await api.get(url, hasToken: true);
-      print(response);
       return right(AttractionSuccess.fromJson(response));
     } catch (e) {
       if (e is DioException) {

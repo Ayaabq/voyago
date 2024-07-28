@@ -66,11 +66,9 @@ class AuthRepoImp implements AuthRepo {
         "password": password,
         "confirm_password": confirmPassword,
       };
-      print('Request Body: $requestBody');
       var response = await api.post(Confg.registerUrl, body: requestBody);
 
       String correctCode = response['data']['correct_code'];
-      print(correctCode);
       return right(RegisterSuccess.fromJson(response, correctCode));
     } catch (e) {
       if (e is DioException) {
@@ -94,7 +92,6 @@ class AuthRepoImp implements AuthRepo {
         "password": model.password,
         "confirm_password": model.confirmPassword,
       };
-      print('Request Body: $requestBody');
       var response = await api.post(Confg.registerCode, body: requestBody);
 
       return right(VerificationSuccess.fromJson(response));
@@ -134,10 +131,8 @@ class AuthRepoImp implements AuthRepo {
       var requestBody = {
         "email": email,
       };
-      print('Request Body: $requestBody');
       var response = await api.post(Confg.forgotPasswordUrl, body: requestBody);
 
-      print(response);
       return right(ForgotPasswordSuccess.fromJson(response));
     } catch (e) {
       if (e is DioException) {
@@ -152,14 +147,11 @@ class AuthRepoImp implements AuthRepo {
 //////////////////////////////////////////////////
   Future<Either<Failure, CodeForgotPasswordSuccess>>
       verificationCodeForgotpassword(Email model) async {
-    print(model);
     try {
       var requestBody = {"email": model.email, "cod": model.inCode};
-      print('Request Body: $requestBody');
       var response = await api.post(Confg.checkcverificationCodeForgotpass,
           body: requestBody);
 
-      print(response);
       return right(CodeForgotPasswordSuccess.fromJson(response));
     } catch (e) {
       if (e is DioException) {
@@ -177,10 +169,8 @@ class AuthRepoImp implements AuthRepo {
       String email, String password) async {
     try {
       var requestBody = {"email": email, "password": password};
-      print('Request Body: $requestBody');
       var response = await api.post(Confg.restPasswordUrl, body: requestBody);
 
-      print(response);
       return right(RestPasswordSuccess.fromJson(response));
     } catch (e) {
       if (e is DioException) {

@@ -17,7 +17,7 @@ class _ItineraryContentState extends State<ItineraryContent> {
   int selectedIndex=0;
   @override
   void initState() {
-    days=widget.itineraryDays.map((iD)=>iD.orderOfDay.toString()).toList();
+    days=widget.itineraryDays.map((iD)=>'Day ${iD.orderOfDay}').toList();
     selectedDay=days[0];
 
     super.initState();

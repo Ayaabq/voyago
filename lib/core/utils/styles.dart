@@ -44,7 +44,7 @@ class Styles {
   );
 
   static   TextStyle textStyle30W600 = TextStyle(
-      fontSize: 20,
+      fontSize: 30,
       fontWeight: FontWeight.w400,
       color: CustomColors.kBlack[2],
       overflow: TextOverflow.fade);

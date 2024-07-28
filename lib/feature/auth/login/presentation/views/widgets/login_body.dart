@@ -93,7 +93,6 @@ class LoginBodyView extends StatelessWidget {
                                   username: usernameController.text,
                                   password: passwordController.text,
                                 );
-                                print(loginModel);
                                 context.read<LoginCubit>().fetchLogin(
                                     usernameController.text,
                                     passwordController.text);

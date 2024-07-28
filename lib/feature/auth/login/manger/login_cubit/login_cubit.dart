@@ -47,7 +47,6 @@ class LoginCubit extends Cubit<LoginState> {
     emit(LoginLoading());
 
     var result = await loginRepo.loginData(username, password);
-    print(result);
     result.fold(
       (failure) => emit(LoginFailure(failure.errMessage)),
       (success) async {
@@ -59,7 +58,6 @@ class LoginCubit extends Cubit<LoginState> {
         emit(LoginSuccess(success.accessToken, success.refreshToken));
 
         dynamic token = await AppStorage.instance.readData(AppStorage.TOKEN);
-        print(token);
       },
     );
   }

@@ -62,10 +62,8 @@ class _RegisterBodyViewState extends State<RegisterBodyView> {
 
 //state.correctCode,VerificationModel
       } else if (state is RegisterFailure) {
-        print(state.errorMessage);
         context.showFailureToast(state.errorMessage);
       } else {
-        print("eror404");
 
         context.showErrorToast();
       }

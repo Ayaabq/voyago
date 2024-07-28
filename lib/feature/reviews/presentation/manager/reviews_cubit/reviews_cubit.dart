@@ -13,7 +13,6 @@ class ReviewsCubit extends Cubit<ReviewsState> {
     emit(ReviewsLoading());
 
     var result = await reviewsRepo.getReviews(url);
-    print(result);
     result.fold(
       (failure) {
         emit(ReviewsFailure(failure.errMessage));

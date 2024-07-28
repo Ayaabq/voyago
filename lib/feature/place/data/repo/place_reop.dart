@@ -18,7 +18,6 @@ class PlaceRepoImp implements PlaceRepo {
 
     try {
       var response = await api.get(url, hasToken: true);
-      print(response);
       return right(PlaceInfoSectionSuccess.fromJson(response));
     } catch (e) {
       if (e is DioException) {

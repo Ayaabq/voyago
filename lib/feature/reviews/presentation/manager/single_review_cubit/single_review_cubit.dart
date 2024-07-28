@@ -16,7 +16,6 @@ class SingleReviewCubit extends Cubit<SingleReviewState> {
 
     var result = await reviewsRepo.postReview(url, review);
 
-    print(result);
     result.fold(
           (failure) {
 

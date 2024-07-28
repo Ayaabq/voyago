@@ -43,7 +43,6 @@ class AttractionCubit extends Cubit<AttractionState> {
     emit(AttractionLoading());
 
     var result = await attractionRepo.getAttraction(url);
-    print(result);
     result.fold(
           (failure)
       {
@@ -52,7 +51,6 @@ class AttractionCubit extends Cubit<AttractionState> {
         // emit(AttractionInitial());
       },
           (success) async {
-            print("doneeeeeeee");
         emit(AttractionSuccess(success.attractionModel));
 
       },

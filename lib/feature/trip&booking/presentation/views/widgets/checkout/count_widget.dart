@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
-
 import '../../../../../../core/utils/styles.dart';
 
 class ItemCountWidget extends StatefulWidget {
   final String title;
   final int initialCount;
   final int? max;
-  final void Function(int i) onPressed;
+  final void Function()? onAddTap;
+  final void Function()? onMidTap;
+  final void Function(int i)? onPressed;
   const ItemCountWidget({
     super.key,
     required this.title,
     this.initialCount = 0,
-    required this.onPressed,
-    this.max,
+    this.onPressed,
+    this.max, this.onAddTap, this.onMidTap,
   });
 
   @override
@@ -31,16 +32,23 @@ class _ItemCountWidgetState extends State<ItemCountWidget> {
 
   void _increment() {
     if (widget.max != null && _count + 1 <= widget.max!) {
-      _count++;
+      setState(() {
+        _count++;
+      });
+      if(widget.onAddTap!=null)widget.onAddTap!();
     }
-    widget.onPressed(_count);
+    if(widget.onPressed!=null)widget.onPressed!(_count);
   }
 
   void _decrement() {
     if (_count > 0) {
-      _count--;
+      setState(() {
+        _count--;
+      });
+      if(widget.onMidTap!=null)widget.onMidTap!();
+      if(widget.onPressed!=null)widget.onPressed!(_count);
+
     }
-    widget.onPressed(_count);
   }
 
   @override
@@ -59,7 +67,7 @@ class _ItemCountWidgetState extends State<ItemCountWidget> {
           onPressed: _increment,
         ),
         Text(
-          '${widget.initialCount}',
+          '$_count',  // Changed to reflect the internal count
           style: const TextStyle(fontSize: 18),
         ),
         IconButton(

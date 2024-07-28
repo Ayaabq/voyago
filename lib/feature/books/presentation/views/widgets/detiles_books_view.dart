@@ -111,7 +111,8 @@ class DetilesBooksView extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 10),
-              const PriceDetailsSection(),
+              /// TODO:  ekhty hety el trip price
+              const PriceDetailsSection(tripPrice: 0,),
               const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

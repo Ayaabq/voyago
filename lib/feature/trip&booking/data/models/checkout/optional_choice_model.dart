@@ -2,11 +2,17 @@ class OptionalChoiceModel {
   int id;
   int child;
   int adults;
+  String title;
+  double adultPrice;
+  double childPrice;
 
   OptionalChoiceModel({
     required this.id,
-    required this.child,
-    required this.adults,
+     this.title="",
+     this.child=0,
+     this.adults=0,
+    this.adultPrice=0,
+    this.childPrice=0,
   });
 
   // Factory constructor to create an instance from JSON

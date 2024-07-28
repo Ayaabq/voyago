@@ -1,15 +1,12 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:location/location.dart';
 import 'package:voyago/core/domain/services/api.dart';
 import 'package:voyago/core/utils/services_locater.dart';
-import 'package:voyago/feature/location&map/presentation/manager/location_state.dart';
 
-import 'manager/location_cubit.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -89,7 +86,6 @@ class _MapScreenState extends State<MapScreen> {
       });
     } else {
       // Handle errors
-      print('Failed to fetch route');
     }
   }
 
