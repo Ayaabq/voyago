@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/feature/profile/presentation/views/widgets/appbar_profile.dart';
-import 'package:voyago/feature/profile/presentation/views/widgets/profile_textfield.dart';
 
 class HelpView extends StatelessWidget {
   const HelpView({super.key});

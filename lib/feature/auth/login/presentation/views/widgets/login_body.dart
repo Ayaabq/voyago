@@ -10,10 +10,8 @@ import 'package:voyago/feature/auth/login/data/model/login_model.dart';
 import 'package:voyago/feature/auth/login/manger/login_cubit/login_cubit.dart';
 import 'package:voyago/feature/auth/login/manger/login_cubit/login_state.dart';
 import 'package:voyago/feature/auth/login/presentation/views/widgets/button_auth.dart';
-import 'package:voyago/feature/auth/login/presentation/views/widgets/form_login.dart';
 import 'package:voyago/feature/auth/login/presentation/views/widgets/header_auth.dart';
 import 'package:voyago/feature/auth/login/presentation/views/widgets/text_row.dart';
-import 'package:voyago/generated/assets.dart';
 
 import '../../../../../../core/utils/validator_manager.dart';
 import 'custom_text_field.dart';
