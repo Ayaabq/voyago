@@ -1,4 +1,5 @@
 import 'package:bulleted_list/bulleted_list.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -67,10 +68,10 @@ class _Step2PageState extends State<Step2Page> {
             child: manager.child ?? 0,
             adults: manager.adults!,
           ),
-          title: 'Activity highlights',
+          title: "Activity highlights".tr(),
         ),
         CustomCard(
-          title: 'Contact details',
+          title: "Contact details".tr(),
           content: ContactDetailsSection(
             emailController: _emailController,
             phoneController: _phoneController,
@@ -79,19 +80,19 @@ class _Step2PageState extends State<Step2Page> {
         CustomCard(
           content: BulletedList(
             bulletColor: CustomColors.kBlack[2],
-            listItems: const [
+            listItems:  [
               Text(
-                "The tour operator will call the number you entered if they need to reach you ",
+                "The tour operator will call the number you entered if they need to reach you ".tr(),
                 style: Styles.textStyle14W400,
               ),
               Text(
-                "We will use your registered email to send you trip updates and booking ticket.",
+                "We will use your registered email to send you trip updates and booking ticket.".tr(),
                 style: Styles.textStyle14W400,
               ),
             ],
             bulletType: BulletType.conventional,
           ),
-          title: 'Notes',
+          title: "Notes".tr(),
         ),
         const SizedBox(
           height: 60,

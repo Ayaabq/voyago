@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/feature/wallet/presentation/views/widgets/detiles_wallet_history_body.dart';
@@ -44,17 +45,17 @@ class CardTransactionDetails extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const TransactionDetail(
-                      title: 'Transaction id:', value: '#0235326'),
+                   TransactionDetail(
+                      title: "Transaction id:".tr(), value: '#0235326'),
                   Divider(color: CustomColors.kGrey[0]),
-                  const TransactionDetail(
-                      title: 'Old balance:', value: '\$2,500'),
+                   TransactionDetail(
+                      title: "Old balance:".tr(), value: '\$2,500'),
                   Divider(color: CustomColors.kGrey[0]),
-                  const TransactionDetail(
-                      title: 'Added amount:', value: '\$1,100'),
+                   TransactionDetail(
+                      title: "Added amount:".tr(), value: '\$1,100'),
                   Divider(color: CustomColors.kGrey[0]),
-                  const TransactionDetail(
-                      title: 'New balance:', value: '\$3,600'),
+                   TransactionDetail(
+                      title: "New balance:".tr(), value: '\$3,600'),
                   Divider(color: CustomColors.kGrey[0]),
                   const DepositPicture(),
                 ],

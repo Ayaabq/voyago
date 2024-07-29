@@ -1,5 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/core/widgets/custom_card.dart';
 import 'package:voyago/feature/place/presentaion/views/widgets/pictures_list.dart';
 import 'package:voyago/feature/attraction/data/models/attraction_model.dart';
@@ -7,9 +7,7 @@ import 'package:voyago/feature/place/presentaion/views/widgets/place_info_view.d
 
 import '../../../../../core/utils/confg.dart';
 import '../../../../../core/utils/screen_size_util.dart';
-import '../../../../place/presentaion/views/widgets/place_details.dart';
 import '../../../../place/presentaion/views/widgets/place_details_background.dart';
-import '../../../../place/presentaion/views/widgets/place_info_section.dart';
 import '../../../../reviews/presentation/veiws/widgets/reviews/reviews_card.dart';
 import '../../../../trip&booking/presentation/views/widgets/trips/trips_view.dart';
 
@@ -37,10 +35,10 @@ class AttractionDetailsView extends StatelessWidget {
 
                    PlaceInfoView(url: Confg.attractionInfo1+attraction.id.toString()),
                   CustomCard(
-                    content: TripsView(url:Confg.attractionInfo2+ attraction.id.toString(), viewKey:  Key("attraction${attraction.id}"),inData: true,),
-                    title: "Related trips",),
-                  const CustomCard(
-                    title: "Pictures",
+                    content: TripsView(url:Confg.attractionInfo2+ attraction.id.toString(), viewKey:  Key("${"attraction".tr()}${attraction.id}"),inData: true,),
+                    title: "Related trips".tr(),),
+                   CustomCard(
+                    title: "Pictures".tr(),
                     content: PicturesList(),),
                    ReviewsCard(url: Confg.attractionReviews +attraction.id.toString(),
                      fullUrl:  Confg.attractionFullReviews+attraction.id.toString(),

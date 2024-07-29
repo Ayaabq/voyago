@@ -40,7 +40,7 @@ class AttractionListView extends StatelessWidget {
 
                         },
                           child: AttractionCard(attractionModel: attractions[index],)),
-                      SizedBox(width: 3,)
+                      const SizedBox(width: 3,)
                     ],
                   );
                 },
@@ -51,11 +51,11 @@ class AttractionListView extends StatelessWidget {
             return CustomFailureError(errMessage: state.errorMessage);
           }else
           {
-            return SizedBox(
+            return const SizedBox(
               height: 180,
 
 
-              child: const LoadList(
+              child: LoadList(
                 isVertical: false,
               ),
             );
@@ -75,7 +75,7 @@ class AttractionListView extends StatelessWidget {
           return  Row(
             children: [
               AttractionCard(attractionModel: attractions![index],),
-              SizedBox(width: 3,)
+              const SizedBox(width: 3,)
             ],
           );
         },

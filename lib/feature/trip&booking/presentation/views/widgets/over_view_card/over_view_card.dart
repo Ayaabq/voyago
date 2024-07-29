@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
@@ -12,7 +13,7 @@ class OverViewCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomCard(
-        title: "Overview",
+        title: "Overview".tr(),
         content: Column(children: [
           // IconText(
           //   icon: Iconsax.coin,
@@ -21,22 +22,22 @@ class OverViewCard extends StatelessWidget {
           // ),
           IconText(
             icon: Iconsax.clock,
-            title: "${tripInfo2Model.duration} hours",
+            title: "${tripInfo2Model.duration} ${"hours".tr()}",
           ),
           IconText(
             icon: Iconsax.calendar_tick,
             title: DateTimeHelper.formatDateDMMM(tripInfo2Model.startDate),
-            higlightedText: "Free cancellation",
+            higlightedText: "Free cancellation".tr(),
 
           ),
           IconText(
             icon: Iconsax.people,
-            title: "Group Size: ${tripInfo2Model.capacity}",
-            higlightedText: "${tripInfo2Model.available} place available",
+            title: "${"Group Size:".tr()} ${tripInfo2Model.capacity}",
+            higlightedText: "${tripInfo2Model.available} ${"place available".tr()}",
           ),
           IconText(
             icon: Iconsax.map,
-            title: "${tripInfo2Model.attractions} Attractions",
+            title: "${tripInfo2Model.attractions} ${"Attractions".tr()}",
             isLast: true,
           ),
         ],),);

@@ -80,6 +80,7 @@
 //     ;
 //   }
 // }
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
@@ -115,15 +116,15 @@ class TransparentAppBar extends StatelessWidget implements PreferredSizeWidget {
       bottom: showTabs
           ? CustomTapBar(
         tapController: tabController,
-        taps: const [
-          'Overview',
-          'Description',
-          "What's Included",
-          'Meeting Point',
-          'Some notes',
-          'Itinerary',
-          'Places',
-          'Reviews',
+        taps:  [
+          "Overview".tr(),
+          "Description".tr(),
+          "What's Included".tr(),
+          "Meeting Point".tr(),
+          "Some notes".tr(),
+          "Itinerary".tr(),
+          "Places".tr(),
+          "Reviews".tr(),
         ],
         onTap: onTap,
         inScroll: true,
@@ -139,7 +140,7 @@ class TransparentAppBar extends StatelessWidget implements PreferredSizeWidget {
             color: CustomColors.kMove[4],
           ),
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(CustomColors.kWhite[3]),
+            backgroundColor: WidgetStateProperty.all(CustomColors.kWhite[3]),
           ),
           onPressed: () {
             // Handle the share button press
@@ -151,7 +152,7 @@ class TransparentAppBar extends StatelessWidget implements PreferredSizeWidget {
             color: CustomColors.kMove[4],
           ),
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(CustomColors.kWhite[3]),
+            backgroundColor: WidgetStateProperty.all(CustomColors.kWhite[3]),
           ),
           onPressed: () {
             // Handle the favorite button press

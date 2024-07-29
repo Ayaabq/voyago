@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/utils/validator_manager.dart';
@@ -15,7 +16,7 @@ class FormLogin extends StatelessWidget {
       children: [
         TextFieldCustom(
 
-          hint: "Name",
+          hint: "Name".tr(),
           icon: const Icon(Icons.email_outlined),
           onPressedIcon: () {}, keyboardType: TextInputType.name, validator:(value) => ValidatorManager().validateName(value!),
         ),
@@ -23,7 +24,7 @@ class FormLogin extends StatelessWidget {
         TextFieldCustom(
        
 obscureText: true,
-          hint: "Password",
+          hint: "Password".tr(),
           icon: const Icon(Icons.remove_red_eye_outlined),
           onPressedIcon: () {}, keyboardType: TextInputType.visiblePassword, validator:(value) => ValidatorManager().validatePassword(value!),
         )

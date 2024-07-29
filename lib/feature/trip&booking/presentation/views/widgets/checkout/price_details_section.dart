@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/maneger/checkout_cubit/checkout_cubit.dart';
@@ -24,13 +25,13 @@ class PriceDetailsSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
 
-          const Text(
-            'Price details',
+           Text(
+            "Price details".tr(),
             style: Styles.textStyle16W700,
           ),
           const SizedBox(height: 16.0),
            PriceDetailItem(
-              title: 'Travelers',
+              title: "Travelers".tr(),
               details: TextCostDetail(
                   child: manager.child??0,
                   adult: manager.adults!,
@@ -41,8 +42,8 @@ class PriceDetailsSection extends StatelessWidget {
             endIndent: 20,
             indent: 20,
           ),
-          const Text(
-            'Optional choices',
+           Text(
+            "Optional choices".tr(),
             style:Styles.textStyle16W700,
           ),
           const SizedBox(height: 16.0),
@@ -62,7 +63,8 @@ class PriceDetailsSection extends StatelessWidget {
 
             );
           }),
-          if(optional ==null || optional.isEmpty) const Text("No Optional choices was selectd"),
+          if(optional ==null || optional.isEmpty)
+             Text("No Optional choices was selected".tr()),
           const SizedBox(height: 16.0),
           Divider(
             color: CustomColors.kBlack[1],

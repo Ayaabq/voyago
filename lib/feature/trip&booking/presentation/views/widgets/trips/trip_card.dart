@@ -78,7 +78,7 @@ class TripCard extends StatelessWidget {
                             tripModel.id, Confg.addTripFavouriteUrl,
                             tripModel: tripModel);
                       },
-                      isFavorite: (tripModel?.isFavourite) ?? true),
+                      isFavorite: (tripModel.isFavourite) ?? true),
                 ),
                 Positioned(
                   top: 125,

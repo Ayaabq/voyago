@@ -1,8 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:voyago/core/widgets/custom_card.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/included_card/active_included.dart';
 
-import '../../../../../../core/utils/styles.dart';
 import '../../../../data/models/feature_model.dart';
 
 class IncludedCard extends StatelessWidget {
@@ -11,7 +11,7 @@ class IncludedCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomCard(
-        title: "What's Included",
+        title: "What's Included".tr(),
         content: ListView.separated(
           padding: const EdgeInsets.all(0),
           itemCount: features.length,

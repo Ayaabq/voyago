@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/core/widgets/custom_card.dart';
@@ -40,18 +41,18 @@ class DestinationDetailsView extends StatelessWidget {
                       inData: false,
                       viewKey: Key("destination${destinationModel.id}"),
                     ),
-                    title: "Where to go",
+                    title: "Where to go".tr(),
                   ),
                   CustomCard(
                     content: AttractionView(
                       url: Confg.destinationInfo2+destinationModel.id.toString(),
                       viewKey: Key('destinatoin+ ${destinationModel.id}'),
                     ),
-                    title: "What to do",
+                    title: "What to do".tr(),
                   ),
-                  const CustomCard(
-                    title: "Pictures",
-                    content: PicturesList(),
+                   CustomCard(
+                    title: "Pictures".tr(),
+                    content: const PicturesList(),
                   ),
                    ReviewsCard(url: Confg.destinationReviews+destinationModel.id.toString(),
                    fullUrl: Confg.destinationFullReviews+destinationModel.id.toString(),

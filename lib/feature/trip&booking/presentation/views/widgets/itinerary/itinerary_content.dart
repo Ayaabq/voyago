@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/itinerary/itinerary_list.dart';
 
@@ -17,7 +18,7 @@ class _ItineraryContentState extends State<ItineraryContent> {
   int selectedIndex=0;
   @override
   void initState() {
-    days=widget.itineraryDays.map((iD)=>'Day ${iD.orderOfDay}').toList();
+    days=widget.itineraryDays.map((iD)=>'${"Day".tr()} ${iD.orderOfDay}').toList();
     selectedDay=days[0];
 
     super.initState();

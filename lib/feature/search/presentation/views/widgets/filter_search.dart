@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
@@ -22,7 +23,7 @@ class _FilterSearchTripsState extends State<FilterSearchTrips> {
   int travelers = 3;
   double minPrice = 0;
   double maxPrice = 1000;
-  String sortBy = 'Price (low to high)';
+  String sortBy = "Price (low to high)".tr();
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +40,7 @@ class _FilterSearchTripsState extends State<FilterSearchTrips> {
             children: [
               // Where
 
-              Text("Where?",
+              Text("Where?".tr(),
                   style: Styles.textStyle16W400
                       .copyWith(fontWeight: FontWeight.w500)),
               const SizedBox(height: 10),
@@ -65,7 +66,7 @@ class _FilterSearchTripsState extends State<FilterSearchTrips> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text('Check-In', style: Styles.textStyle16W400),
+                         Text("Check-In".tr(), style: Styles.textStyle16W400),
                         const SizedBox(height: 10), // مسافة بين النص والحقل
                         InkWell(
                           onTap: () => _selectDate(context, true),

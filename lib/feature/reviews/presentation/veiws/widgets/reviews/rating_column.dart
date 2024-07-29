@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/utils/styles.dart';
@@ -23,8 +24,8 @@ class RatingColumn extends StatelessWidget {
         ),
         const SizedBox(height: 8),
          Text(
-          '$total Reviews',
-          style: TextStyle(
+          '$total ${"Reviews".tr()}',
+          style: const TextStyle(
             fontSize: 18,
             color: Colors.grey,
           ),

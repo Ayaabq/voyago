@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/utils/assets.dart';
@@ -15,15 +16,15 @@ class CategoriesRow extends StatelessWidget {
           ScreenSizeUtil.dynamicWidth(0.005)), // 5% of the screen width padding
       child: Row(
         children: [
-          const CategoryItem(
-            title: "Trips",
+           CategoryItem(
+            title: "Trips".tr(),
             iconPath: HomeAssets.categoryTripsIcon,
           ),
           SizedBox(
               width: ScreenSizeUtil.dynamicWidth(
                   0.06)), // 6% of the screen width spacing
-          const CategoryItem(
-            title: "Attractions",
+           CategoryItem(
+            title: "Attractions".tr(),
             iconPath: HomeAssets.categoryAttractionIcon,
           ),
         ],

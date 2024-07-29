@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -41,14 +42,14 @@ class PageIndicator extends StatelessWidget {
               height: 10,
             ),
             OnBoardingButton(
-              title: !isNotLast ? "Register" : "Next",
+              title: !isNotLast ? "Get Started".tr() : "Next".tr(),
               onTap: () {
                 if (isNotLast) {
                   pageController.nextPage(
                       duration: const Duration(seconds: 1),
                       curve: Curves.easeInOut);
                 } else {
-                  GoRouter.of(context).push(AppRouter.kLoginView);
+                  GoRouter.of(context).pushReplacement(AppRouter.kLoginView);
                 }
               },
             ),

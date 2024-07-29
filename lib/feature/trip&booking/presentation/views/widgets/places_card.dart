@@ -1,10 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:voyago/core/widgets/custom_card.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/maneger/trip_info_3_places_cubit/trip_info_3_places_cubit.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/maneger/trip_info_3_places_cubit/trip_info_3_places_state.dart';
 
-import '../../../../../core/utils/confg.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../../core/widgets/custom_failure_error.dart';
 import '../../../../../core/widgets/shimmer/load_base.dart';
@@ -26,7 +26,7 @@ class PlacesCard extends StatelessWidget {
 
           TripInfo3PlacesModel trip = state.tripInfo3Model;
           return  CustomCard(
-            title: "Destination",
+            title: "Destination".tr(),
             content: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -36,8 +36,8 @@ class PlacesCard extends StatelessWidget {
                   height: 11,
                 ),
                 if(trip.attractions!=null)
-                  const Text(
-                  "Attraction",
+                   Text(
+                  "Attraction".tr(),
                   style: Styles.textStyle20W700,
                 ),
                 const SizedBox(
@@ -53,23 +53,23 @@ class PlacesCard extends StatelessWidget {
         } else if (state is TripInfo3PlacesFailure) {
           return CustomFailureError(errMessage: state.errorMessage);
         } else {
-          return const LoadBase(
+          return  LoadBase(
               child: CustomCard(
-            title: "Destination",
+            title: "Destination".tr(),
             content: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 140,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 11,
                 ),
                 Text(
-                  "Attraction",
+                  "Attraction".tr(),
                   style: Styles.textStyle20W700,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 150,
                 ),
               ],

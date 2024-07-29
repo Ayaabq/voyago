@@ -118,6 +118,7 @@
 
 import 'dart:io';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
@@ -178,7 +179,7 @@ class _FillWalletBodyState extends State<FillWalletBody> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const ProfileAppBar(titel: "Fill in my wallet"),
+           ProfileAppBar(titel: "Fill in my wallet".tr()),
           const SizedBox(height: 40),
           const FillCard(),
           const SizedBox(height: 40),
@@ -188,7 +189,7 @@ class _FillWalletBodyState extends State<FillWalletBody> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Enter the amount you want to add:",
+                  "Enter the amount you want to add:".tr(),
                   style: Styles.textStyle16W400
                       .copyWith(fontWeight: FontWeight.w500),
                 ),
@@ -202,7 +203,7 @@ class _FillWalletBodyState extends State<FillWalletBody> {
                 Row(
                   children: [
                     Text(
-                      "Upload the bank deposit picture:",
+                      "Upload the bank deposit picture:".tr(),
                       style: Styles.textStyle16W400
                           .copyWith(fontWeight: FontWeight.w500),
                     ),
@@ -224,7 +225,7 @@ class _FillWalletBodyState extends State<FillWalletBody> {
                                 children: <Widget>[
                                   ListTile(
                                     leading: const Icon(Icons.photo_library),
-                                    title: const Text('Gallery'),
+                                    title:  Text("Gallery".tr()),
                                     onTap: () {
                                       _pickImage(ImageSource.gallery);
                                       Navigator.of(context).pop();
@@ -232,7 +233,7 @@ class _FillWalletBodyState extends State<FillWalletBody> {
                                   ),
                                   ListTile(
                                     leading: const Icon(Icons.photo_camera),
-                                    title: const Text('Camera'),
+                                    title:  Text("Camera".tr()),
                                     onTap: () {
                                       _pickImage(ImageSource.camera);
                                       Navigator.of(context).pop();

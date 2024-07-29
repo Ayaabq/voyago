@@ -131,6 +131,7 @@
 // }
 
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -166,7 +167,7 @@ class FormReg extends StatelessWidget {
           TextFieldCustom(
             validator: (value) => ValidatorManager().validateName(value!),
             controller: usernameController,
-            hint: "User name",
+            hint: "User name".tr(),
             onPressedIcon: () {},
             icon: const Icon(FontAwesomeIcons.user),
             keyboardType: TextInputType.name,
@@ -175,7 +176,7 @@ class FormReg extends StatelessWidget {
           TextFieldCustom(
             validator: (value) => ValidatorManager().validateEmail(value!),
             controller: emailController,
-            hint: "Email",
+            hint: "Email".tr(),
             onPressedIcon: () {},
             icon: const Icon(Icons.email_outlined),
             keyboardType: TextInputType.emailAddress,
@@ -183,7 +184,7 @@ class FormReg extends StatelessWidget {
           const SizedBox(height: 12),
           TextFieldCustom(
               controller: passwordController,
-              hint: "Password",
+              hint: "Password".tr(),
               onPressedIcon: () {},
               icon: const Icon(Icons.remove_red_eye_outlined),
               keyboardType: TextInputType.visiblePassword,
@@ -195,7 +196,7 @@ class FormReg extends StatelessWidget {
             validator: (value) => ValidatorManager()
                 .validateConfirmPassword(value!, passwordController.text),
             controller: confirmPasswordController,
-            hint: "confirm password",
+            hint: "confirm password".tr(),
             onPressedIcon: () {},
             icon: const Icon(Icons.visibility_off_outlined),
             keyboardType: TextInputType.visiblePassword,
@@ -205,7 +206,7 @@ class FormReg extends StatelessWidget {
             height: 16,
           ),
           ButtonAuth(
-            title: "Sign up",
+            title: "Sign up".tr(),
             onTap: () {
             
               if (formKey.currentState!.validate()) {

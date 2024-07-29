@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/utils/custom_colors.dart';
@@ -44,7 +45,7 @@ class FloatingCheckout extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16), // Border radius
               ),
             ),
-            child: Text(currentPage<2?"Next":"Book", style: Styles.textStyle16W700),
+            child: Text(currentPage<2?"Next".tr():"Book".tr(), style: Styles.textStyle16W700),
           ),
         ),
 

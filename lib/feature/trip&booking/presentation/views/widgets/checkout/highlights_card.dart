@@ -1,4 +1,5 @@
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:voyago/feature/trip&booking/data/models/trip_info_2_model.dart';
@@ -38,7 +39,7 @@ class HighlightCard extends StatelessWidget {
             const SizedBox(height: 16.0),
             IconText(
               icon: Iconsax.user,
-              title: '$adults Adults, $child Child',
+              title: '$adults ${"Adults".tr()}, $child ${"Child".tr()}',
               iconColor: CustomColors.kMove[5],
             ),
             IconText(
@@ -47,7 +48,7 @@ class HighlightCard extends StatelessWidget {
                 iconColor: CustomColors.kMove[5]),
             IconText(
                 icon: Iconsax.clock,
-                title: "${trip.duration} Hours",
+                title: "${trip.duration} ${"Hours".tr()}",
                 iconColor: CustomColors.kMove[5]),
           ],
         ),

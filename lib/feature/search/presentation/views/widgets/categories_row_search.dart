@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:voyago/feature/search/presentation/views/widgets/category_item_search.dart';
 
@@ -16,20 +17,20 @@ class CategoriesRowSearch extends StatelessWidget {
           ScreenSizeUtil.dynamicWidth(0.005)), // 5% of the screen width padding
       child: Row(
         children: [
-          const CategoryItemSearch(
-            title: "destination",
+           CategoryItemSearch(
+            title: "destination".tr(),
             iconPath: HomeAssets.locationIcons,
           ),
           SizedBox(
               width: ScreenSizeUtil.dynamicWidth(
                   0.02)), // 6% of the screen width spacing
-          const CategoryItemSearch(
-            title: "attractions",
+           CategoryItemSearch(
+            title: "attractions".tr(),
             iconPath: HomeAssets.categoryAttractionIcon,
           ),
           SizedBox(width: ScreenSizeUtil.dynamicWidth(0.02)),
-          const CategoryItemSearch(
-            title: "tops",
+           CategoryItemSearch(
+            title: "tops".tr(),
             iconPath: HomeAssets.categoryTopsIcon,
           ),
         ],

@@ -45,27 +45,27 @@ List<Widget> backgrounds = [
   OnBoardingPage(
     imageUrl: OnBoardingAssets.onBoarding2,
     onBoardingModel: OnBoardingModel(
-        descreptionTitle: "Find the best places to go",
+        descreptionTitle:  "get_started2".tr(),
         decreptionText:
-            'Search in all the popular destinations to find the best place for you'),
+        "get_started2 details".tr()),
   ),
   OnBoardingPage(
     imageUrl: OnBoardingAssets.onBoarding3,
     onBoardingModel: OnBoardingModel(
-        descreptionTitle: 'Enjoy the magic of the nature',
+        descreptionTitle: "get_started3".tr(),
         decreptionText:
-            "See fantastic natural places around the world with just a few clicks"),
+        "get_started3 details".tr()),
   ),
   OnBoardingPage(
     imageUrl: OnBoardingAssets.onBoarding4,
     onBoardingModel: OnBoardingModel(
-        descreptionTitle: 'Explore the world like a real traveller',
-        decreptionText: 'Find thousands of destinations for you to visit'),
+        descreptionTitle: "get_started4".tr(),
+        decreptionText:  "get_started4 details".tr() ),
   ),
   OnBoardingPage(
     imageUrl: OnBoardingAssets.onBoarding5,
     onBoardingModel: OnBoardingModel(
-        descreptionTitle: 'Get the best offers and deals',
-        decreptionText: 'Find the best deals to save your money'),
+        descreptionTitle: "get_started5".tr(),
+        decreptionText: "get_started5 details".tr()),
   )
 ];

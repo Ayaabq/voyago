@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/assets.dart';
@@ -19,22 +20,22 @@ class FavoritesBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomTabBar(
-      tabs: const [
+      tabs:  [
         Tab(
-          text: "Destinations",
+          text: "Destinations".tr(),
         ),
         Tab(
-          text: "Attractions",
+          text: "Attractions".tr(),
         ),
         Tab(
-          text: "Trips ",
+          text: "Trips".tr(),
         ),
       ],
-      titel: 'My favorites',
-      tabViews: const [
-        FavoritesEmpty(),
-        Text("My favorites"),
-        Text("My favorites"),
+      titel: "My favorites".tr(),
+      tabViews:  [
+        const FavoritesEmpty(),
+        Text("My favorites".tr(),),
+        Text("My favorites".tr(),)
       ],
     );
   }
@@ -58,7 +59,7 @@ class FavoritesEmpty extends StatelessWidget {
         Center(
           child: Text(
             textAlign: TextAlign.center,
-            "You have no favorites yet!!",
+            "You have no favorites yet!!".tr(),
             style: Styles.textStyle30W600.copyWith(fontSize: 20),
           ),
         ),

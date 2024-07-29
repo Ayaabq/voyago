@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
@@ -40,7 +41,7 @@ class FloatingBookButton extends StatelessWidget {
             child: IconText(
               icon: Iconsax.coin,
               price: trip.price.toDouble(),
-              title: "From ",
+              title: "From ".tr(),
             ),
           ),
           ElevatedButton(
@@ -55,7 +56,7 @@ class FloatingBookButton extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16), // Border radius
               ),
             ),
-            child: const Text("Book now", style: Styles.textStyle16W700),
+            child:  Text("Book now".tr(), style: Styles.textStyle16W700),
           )
         ],
       ),

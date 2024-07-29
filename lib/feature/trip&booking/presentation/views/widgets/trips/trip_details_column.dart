@@ -65,7 +65,7 @@ class TripDetailsColumn extends StatelessWidget {
                 children: [
                   Text(tripModel.name,
                     style: Styles.textStyle12W400,),
-                  Spacer(),
+                  const Spacer(),
                   CustomRating(rate: tripModel.rate),
                 ],
               ),

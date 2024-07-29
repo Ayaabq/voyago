@@ -1,8 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/feature/profile/presentation/views/widgets/appbar_profile.dart';
-import 'package:voyago/feature/profile/presentation/views/widgets/profile_textfield.dart';
 
 class HelpView extends StatelessWidget {
   const HelpView({super.key});
@@ -12,7 +12,7 @@ class HelpView extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          const ProfileAppBar(titel: "Help and support"),
+           ProfileAppBar(titel: "Help and support".tr()),
           const SizedBox(height: 26),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -20,7 +20,7 @@ class HelpView extends StatelessWidget {
                 maxLines: 3,
                 style: Styles.textStyle16W400
                     .copyWith(fontWeight: FontWeight.w500),
-                "If you have any questions or problems you can contact our support team via the provided email"),
+                "If you have any questions or problems you can contact our support team via the provided email".tr()),
           ),
           Padding(
             padding: const EdgeInsets.all(19),

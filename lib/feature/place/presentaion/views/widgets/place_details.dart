@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:voyago/feature/place/data/models/place_model.dart';
 
@@ -18,7 +19,7 @@ class PlaceDetails extends StatelessWidget {
 
          Row(
           children: [
-            Icon(
+            const Icon(
               Icons.location_on,
               size: 35,
 
@@ -41,7 +42,7 @@ class PlaceDetails extends StatelessWidget {
           },
 
           icon: const Icon(Icons.map),
-          label: const Text('View on Map'),
+          label:  Text("View on Map".tr()),
           style: ButtonStyle(
               foregroundColor: WidgetStateProperty.all( CustomColors.kBlack[1]),
               backgroundColor: WidgetStateProperty.all( CustomColors.kGrey[0])
@@ -53,7 +54,7 @@ class PlaceDetails extends StatelessWidget {
              CustomRating(rate: placeModel.rate),
             const SizedBox(width: 4),
             Text(
-              '(${placeModel.reviews} Reviews)',
+              '(${placeModel.reviews} ${"Reviews".tr()})',
               style: Styles.textStyle14W400.copyWith(
                   color: CustomColors.kGrey[2]
               ),
@@ -63,7 +64,7 @@ class PlaceDetails extends StatelessWidget {
         const SizedBox(height: 8),
         if(placeModel.tripsIncluded!=null)
           Text(
-          'Included in ${placeModel.tripsIncluded} trip(s)',
+          '${"Included in".tr()} ${placeModel.tripsIncluded} ${"trip(s)".tr()}',
           style:Styles.textStyle14W600,)
 
       ],

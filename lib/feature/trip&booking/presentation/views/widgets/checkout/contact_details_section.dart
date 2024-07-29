@@ -1,4 +1,5 @@
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/utils/validator_manager.dart';
@@ -13,16 +14,15 @@ class ContactDetailsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return   Column(
       children: [
-        const Text(
-            'We’ll use this information to send you confirmation and upda'
-                'tes about your booking.'),
+         Text(
+            "We’ll use this information to send you confirmation and updates about your booking.".tr()),
         const SizedBox(
           height: 16,
         ),
         TextFieldCustom(
 
           controller: emailController,
-          hint: "Email",
+          hint: "Email".tr(),
           onPressedIcon: () {},
           icon: const Icon(Icons.email_outlined),
           keyboardType: TextInputType.emailAddress, validator: (value) =>
@@ -33,7 +33,7 @@ class ContactDetailsSection extends StatelessWidget {
         ),
         TextFieldCustom(
           controller: phoneController,
-          hint: "Phone",
+          hint: "Phone".tr(),
           onPressedIcon: () {},
           icon: const Icon(Icons.phone),
           keyboardType: TextInputType.number, validator: (value) =>

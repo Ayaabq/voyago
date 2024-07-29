@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:voyago/constants.dart';
@@ -14,8 +15,8 @@ class WalletBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(children: [
-        const ProfileAppBar(
-          titel: 'Wallet',
+         ProfileAppBar(
+          titel: "Wallet".tr(),
         ),
         const SizedBox(height: 50),
         const Padding(
@@ -28,7 +29,7 @@ class WalletBody extends StatelessWidget {
         Padding(
           padding: kPaddingHoriz24,
           child: ButtonAuth(
-              title: "Fill in my wallet",
+              title: "Fill in my wallet".tr(),
               onTap: () {
                 GoRouter.of(context).pushReplacement(AppRouter.kFillWalletView);
               }),
@@ -37,7 +38,7 @@ class WalletBody extends StatelessWidget {
         Padding(
           padding: kPaddingHoriz24,
           child: ButtonAuth(
-              title: "Wallet history",
+              title: "Wallet history".tr(),
               onTap: () {
                 GoRouter.of(context)
                     .pushReplacement(AppRouter.kHistoryWalletView);
@@ -79,9 +80,9 @@ class BalanceCard extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Balance',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                 Text(
+                  "Balance".tr(),
+                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                 ),
                 Text(
                   '\$$balance',

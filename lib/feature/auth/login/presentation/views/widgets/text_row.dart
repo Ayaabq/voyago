@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:voyago/core/utils/app_router.dart';
@@ -19,7 +20,7 @@ class ForGot extends StatelessWidget {
               GoRouter.of(context).push(AppRouter.kForgotPasswordView);
             },
             child: Text(
-              "Forgot your password?",
+              "Forgot your password?".tr(),
               style: Styles.textStyle16W700.copyWith(
                   color: CustomColors.kMove[6], fontWeight: FontWeight.w800),
             ))
@@ -85,7 +86,7 @@ class TextWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RichText(
-      text: const TextSpan(text: "Dont Have An Account?"),
+      text:  TextSpan(text: "Dont Have An Account?".tr()),
 
     );
   }

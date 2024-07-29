@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:voyago/core/utils/styles.dart';
 import 'package:iconsax/iconsax.dart';
@@ -16,18 +17,18 @@ class SearchElevatedButton extends StatelessWidget {
       height: 38,
       child: ElevatedButton(
           onPressed: onTap,
-          child: const Row(
+          child:  Row(
             children: [
-              Icon(
+              const Icon(
                 Iconsax.search_normal,
                
                 size: 24,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 5,
               ),
               Text(
-                "Where to go?",
+                "Where to go?".tr(),
                 style: Styles.textStyle16W400,
               ),
             ],

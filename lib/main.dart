@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:voyago/core/utils/screen_size_util.dart';
-
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:voyago/core/utils/services_locater.dart';
-
 import 'core/utils/app_router.dart';
 import 'feature/favorite/data/repo/favorite_repo_impl.dart';
 import 'feature/favorite/presentation/manager/change_favorite_cubit/favorite_cubit.dart';
@@ -31,46 +29,38 @@ void main() async {
       child: const VoyagoApp()));
 }
 
-class VoyagoApp extends StatelessWidget {
+class VoyagoApp extends StatefulWidget {
   const VoyagoApp({super.key});
 
+  @override
+  _VoyagoAppState createState() => _VoyagoAppState();
+}
+
+class _VoyagoAppState extends State<VoyagoApp> {
   @override
   Widget build(BuildContext context) {
     ScreenSizeUtil.init(context);
     return MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) =>
-                ChangeFavoriteCubit(getIt.get<FavoriteRepoImp>()),
-          ),
-          BlocProvider(
-            create: (context) => LocationCubit(getIt<LocationRepo>()),
-          )
-        ],
-        child: MaterialApp.router(
-          localizationsDelegates: context.localizationDelegates,
-          supportedLocales: context.supportedLocales,
-          locale: context.locale,
-          debugShowCheckedModeBanner: false,
-          routerConfig: AppRouter.router,
-          theme: ThemeData.light().copyWith(
-            textTheme:
-                GoogleFonts.montserratTextTheme(ThemeData.light().textTheme),
-          ),
+      providers: [
+        BlocProvider(
+          create: (context) =>
+              ChangeFavoriteCubit(getIt.get<FavoriteRepoImp>()),
+        ),
+        BlocProvider(
+          create: (context) => LocationCubit(getIt<LocationRepo>()),
         )
-
-        //
-        //   // home: const GetStarted(),
-        // );
-        // MaterialApp(
-        //     debugShowCheckedModeBanner: false,
-        //     theme: ThemeData.light().copyWith(
-        //       textTheme:
-        //           GoogleFonts.montserratTextTheme(ThemeData.light().textTheme),
-        //     ),
-        //     home: const LoginView()
-        // DestinationDetailsView(),
-
-        );
+      ],
+      child: MaterialApp.router(
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
+        debugShowCheckedModeBanner: false,
+        routerConfig: AppRouter.router,
+        theme: ThemeData.light().copyWith(
+          textTheme:
+          GoogleFonts.montserratTextTheme(ThemeData.light().textTheme),
+        ),
+      ),
+    );
   }
 }

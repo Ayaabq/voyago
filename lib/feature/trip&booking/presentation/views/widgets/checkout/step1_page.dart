@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,10 +28,10 @@ class Step1Page extends StatelessWidget {
           content: TravelerNumber(
             max: trip.available,
           ),
-          title: 'Number of travelers',
+          title: "Number of travelers".tr(),
         ),
         CustomCard(
-          title: 'Optional choices',
+          title: "Optional choices".tr(),
           content: OptionalChoicesList(id: id,  max: trip.available,),
         ),
          CustomCard(content: RulesSection(timeCancel:trip.timeCancellation,)),

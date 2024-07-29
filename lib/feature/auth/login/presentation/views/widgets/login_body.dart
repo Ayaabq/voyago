@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -61,7 +62,7 @@ class LoginBodyView extends StatelessWidget {
                       children: [
                         TextFieldCustom(
                           controller: usernameController,
-                          hint: "Name",
+                          hint: "Name".tr(),
                           icon: const Icon(Icons.email_outlined),
                           onPressedIcon: () {},
                           keyboardType: TextInputType.name,
@@ -72,7 +73,7 @@ class LoginBodyView extends StatelessWidget {
                         TextFieldCustom(
                           obscureText: true,
                           controller: passwordController,
-                          hint: "Password",
+                          hint: "Password".tr(),
                           icon: const Icon(Icons.remove_red_eye_outlined),
                           onPressedIcon: () {},
                           keyboardType: TextInputType.visiblePassword,
@@ -85,7 +86,7 @@ class LoginBodyView extends StatelessWidget {
                         const ForGot(),
                         SizedBox(height: ScreenSizeUtil.screenHeight * .22),
                         ButtonAuth(
-                            title: "Login",
+                            title: "Login".tr(),
                             onTap: () {
                               //   GoRouter.of(context).push(AppRouter.kHomeView);
                               if (formKey.currentState!.validate()) {
@@ -106,8 +107,8 @@ class LoginBodyView extends StatelessWidget {
                             }),
                         const SizedBox(height: 10),
                         DontAccount(
-                          text: "Don't have an account? ",
-                          create: "Create Now",
+                          text: "Don't have an account? ".tr(),
+                          create: "Create Now".tr(),
                           onTap: () {
                             GoRouter.of(context).push(AppRouter.kRegisterView);
                           },

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:voyago/core/utils/styles.dart';
@@ -24,7 +25,7 @@ class _SettingsViewState extends State<SettingsView> {
       appBar: AppBar(
         elevation: 4,
         shadowColor: CustomColors.kGrey[0],
-        title: const Text('Settings'),
+        title:  Text("Settings".tr()),
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back_ios,
@@ -93,7 +94,7 @@ class LanguageRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SettingsRow(
-      label: 'Language',
+      label: 'Language'.tr(),
       value: selectedLanguage,
       onPressed: () => _showLanguagePicker(context),
     );
@@ -104,12 +105,12 @@ class LanguageRow extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Select Language'),
+          title:  Text('Select Language'.tr()),
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
                 GestureDetector(
-                  child: const Text('English'),
+                  child:  Text('English'.tr()),
                   onTap: () {
                     onLanguageChanged('English');
                     LocalizationChecker.changeLanguage(context, Locale("en"));
@@ -118,9 +119,9 @@ class LanguageRow extends StatelessWidget {
                 ),
                 const Padding(padding: EdgeInsets.all(8.0)),
                 GestureDetector(
-                  child: const Text('Spanish'),
+                  child:  Text('Arabic'.tr()),
                   onTap: () {
-                    onLanguageChanged('Spanish');
+                    onLanguageChanged('Arabic');
                     LocalizationChecker.changeLanguage(context, Locale("ar"));
 
                     Navigator.of(context).pop();

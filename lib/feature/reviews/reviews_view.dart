@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:voyago/core/utils/custom_floating_button.dart';
@@ -18,7 +19,7 @@ final String addUrl;
   Widget build(BuildContext context) {
     return  Scaffold(
         appBar: AppBar(
-          title: const Text('Reviews'),
+          title:  Text("Reviews".tr()),
         ),
         body:MultiBlocProvider(
           providers: [
