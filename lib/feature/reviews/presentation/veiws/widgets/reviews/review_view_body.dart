@@ -28,7 +28,7 @@ class ReviewsViewBody extends StatelessWidget {
                   rate: state.rate,
                   totalRate: state.totalRates??TotalRate(zero: 0, one: 0, two: 0, three: 0, four: 0, five: 0),
                   totalReviews: state.total,
-                ))),
+                ),),),
             SliverList.builder(
               itemBuilder: (context, index) => Card(
                 child: ReviewCard(

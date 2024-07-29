@@ -29,7 +29,7 @@ class FloatingCheckout extends StatelessWidget {
                     side: BorderSide(color: CustomColors.kMove[4])
                 ),
               ),
-              child:const Text("Back", style: Styles.textStyle16W700),
+              child: Text("Back".tr(), style: Styles.textStyle16W700),
             ),
           ),
         const SizedBox(width: 16,),

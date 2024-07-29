@@ -149,7 +149,7 @@ class CurrencyRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SettingsRow(
-      label: 'Currency',
+      label: 'Currency'.tr(),
       value: selectedCurrency,
       onPressed: () => _showCurrencyPicker(context),
     );
@@ -160,7 +160,7 @@ class CurrencyRow extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Select Currency'),
+          title:  Text('Select Currency'.tr()),
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
@@ -201,7 +201,7 @@ class ThemeSwitchRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SettingsSwitchRow(
-      label: 'Dark Theme',
+      label: 'Dark Theme'.tr(),
       value: isDarkTheme,
       onChanged: onThemeChanged,
       activeColor: CustomColors.kMove[6],
@@ -224,7 +224,7 @@ class NotificationSwitchRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SettingsSwitchRow(
-      label: 'Notifications',
+      label: 'Notifications'.tr(),
       value: isNotificationsEnabled,
       onChanged: onNotificationsChanged,
       activeColor: CustomColors.kMove[6],

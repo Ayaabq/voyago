@@ -20,58 +20,55 @@ class HomeViewBody extends StatelessWidget {
       slivers: [
         const BackgroundSection(),
         SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                CustomHomeList(
-                  title: "Special offers".tr(),
-                  sizedList: const OffersListView(),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              CustomHomeList(
+                title: "Special offers".tr(),
+                sizedList: const OffersListView(),
+              ),
+               CustomHomeList(
+                title: "Trending Destinations".tr(),
+                sizedList: const DestinationsView(
+                  url: Confg.trendingDestinationsUrl,
+                  viewKey: Key('trendingDestinations'),
                 ),
-                 CustomHomeList(
-                  title: "Trending Destinations".tr(),
-                  sizedList: const DestinationsView(
-                    url: Confg.trendingDestinationsUrl,
-                    viewKey: Key('trendingDestinations'),
-                  ),
+              ),
+               CustomHomeList(
+                title: "Top Attractions".tr(),
+                sizedList: const AttractionView(
+                  url: Confg.topAttractionsUrl,
+                  viewKey: Key('topAttractions'),
                 ),
-                 CustomHomeList(
-                  title: "Top Attractions".tr(),
-                  sizedList: const AttractionView(
-                    url: Confg.topAttractionsUrl,
-                    viewKey: Key('topAttractions'),
-                  ),
+              ),
+               CustomHomeList(
+                title: "Top Trips".tr(),
+                sizedList: const TripsView(
+                  url: Confg.topTrips,
+                  viewKey: Key('topTrips'),
+                  inData: false,
                 ),
-                 CustomHomeList(
-                  title: "Top Trips".tr(),
-                  sizedList: const TripsView(
-                    url: Confg.topTrips,
-                    viewKey: Key('topTrips'),
-                    inData: false,
-                  ),
+              ),
+               CustomHomeList(
+                title: "Popular Attractions".tr(),
+                sizedList: const AttractionView(
+                  url: Confg.topAttractionsUrl,
+                  viewKey: Key('popularAttractions'),
                 ),
-                 CustomHomeList(
-                  title: "Popular Attractions".tr(),
-                  sizedList: const AttractionView(
-                    url: Confg.topAttractionsUrl,
-                    viewKey: Key('popularAttractions'),
-                  ),
+              ),
+               CustomHomeList(
+                title: "Popular Trips".tr(),
+                sizedList: const TripsView(
+                  url: Confg.popularTrips,
+                  viewKey: Key('popularTrips'),
+                  inData: false,
                 ),
-                 CustomHomeList(
-                  title: "Popular Trips".tr(),
-                  sizedList: const TripsView(
-                    url: Confg.popularTrips,
-                    viewKey: Key('popularTrips'),
-                    inData: false,
-                  ),
-                ),
-                 CustomHomeList(
-                  title: "Offers trips".tr(),
-                  sizedList: const TripsOffersListView(),
-                ),
-              ],
-            ),
+              ),
+               CustomHomeList(
+                title: "Offers trips".tr(),
+                sizedList: const TripsOffersListView(),
+              ),
+            ],
           ),
         ),
         const SliverFillRemaining(

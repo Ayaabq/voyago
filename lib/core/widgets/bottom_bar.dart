@@ -57,6 +57,7 @@
 ///
 library;
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/feature/books/presentation/views/books_view.dart';
@@ -92,22 +93,22 @@ class _BottomBarState extends State<BottomBar> {
     {
       'icon': Iconsax.home,
       'outlineIcon': Iconsax.home5,
-      'label': 'Home',
+      'label': 'Home'.tr(),
     },
     {
       'icon': Iconsax.shopping_bag,
       'outlineIcon': Iconsax.shopping_bag5,
-      'label': 'Books',
+      'label': 'Books'.tr(),
     },
     {
       'icon': Iconsax.heart,
       'outlineIcon': Iconsax.heart5,
-      'label': 'Favorite',
+      'label': 'Favorite'.tr(),
     },
     {
       'icon': Iconsax.user,
       'outlineIcon': Icons.account_circle,
-      'label': 'Profile',
+      'label': 'Profile'.tr(),
     },
   ];
 

@@ -17,11 +17,14 @@ class CustomHomeList extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          title,
-          textAlign: TextAlign.start,
-          style: Styles.textStyle20W700.copyWith(
-            color: CustomColors.kMove[8],
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: Text(
+            title,
+            textAlign: TextAlign.start,
+            style: Styles.textStyle20W700.copyWith(
+              color: CustomColors.kMove[8],
+            ),
           ),
         ),
 

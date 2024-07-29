@@ -266,7 +266,7 @@ class _FillWalletBodyState extends State<FillWalletBody> {
           Padding(
             padding: kPaddingHoriz24,
             child: ButtonAuth(
-                title: "Submit",
+                title: "Submit".tr(),
                 onTap: () {
                   showWatingDialog(context);
                 }),

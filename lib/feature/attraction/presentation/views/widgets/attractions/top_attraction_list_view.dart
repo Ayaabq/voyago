@@ -27,19 +27,15 @@ class AttractionListView extends StatelessWidget {
             return SizedBox(
               height: 180,
               child: ListView.builder(
-                // physics: NeverScrollableScrollPhysics(),
-                // shrinkWrap: true,
+
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+
                 scrollDirection: Axis.horizontal,
                 itemCount: attractions.length,
                 itemBuilder: (context, index) {
                   return  Row(
                     children: [
-                      InkWell(
-                        onTap: (){
-                          GoRouter.of(context).push(AppRouter.kAttractionDetailsView, extra:attractions[index] );
-
-                        },
-                          child: AttractionCard(attractionModel: attractions[index],)),
+                      AttractionCard(attractionModel: attractions[index],),
                       const SizedBox(width: 3,)
                     ],
                   );
