@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:voyago/core/utils/styles.dart';
 
 class IconsText extends StatelessWidget {
   const IconsText(

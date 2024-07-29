@@ -2,7 +2,6 @@ import 'package:voyago/core/errors/failure.dart';
 import 'package:dartz/dartz.dart';
 
 import 'package:voyago/feature/auth/register/presentation/manger/register_cubit/register_state.dart';
-import 'package:voyago/feature/forgot_password/presentation/views/widgets/forgot_password_body.dart';
 
 import '../../../../forgot_password/data/models/email_verification_model.dart';
 import '../../../../forgot_password/presentation/manger/codeForgotPass/code_forgot_password_cubit.dart';
