@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:voyago/core/utils/assets.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
@@ -14,8 +15,7 @@ class TripOfferSearchCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScreenSizeUtil.init(context);
-
-    return Card(
+    bool isArabic = context.locale.languageCode == 'ar';    return Card(
       elevation: 4,
       child: Container(
         // Use a fraction of the screen width and height instead of fixed values
@@ -63,15 +63,18 @@ class TripOfferSearchCard extends StatelessWidget {
                 ),
               ),
             ),
-            const Positioned(
-              top: 16,
-              right: 16,
-              child: FavoriteButton(),
-            ),
-            Positioned(
-              top: 16,
-              left: 16,
+            const Align(
+                alignment:AlignmentDirectional.topEnd,
+
+                child: Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: FavoriteButton(),
+                )),
+            Align(
+              alignment:AlignmentDirectional.topStart,
+
               child: Container(
+                margin: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     color: CustomColors.kWhite[0].withOpacity(0.6)),
@@ -81,24 +84,31 @@ class TripOfferSearchCard extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned(
-              bottom: 45,
-              right: -8,
-              child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(16),
-                        bottomLeft: Radius.circular(16)),
-                    color: CustomColors.kMove[3]),
-                child: Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: Text(
-                    "-30%  ",
-                    style: Styles.textStyle18W700
-                        .copyWith(fontSize: 12, color: CustomColors.kWhite[0]),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                const SizedBox(height: 165,
+                width: double.infinity,),
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius:  BorderRadius.only(
+
+                        topLeft: isArabic ? const Radius.circular(0) : const Radius.circular(16),
+                        topRight: isArabic ? const Radius.circular(16) : const Radius.circular(0),
+                        bottomLeft: isArabic ? const Radius.circular(0) : const Radius.circular(16),
+                        bottomRight: isArabic ? const Radius.circular(16) : const Radius.circular(0),
+                      ),
+                      color: CustomColors.kMove[3]),
+                  child: Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Text(
+                      "-30%  ",
+                      style: Styles.textStyle18W700
+                          .copyWith(fontSize: 12, color: CustomColors.kWhite[0]),
+                    ),
                   ),
                 ),
-              ),
+              ],
             ),
             const Positioned(
               bottom: 10,

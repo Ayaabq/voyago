@@ -78,16 +78,19 @@ class TripCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Positioned(
-                    top: 11,
-                    right: 16,
-                    child: FavoriteButton(
-                        onPressed: () {
-                          context.read<ChangeFavoriteCubit>().addIDItem2Favourite(
-                              tripModel.id, Confg.addTripFavouriteUrl,
-                              tripModel: tripModel);
-                        },
-                        isFavorite: (tripModel.isFavourite) ?? true),
+                  Align(
+                    alignment:AlignmentDirectional.topEnd,
+
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: FavoriteButton(
+                          onPressed: () {
+                            context.read<ChangeFavoriteCubit>().addIDItem2Favourite(
+                                tripModel.id, Confg.addTripFavouriteUrl,
+                                tripModel: tripModel);
+                          },
+                          isFavorite: (tripModel.isFavourite) ?? true),
+                    ),
                   ),
                   Positioned(
                     top: 125,
