@@ -65,4 +65,6 @@ class Confg {
           "$long?key=$apiKey";
     }
 
+    //currency
+    static const String getAllCurrency="https://v6.exchangerate-api.com/v6/5db325c8151cb83b81554fc9/latest/USD";
 }

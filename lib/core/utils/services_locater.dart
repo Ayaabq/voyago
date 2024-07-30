@@ -3,7 +3,6 @@ import 'package:get_it/get_it.dart';
 import 'package:location/location.dart';
 import 'package:voyago/core/domain/services/api.dart';
 import 'package:voyago/core/domain/services/api_imp.dart';
-import 'package:voyago/feature/attraction/data/repo/attraction_repo.dart';
 import 'package:voyago/feature/attraction/data/repo/attraction_repo_impl.dart';
 import 'package:voyago/feature/auth/login/data/repo/login_repo_impl.dart';
 import 'package:voyago/feature/auth/register/data/repo/auth_register_repo_imp.dart';
@@ -15,6 +14,7 @@ import 'package:voyago/feature/reviews/data/repo/review_repo_impl.dart';
 import '../../feature/destination/data/repo/destination_repo_impl.dart';
 import '../../feature/location&map/data/repo/location_repo.dart';
 import '../../feature/location&map/data/repo/location_repo_impl.dart';
+import '../../feature/profile/data/repo/settings_repo_impl.dart';
 import '../../feature/trip&booking/data/repo/trip_details_repo/trip_details_repo_impl.dart';
 import '../../feature/trip&booking/data/repo/trips_repo/trips_repo_impl.dart';
 
@@ -36,6 +36,13 @@ void setUpServiceLocater() {
   getIt.registerSingleton<PlaceRepoImp>(PlaceRepoImp(getIt.get<ApiServices>()));
   getIt.registerSingleton<ReviewRepoImp>(
       ReviewRepoImp(getIt.get<ApiServices>()));
+
+  // getIt.registerSingleton<WeatherRepoImpl>(
+  //     WeatherRepoImpl(getIt.get<ApiServices>()));
+
+   getIt.registerSingleton<CurrencyRepoImpl>(
+       CurrencyRepoImpl(getIt.get<ApiServices>()));
+
   getIt.registerSingleton<WeatherRepoImpl>(
       WeatherRepoImpl(getIt.get<ApiServices>()));
   getIt.registerLazySingleton<Location>(() => Location());

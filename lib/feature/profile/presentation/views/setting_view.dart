@@ -14,13 +14,14 @@ class SettingsView extends StatefulWidget {
 }
 
 class _SettingsViewState extends State<SettingsView> {
-  String selectedLanguage = 'English';
+ late String selectedLanguage;
   String selectedCurrency = 'USD';
   bool isDarkTheme = false;
   bool isNotificationsEnabled = true;
 
   @override
   Widget build(BuildContext context) {
+    selectedLanguage = context.locale.languageCode=="en"?'English'.tr():'Arabic'.tr();
     return Scaffold(
       appBar: AppBar(
         elevation: 4,
@@ -81,7 +82,7 @@ class _SettingsViewState extends State<SettingsView> {
   }
 }
 
-class LanguageRow extends StatelessWidget {
+class LanguageRow extends StatefulWidget {
   final String selectedLanguage;
   final ValueChanged<String> onLanguageChanged;
 
@@ -92,10 +93,15 @@ class LanguageRow extends StatelessWidget {
   });
 
   @override
+  State<LanguageRow> createState() => _LanguageRowState();
+}
+
+class _LanguageRowState extends State<LanguageRow> {
+  @override
   Widget build(BuildContext context) {
     return SettingsRow(
       label: 'Language'.tr(),
-      value: selectedLanguage,
+      value: widget.selectedLanguage,
       onPressed: () => _showLanguagePicker(context),
     );
   }
@@ -112,8 +118,8 @@ class LanguageRow extends StatelessWidget {
                 GestureDetector(
                   child:  Text('English'.tr()),
                   onTap: () {
-                    onLanguageChanged('English');
-                    LocalizationChecker.changeLanguage(context, Locale("en"));
+                    widget.onLanguageChanged('English');
+                    LocalizationChecker.changeLanguage(context, const Locale("en"));
                     Navigator.of(context).pop();
                   },
                 ),
@@ -121,9 +127,8 @@ class LanguageRow extends StatelessWidget {
                 GestureDetector(
                   child:  Text('Arabic'.tr()),
                   onTap: () {
-                    onLanguageChanged('Arabic');
-                    LocalizationChecker.changeLanguage(context, Locale("ar"));
-
+                    widget.onLanguageChanged('Arabic');
+                    LocalizationChecker.changeLanguage(context, const Locale("ar"));
                     Navigator.of(context).pop();
                   },
                 ),

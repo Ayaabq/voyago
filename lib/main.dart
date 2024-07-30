@@ -4,6 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:voyago/core/utils/screen_size_util.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:voyago/core/utils/services_locater.dart';
+import 'package:voyago/feature/profile/data/repo/settings_repo_impl.dart';
+import 'package:voyago/feature/profile/presentation/manager/currency_cubit/currency_cubit.dart';
 import 'core/utils/app_router.dart';
 import 'feature/favorite/data/repo/favorite_repo_impl.dart';
 import 'feature/favorite/presentation/manager/change_favorite_cubit/favorite_cubit.dart';
@@ -48,7 +50,10 @@ class _VoyagoAppState extends State<VoyagoApp> {
         ),
         BlocProvider(
           create: (context) => LocationCubit(getIt<LocationRepo>()),
-        )
+        ),
+        BlocProvider(
+          create: (context) => CurrencyCubit(getIt<CurrencyRepoImpl>()),
+        ),
       ],
       child: MaterialApp.router(
         localizationsDelegates: context.localizationDelegates,
