@@ -7,12 +7,18 @@ import '../../../../../../core/utils/custom_colors.dart';
 import '../../../../../../core/utils/styles.dart';
 import '../../../../../../core/widgets/price_details_item.dart';
 import '../../../../../../core/widgets/text_cost_details_item.dart';
+import '../../../../../profile/presentation/manager/currency_cubit/currency_cubit.dart';
 
 class PriceDetailsSection extends StatelessWidget {
   const PriceDetailsSection({super.key, required this.tripPrice});
   final double tripPrice;
   @override
   Widget build(BuildContext context) {
+    final exchanger= context.read<CurrencyCubit>().exchanger;
+    String currency= context.read<CurrencyCubit>().selectedCurrency;
+    if(currency=="USD") {
+      currency='\$';
+    } else if(currency=="EUR") currency='€';
     final manager=context.read<CheckoutCubit>();
     final optional=manager.optionalChoices;
     return Container(
@@ -76,7 +82,7 @@ class PriceDetailsSection extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(right: 20.0),
               child: Text(
-                '\$${manager.getTotalPrice(tripPrice)}',
+                '$currency ${manager.getTotalPrice(tripPrice)*exchanger}',
                 style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
