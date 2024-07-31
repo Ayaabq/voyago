@@ -1,11 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:voyago/constants.dart';
 import 'package:voyago/core/utils/app_router.dart';
 import 'package:voyago/core/utils/assets.dart';
 import 'package:voyago/feature/auth/login/presentation/views/widgets/button_auth.dart';
 
+import '../../../../profile/presentation/manager/currency_cubit/currency_cubit.dart';
 import '../../../../profile/presentation/views/widgets/appbar_profile.dart';
 
 class WalletBody extends StatelessWidget {
@@ -59,6 +61,12 @@ class BalanceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final exchanger= context.read<CurrencyCubit>().exchanger;
+  String currency= context.read<CurrencyCubit>().selectedCurrency;
+  if(currency=="USD") {
+    currency='\$';
+  } else if(currency=="EUR") currency='€';
+
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(
@@ -85,7 +93,7 @@ class BalanceCard extends StatelessWidget {
                   style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                 ),
                 Text(
-                  '\$$balance',
+                  '$currency ${balance*exchanger}',
                   style: const TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
