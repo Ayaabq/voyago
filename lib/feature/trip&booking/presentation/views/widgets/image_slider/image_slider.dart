@@ -35,7 +35,7 @@ class _ImageSliderState extends State<ImageSlider> {
     return Column(
       children: [
         ClipRRect(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(15)),
           child: Image(
             image: images[chosenImage],
             width: double.infinity,

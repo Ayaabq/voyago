@@ -27,20 +27,16 @@ class AttractionListView extends StatelessWidget {
             return SizedBox(
               height: 180,
               child: ListView.builder(
-                // physics: NeverScrollableScrollPhysics(),
-                // shrinkWrap: true,
+
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+
                 scrollDirection: Axis.horizontal,
                 itemCount: attractions.length,
                 itemBuilder: (context, index) {
                   return  Row(
                     children: [
-                      InkWell(
-                        onTap: (){
-                          GoRouter.of(context).push(AppRouter.kAttractionDetailsView, extra:attractions[index] );
-
-                        },
-                          child: AttractionCard(attractionModel: attractions[index],)),
-                      SizedBox(width: 3,)
+                      AttractionCard(attractionModel: attractions[index],),
+                      const SizedBox(width: 3,)
                     ],
                   );
                 },
@@ -51,11 +47,11 @@ class AttractionListView extends StatelessWidget {
             return CustomFailureError(errMessage: state.errorMessage);
           }else
           {
-            return SizedBox(
+            return const SizedBox(
               height: 180,
 
 
-              child: const LoadList(
+              child: LoadList(
                 isVertical: false,
               ),
             );
@@ -75,7 +71,7 @@ class AttractionListView extends StatelessWidget {
           return  Row(
             children: [
               AttractionCard(attractionModel: attractions![index],),
-              SizedBox(width: 3,)
+              const SizedBox(width: 3,)
             ],
           );
         },

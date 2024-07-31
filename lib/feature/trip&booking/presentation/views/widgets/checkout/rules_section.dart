@@ -1,3 +1,5 @@
+import 'package:bulleted_list/bulleted_list.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/maneger/checkout_cubit/checkout_cubit.dart';
@@ -24,38 +26,31 @@ class _RulesSectionState extends State<RulesSection> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          'Rules',
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(height: 8.0),
-        const Text(
-          'Please read the rules before continue the booking and make sure that you understand everything.',
-          style: TextStyle(fontSize: 16),
-        ),
-        const SizedBox(height: 16.0),
-        const Text(
-          'Cancellation',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+         Text(
+          "Rules".tr(),
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 8.0),
          Text(
-          '• Up to ${widget.timeCancel} days in advance.\n'
-              '• For a full refund, you must cancel at least ${widget.timeCancel} days before the trip\'s start time.\n'
-              '• This trip requires a minimum number of travelers. If it’s canceled because the minimum isn’t met, you’ll be offered a different date/trip or a full refund.',
-          style: TextStyle(fontSize: 16),
+          "read role".tr(),
+          style: const TextStyle(fontSize: 16),
         ),
         const SizedBox(height: 16.0),
-        const Text(
-          'Health',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+         Text(
+          "Cancellation".tr(),
+          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 8.0),
-        const Text(
-          '• No wheelchair accessible.\n'
-              '• Not recommended for travelers with back problems.',
-          style: TextStyle(fontSize: 16),
-        ),
+         BulletedList(
+           style: const TextStyle(fontSize: 16),
+             listItems: [
+            "${"Up to".tr()} ${widget.timeCancel} ${"days in advance.".tr()}",
+           "${"For a full refund, you must cancel at least".tr()} ${widget.timeCancel} ${"days before the trip's start time.".tr()}",
+             "This trip requires a minimum number of travelers. ".tr(),
+         "If it’s canceled because the minimum isn’t met, you’ll be offered a different date/trip or a full refund.".tr(),
+
+         ],
+          ),
         const SizedBox(height: 16.0),
         Row(
           children: [
@@ -63,10 +58,10 @@ class _RulesSectionState extends State<RulesSection> {
               value:  context.read<CheckoutCubit>().agree,
               onChanged: _toggleAgreement,
             ),
-            const Expanded(
+             Expanded(
               child: Text(
-                'I read and agree and understand the rules',
-                style: TextStyle(fontSize: 16),
+                "I read and agree and understand the rules".tr(),
+                style: const TextStyle(fontSize: 16),
               ),
             ),
           ],

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:voyago/feature/trip&booking/data/models/itinerary/event_model.dart';
@@ -80,11 +81,11 @@ class _OptionalChoiceItemState extends State<OptionalChoiceItem> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Child Price: ${widget.eventModel.priceChild ?? 0} \$",
+                  "${"Child Price:".tr()} ${widget.eventModel.priceChild ?? 0} \$",
                   style: Styles.textStyle18W400,
                 ),
                 Text(
-                  "Adult Price: ${widget.eventModel.priceAdult ?? 0} \$",
+                  "${"Adult Price:".tr()} ${widget.eventModel.priceAdult ?? 0} \$",
                   style: Styles.textStyle18W400,
                 ),
               ],
@@ -95,7 +96,7 @@ class _OptionalChoiceItemState extends State<OptionalChoiceItem> {
               children: [
                 Expanded(
                   child: ItemCountWidget(
-                    title: 'Child:',
+                    title:  "Child:".tr(),
                     initialCount: childNum(),
                     onAddTap: () {
                       context.read<CheckoutCubit>().addChildOptionalChoice(widget.eventModel.id, 1);
@@ -109,7 +110,7 @@ class _OptionalChoiceItemState extends State<OptionalChoiceItem> {
                 const SizedBox(width: 40),
                 Expanded(
                   child: ItemCountWidget(
-                    title: 'Adults:',
+                    title: "Adults:".tr(),
                     initialCount: adultsNum(),
                     onAddTap: () {
                       context.read<CheckoutCubit>().addAdultOptionalChoice(widget.eventModel.id, 1);

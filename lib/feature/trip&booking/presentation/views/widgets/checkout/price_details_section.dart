@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/maneger/checkout_cubit/checkout_cubit.dart';
@@ -6,12 +7,18 @@ import '../../../../../../core/utils/custom_colors.dart';
 import '../../../../../../core/utils/styles.dart';
 import '../../../../../../core/widgets/price_details_item.dart';
 import '../../../../../../core/widgets/text_cost_details_item.dart';
+import '../../../../../profile/presentation/manager/currency_cubit/currency_cubit.dart';
 
 class PriceDetailsSection extends StatelessWidget {
   const PriceDetailsSection({super.key, required this.tripPrice});
   final double tripPrice;
   @override
   Widget build(BuildContext context) {
+    final exchanger= context.read<CurrencyCubit>().exchanger;
+    String currency= context.read<CurrencyCubit>().selectedCurrency;
+    if(currency=="USD") {
+      currency='\$';
+    } else if(currency=="EUR") currency='€';
     final manager=context.read<CheckoutCubit>();
     final optional=manager.optionalChoices;
     return Container(
@@ -24,13 +31,13 @@ class PriceDetailsSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
 
-          const Text(
-            'Price details',
+           Text(
+            "Price details".tr(),
             style: Styles.textStyle16W700,
           ),
           const SizedBox(height: 16.0),
            PriceDetailItem(
-              title: 'Travelers',
+              title: "Travelers".tr(),
               details: TextCostDetail(
                   child: manager.child??0,
                   adult: manager.adults!,
@@ -41,8 +48,8 @@ class PriceDetailsSection extends StatelessWidget {
             endIndent: 20,
             indent: 20,
           ),
-          const Text(
-            'Optional choices',
+           Text(
+            "Optional choices".tr(),
             style:Styles.textStyle16W700,
           ),
           const SizedBox(height: 16.0),
@@ -62,7 +69,8 @@ class PriceDetailsSection extends StatelessWidget {
 
             );
           }),
-          if(optional ==null || optional.isEmpty) const Text("No Optional choices was selectd"),
+          if(optional ==null || optional.isEmpty)
+             Text("No Optional choices was selected".tr()),
           const SizedBox(height: 16.0),
           Divider(
             color: CustomColors.kBlack[1],
@@ -74,7 +82,7 @@ class PriceDetailsSection extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(right: 20.0),
               child: Text(
-                '\$${manager.getTotalPrice(tripPrice)}',
+                '$currency ${manager.getTotalPrice(tripPrice)*exchanger}',
                 style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,

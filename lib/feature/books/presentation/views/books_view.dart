@@ -1,4 +1,5 @@
 import 'package:buttons_tabbar/buttons_tabbar.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
@@ -30,21 +31,21 @@ class BooksBody extends StatefulWidget {
 class _BooksBodyState extends State<BooksBody> {
   @override
   Widget build(BuildContext context) {
-    return CustomTabBar(tabs: const [
+    return CustomTabBar(tabs: [
       Tab(
-        text: "Upcoming",
+        text: "Upcoming".tr(),
       ),
       Tab(
-        text: "Completed",
+        text: "Completed".tr(),
       ),
       Tab(
-        text: "Cancelled",
+        text: "Cancelled".tr(),
       ),
     ], tabViews: const [
       UpcomingBooksView(),
       CompletedBooksView(),
       Text("data"),
-    ], titel: "My bookings");
+    ], titel: "My bookings".tr());
 
 //  DefaultTabController(
 //       length: 3,
@@ -115,26 +116,25 @@ class CompletedBooksView extends StatelessWidget {
           onTap: () {
             GoRouter.of(context).push(AppRouter.kDetilesBooksView);
           },
-          child: const CustomCard(
-
-            content: CardBooks(paymentState: " Paid "),
+          child: CustomCard(
+            content: CardBooks(paymentState: "Paid".tr()),
             title: "NY City Tour ",
           ),
         ),
       ),
       const SizedBox(height: 10),
-      const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10),
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: CustomCard(
-          content: CardBooks(paymentState: " Paid "),
+          content: CardBooks(paymentState: "Paid".tr()),
           title: "NY City Tour ",
         ),
       ),
       const SizedBox(height: 10),
-      const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10),
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: CustomCard(
-          content: CardBooks(paymentState: " UnPaid "),
+          content: CardBooks(paymentState: "UnPaid".tr()),
           title: "NY City Tour ",
         ),
       ),

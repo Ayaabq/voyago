@@ -127,11 +127,13 @@ class OfferCard extends StatelessWidget {
                 ),
               ),
             ),
-            const Positioned(
-              top: 11,
-              right: 16,
-              child: FavoriteButton(),
-            ),
+            Align(
+                alignment:AlignmentDirectional.topEnd,
+
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: FavoriteButton(),
+                )),
 
             const Positioned(
               top: 110,

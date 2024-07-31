@@ -56,19 +56,22 @@ class DestinationBackground extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned(
-              top: 11,
-              right: 16,
-              child: FavoriteButton(
-                onPressed: () {
+            Align(
 
-                  context
-                      .read<ChangeFavoriteCubit>()
-                      .addIDItem2Favourite(destinationModel!.id,
-                      Confg.addDestinationFavouriteUrl,
-                  destinationModel: destinationModel);
-                },
-                isFavorite: (destinationModel?.isFavourite) ?? true,
+              alignment:AlignmentDirectional.topEnd,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 6),
+                child: FavoriteButton(
+                  onPressed: () {
+
+                    context
+                        .read<ChangeFavoriteCubit>()
+                        .addIDItem2Favourite(destinationModel!.id,
+                        Confg.addDestinationFavouriteUrl,
+                    destinationModel: destinationModel);
+                  },
+                  isFavorite: (destinationModel?.isFavourite) ?? true,
+                ),
               ),
             ),
           ],

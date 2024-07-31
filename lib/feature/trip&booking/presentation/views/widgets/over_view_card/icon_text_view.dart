@@ -1,5 +1,7 @@
-import 'package:flutter/material.dart';import 'package:voyago/core/utils/styles.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';import 'package:voyago/core/utils/styles.dart';
 
+import '../../../../../profile/presentation/manager/currency_cubit/currency_cubit.dart';
 import 'higlight_text.dart';
 
 
@@ -15,6 +17,11 @@ class IconText extends StatelessWidget {
   final double? iconSize;
   @override
   Widget build(BuildContext context) {
+    final exchanger= context.read<CurrencyCubit>().exchanger;
+    String currency= context.read<CurrencyCubit>().selectedCurrency;
+    if(currency=="USD") {
+      currency='\$';
+    } else if(currency=="EUR") currency='€';
     return Column(
       children: [
          Row(
@@ -31,7 +38,7 @@ class IconText extends StatelessWidget {
                 maxLines: 10,
                 style: textStyle??Styles.textStyle14W400,),
                 if(price!=null)
-                  Text("$price \$",
+                  Text("${price!*exchanger} $currency",
                   style: Styles.textStyle14W600,)
 
               ],

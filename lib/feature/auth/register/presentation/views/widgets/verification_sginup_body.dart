@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -69,12 +70,12 @@ class VerificationRegister extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Code Verification",
+                      "Code Verification".tr(),
                       style: Styles.textStyle25W700,
                     ),
                     const SizedBox(height: 16),
-                    const Text(
-                      "Enter the verification code we just sent on your email address",
+                     Text(
+                      "Enter the verification code we just sent on your email address".tr(),
                       style: Styles.textStyle16W400,
                     ),
                     const SizedBox(height: 18),
@@ -85,7 +86,7 @@ class VerificationRegister extends StatelessWidget {
                         keyboardType: TextInputType.number,
                         validator: (value) {
                           if (value!.length > 5 || value.length < 5) {
-                            return "Code mast be 5 char";
+                            return "Code mast be 5 char".tr();
                           }
                           verificationData.inCode = value;
                         }),
@@ -100,7 +101,7 @@ class VerificationRegister extends StatelessWidget {
                     //     }),
                     SizedBox(height: MediaQuery.of(context).size.height * .26),
                     ButtonAuth(
-                        title: "Verify",
+                        title: "Verify".tr(),
                         onTap: () {
                           context
                               .read<VerificationCubit>()

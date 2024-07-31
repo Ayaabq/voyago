@@ -24,11 +24,13 @@ class TripSearchCard extends StatelessWidget {
                 elevation: 4,
                 child: SearchTripImage(fromPrice: fromPrice),
               ),
-              const Positioned(
-                top: 11,
-                right: 16,
-                child: FavoriteButton(),
-              ),
+              const Align(
+                  alignment:AlignmentDirectional.topEnd,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 14.0, vertical: 14),
+
+                    child: FavoriteButton(),
+                  )),
             ],
           ),
 

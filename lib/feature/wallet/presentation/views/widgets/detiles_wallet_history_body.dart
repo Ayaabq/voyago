@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:voyago/feature/wallet/presentation/views/detiles_wallet_history.dart';
 
@@ -8,14 +9,17 @@ class DetilesWalletHestoryBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        body: Column(children: [
-      ProfileAppBar(
-        titel: 'History Wallet',
+    return  Scaffold(
+      body: Column(
+        children: [
+          ProfileAppBar(
+            titel: "History Wallet".tr(),
+          ),
+          const SizedBox(height: 10),
+          const CardTransactionDetails(),
+          const SizedBox(height: 6)
+        ],
       ),
-      SizedBox(height: 10),
-      CardTransactionDetails(),
-      SizedBox(height: 6)
-    ]));
+    );
   }
 }

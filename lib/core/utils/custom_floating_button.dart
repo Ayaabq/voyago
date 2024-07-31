@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../feature/reviews/presentation/veiws/widgets/reviews/make_review.dart';
@@ -52,7 +53,7 @@ class CustomFloatingButton extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16), // Border radius
               ),
             ),
-            child:Text(title??"Write a Review", style: Styles.textStyle16W700),
+            child:Text(title??"Write a Review".tr(), style: Styles.textStyle16W700),
           )
         ],
       ),

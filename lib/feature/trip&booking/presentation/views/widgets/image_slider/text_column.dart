@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -61,8 +62,8 @@ class TexColumn extends StatelessWidget {
                               borderRadius: BorderRadius.circular(16),
                               color: Colors.grey[300],
                             ),
-                            child: const LocationWithCountry(
-                                country: "View on Map"),
+                            child:  LocationWithCountry(
+                                country: "View on Map".tr()),
                           ),
                         ),
                       ],
@@ -82,7 +83,7 @@ class TexColumn extends StatelessWidget {
                             color: Colors.grey[300],
                           ),
                           child: Text(
-                            "${trip.reviews} reviews",
+                            "${trip.reviews} ${"reviews".tr()}",
                             style: TextStyle(
                               fontSize: textSizeReview,
                               fontWeight: FontWeight.normal,

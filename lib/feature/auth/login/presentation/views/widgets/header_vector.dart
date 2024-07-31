@@ -8,24 +8,27 @@ class HeaderVector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
-      children: [
-        SizedBox(
-          height: 246,
-          child: Image(
-            image: AssetImage(LoginAssets.vector1),
-          ),
-        ),
-        Spacer(),
-        SizedBox(
-          height: 246,
-          child: Image(
-            image: AssetImage(
-              LoginAssets.vector2,
+    return const Directionality(
+      textDirection: TextDirection.ltr, // Force LTR direction
+      child: Row(
+        children: [
+          SizedBox(
+            height: 246,
+            child: Image(
+              image: AssetImage(LoginAssets.vector1),
             ),
           ),
-        ),
-      ],
+          Spacer(),
+          SizedBox(
+            height: 246,
+            child: Image(
+              image: AssetImage(
+                LoginAssets.vector2,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

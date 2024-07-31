@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/assets.dart';
@@ -19,22 +20,24 @@ class ReviewsBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomTabBar(
-      tabs: const [
+      tabs:  [
         Tab(
-          text: "Destinations",
+          text: "Destinations".tr(),
         ),
         Tab(
-          text: "Attractions",
+          text: "Attractions".tr(),
         ),
         Tab(
-          text: "Trips ",
+          text: "Trips".tr(),
         ),
       ],
-      titel: 'My Reviews',
-      tabViews: const [
-        ReviewsEmpty(),
-        Text("My Reviews"),
-        Text("My Reviews"),
+
+      titel: "My Reviews".tr(),
+      tabViews:  [
+        const ReviewsEmpty(),
+        Text("My Reviews".tr()),
+        Text("My Reviews".tr()),
+
       ],
     );
   }
@@ -58,10 +61,12 @@ class ReviewsEmpty extends StatelessWidget {
         Center(
           child: Text(
             textAlign: TextAlign.center,
-            "You have no reviews yet!!",
+
+           "You have no reviews yet!!".tr(),
             style: Theme.of(context).brightness == Brightness.dark
                 ? Styles.textStyle20W600dark
                 : Styles.textStyle30W600.copyWith(fontSize: 20),
+
           ),
         ),
       ],

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
@@ -18,39 +19,39 @@ class PersonalInformationBody extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          const ProfileAppBar(
-            titel: 'My Personal Information',
+           ProfileAppBar(
+            titel: "My Personal Information".tr(),
           ),
           const SizedBox(height: 30),
           const ProfilePictureEdit(),
           const SizedBox(height: 30),
-          const InformationRow(
+           InformationRow(
             icon: Iconsax.user,
-            label: 'User name',
+            label: 'User name'.tr(),
             value: 'Ayalmalla',
           ),
           Divider(
             color: CustomColors.kGrey[0],
           ),
-          const InformationRow(
+           InformationRow(
             icon: Icons.email_outlined,
-            label: 'Email',
+            label: 'Email'.tr(),
             value: 'ayalmallah@gmail.com',
           ),
           Divider(
             color: CustomColors.kGrey[0],
           ),
-          const InformationRow(
+           InformationRow(
             icon: Icons.phone,
-            label: 'Phone Number',
+            label: 'Phone Number'.tr(),
             value: '0964682070',
           ),
           Divider(
             color: CustomColors.kGrey[0],
           ),
-          const InformationRow(
+           InformationRow(
             icon: Icons.location_on,
-            label: 'Hometown',
+            label: 'Hometown'.tr(),
             value: 'Damascus, Syria',
           ),
           Divider(
@@ -62,7 +63,7 @@ class PersonalInformationBody extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: ButtonAuth(
-                title: "Edit my personal informations",
+                title: "Edit my personal informations".tr(),
                 onTap: () {
                   GoRouter.of(context).push(AppRouter.kEditProfileView);
                 }),
@@ -70,7 +71,7 @@ class PersonalInformationBody extends StatelessWidget {
           const SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: ButtonAuth(title: "Change my password", onTap: () {}),
+            child: ButtonAuth(title: "Change my password".tr(), onTap: () {}),
           )
         ],
       ),

@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/core/widgets/custom_rate.dart';
 import 'package:voyago/feature/reviews/data/models/review_model.dart';
-import 'package:voyago/feature/reviews/data/repo/review_repo_impl.dart';
-import 'package:voyago/feature/reviews/presentation/manager/reviews_cubit/reviews_cubit.dart';
-import 'package:voyago/feature/reviews/presentation/veiws/widgets/reviews/reviews_conlumn.dart';
 
-import '../../../../../../core/utils/services_locater.dart';
 import '../../../../../../core/utils/styles.dart';
 
 class ReviewCard extends StatelessWidget {

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:voyago/core/utils/styles.dart';
@@ -9,7 +10,7 @@ class MeetingPointCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  CustomCard(
-      title: "Meeting Point",
+      title: "Meeting Point".tr(),
       content: Text(
         details,
         style: Styles.textStyle14W400,

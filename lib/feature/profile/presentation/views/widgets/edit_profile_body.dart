@@ -83,6 +83,8 @@
 //   }
 // }
 
+
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:voyago/feature/profile/presentation/views/widgets/profile_textfield.dart';
@@ -109,15 +111,15 @@ class _EditProfileBodyState extends State<EditProfileBody> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const ProfileAppBar(
-              titel: 'Edit Personal Information',
+             ProfileAppBar(
+              titel: "Edit Personal Information".tr(),
             ),
             const SizedBox(height: 30),
             const ProfilePictureEdit(),
             const SizedBox(height: 30),
             InformationEdit(
               icon: Iconsax.user,
-              label: 'User name',
+              label: "User name".tr(),
               value: 'Ayalmalla',
               child: TextFieldProfile(
                   hint: "",
@@ -126,7 +128,7 @@ class _EditProfileBodyState extends State<EditProfileBody> {
             ),
             InformationEdit(
               icon: Icons.email_outlined,
-              label: 'Email',
+              label: "Email".tr(),
               value: 'ayaalmallah@gmail.com',
               child: TextFieldProfile(
                   hint: "",
@@ -136,7 +138,7 @@ class _EditProfileBodyState extends State<EditProfileBody> {
             ),
             InformationEdit(
               icon: Icons.phone,
-              label: 'Phone Number',
+              label: "Phone Number".tr(),
               value: '0964682070',
               child: TextFieldProfile(
                   hint: "",
@@ -146,7 +148,7 @@ class _EditProfileBodyState extends State<EditProfileBody> {
             ),
             InformationEdit(
               icon: Icons.location_on,
-              label: 'Hometown',
+              label: "Hometown".tr(),
               value: 'Damascus, Syria',
               child: TextFieldProfile(
                   hint: "",
@@ -160,7 +162,7 @@ class _EditProfileBodyState extends State<EditProfileBody> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: ButtonAuth(
-                  title: "Edit",
+                  title: "Edit".tr(),
                   onTap: () {
                     //   GoRouter.of(context).push(AppRouter.kEditProfileView);
                   }),

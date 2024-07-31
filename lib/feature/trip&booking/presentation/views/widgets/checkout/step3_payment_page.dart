@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/core/utils/validator_manager.dart';
@@ -43,18 +44,18 @@ class _Step3PaymentPageState extends State<Step3PaymentPage> {
   @override
   Widget build(BuildContext context) {
     return CustomCard(
-      title: "Payment Details",
+      title: "Payment Details".tr(),
       content: Expanded(
         child: ListView(
           children: [
-            const Text(
-              "Enter your password to verify the payment process.",
+             Text(
+              "Enter your password to verify the payment process.".tr(),
               style: Styles.textStyle13W400,
             ),
             const SizedBox(height: 20),
             TextFieldCustom(
               controller: _passwordController,
-              hint: "Password",
+              hint: "Password".tr(),
               onPressedIcon: () {},
               icon: const Icon(Icons.remove_red_eye),
               keyboardType: TextInputType.visiblePassword,

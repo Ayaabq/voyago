@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:voyago/feature/trip&booking/data/models/trip_info_2_model.dart';
@@ -34,7 +35,7 @@ class HighlightsSection extends StatelessWidget {
         IconText(
           isLast: true,
           icon: Iconsax.location,
-          title: 'Meeting Point:',
+          title: "Meeting Point:".tr(),
           iconColor: CustomColors.kMove[5],
           textStyle:
               Styles.textStyle16W700.copyWith(color: CustomColors.kMove[4]),

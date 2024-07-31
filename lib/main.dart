@@ -2,11 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:voyago/core/utils/screen_size_util.dart';
-
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:voyago/core/utils/services_locater.dart';
-
-import 'package:voyago/feature/theme/widgets/cubit/app_theme_cubit.dart';
 
 import 'core/utils/app_router.dart';
 import 'feature/favorite/data/repo/favorite_repo_impl.dart';
@@ -14,6 +11,8 @@ import 'feature/favorite/presentation/manager/change_favorite_cubit/favorite_cub
 import 'feature/location&map/data/repo/location_repo.dart';
 import 'feature/location&map/presentation/manager/location_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
+
+import 'feature/theme/widgets/cubit/app_theme_cubit.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -33,14 +32,20 @@ void main() async {
       child: const VoyagoApp()));
 }
 
-class VoyagoApp extends StatelessWidget {
+class VoyagoApp extends StatefulWidget {
   const VoyagoApp({super.key});
 
+  @override
+  _VoyagoAppState createState() => _VoyagoAppState();
+}
+
+class _VoyagoAppState extends State<VoyagoApp> {
   @override
   Widget build(BuildContext context) {
     ScreenSizeUtil.init(context);
 
     return MultiBlocProvider(
+
         providers: [
           BlocProvider(
             create: (context) =>
@@ -88,5 +93,6 @@ class VoyagoApp extends StatelessWidget {
     //     ),
     //     home: const LoginView()
     // DestinationDetailsView(),
+
   }
 }

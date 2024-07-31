@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
@@ -36,21 +37,21 @@ class ColumnSearchTrip extends StatelessWidget {
       const SizedBox(height: 5),
       const CustomRating(rate: 4.8),
       const SizedBox(height: 5),
-      const Row(
+       Row(
         children: [
           AvailableNumber(
-            availableNubmer: '5 / 20 reserved',
+            availableNubmer: '5 / 20 ${"reserved".tr()}',
           ),
           SizedBox(width: 11),
           StateTrips(
-            state: 'Available',
+            state: "Available".tr(),
           ),
         ],
       ),
       //    const TimeTrip(day: "1"),
       const SizedBox(height: 6),
       IconsText(
-          text: "day",
+          text: "day".tr(),
           icon: Iconsax.timer_1,
           colorIcon: CustomColors.kWhite[3],
           sizeIcon: 15,

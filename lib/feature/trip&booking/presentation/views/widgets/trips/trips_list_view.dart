@@ -27,6 +27,7 @@ class TripsListView extends StatelessWidget {
           return SizedBox(
             height: 200,
             child: ListView.builder(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
 
               scrollDirection: Axis.horizontal,
               itemCount: trips.length,
@@ -36,12 +37,7 @@ class TripsListView extends StatelessWidget {
                     InkWell(
 
                         child:  TripCard(tripModel:  trips[index],),
-                        onTap: (){
-                          GoRouter.of(context).push(AppRouter.kTripDetailsView,
-                          extra: trips[index]);
 
-
-                        }
 
                     ),
                     const SizedBox(width: 3,)

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
@@ -13,35 +14,39 @@ class HistoryWalletBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(children: [
-      const ProfileAppBar(
-        titel: 'History Wallet',
-      ),
-      //  const SizedBox(height: 50),
-      Expanded(
-          child: ListView(
-        children: const [
-          HistoryCardWallet(),
-          SizedBox(height: 6),
-          HistoryCardWallet(),
-          SizedBox(height: 6),
-          HistoryCardWallet(),
-          SizedBox(height: 6),
-          HistoryCardWallet(),
-          SizedBox(height: 6),
-          HistoryCardWallet(),
-          HistoryCardWallet(),
-          SizedBox(height: 6),
-          HistoryCardWallet(),
-          SizedBox(height: 6),
-          HistoryCardWallet(),
-          SizedBox(height: 6),
-          HistoryCardWallet(),
-          SizedBox(height: 6),
-          HistoryCardWallet()
+      body: Column(
+        children: [
+          const ProfileAppBar(
+            titel: 'History Wallet',
+          ),
+          //  const SizedBox(height: 50),
+          Expanded(
+            child: ListView(
+              children: const [
+                HistoryCardWallet(),
+                SizedBox(height: 6),
+                HistoryCardWallet(),
+                SizedBox(height: 6),
+                HistoryCardWallet(),
+                SizedBox(height: 6),
+                HistoryCardWallet(),
+                SizedBox(height: 6),
+                HistoryCardWallet(),
+                HistoryCardWallet(),
+                SizedBox(height: 6),
+                HistoryCardWallet(),
+                SizedBox(height: 6),
+                HistoryCardWallet(),
+                SizedBox(height: 6),
+                HistoryCardWallet(),
+                SizedBox(height: 6),
+                HistoryCardWallet()
+              ],
+            ),
+          )
         ],
-      ))
-    ]));
+      ),
+    );
   }
 }
 
@@ -64,7 +69,7 @@ class HistoryCardWallet extends StatelessWidget {
             borderRadius: BorderRadius.circular(16.0),
           ),
           elevation: 4,
-          child: const Padding(
+          child:  Padding(
             padding: EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,7 +78,7 @@ class HistoryCardWallet extends StatelessWidget {
                   date: 'feb 03, 2024',
                 ),
                 SizedBox(height: 16),
-                TransactionDetail(title: 'Added amount:', value: '\$1,100'),
+                TransactionDetail(title: "Added amount:".tr(), value: '\$1,100'),
               ],
             ),
           ),
@@ -91,8 +96,8 @@ class DateRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        const Text(
-          'Date:',
+         Text(
+          "Date:".tr(),
           style: Styles.textStyle14W400,
         ),
         const SizedBox(width: 8),
@@ -144,7 +149,7 @@ class DepositPicture extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('Deposit picture:', style: Styles.textStyle14W400),
+         Text("Deposit picture:".tr(), style: Styles.textStyle14W400),
         const SizedBox(height: 10),
         Center(
           child: Image.asset(

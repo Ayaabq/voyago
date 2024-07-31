@@ -30,21 +30,14 @@ class DestinationListView extends StatelessWidget {
           return SizedBox(
             height: 140,
             child: ListView.builder(
-
+              padding: const EdgeInsets.symmetric(horizontal: 10),
                 scrollDirection: Axis.horizontal,
                 itemCount: destinations.length,
                 itemBuilder: (context, index) {
                   return  Row(
                     children: [
-                      InkWell(
-
-                          child: DestinationItem(
-                            destinationModel: destinations[index] ,),
-                        onTap: (){
-                          GoRouter.of(context).push(AppRouter.kDestinationDetailsView, extra:  destinations[index]);
-                        }
-
-                      ),
+                      DestinationItem(
+                        destinationModel: destinations[index] ,),
                       const SizedBox(width: 5,)
                     ],
                   );

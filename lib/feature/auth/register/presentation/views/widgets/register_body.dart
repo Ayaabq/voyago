@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -85,10 +86,14 @@ class _RegisterBodyViewState extends State<RegisterBodyView> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Welcome!", style: Styles.textStyle25W700),
+                  Text("Welcome!".tr(), style: Styles.textStyle25W700),
                   const SizedBox(height: 14),
-                  Text("Create your Account ",
-                      style: Styles.textStyle20W700blak),
+
+                  Text("Create your Account ".tr(),
+                      style: Styles.textStyle20W700.copyWith(
+                          fontWeight: FontWeight.w600,
+                          color: CustomColors.kBlack[3])),
+
                   const SizedBox(height: 24),
                   //88
 
@@ -105,8 +110,8 @@ class _RegisterBodyViewState extends State<RegisterBodyView> {
 
                   const SizedBox(height: 10),
                   DontAccount(
-                    text: "Already have an account? ",
-                    create: "Login",
+                    text: "Already have an account? ".tr(),
+                    create: "Login".tr(),
                     onTap: () {
                       GoRouter.of(context).push(AppRouter.kLoginView);
                     },

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
@@ -21,8 +22,8 @@ class DetilesBooksView extends StatelessWidget {
     return Scaffold(
         body: ListView(children: [
       Column(children: [
-        const ProfileAppBar(
-          titel: 'My bookings',
+         ProfileAppBar(
+          titel: 'My bookings'.tr(),
         ),
         const SizedBox(height: 30),
         Container(
@@ -32,8 +33,8 @@ class DetilesBooksView extends StatelessWidget {
                   ? CustomColors.kMove[3]
                   : CustomColors.kWhite[4],
               borderRadius: BorderRadius.circular(32)),
-          child: const Text(
-            "Booking id: 32146021",
+          child:  Text(
+            "${"Booking id:".tr()} 32146021",
             style: Styles.textStyle16W400,
           ),
         ),
@@ -66,36 +67,36 @@ class DetilesBooksView extends StatelessWidget {
                   iconColor: CustomColors.kMove[5]),
               IconText(
                   icon: Iconsax.calendar_tick,
-                  title: "Form:" ' Wed, October 8, 2024',
+                  title: "${"Form:".tr()}" ' Wed, October 8, 2024',
                   iconColor: CustomColors.kMove[5]),
               IconText(
                   icon: Iconsax.calendar_tick,
-                  title: "To:" ' Wed, October 8, 2024',
+                  title: "${"To:".tr()}" ' Wed, October 8, 2024',
                   iconColor: CustomColors.kMove[5]),
               IconText(
                   icon: Iconsax.clock,
-                  title: 'start at:',
+                  title: 'start at:'.tr(),
                   iconColor: CustomColors.kMove[5]),
               IconText(
                 icon: Iconsax.user,
-                title: '2 Adults, 1 Child',
+                title: '2 ${"Adult".tr()}, 1 ${"Child".tr()}',
                 iconColor: CustomColors.kMove[5],
               ),
               IconText(
                   isLast: false,
                   icon: Iconsax.location,
-                  title: 'Meeting point:',
+                  title: 'Meeting point:'.tr(),
                   iconColor: CustomColors.kMove[5]),
               IconText(
                   icon: Icons.phone_outlined,
-                  title: 'phone:',
+                  title: 'phone:'.tr(),
                   iconColor: CustomColors.kMove[5]),
               Row(
                 children: [
                   IconText(
                       isLast: false,
                       icon: Iconsax.wallet,
-                      title: 'Payment status:',
+                      title: 'Payment status:'.tr(),
                       iconColor: CustomColors.kMove[5]),
                   const SizedBox(width: 16),
                   Container(

@@ -17,6 +17,7 @@ class CustomHomeList extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+
         Text(
           title,
           textAlign: TextAlign.start,
@@ -24,6 +25,7 @@ class CustomHomeList extends StatelessWidget {
             color: Theme.of(context).brightness == Brightness.dark
                 ? CustomColors.kWhite[0]
                 : CustomColors.kMove[8],
+
           ),
         ),
         const SizedBox(

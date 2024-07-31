@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/utils/custom_colors.dart';
@@ -18,11 +19,11 @@ class StepIndicator extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          _buildStepButton(context, 0, "Step 1"),
+          _buildStepButton(context, 0, "Step 1".tr()),
           Icon(Icons.arrow_forward_ios, color: CustomColors.kMove[3]),
-          _buildStepButton(context, 1, "Step 2"),
+          _buildStepButton(context, 1, "Step 2".tr()),
           Icon(Icons.arrow_forward_ios, color: CustomColors.kMove[3]),
-          _buildStepButton(context, 2, "Payment"),
+          _buildStepButton(context, 2, "Payment".tr()),
         ],
       ),
     );

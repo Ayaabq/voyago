@@ -1,11 +1,17 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:voyago/core/utils/styles.dart';
-import 'package:voyago/feature/theme/widgets/cubit/app_theme_cubit.dart';
+
+import 'package:voyago/core/widgets/custom_failure_error.dart';
+import 'package:voyago/core/widgets/toast/toast_extensions.dart';
+import 'package:voyago/feature/profile/presentation/manager/currency_cubit/currency_cubit.dart';
+import 'package:voyago/feature/profile/presentation/manager/currency_cubit/currency_state.dart';
 
 import '../../../../core/helper/localization_checker.dart';
 import '../../../../core/utils/custom_colors.dart';
+import '../../../theme/widgets/cubit/app_theme_cubit.dart';
 
 class SettingsView extends StatefulWidget {
   const SettingsView({super.key});
@@ -15,22 +21,62 @@ class SettingsView extends StatefulWidget {
 }
 
 class _SettingsViewState extends State<SettingsView> {
-  String selectedLanguage = 'English';
-  String selectedCurrency = 'USD';
+  late String selectedLanguage = "تنل";
+  bool isDarkTheme = false;
 
   bool isNotificationsEnabled = true;
 
+  // _onCurrencyChange(newCurrency)async{
+  //   print(newCurrency);
+  //   if(currencyManager.currencyModel==null) {
+  //     await currencyManager.fetchCurrency();
+  //   }
+  //     if(newCurrency=="SYP"){
+  //        currencyManager.toSYP();
+  //       print(currencyManager.selectedCurrency);
+  //     }else if(newCurrency=="EUR"){
+  //        currencyManager.toEUR();
+  //     }else{
+  //       currencyManager.toUSD();
+  //     }
+  // }
+  void _onCurrencyChange(String newCurrency) async {
+    final currencyCubit = context.read<CurrencyCubit>();
+    print('Currency changing to $newCurrency');
+
+    if (currencyCubit.currencyModel == null) {
+      await currencyCubit.fetchCurrency();
+      // Check if currencyModel is still null after fetch attempt
+      if (currencyCubit.currencyModel == null) {
+        print('Failed to fetch currency data');
+        currencyCubit.toUSD();
+
+        return; // Exit if fetching failed
+      }
+    }
+
+    // Continue with the logic to change currency
+    if (newCurrency == "SYP") {
+      currencyCubit.toSYP();
+    } else if (newCurrency == "EUR") {
+      currencyCubit.toEUR();
+    } else {
+      currencyCubit.toUSD();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    // bool isDarkTheme =
-    //     context.read<ThemeCubit>().state.brightness == Brightness.dark;
+    selectedLanguage =
+        context.locale.languageCode == "en" ? 'English'.tr() : 'Arabic'.tr();
+    context.read<CurrencyCubit>();
     return Scaffold(
       appBar: AppBar(
         elevation: 4,
         shadowColor: Theme.of(context).brightness == Brightness.dark
             ? Colors.transparent
             : CustomColors.kGrey[0],
-        title: const Text('Settings'),
+        title: Text("Settings".tr()),
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back_ios,
@@ -53,12 +99,21 @@ class _SettingsViewState extends State<SettingsView> {
             },
           ),
           Divider(color: CustomColors.kGrey[0], height: 1),
-          CurrencyRow(
-            selectedCurrency: selectedCurrency,
-            onCurrencyChanged: (newCurrency) {
-              setState(() {
-                selectedCurrency = newCurrency;
-              });
+          BlocConsumer<CurrencyCubit, CurrencyState>(
+            listener: (context, state) {
+              if (state is CurrencyLoading) {
+                context.showLoadingToast();
+              } else if (state is CurrencySuccess) {
+                context.showSuccessToast("currency uploaded from server");
+              }
+              if (state is CurrencyFailure) {
+                context.showFailureToast(state.errorMessage);
+              }
+            },
+            builder: (context, state) {
+              return CurrencyRow(
+                  selectedCurrency: state.selectedCurrency,
+                  onCurrencyChanged: _onCurrencyChange);
             },
           ),
           Divider(color: CustomColors.kGrey[0], height: 1),
@@ -116,7 +171,7 @@ class LanguageRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SettingsRow(
-      label: 'Language',
+      label: 'Language'.tr(),
       value: selectedLanguage,
       onPressed: () => _showLanguagePicker(context),
     );
@@ -127,24 +182,26 @@ class LanguageRow extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Select Language'),
+          title: Text('Select Language'.tr()),
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
                 GestureDetector(
-                  child: const Text('English'),
+                  child: Text('English'.tr()),
                   onTap: () {
                     onLanguageChanged('English');
+
                     LocalizationChecker.changeLanguage(
                         context, const Locale("en"));
+
                     Navigator.of(context).pop();
                   },
                 ),
                 const Padding(padding: EdgeInsets.all(8.0)),
                 GestureDetector(
-                  child: const Text('Spanish'),
+                  child: Text('Arabic'.tr()),
                   onTap: () {
-                    onLanguageChanged('Spanish');
+                    onLanguageChanged('Arabic');
                     LocalizationChecker.changeLanguage(
                         context, const Locale("ar"));
 
@@ -173,7 +230,7 @@ class CurrencyRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SettingsRow(
-      label: 'Currency',
+      label: 'Currency'.tr(),
       value: selectedCurrency,
       onPressed: () => _showCurrencyPicker(context),
     );
@@ -184,7 +241,7 @@ class CurrencyRow extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Select Currency'),
+          title: Text('Select Currency'.tr()),
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
@@ -197,9 +254,17 @@ class CurrencyRow extends StatelessWidget {
                 ),
                 const Padding(padding: EdgeInsets.all(8.0)),
                 GestureDetector(
-                  child: const Text('EUR€'),
+                  child: const Text('EUR'),
                   onTap: () {
-                    onCurrencyChanged('EUR€');
+                    onCurrencyChanged('EUR');
+                    Navigator.of(context).pop();
+                  },
+                ),
+                const Padding(padding: EdgeInsets.all(8.0)),
+                GestureDetector(
+                  child: const Text('SYP'),
+                  onTap: () {
+                    onCurrencyChanged('SYP');
                     Navigator.of(context).pop();
                   },
                 ),
@@ -225,7 +290,7 @@ class ThemeSwitchRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SettingsSwitchRow(
-      label: 'Dark Theme',
+      label: 'Dark Theme'.tr(),
       value: isDarkTheme,
       onChanged: onThemeChanged,
       activeColor: CustomColors.kMove[6],
@@ -248,7 +313,7 @@ class NotificationSwitchRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SettingsSwitchRow(
-      label: 'Notifications',
+      label: 'Notifications'.tr(),
       value: isNotificationsEnabled,
       onChanged: onNotificationsChanged,
       activeColor: CustomColors.kMove[6],

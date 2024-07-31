@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
@@ -29,6 +30,7 @@ class CustomCard extends StatelessWidget {
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(
                   20), // Ensure the inner decoration matches
+
               color: Theme.of(context).cardColor),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 11),
@@ -48,11 +50,16 @@ class CustomCard extends StatelessWidget {
                       if (onTap != null)
                         TextButton(
                           onPressed: onTap,
-                          child: const Text(
-                            'View all> ',
-                            style: TextStyle(
-                              color: CustomColors.kHighlightMove,
-                            ),
+                          child: Row(
+                            children: [
+                              Text(
+                                'View all'.tr(),
+                                style: const TextStyle(
+                                  color: CustomColors.kHighlightMove,
+                                ),
+                              ),
+                              const Icon(Icons.arrow_forward_ios)
+                            ],
                           ),
                         ),
                     ],

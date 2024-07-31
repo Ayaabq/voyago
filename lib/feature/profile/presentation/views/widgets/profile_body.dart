@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
@@ -25,7 +26,7 @@ class ProfileBody extends StatelessWidget {
               const SizedBox(height: 16),
               SettingItem(
                 icon: Iconsax.profile_circle,
-                title: 'My personal information',
+                title: "My personal information".tr(),
                 onTap: () {
                   GoRouter.of(context).push(AppRouter.kPersonalInformationView);
                 },
@@ -35,7 +36,7 @@ class ProfileBody extends StatelessWidget {
               ),
               SettingItem(
                 icon: Iconsax.wallet_24,
-                title: 'My wallet',
+                title: 'My wallet'.tr(),
                 onTap: () {
                   GoRouter.of(context).push(AppRouter.kWalletView);
                 },
@@ -45,7 +46,7 @@ class ProfileBody extends StatelessWidget {
               ),
               SettingItem(
                 icon: Iconsax.star,
-                title: 'My reviews',
+                title: 'My reviews'.tr(),
                 onTap: () {
                   GoRouter.of(context).push(AppRouter.kReviewsProfileView);
                 },
@@ -55,7 +56,7 @@ class ProfileBody extends StatelessWidget {
               ),
               SettingItem(
                 icon: Iconsax.setting_2,
-                title: 'App settings',
+                title: 'App settings'.tr(),
                 onTap: () {
                   GoRouter.of(context).push(AppRouter.kSettingsView);
                 },
@@ -65,7 +66,7 @@ class ProfileBody extends StatelessWidget {
               ),
               SettingItem(
                 icon: Iconsax.message_question,
-                title: 'Help and support',
+                title: 'Help and support'.tr(),
                 onTap: () {
                   GoRouter.of(context).push(AppRouter.kHelpView);
                 },
@@ -76,12 +77,12 @@ class ProfileBody extends StatelessWidget {
               const SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: ButtonAuth(title: "Delete my account", onTap: () {}),
+                child: ButtonAuth(title: "Delete my account".tr(), onTap: () {}),
               ),
               const SizedBox(height: 16),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: ButtonAuth(title: "Log Out", onTap: () {}),
+                child: ButtonAuth(title: "Log Out".tr(), onTap: () {}),
               ),
             ],
           ),
@@ -105,7 +106,7 @@ class DetilesHederProfile extends StatelessWidget {
         const ProfilePicture(),
         const SizedBox(height: 6),
         Text(
-          "Hi, Aya Almalla",
+          "${"Hi".tr()}, Aya Almalla",
           style: Styles.textStyle20W700.copyWith(
               fontWeight: FontWeight.w600, color: CustomColors.kWhite[0]),
         ),

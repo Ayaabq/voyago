@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
@@ -83,8 +84,8 @@ class _MakeReviewState extends State<MakeReview> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Please, share with us your opinion',
+             Text(
+              "Please, share with us your opinion".tr(),
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 16.0),
@@ -97,7 +98,7 @@ class _MakeReviewState extends State<MakeReview> {
               child: TextField(
                 controller: commentController,
                 decoration: InputDecoration(
-                  hintText: 'Write a review',
+                  hintText: "Write a review".tr(),
                   filled: true,
                   fillColor: _isFocused
                       ? CustomColors.kWhite[0]
@@ -116,8 +117,8 @@ class _MakeReviewState extends State<MakeReview> {
               ),
             ),
             const SizedBox(height: 16.0),
-            const Text(
-              'What is your rate?',
+             Text(
+              "What is your rate?".tr(),
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8.0),
@@ -152,7 +153,7 @@ class _MakeReviewState extends State<MakeReview> {
                     borderRadius: BorderRadius.circular(16), // Border radius
                   ),
                 ),
-                child: const Text("Send your review",
+                child:  Text("Send your review".tr(),
                     style: Styles.textStyle16W700),
               ),
             ),

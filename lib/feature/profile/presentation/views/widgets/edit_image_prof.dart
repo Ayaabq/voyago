@@ -156,6 +156,7 @@
 library;
 
 import 'dart:io';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:image_picker/image_picker.dart';
@@ -230,7 +231,7 @@ class _ProfilePictureEditState extends State<ProfilePictureEdit> {
                       children: <Widget>[
                         ListTile(
                           leading: const Icon(Icons.photo_library),
-                          title: const Text('Gallery'),
+                          title:  Text("Gallery".tr()),
                           onTap: () async {
                             await _pickImage(ImageSource.gallery);
                             Navigator.of(context).pop();
@@ -238,7 +239,7 @@ class _ProfilePictureEditState extends State<ProfilePictureEdit> {
                         ),
                         ListTile(
                           leading: const Icon(Icons.photo_camera),
-                          title: const Text('Camera'),
+                          title:  Text("Camera".tr()),
                           onTap: () async {
                             await _pickImage(ImageSource.camera);
                             Navigator.of(context).pop();

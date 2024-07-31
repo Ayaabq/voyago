@@ -1,4 +1,5 @@
 import 'package:bulleted_list/bulleted_list.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/core/widgets/custom_card.dart';
@@ -11,7 +12,7 @@ class DescriptionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomCard(
-      title: "Description",
+      title: "Description".tr(),
       content: BulletedList(
         bulletColor: CustomColors.kBlack[2],
         listItems: [
