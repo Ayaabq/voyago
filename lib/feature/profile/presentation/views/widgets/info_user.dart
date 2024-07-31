@@ -29,8 +29,9 @@ class InformationRow extends StatelessWidget {
               const SizedBox(width: 10),
               Text(
                 label,
-                style: Styles.textStyle16W700.copyWith(
-                    fontWeight: FontWeight.w600, color: CustomColors.kBlack[1]),
+                style: Styles.textStyle16W600
+// .copyWith(
+//                     fontWeight: FontWeight.w600, color: CustomColors.kBlack[1]),
               ),
               const SizedBox(
                 height: 10,

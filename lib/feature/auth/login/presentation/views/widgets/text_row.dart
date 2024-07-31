@@ -47,11 +47,17 @@ class DontAccount extends StatelessWidget {
           text
           // "Don't  have an account? "
           ,
-          style: Styles.textStyle16W400
-              .copyWith(fontWeight: FontWeight.w500)
-              .copyWith(
-                  color: CustomColors.kBlack[3],
-                  fontSize: ScreenSizeUtil.screenWidth * 0.04),
+          style: Theme.of(context).brightness == Brightness.dark
+              ? Styles.textStyle16W400
+                  .copyWith(fontWeight: FontWeight.w500)
+                  .copyWith(
+                      color: CustomColors.kWhite[0],
+                      fontSize: ScreenSizeUtil.screenWidth * 0.04)
+              : Styles.textStyle16W400
+                  .copyWith(fontWeight: FontWeight.w500)
+                  .copyWith(
+                      color: CustomColors.kBlack[3],
+                      fontSize: ScreenSizeUtil.screenWidth * 0.04),
         ),
         GestureDetector(
           onTap: onTap,
@@ -79,6 +85,7 @@ class DontAccount extends StatelessWidget {
     );
   }
 }
+
 //text rich
 class TextWidget extends StatelessWidget {
   const TextWidget({super.key});
@@ -86,7 +93,9 @@ class TextWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RichText(
+
       text:  TextSpan(text: "Dont Have An Account?".tr()),
+
 
     );
   }

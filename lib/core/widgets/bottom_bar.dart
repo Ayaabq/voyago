@@ -62,7 +62,6 @@ import 'package:flutter/material.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/feature/books/presentation/views/books_view.dart';
 
-
 import 'package:iconsax/iconsax.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
@@ -133,8 +132,12 @@ class _BottomBarState extends State<BottomBar> {
           });
         },
         backgroundColor: Colors.transparent,
-        color: CustomColors.kMove[0],
-        buttonBackgroundColor: CustomColors.kMove[0],
+        color: Theme.of(context).brightness == Brightness.dark
+            ? CustomColors.kMove[2]
+            : CustomColors.kMove[0],
+        buttonBackgroundColor: Theme.of(context).brightness == Brightness.dark
+            ? CustomColors.kMove[2]
+            : CustomColors.kMove[0],
         animationDuration: const Duration(milliseconds: 600),
       ),
     );

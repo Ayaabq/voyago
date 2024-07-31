@@ -14,12 +14,16 @@ class ProfileAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: CustomColors.kWhite[0],
+      // backgroundColor:Theme.of(context).appBarTheme,
+// const Color(0xff282828),
+      //CustomColors.kWhite[0],
       title: Text(
         titel,
         style: Styles.textStyle20W700.copyWith(fontWeight: FontWeight.w600),
       ),
-      shadowColor: Colors.grey,
+      shadowColor: Theme.of(context).brightness == Brightness.dark
+          ? Colors.transparent
+          : Colors.grey,
       elevation: 4,
       leading: IconButton(
         icon: Icon(

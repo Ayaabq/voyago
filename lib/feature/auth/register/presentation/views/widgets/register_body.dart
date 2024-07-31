@@ -19,6 +19,8 @@ import 'package:voyago/feature/auth/login/presentation/views/widgets/header_auth
 import 'package:voyago/feature/auth/login/presentation/views/widgets/text_row.dart';
 import 'package:voyago/feature/auth/register/presentation/views/widgets/verification_sginup_body.dart';
 
+import '../../../../../theme/widgets/cubit/app_theme_cubit.dart';
+
 class RegisterBodyView extends StatefulWidget {
   const RegisterBodyView({super.key});
 
@@ -65,7 +67,6 @@ class _RegisterBodyViewState extends State<RegisterBodyView> {
       } else if (state is RegisterFailure) {
         context.showFailureToast(state.errorMessage);
       } else {
-
         context.showErrorToast();
       }
     }, builder: (context, state) {
@@ -73,9 +74,11 @@ class _RegisterBodyViewState extends State<RegisterBodyView> {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const HeaderAuth(
-              imageUrl: AssetsData.logoAllColors,
-              padding: EdgeInsets.only(top: 50),
+            HeaderAuth(
+              imageUrl: Theme.of(context).brightness == Brightness.dark
+                  ? AssetsData.miniLogo
+                  : AssetsData.logoAllColors,
+              padding: const EdgeInsets.only(top: 50),
             ),
             const SizedBox(height: 10),
             Padding(
@@ -85,10 +88,12 @@ class _RegisterBodyViewState extends State<RegisterBodyView> {
                 children: [
                   Text("Welcome!".tr(), style: Styles.textStyle25W700),
                   const SizedBox(height: 14),
+
                   Text("Create your Account ".tr(),
                       style: Styles.textStyle20W700.copyWith(
                           fontWeight: FontWeight.w600,
                           color: CustomColors.kBlack[3])),
+
                   const SizedBox(height: 24),
                   //88
 
@@ -99,7 +104,6 @@ class _RegisterBodyViewState extends State<RegisterBodyView> {
                     passwordController: passwordController,
                     confirmPasswordController: confirmPasswordController,
                   ),
-
 
                   //const SizedBox(height: 24),
                   SizedBox(height: MediaQuery.of(context).size.height * .1),

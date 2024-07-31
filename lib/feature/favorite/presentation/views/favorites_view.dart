@@ -20,7 +20,7 @@ class FavoritesBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomTabBar(
-      tabs:  [
+      tabs: [
         Tab(
           text: "Destinations".tr(),
         ),
@@ -32,10 +32,14 @@ class FavoritesBody extends StatelessWidget {
         ),
       ],
       titel: "My favorites".tr(),
-      tabViews:  [
+      tabViews: [
         const FavoritesEmpty(),
-        Text("My favorites".tr(),),
-        Text("My favorites".tr(),)
+        Text(
+          "My favorites".tr(),
+        ),
+        Text(
+          "My favorites".tr(),
+        )
       ],
     );
   }
@@ -60,7 +64,9 @@ class FavoritesEmpty extends StatelessWidget {
           child: Text(
             textAlign: TextAlign.center,
             "You have no favorites yet!!".tr(),
-            style: Styles.textStyle30W600.copyWith(fontSize: 20),
+            style: Theme.of(context).brightness == Brightness.dark
+                ? Styles.textStyle20W600dark
+                : Styles.textStyle30W600.copyWith(fontSize: 20),
           ),
         ),
       ],

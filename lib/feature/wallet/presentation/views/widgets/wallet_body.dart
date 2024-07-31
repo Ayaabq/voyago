@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:voyago/constants.dart';
 import 'package:voyago/core/utils/app_router.dart';
 import 'package:voyago/core/utils/assets.dart';
+import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/feature/auth/login/presentation/views/widgets/button_auth.dart';
 
 import '../../../../profile/presentation/manager/currency_cubit/currency_cubit.dart';
@@ -68,6 +69,8 @@ class BalanceCard extends StatelessWidget {
   } else if(currency=="EUR") currency='€';
 
     return Card(
+      color: Theme.of(context).cardColor,
+      //const Color(0xff3E3E3E),
       elevation: 4,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
@@ -100,6 +103,7 @@ class BalanceCard extends StatelessWidget {
                     color: Colors.black87,
                   ),
                 ),
+
               ],
             ),
           ],

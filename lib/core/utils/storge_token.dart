@@ -64,6 +64,21 @@ class AppStorage {
     await _secureStorage.delete(key: key);
   }
 
+
+
+////*******    theme               ******** */
+Future<void> saveTheme(bool isDarkMode) async {
+    await writeData(THEME, isDarkMode.toString());
+  }
+
+  Future<bool> getTheme() async {
+    String? theme = await readData(THEME);
+    if (theme != null) {
+      return theme.toLowerCase() == 'true';
+    }
+    return false;
+  }
+
   Future<void> init() async {
     // Perform any required initialization here
   }
@@ -74,4 +89,6 @@ class AppStorage {
     // Uncomment if needed
     // await removeData(FIRST_TIME);
   }
+
+
 }

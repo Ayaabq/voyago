@@ -17,23 +17,25 @@ class CustomAppBarSearch extends StatelessWidget {
         children: [
           IconButton(
             padding: EdgeInsetsDirectional.zero,
-            icon: const Icon(Icons.arrow_back, color: Colors.white),
+            icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
             onPressed: () {
               Navigator.of(context).pop();
             },
           ),
           // SearchElevated widget should be defined elsewhere
           SearchElevated(
-            onTap: () {
-              
-            },
-            fillColor: CustomColors.kWhite[0],
+            onTap: () {},
+            fillColor: Theme.of(context).brightness == Brightness.dark
+                ? const Color(0xff636363)
+                : CustomColors.kWhite[3],
           ),
           IconButton(
             padding: EdgeInsetsDirectional.zero,
             onPressed: () {
               showModalBottomSheet(
-                backgroundColor: Colors.white,
+                backgroundColor: Theme.of(context).brightness == Brightness.dark
+                    ? const Color(0xff282828)
+                    : Colors.white,
                 isScrollControlled: true,
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.vertical(
@@ -46,9 +48,9 @@ class CustomAppBarSearch extends StatelessWidget {
                 },
               );
             },
-            icon: const Icon(
+            icon: Icon(
               Icons.filter_list_rounded,
-              color: Colors.white,
+              color: CustomColors.kWhite[0],
             ),
           )
         ],

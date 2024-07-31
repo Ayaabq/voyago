@@ -30,7 +30,8 @@ class CustomCard extends StatelessWidget {
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(
                   20), // Ensure the inner decoration matches
-              color: CustomColors.kWhite[5]),
+
+              color: Theme.of(context).cardColor),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 11),
             child: Column(
@@ -42,20 +43,22 @@ class CustomCard extends StatelessWidget {
                     children: [
                       Text(
                         title!,
-                        style: titleStyle ?? Styles.textStyle20W700,
+                        style: Theme.of(context).brightness == Brightness.dark
+                            ? titleStyle ?? Styles.textStyle20W700blak
+                            : titleStyle ?? Styles.textStyle20W700,
                       ),
                       if (onTap != null)
                         TextButton(
                           onPressed: onTap,
                           child: Row(
                             children: [
-                               Text(
+                              Text(
                                 'View all'.tr(),
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: CustomColors.kHighlightMove,
                                 ),
                               ),
-                              Icon(Icons.arrow_forward_ios)
+                              const Icon(Icons.arrow_forward_ios)
                             ],
                           ),
                         ),

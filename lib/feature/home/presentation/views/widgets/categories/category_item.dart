@@ -45,12 +45,12 @@ import '../../../../../../core/utils/screen_size_util.dart';
 //   }
 // }
 
-
 class CategoryItem extends StatelessWidget {
   final String title;
   final String iconPath;
 
-  const CategoryItem({super.key,
+  const CategoryItem({
+    super.key,
     required this.title,
     required this.iconPath,
   });
@@ -63,14 +63,16 @@ class CategoryItem extends StatelessWidget {
         height: ScreenSizeUtil.dynamicHeight(0.08), // 8% of the screen height
         decoration: BoxDecoration(
           color: CustomColors.kWhite[0],
-          borderRadius: BorderRadius.circular(ScreenSizeUtil.dynamicWidth(0.045)), // 4.5% of the screen width
+          borderRadius: BorderRadius.circular(
+              ScreenSizeUtil.dynamicWidth(0.045)), // 4.5% of the screen width
         ),
         child: TextButton.icon(
           onPressed: () {},
           icon: Image.asset(
             iconPath,
             width: ScreenSizeUtil.dynamicWidth(0.1), // 8% of the screen width
-            height: ScreenSizeUtil.dynamicHeight(0.1), // 8% of the screen height
+            height:
+                ScreenSizeUtil.dynamicHeight(0.1), // 8% of the screen height
           ),
           label: Text(
             title,
@@ -80,8 +82,10 @@ class CategoryItem extends StatelessWidget {
           ),
           style: TextButton.styleFrom(
             padding: EdgeInsets.symmetric(
-              horizontal: ScreenSizeUtil.dynamicWidth(0.03), // 3% of the screen width
-              vertical: ScreenSizeUtil.dynamicHeight(0.01), // 1% of the screen height
+              horizontal:
+                  ScreenSizeUtil.dynamicWidth(0.03), // 3% of the screen width
+              vertical:
+                  ScreenSizeUtil.dynamicHeight(0.01), // 1% of the screen height
             ),
           ),
         ),
@@ -89,4 +93,3 @@ class CategoryItem extends StatelessWidget {
     );
   }
 }
-
