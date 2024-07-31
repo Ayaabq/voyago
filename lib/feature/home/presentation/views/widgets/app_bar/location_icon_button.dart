@@ -19,7 +19,9 @@ class _LocationIconButtonState extends State<LocationIconButton> {
       icon: Icon(
         Iconsax.location,
         size: 40,
-        color: CustomColors.kWhite[0],
+        color: Theme.of(context).brightness == Brightness.dark
+            ? const Color(0xff595959)
+            : CustomColors.kWhite[0],
       ),
     );
   }

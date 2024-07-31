@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:voyago/constants.dart';
 import 'package:voyago/core/utils/app_router.dart';
 import 'package:voyago/core/utils/assets.dart';
+import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/feature/auth/login/presentation/views/widgets/button_auth.dart';
 
 import '../../../../profile/presentation/views/widgets/appbar_profile.dart';
@@ -59,6 +60,8 @@ class BalanceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Theme.of(context).cardColor,
+      //const Color(0xff3E3E3E),
       elevation: 4,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
@@ -83,14 +86,7 @@ class BalanceCard extends StatelessWidget {
                   'Balance',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                 ),
-                Text(
-                  '\$$balance',
-                  style: const TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black87,
-                  ),
-                ),
+                Text('\$$balance', style: Styles.textStyle20W600),
               ],
             ),
           ],

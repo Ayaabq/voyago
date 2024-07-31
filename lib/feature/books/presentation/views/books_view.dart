@@ -116,6 +116,7 @@ class CompletedBooksView extends StatelessWidget {
             GoRouter.of(context).push(AppRouter.kDetilesBooksView);
           },
           child: const CustomCard(
+
             content: CardBooks(paymentState: " Paid "),
             title: "NY City Tour ",
           ),
@@ -165,7 +166,9 @@ class CustomTabBar extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           elevation: 5,
-          shadowColor: CustomColors.kGrey[0],
+          shadowColor: Theme.of(context).brightness == Brightness.dark
+              ? Colors.transparent
+              : CustomColors.kGrey[0],
           title: Text(titel),
           centerTitle: true,
           automaticallyImplyLeading: false,
@@ -175,7 +178,10 @@ class CustomTabBar extends StatelessWidget {
             contentCenter: true,
             labelStyle: Styles.textStyle14W600
                 .copyWith(color: Colors.white, fontSize: 13),
-            backgroundColor: CustomColors.kMove[4],
+            backgroundColor:
+
+                ///const Color(0xff6214C8),
+                CustomColors.kMove[4],
             unselectedBackgroundColor: CustomColors.kWhite[4],
             contentPadding: const EdgeInsets.symmetric(
               horizontal: 15,

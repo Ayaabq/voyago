@@ -67,7 +67,9 @@ class ForgotPasswordBody extends StatelessWidget {
                   children: [
                     Text(
                       "Forgot Password?",
-                      style: Styles.textStyle25W700,
+                      style: Theme.of(context).brightness == Brightness.dark
+                          ? Styles.textStyle25W700dark
+                          : Styles.textStyle25W700,
                     ),
                     const SizedBox(height: 16),
                     const Text(
@@ -105,4 +107,3 @@ class ForgotPasswordBody extends StatelessWidget {
     });
   }
 }
-

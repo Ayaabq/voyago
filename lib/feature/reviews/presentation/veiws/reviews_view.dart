@@ -33,8 +33,8 @@ class ReviewsBody extends StatelessWidget {
       titel: 'My Reviews',
       tabViews: const [
         ReviewsEmpty(),
-        Text("My favorites"),
-        Text("My favorites"),
+        Text("My Reviews"),
+        Text("My Reviews"),
       ],
     );
   }
@@ -59,7 +59,9 @@ class ReviewsEmpty extends StatelessWidget {
           child: Text(
             textAlign: TextAlign.center,
             "You have no reviews yet!!",
-            style: Styles.textStyle30W600.copyWith(fontSize: 20),
+            style: Theme.of(context).brightness == Brightness.dark
+                ? Styles.textStyle20W600dark
+                : Styles.textStyle30W600.copyWith(fontSize: 20),
           ),
         ),
       ],

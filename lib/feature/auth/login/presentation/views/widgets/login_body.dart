@@ -14,6 +14,7 @@ import 'package:voyago/feature/auth/login/presentation/views/widgets/header_auth
 import 'package:voyago/feature/auth/login/presentation/views/widgets/text_row.dart';
 
 import '../../../../../../core/utils/validator_manager.dart';
+import '../../../../../theme/widgets/cubit/app_theme_cubit.dart';
 import 'custom_text_field.dart';
 
 class LoginBodyView extends StatelessWidget {
@@ -37,9 +38,11 @@ class LoginBodyView extends StatelessWidget {
       builder: (context, state) {
         return ListView(children: [
           Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            const HeaderAuth(
-              imageUrl: AssetsData.logoAllColors,
-              padding: EdgeInsets.only(top: 66),
+            HeaderAuth(
+              imageUrl: Theme.of(context).brightness == Brightness.dark
+                  ? AssetsData.miniLogo
+                  : AssetsData.logoAllColors,
+              padding: const EdgeInsets.only(top: 66),
             ),
             const SizedBox(height: 32),
             Padding(
@@ -48,8 +51,11 @@ class LoginBodyView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text("Welcome back!",
-                      style: Styles.textStyle25W700
-                          .copyWith(fontWeight: FontWeight.w800)),
+                      style: Theme.of(context).brightness == Brightness.dark
+                          ? Styles.textStyle25W700dark
+                              .copyWith(fontWeight: FontWeight.w800)
+                          : Styles.textStyle25W700
+                              .copyWith(fontWeight: FontWeight.w800)),
                   const SizedBox(height: 20),
                   //  const FormLogin(),
 

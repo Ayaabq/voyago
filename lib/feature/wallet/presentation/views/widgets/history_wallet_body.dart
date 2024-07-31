@@ -59,6 +59,7 @@ class HistoryCardWallet extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Card(
+          color: Theme.of(context).cardColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16.0),
           ),

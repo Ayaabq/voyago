@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:voyago/core/utils/styles.dart';
+import 'package:voyago/feature/theme/widgets/cubit/app_theme_cubit.dart';
 
 import '../../../../core/helper/localization_checker.dart';
 import '../../../../core/utils/custom_colors.dart';
@@ -15,15 +17,19 @@ class SettingsView extends StatefulWidget {
 class _SettingsViewState extends State<SettingsView> {
   String selectedLanguage = 'English';
   String selectedCurrency = 'USD';
-  bool isDarkTheme = false;
+
   bool isNotificationsEnabled = true;
 
   @override
   Widget build(BuildContext context) {
+    // bool isDarkTheme =
+    //     context.read<ThemeCubit>().state.brightness == Brightness.dark;
     return Scaffold(
       appBar: AppBar(
         elevation: 4,
-        shadowColor: CustomColors.kGrey[0],
+        shadowColor: Theme.of(context).brightness == Brightness.dark
+            ? Colors.transparent
+            : CustomColors.kGrey[0],
         title: const Text('Settings'),
         leading: IconButton(
           icon: Icon(
@@ -56,14 +62,31 @@ class _SettingsViewState extends State<SettingsView> {
             },
           ),
           Divider(color: CustomColors.kGrey[0], height: 1),
-          ThemeSwitchRow(
-            isDarkTheme: isDarkTheme,
-            onThemeChanged: (value) {
-              setState(() {
-                isDarkTheme = value;
-              });
+          BlocBuilder<ThemeCubit, ThemeData>(
+            builder: (context, theme) {
+              return ThemeSwitchRow(
+                // isDarkTheme: isDarkTheme,
+                // onThemeChanged: (value) {
+                //   setState(() {});
+                //   context.read<ThemeCubit>().toggleTheme();
+
+                isDarkTheme: theme.brightness == Brightness.dark,
+                onThemeChanged: (value) {
+                  setState(() {});
+                  context.read<ThemeCubit>().toggleTheme();
+                },
+              );
             },
           ),
+          // ThemeSwitchRow(
+          //   isDarkTheme: isDarkTheme,
+          //   onThemeChanged: (value) {
+          //     // setState(() {
+          //     //   isDarkTheme = value;
+          //     // });
+          //     context.read<ThemeCubit>().toggleTheme();
+          //   },
+          // ),
           Divider(color: CustomColors.kGrey[0], height: 1),
           NotificationSwitchRow(
             isNotificationsEnabled: isNotificationsEnabled,
@@ -112,7 +135,8 @@ class LanguageRow extends StatelessWidget {
                   child: const Text('English'),
                   onTap: () {
                     onLanguageChanged('English');
-                    LocalizationChecker.changeLanguage(context, Locale("en"));
+                    LocalizationChecker.changeLanguage(
+                        context, const Locale("en"));
                     Navigator.of(context).pop();
                   },
                 ),
@@ -121,7 +145,8 @@ class LanguageRow extends StatelessWidget {
                   child: const Text('Spanish'),
                   onTap: () {
                     onLanguageChanged('Spanish');
-                    LocalizationChecker.changeLanguage(context, Locale("ar"));
+                    LocalizationChecker.changeLanguage(
+                        context, const Locale("ar"));
 
                     Navigator.of(context).pop();
                   },

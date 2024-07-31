@@ -6,6 +6,8 @@ import 'package:voyago/core/utils/screen_size_util.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:voyago/core/utils/services_locater.dart';
 
+import 'package:voyago/feature/theme/widgets/cubit/app_theme_cubit.dart';
+
 import 'core/utils/app_router.dart';
 import 'feature/favorite/data/repo/favorite_repo_impl.dart';
 import 'feature/favorite/presentation/manager/change_favorite_cubit/favorite_cubit.dart';
@@ -25,9 +27,9 @@ void main() async {
   FlutterNativeSplash.remove();
   setUpServiceLocater();
   runApp(EasyLocalization(
-      supportedLocales: [Locale('en'), Locale('ar')],
+      supportedLocales: const [Locale('en'), Locale('ar')],
       path: 'assets/translation',
-      fallbackLocale: Locale('en'),
+      fallbackLocale: const Locale('en'),
       child: const VoyagoApp()));
 }
 
@@ -37,6 +39,7 @@ class VoyagoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScreenSizeUtil.init(context);
+
     return MultiBlocProvider(
         providers: [
           BlocProvider(
@@ -45,32 +48,45 @@ class VoyagoApp extends StatelessWidget {
           ),
           BlocProvider(
             create: (context) => LocationCubit(getIt<LocationRepo>()),
+          ),
+          BlocProvider(
+            create: (context) => ThemeCubit(),
           )
         ],
-        child: MaterialApp.router(
-          localizationsDelegates: context.localizationDelegates,
-          supportedLocales: context.supportedLocales,
-          locale: context.locale,
-          debugShowCheckedModeBanner: false,
-          routerConfig: AppRouter.router,
-          theme: ThemeData.light().copyWith(
-            textTheme:
-                GoogleFonts.montserratTextTheme(ThemeData.light().textTheme),
-          ),
-        )
+        child: BlocBuilder<ThemeCubit, ThemeData>(
+          builder: (context, theme) {
+            return MaterialApp.router(
+              localizationsDelegates: context.localizationDelegates,
+              supportedLocales: context.supportedLocales,
+              locale: context.locale,
+              debugShowCheckedModeBanner: false,
+              routerConfig: AppRouter.router,
+              theme: theme,
+              themeMode: ThemeMode.system,
+            );
+          },
+        ));
 
-        //
-        //   // home: const GetStarted(),
-        // );
-        // MaterialApp(
-        //     debugShowCheckedModeBanner: false,
-        //     theme: ThemeData.light().copyWith(
-        //       textTheme:
-        //           GoogleFonts.montserratTextTheme(ThemeData.light().textTheme),
-        //     ),
-        //     home: const LoginView()
-        // DestinationDetailsView(),
+    // child: MaterialApp.router(
+    //   localizationsDelegates: context.localizationDelegates,
+    //   supportedLocales: context.supportedLocales,
+    //   locale: context.locale,
+    //   debugShowCheckedModeBanner: false,
+    //   routerConfig: AppRouter.router,
+    //   theme: lighttheme,
+    //   darkTheme: darktheme,
+    // )
 
-        );
+    //
+    //   // home: const GetStarted(),
+    // );
+    // MaterialApp(
+    //     debugShowCheckedModeBanner: false,
+    //     theme: ThemeData.light().copyWith(
+    //       textTheme:
+    //           GoogleFonts.montserratTextTheme(ThemeData.light().textTheme),
+    //     ),
+    //     home: const LoginView()
+    // DestinationDetailsView(),
   }
 }

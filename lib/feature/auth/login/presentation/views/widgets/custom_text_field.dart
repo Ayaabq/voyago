@@ -27,7 +27,7 @@ class TextFieldCustom extends HookWidget {
     final focusNode = useFocusNode();
 
     return TextFormField(
-    //auto
+      //auto
       autovalidateMode: AutovalidateMode.onUserInteraction,
       //   : AutovalidateMode.disabled,
       validator: validator,
@@ -55,8 +55,8 @@ class TextFieldCustom extends HookWidget {
         ),
         enabledBorder: buildBorder(),
         focusedBorder: buildBorder(CustomColors.kMove[4]),
-        errorBorder: buildBorder(),
-        focusedErrorBorder: buildBorder(const Color.fromARGB(255, 247, 158, 152)),
+        errorBorder: buildBorder(CustomColors.errorColor),
+        focusedErrorBorder: buildBorder(CustomColors.errorColor),
       ),
       obscureText: obscureText,
     );

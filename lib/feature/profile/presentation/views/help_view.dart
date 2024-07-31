@@ -29,9 +29,12 @@ class HelpView extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16),
                   color: CustomColors.kGrey[0]),
               child: Text(
-                "Voyago@gmail.com",
-                style: Styles.textStyle16W400
-                    .copyWith(fontWeight: FontWeight.w500),
+                "Voyagoapp12@gmail.com",
+                style: Theme.of(context).brightness == Brightness.dark
+                    ? Styles.textStyle16W400blak
+                        .copyWith(fontWeight: FontWeight.w500)
+                    : Styles.textStyle16W400
+                        .copyWith(fontWeight: FontWeight.w500),
               ),
             ),
           )

@@ -49,7 +49,9 @@ class _FilterSearchTripsState extends State<FilterSearchTrips> {
                 padding: const EdgeInsetsDirectional.all(1),
                 child: SearchElevated(
                   onTap: () {},
-                  fillColor: CustomColors.kWhite[3],
+                  fillColor: Theme.of(context).brightness == Brightness.dark
+                      ? const Color(0xff636363)
+                      : CustomColors.kWhite[3],
                 ),
               ),
 
@@ -72,8 +74,10 @@ class _FilterSearchTripsState extends State<FilterSearchTrips> {
                           child: InputDecorator(
                             decoration: InputDecoration(
                               filled: true,
-                              fillColor:
-                                  CustomColors.kWhite[3], // لون الخلفية للحقل
+                              fillColor: Theme.of(context).brightness ==
+                                      Brightness.dark
+                                  ? const Color(0xff636363)
+                                  : CustomColors.kWhite[3], // لون الخلفية للحقل
                               prefixIcon: Icon(
                                 Iconsax.calendar_1,
                                 color: CustomColors.kMove[4],
@@ -105,7 +109,9 @@ class _FilterSearchTripsState extends State<FilterSearchTrips> {
               // Travelers
               Container(
                 decoration: BoxDecoration(
-                    color: CustomColors.kWhite[3],
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? const Color(0xff636363)
+                        : CustomColors.kWhite[3],
                     borderRadius: BorderRadius.circular(32)),
                 width: MediaQuery.of(context).size.width * 0.44,
                 child: Row(
@@ -121,7 +127,9 @@ class _FilterSearchTripsState extends State<FilterSearchTrips> {
                     const SizedBox(
                       width: 20,
                     ),
-                    Text('$travelers'),
+                    Text(
+                      '$travelers',
+                    ),
                     const SizedBox(
                       width: 4,
                     ),
@@ -204,7 +212,9 @@ class _FilterSearchTripsState extends State<FilterSearchTrips> {
                     borderRadius: BorderRadius.circular(32)),
                 activeColor: CustomColors.kMove[5],
                 //selectedTileColor: Colors.cyan,
-                tileColor: CustomColors.kWhite[3],
+                tileColor: Theme.of(context).brightness == Brightness.dark
+                    ? const Color(0xff636363)
+                    : CustomColors.kWhite[3],
 
                 title: Text('Price (high to low)',
                     style: Styles.textStyle13W400.copyWith(fontSize: 14)),
@@ -293,7 +303,9 @@ class _FilterSearchTripsState extends State<FilterSearchTrips> {
             child: InputDecorator(
               decoration: InputDecoration(
                 filled: true,
-                fillColor: CustomColors.kWhite[3], // لون الخلفية للحقل
+                fillColor: Theme.of(context).brightness == Brightness.dark
+                    ? const Color(0xff636363)
+                    : CustomColors.kWhite[3], // لون الخلفية للحقل
                 prefixIcon: Icon(
                   Iconsax.calendar_1,
                   color: CustomColors.kMove[4],
@@ -348,7 +360,9 @@ class RadiosTitle extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
       activeColor: CustomColors.kMove[5],
 
-      tileColor: CustomColors.kWhite[3],
+      tileColor: Theme.of(context).brightness == Brightness.dark
+          ? const Color(0xff636363)
+          : CustomColors.kWhite[3],
       title: titel,
       //Text('Price (low to high)',
       //     style: Styles.textStyle13W400.copyWith(fontSize: 14)),

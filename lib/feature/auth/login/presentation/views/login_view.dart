@@ -15,17 +15,21 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: AnnotatedRegion<SystemUiOverlayStyle>(
-      value: const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
-        statusBarIconBrightness: Brightness.dark,
+      body: AnnotatedRegion<SystemUiOverlayStyle>(
+        value: SystemUiOverlayStyle(
+          statusBarColor: Colors.transparent,
+          statusBarIconBrightness:
+              Theme.of(context).brightness == Brightness.dark
+                  ? Brightness.light
+                  : Brightness.dark,
+        ),
+        child: SafeArea(
+            child: BlocProvider(
+          create: (context) => LoginCubit(
+              getIt.get<LoginRepoImp>(), const FlutterSecureStorage()),
+          child: LoginBodyView(),
+        )),
       ),
-      child: SafeArea(
-          child: BlocProvider(
-        create: (context) => LoginCubit(getIt.get<LoginRepoImp>(),FlutterSecureStorage()),
-        child: LoginBodyView(),
-      )),
-    ),
-);
+    );
   }
 }

@@ -10,7 +10,7 @@ class PleaseWaitDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: CustomColors.kWhite[0],
+      backgroundColor: Theme.of(context).dialogBackgroundColor,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(16)),
       ),
@@ -18,8 +18,13 @@ class PleaseWaitDialog extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text('Please wait!',
-              style: Styles.textStyle20W700.copyWith(
-                  fontWeight: FontWeight.w600, color: CustomColors.kMove[9])),
+              style: Theme.of(context).brightness == Brightness.dark
+                  ? Styles.textStyle20W700.copyWith(
+                      fontWeight: FontWeight.w600,
+                      color: CustomColors.kWhite[0])
+                  : Styles.textStyle20W700.copyWith(
+                      fontWeight: FontWeight.w600,
+                      color: CustomColors.kMove[9])),
           const SizedBox(height: 16),
           Padding(
             padding: const EdgeInsets.all(16),

@@ -17,7 +17,7 @@ class DetilesBooksView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  //  final String paymentState;
+    //  final String paymentState;
     return Scaffold(
         body: ListView(children: [
       Column(children: [
@@ -28,7 +28,9 @@ class DetilesBooksView extends StatelessWidget {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 6),
           decoration: BoxDecoration(
-              color: CustomColors.kWhite[4],
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? CustomColors.kMove[3]
+                  : CustomColors.kWhite[4],
               borderRadius: BorderRadius.circular(32)),
           child: const Text(
             "Booking id: 32146021",
@@ -111,8 +113,11 @@ class DetilesBooksView extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 10),
+
               /// TODO:  ekhty hety el trip price
-              const PriceDetailsSection(tripPrice: 0,),
+              const PriceDetailsSection(
+                tripPrice: 0,
+              ),
               const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

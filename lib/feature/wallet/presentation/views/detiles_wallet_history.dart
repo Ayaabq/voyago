@@ -23,6 +23,7 @@ class CardTransactionDetails extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(18.0),
       child: Card(
+        color: Theme.of(context).cardColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16.0),
         ),
@@ -33,7 +34,9 @@ class CardTransactionDetails extends StatelessWidget {
             Container(
                 padding: const EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
-                    color: CustomColors.kMove[1],
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? CustomColors.kMove[3]
+                        : CustomColors.kMove[1],
                     borderRadius: const BorderRadiusDirectional.only(
                         topEnd: Radius.circular(16),
                         topStart: Radius.circular(16))),

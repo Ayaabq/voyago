@@ -24,7 +24,9 @@ class BooksEmpty extends StatelessWidget {
           child: Text(
             textAlign: TextAlign.center,
             "You have no bookings yet!!",
-            style: Styles.textStyle30W600.copyWith(fontSize: 20),
+            style: Theme.of(context).brightness == Brightness.dark
+                ? Styles.textStyle20W600dark
+                : Styles.textStyle30W600.copyWith(fontSize: 20),
           ),
         ),
       ],

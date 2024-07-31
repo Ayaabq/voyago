@@ -83,12 +83,9 @@
 //   }
 // }
 
-
-
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:voyago/feature/profile/presentation/views/widgets/profile_textfield.dart';
-
 
 import '../../../../../core/utils/custom_colors.dart';
 import '../../../../../core/utils/screen_size_util.dart';
@@ -97,6 +94,7 @@ import '../../../../../core/utils/validator_manager.dart';
 import '../../../../auth/login/presentation/views/widgets/button_auth.dart';
 import 'appbar_profile.dart';
 import 'edit_image_prof.dart';
+
 class EditProfileBody extends StatefulWidget {
   const EditProfileBody({super.key});
 
@@ -115,7 +113,7 @@ class _EditProfileBodyState extends State<EditProfileBody> {
               titel: 'Edit Personal Information',
             ),
             const SizedBox(height: 30),
- ProfilePictureEdit(),
+            const ProfilePictureEdit(),
             const SizedBox(height: 30),
             InformationEdit(
               icon: Iconsax.user,
@@ -174,6 +172,7 @@ class _EditProfileBodyState extends State<EditProfileBody> {
     );
   }
 }
+
 class InformationEdit extends StatelessWidget {
   final IconData icon;
   final String label;
@@ -201,8 +200,9 @@ class InformationEdit extends StatelessWidget {
               const SizedBox(width: 10),
               Text(
                 label,
-                style: Styles.textStyle16W700.copyWith(
-                    fontWeight: FontWeight.w600, color: CustomColors.kBlack[1]),
+                style: Styles.textStyle16W600
+// .copyWith(
+//                     fontWeight: FontWeight.w600, color: CustomColors.kBlack[1]),
               ),
               const SizedBox(
                 height: 10,

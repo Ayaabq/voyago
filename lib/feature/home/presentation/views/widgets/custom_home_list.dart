@@ -21,10 +21,11 @@ class CustomHomeList extends StatelessWidget {
           title,
           textAlign: TextAlign.start,
           style: Styles.textStyle20W700.copyWith(
-            color: CustomColors.kMove[8],
+            color: Theme.of(context).brightness == Brightness.dark
+                ? CustomColors.kWhite[0]
+                : CustomColors.kMove[8],
           ),
         ),
-
         const SizedBox(
           width: double.infinity,
           height: 10,
