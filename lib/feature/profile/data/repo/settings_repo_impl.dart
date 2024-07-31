@@ -14,20 +14,6 @@ class CurrencyRepoImpl implements CurrencyRepo {
 
   CurrencyRepoImpl(this.api);
 
-  @override
-  Future<Either<Failure, WeatherSuccess>> getWeatherInfo(
-      double lat, double long) async {
-    final url = Confg.getWeatherUrl(lat, long);
-    try {
-      var response = await api.get(url);
-      return right(WeatherSuccess.fromJson(response));
-    } catch (e) {
-      if (e is DioException) {
-        return left(ServiecesFailure.fromDioError(e));
-      }
-      return left(ServiecesFailure(e.toString()));
-    }
-  }
 
   @override
   Future<Either<Failure, CurrencySuccess>> get currency async {

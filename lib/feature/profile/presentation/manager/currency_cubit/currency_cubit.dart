@@ -4,61 +4,60 @@ import 'package:voyago/feature/profile/presentation/manager/currency_cubit/curre
 
 import '../../../data/models/currency_model.dart';
 
-
-
 class CurrencyCubit extends Cubit<CurrencyState> {
   final CurrencyRepo placeRepo;
 
-  double exchanger=1;
+  double exchanger = 1;
+  String selectedCurrency = "USD";
   CurrencyModel? currencyModel;
+
   CurrencyCubit(this.placeRepo) : super(CurrencyInitial());
 
   Future<void> fetchCurrency() async {
-
-    emit(CurrencyLoading());
+    emit(CurrencyLoading(exchanger: exchanger, selectedCurrency: selectedCurrency));
     final result = await placeRepo.currency;
     result.fold(
           (failure) {
-        emit(CurrencyFailure(failure.errMessage));
+        emit(CurrencyFailure(
+          errorMessage: failure.errMessage,
+
+        ),);
       },
           (success) {
-            currencyModel=success.currencyModel;
-        emit(CurrencySuccess(success.currencyModel));
+        currencyModel = success.currencyModel;
+        emit(CurrencySuccess(
+          currencyModel: success.currencyModel,
+          exchanger: exchanger,
+          selectedCurrency: selectedCurrency,
+        ));
       },
     );
   }
 
-  Future<void> toSYP() async{
-    if(currencyModel!=null){
-      exchanger=currencyModel!.syp;
-    }
-    else{
-     await fetchCurrency();
-      if(state is CurrencySuccess){
-        exchanger=currencyModel!.syp;
-      }else{
-        emit(CurrencyFailure("can't get currency"));
-      }
-    }
-
-  }
-  Future<void> toEUR() async{
-    if(currencyModel!=null){
-      exchanger=currencyModel!.syp;
-    }
-    else{
-     await fetchCurrency();
-      if(state is CurrencySuccess){
-        exchanger=currencyModel!.eur;
-      }else{
-        emit(CurrencyFailure("can't get currency"));
-      }
-    }
-
+  void toSYP() {
+    exchanger = currencyModel!.syp;
+    selectedCurrency = "SYP";
+    emit(CurrencyChanged(
+      exchanger: exchanger,
+      selectedCurrency: selectedCurrency,
+    ));
   }
 
+  void toEUR() {
+    exchanger = currencyModel!.eur;
+    selectedCurrency = "EUR";
+    emit(CurrencyChanged(
+      exchanger: exchanger,
+      selectedCurrency: selectedCurrency,
+    ));
+  }
 
-
-
-
+  void toUSD() {
+    exchanger = 1;
+    selectedCurrency = "USD";
+    emit(CurrencyChanged(
+      exchanger: exchanger,
+      selectedCurrency: selectedCurrency,
+    ));
+  }
 }

@@ -6,9 +6,9 @@ class CurrencyModel{
   CurrencyModel({required this.ucd, required this.syp, required this.eur});
   factory CurrencyModel.fromJson(Map<String, dynamic> json) {
     return CurrencyModel(
-        ucd: json["USD"],
-        syp: json["EUR"],
-        eur: json["EUR"]
+        ucd: (json["USD"] as num).toDouble(),
+        syp: (json["EUR"]as num).toDouble(),
+        eur: (json["EUR"]as num).toDouble()
 
     );
   }
