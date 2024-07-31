@@ -14,6 +14,7 @@ class FloatingBookButton extends StatelessWidget {
   final TripModel trip;
   @override
   Widget build(BuildContext context) {
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       height: 56.0,

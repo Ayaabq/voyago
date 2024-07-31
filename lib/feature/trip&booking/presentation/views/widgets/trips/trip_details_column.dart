@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:voyago/core/utils/screen_size_util.dart';
 import 'package:voyago/core/widgets/days_and_price.dart';
+import 'package:voyago/feature/profile/presentation/manager/currency_cubit/currency_cubit.dart';
 
 import '../../../../../../core/utils/styles.dart';
 import '../../../../../../core/widgets/custom_rate.dart';
@@ -47,6 +49,7 @@ class TripDetailsColumn extends StatelessWidget {
   final TripModel tripModel;
   @override
   Widget build(BuildContext context) {
+
   ScreenSizeUtil.init(context);
     return   Column(
       mainAxisAlignment: MainAxisAlignment.end,
@@ -70,7 +73,8 @@ class TripDetailsColumn extends StatelessWidget {
                 ],
               ),
               LocationWithCountry(country: tripModel.destination),
-              DaysAndPriceWidget(days: tripModel.duration.toInt(), fromPrice: tripModel.price.toDouble())
+              DaysAndPriceWidget(days: tripModel.duration.toInt(),
+                  fromPrice: tripModel.price.toDouble())
             ],
           ),
         )
