@@ -62,7 +62,9 @@ class CategoryItem extends StatelessWidget {
       child: Container(
         height: ScreenSizeUtil.dynamicHeight(0.08), // 8% of the screen height
         decoration: BoxDecoration(
-          color: CustomColors.kWhite[0],
+          color: Theme.of(context).brightness == Brightness.dark
+              ? CustomColors.kMove[2]
+              : CustomColors.kWhite[0],
           borderRadius: BorderRadius.circular(
               ScreenSizeUtil.dynamicWidth(0.045)), // 4.5% of the screen width
         ),

@@ -99,6 +99,7 @@ class _MakeReviewState extends State<MakeReview> {
                 controller: commentController,
                 decoration: InputDecoration(
                   hintText: "Write a review".tr(),
+
                   filled: true,
                   fillColor: _isFocused
                       ? CustomColors.kWhite[0]

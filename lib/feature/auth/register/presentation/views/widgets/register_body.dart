@@ -90,9 +90,11 @@ class _RegisterBodyViewState extends State<RegisterBodyView> {
                   const SizedBox(height: 14),
 
                   Text("Create your Account ".tr(),
-                      style: Styles.textStyle20W700.copyWith(
-                          fontWeight: FontWeight.w600,
-                          color: CustomColors.kBlack[3])),
+                      style: Theme.of(context).brightness == Brightness.dark
+                          ? Styles.textStyle20W700blak
+                          : Styles.textStyle20W700.copyWith(
+                              fontWeight: FontWeight.w600,
+                              color: CustomColors.kBlack[3])),
 
                   const SizedBox(height: 24),
                   //88

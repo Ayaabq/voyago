@@ -15,14 +15,16 @@ class TripOfferSearchCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScreenSizeUtil.init(context);
-    bool isArabic = context.locale.languageCode == 'ar';    return Card(
+    bool isArabic = context.locale.languageCode == 'ar';
+    return Card(
+      color: Theme.of(context).cardColor,
       elevation: 4,
       child: Container(
         // Use a fraction of the screen width and height instead of fixed values
         width: ScreenSizeUtil.screenWidth * 0.45,
         //  height: ScreenSizeUtil.screenHeight * 1,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).cardColor,
           borderRadius: BorderRadius.circular(16),
         ),
         child: Stack(
@@ -47,15 +49,19 @@ class TripOfferSearchCard extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
-                gradient: const LinearGradient(
+                gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
                     Colors.transparent,
-                    Color.fromARGB(0, 255, 255, 255),
-                    Colors.white,
+                    Theme.of(context).brightness == Brightness.dark
+                        ? const Color.fromARGB(0, 83, 82, 82)
+                        : const Color.fromARGB(0, 255, 255, 255),
+                    Theme.of(context).brightness == Brightness.dark
+                        ? Theme.of(context).cardColor
+                        : CustomColors.kWhite[0],
                   ],
-                  stops: [
+                  stops: const [
                     0.0,
                     0.6,
                     0.65,
@@ -64,15 +70,13 @@ class TripOfferSearchCard extends StatelessWidget {
               ),
             ),
             const Align(
-                alignment:AlignmentDirectional.topEnd,
-
+                alignment: AlignmentDirectional.topEnd,
                 child: Padding(
                   padding: EdgeInsets.all(16.0),
                   child: FavoriteButton(),
                 )),
             Align(
-              alignment:AlignmentDirectional.topStart,
-
+              alignment: AlignmentDirectional.topStart,
               child: Container(
                 margin: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
@@ -87,24 +91,33 @@ class TripOfferSearchCard extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                const SizedBox(height: 165,
-                width: double.infinity,),
+                const SizedBox(
+                  height: 165,
+                  width: double.infinity,
+                ),
                 Container(
                   decoration: BoxDecoration(
-                      borderRadius:  BorderRadius.only(
-
-                        topLeft: isArabic ? const Radius.circular(0) : const Radius.circular(16),
-                        topRight: isArabic ? const Radius.circular(16) : const Radius.circular(0),
-                        bottomLeft: isArabic ? const Radius.circular(0) : const Radius.circular(16),
-                        bottomRight: isArabic ? const Radius.circular(16) : const Radius.circular(0),
+                      borderRadius: BorderRadius.only(
+                        topLeft: isArabic
+                            ? const Radius.circular(0)
+                            : const Radius.circular(16),
+                        topRight: isArabic
+                            ? const Radius.circular(16)
+                            : const Radius.circular(0),
+                        bottomLeft: isArabic
+                            ? const Radius.circular(0)
+                            : const Radius.circular(16),
+                        bottomRight: isArabic
+                            ? const Radius.circular(16)
+                            : const Radius.circular(0),
                       ),
                       color: CustomColors.kMove[3]),
                   child: Padding(
                     padding: const EdgeInsets.all(4.0),
                     child: Text(
                       "-30%  ",
-                      style: Styles.textStyle18W700
-                          .copyWith(fontSize: 12, color: CustomColors.kWhite[0]),
+                      style: Styles.textStyle18W700.copyWith(
+                          fontSize: 12, color: CustomColors.kWhite[0]),
                     ),
                   ),
                 ),

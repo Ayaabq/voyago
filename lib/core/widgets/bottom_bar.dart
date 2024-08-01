@@ -133,7 +133,8 @@ class _BottomBarState extends State<BottomBar> {
         },
         backgroundColor: Colors.transparent,
         color: Theme.of(context).brightness == Brightness.dark
-            ? CustomColors.kMove[2]
+            ? const Color(0xff282828)
+            //const Color(0xff282828)
             : CustomColors.kMove[0],
         buttonBackgroundColor: Theme.of(context).brightness == Brightness.dark
             ? CustomColors.kMove[2]
@@ -162,17 +163,23 @@ class NavigationItem extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(
-          icon,
-          size: 24,
-          color: isActive ? CustomColors.kMove[5] : CustomColors.kMove[5],
-        ),
+        Icon(icon,
+            size: 24,
+            color: isActive
+                ? CustomColors.kMove[5]
+                : Theme.of(context).brightness == Brightness.dark
+                    ? CustomColors.kMove[3]
+                    : CustomColors.kMove[5]),
         if (label != null) ...[
           const SizedBox(height: 4),
           Text(
             label!,
             style: TextStyle(
-              color: isActive ? CustomColors.kMove[5] : CustomColors.kMove[5],
+              color: isActive
+                  ? CustomColors.kMove[5]
+                  : Theme.of(context).brightness == Brightness.dark
+                      ? CustomColors.kMove[3]
+                      : CustomColors.kMove[5],
               fontSize: 12,
             ),
           ),

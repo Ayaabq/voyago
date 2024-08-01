@@ -46,8 +46,12 @@ static const TextStyle textStyle20W600 = TextStyle(
       fontSize: 20, fontWeight: FontWeight.w600, overflow: TextOverflow.fade);
   static const TextStyle textStyle10W400 = TextStyle(
       fontSize: 10, fontWeight: FontWeight.w400, overflow: TextOverflow.fade);
+ static  TextStyle textStyle10W400dark = TextStyle(
+      fontSize: 10, fontWeight: FontWeight.w400, overflow: TextOverflow.fade,color: CustomColors.kBlack[0]);
   static const TextStyle textStyle13W400 = TextStyle(
       fontSize: 13, fontWeight: FontWeight.w400, overflow: TextOverflow.fade);
+static  TextStyle textStyle13W400dark = TextStyle(
+      fontSize: 13, fontWeight: FontWeight.w400, overflow: TextOverflow.fade,color: CustomColors.kBlack[0]);
   static const TextStyle textStyle12W400 = TextStyle(
       fontSize: 12, fontWeight: FontWeight.w700, overflow: TextOverflow.fade);
   static const TextStyle textStyle8W400 =
