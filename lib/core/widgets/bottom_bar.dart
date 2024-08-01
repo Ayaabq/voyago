@@ -133,7 +133,8 @@ class _BottomBarState extends State<BottomBar> {
         },
         backgroundColor: Colors.transparent,
         color: Theme.of(context).brightness == Brightness.dark
-            ? CustomColors.kMove[2]
+            ?const Color(0xff2e2e2e)
+ //const Color(0xff282828)
             : CustomColors.kMove[0],
         buttonBackgroundColor: Theme.of(context).brightness == Brightness.dark
             ? CustomColors.kMove[2]
