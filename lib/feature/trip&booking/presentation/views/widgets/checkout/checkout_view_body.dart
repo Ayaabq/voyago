@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:voyago/core/utils/custom_floating_button.dart';
 import 'package:voyago/core/widgets/dialog/dialog_void.dart';
 import 'package:voyago/feature/trip&booking/data/models/trip_model.dart';
@@ -84,22 +85,37 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   }
 
   void _onBookTaped() async {
+    int dialog=0;
+
     if(valid()){
+      dialog++;
       final subscription= manager.stream.listen((state){
         if(state is CheckoutSuccess){
           showSuccessDialog(context);
+          dialog++;
+
 
         }else if(state is CheckoutError){
           showFailureDialog(context);
-        }else{
+          // dialog++;
+
+        }else if (State is CheckoutLoading){
           showWatingDialog(context);
+          dialog++;
+
         }
 
       });
       await  manager.submitCheckout(widget.tripModel.id);
-
-      print("yeeeeeeeeeesssssssss");
+     await Future.delayed(const Duration(seconds: 1));
+    }else{
+      showFailureDialog(context);
+      await Future.delayed(const Duration(seconds: 2));
+      dialog++;
     }
+    while(dialog--!=0)
+      GoRouter.of(context).pop();
+
   }
 
   @override

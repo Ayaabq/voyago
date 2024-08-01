@@ -35,8 +35,8 @@ class CurrencyCubit extends Cubit<CurrencyState> {
   }
 
   void toSYP() {
-    exchanger = currencyModel!.syp;
-    selectedCurrency = "SYP";
+    exchanger = currencyModel!.syp/100000;
+    selectedCurrency = "10TSYP";
     emit(CurrencyChanged(
       exchanger: exchanger,
       selectedCurrency: selectedCurrency,

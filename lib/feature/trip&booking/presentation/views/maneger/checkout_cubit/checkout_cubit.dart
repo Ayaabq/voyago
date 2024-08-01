@@ -195,9 +195,19 @@ class CheckoutCubit extends Cubit<CheckoutState> {
             (failure) {
           emit(CheckoutError(failure.errMessage));
         },
-            (success) {
+            (success) async{
+
           emit(CheckoutSuccess(success.message));
-        },
+          await Future.delayed(const Duration(seconds: 1));
+          emit(CheckoutLoaded(
+            adults: adults ?? 0,
+            child: child ?? 0,
+            email: email ?? '',
+            phoneNumber: phoneNumber ?? '',
+            password: password ?? '',
+            optionalChoices: optionalChoices!,
+          ));
+            },
       );
   }
 

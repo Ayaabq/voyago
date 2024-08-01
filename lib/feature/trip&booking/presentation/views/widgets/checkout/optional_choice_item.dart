@@ -87,12 +87,12 @@ class _OptionalChoiceItemState extends State<OptionalChoiceItem> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "${"Child Price:".tr()} ${(widget.eventModel.priceChild ?? 0) *exchanger} $currency",
-                  style: Styles.textStyle18W400,
+                  "${"Child Price:".tr()} ${((widget.eventModel.priceChild ?? 0) *exchanger).toStringAsFixed(1)} $currency",
+                  style: Styles.textStyle14W400,
                 ),
                 Text(
-                  "${"Adult Price:".tr()} ${(widget.eventModel.priceAdult ?? 0) *exchanger} $currency",
-                  style: Styles.textStyle18W400,
+                  "${"Adult Price:".tr()} ${((widget.eventModel.priceAdult ?? 0) *exchanger).toStringAsFixed(1)} $currency",
+                  style: Styles.textStyle14W400,
                 ),
               ],
             ),

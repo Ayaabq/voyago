@@ -88,9 +88,15 @@ class TripDetailsRepoImp implements TripDetailsRepo {
         Confg.reservation+id.toString(),
         body: (checkout.toJson()),
       );
+
+
+      if(response['msg']=='fail') {
+        return left(jsonDecode(response)['err']);
+      }
       return right(CheckoutSuccess.fromJson(response));
     }
    catch (e) {
+
      if (e is DioException) {
        return left(ServiecesFailure.fromDioError(e));
      }
