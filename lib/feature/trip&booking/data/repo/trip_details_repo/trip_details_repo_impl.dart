@@ -81,10 +81,11 @@ class TripDetailsRepoImp implements TripDetailsRepo {
   }
 
   @override
-  Future<Either<Failure, CheckoutSuccess>> submitCheckout(CheckoutModel checkout) async {
+  Future<Either<Failure, CheckoutSuccess>> submitCheckout(CheckoutModel checkout, int id) async {
    try {
+     print(checkout.toJson());
       final response = await api.post(
-        "url",
+        Confg.reservation+id.toString(),
         body: (checkout.toJson()),
       );
       return right(CheckoutSuccess.fromJson(response));

@@ -23,6 +23,6 @@ abstract class TripDetailsRepo {
   itinerary(int id);
   Future<Either<Failure, OptionalEventSuccess>>
   getOptionalEvent(int id);
-  Future<Either<Failure, CheckoutSuccess>>submitCheckout(CheckoutModel checkout)  ;
+  Future<Either<Failure, CheckoutSuccess>>submitCheckout(CheckoutModel checkout, int id)  ;
 
 }

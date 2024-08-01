@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:voyago/feature/trip&booking/data/models/checkout/checkout_model.dart';
 import 'package:voyago/feature/trip&booking/data/models/itinerary/event_model.dart';
 import 'package:voyago/feature/trip&booking/data/repo/trip_details_repo/trip_details_repo.dart';
 import '../../../../data/models/checkout/optional_choice_model.dart';
@@ -180,22 +181,24 @@ class CheckoutCubit extends Cubit<CheckoutState> {
     return tot;
   }
 
-  void submitCheckout() async {
+  Future<void> submitCheckout(int id) async {
     emit(CheckoutLoading());
-    try {
-      // Here you would call your repository to submit the data
-      // For example: await repository.submitCheckout(...)
-      emit(CheckoutLoaded(
-        adults: adults!,
-        child: child!,
-        email: email!,
-        phoneNumber: phoneNumber!,
-        password: password!,
-        optionalChoices: optionalChoices!,
-      ));
-    } catch (e) {
-      emit(CheckoutError(e.toString()));
-    }
+      final checkout=CheckoutModel(
+          adults: adults!,
+          child: child!,
+          phoneNumber: phoneNumber!,
+          password: password!,
+          optionalChoices: optionalChoices!,
+          email: email!);
+      final result= await tripDetailsRepo.submitCheckout(checkout, id);
+      result.fold(
+            (failure) {
+          emit(CheckoutError(failure.errMessage));
+        },
+            (success) {
+          emit(CheckoutSuccess(success.message));
+        },
+      );
   }
 
   void agreeToCondition() {

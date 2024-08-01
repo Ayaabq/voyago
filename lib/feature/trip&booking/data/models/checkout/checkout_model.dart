@@ -3,8 +3,8 @@ import 'optional_choice_model.dart';
 class CheckoutModel {
   int child;
   int adults;
-  String firstName;
-  String lastName;
+  String email;
+
   String phoneNumber;
   String password;
   List<OptionalChoiceModel> optionalChoices;
@@ -12,8 +12,7 @@ class CheckoutModel {
   CheckoutModel({
     required this.adults,
     required this.child,
-    required this.firstName,
-    required this.lastName,
+    required this.email,
     required this.phoneNumber,
     required this.password,
     required this.optionalChoices,
@@ -27,8 +26,7 @@ class CheckoutModel {
     return CheckoutModel(
       adults: json['adult'],
       child: json['child'],
-      firstName: json['first_name'],
-      lastName: json['last_name'],
+      email: json['email'],
       phoneNumber: json['phone'],
       password: json['password'],
       optionalChoices: optionalChoicesList,
@@ -42,8 +40,8 @@ class CheckoutModel {
     return {
       'adult': adults,
       'child': child,
-      'first_name': firstName,
-      'last_name': lastName,
+      'email': email,
+
       'phone': phoneNumber,
       'password': password,
       'optional_choices': optionalChoicesToJson,

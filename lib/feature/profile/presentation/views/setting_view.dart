@@ -63,6 +63,13 @@ class _SettingsViewState extends State<SettingsView> {
     } else {
       currencyCubit.toUSD();
     }
+    print(currencyCubit.exchanger);
+    print(currencyCubit.exchanger);
+    print(currencyCubit.exchanger);
+    print(currencyCubit.exchanger);
+    print(currencyCubit.exchanger);
+    print(currencyCubit.exchanger);
+    print(currencyCubit.exchanger);
   }
 
   @override

@@ -5,6 +5,7 @@ import 'package:voyago/core/utils/custom_floating_button.dart';
 import 'package:voyago/core/widgets/dialog/dialog_void.dart';
 import 'package:voyago/feature/trip&booking/data/models/trip_model.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/maneger/checkout_cubit/checkout_cubit.dart';
+import 'package:voyago/feature/trip&booking/presentation/views/maneger/checkout_cubit/checkout_state.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/maneger/pages_cubit/page_state.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/maneger/pages_cubit/pages_cubit.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/checkout/floatin_checkout.dart';
@@ -82,9 +83,21 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
     context.read<PageCubit>().setPage(_currentPage);
   }
 
-  void _onBookTaped() {
+  void _onBookTaped() async {
     if(valid()){
-      /// TODO: connect the api
+      final subscription= manager.stream.listen((state){
+        if(state is CheckoutSuccess){
+          showSuccessDialog(context);
+
+        }else if(state is CheckoutError){
+          showFailureDialog(context);
+        }else{
+          showWatingDialog(context);
+        }
+
+      });
+      await  manager.submitCheckout(widget.tripModel.id);
+
       print("yeeeeeeeeeesssssssss");
     }
   }
