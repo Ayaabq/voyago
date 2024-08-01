@@ -17,17 +17,14 @@ class DaysAndPriceWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final exchanger= context.read<CurrencyCubit>().exchanger;
-    String currency= context.read<CurrencyCubit>().selectedCurrency;
-    if(currency=="USD") {
-      currency='\$';
-    } else if(currency=="EUR") currency='€';
+    final exchanger = context.read<CurrencyCubit>().exchanger;
+    String currency = context.read<CurrencyCubit>().selectedCurrency;
+    if (currency == "USD") {
+      currency = '\$';
+    } else if (currency == "EUR") currency = '€';
     return Row(
       children: [
-        Text(
-          "$days Days",
-          style: Styles.textStyle12W400
-        ),
+        Text("$days Days", style: Styles.textStyle12W400),
         const Spacer(),
         // Spacing between the text and the container
         Container(
@@ -36,10 +33,10 @@ class DaysAndPriceWidget extends StatelessWidget {
             color: CustomColors.kGrey[0], // Background color of the container
             borderRadius: BorderRadius.circular(8),
           ),
-          child: Text(
-            "form ${fromPrice*exchanger} $currency",
-            style: Styles.textStyle10W400
-          ),
+          child: Text("form ${fromPrice * exchanger} $currency",
+              style: Theme.of(context).brightness == Brightness.dark
+                  ? Styles.textStyle10W400dark
+                  : Styles.textStyle10W400),
         ),
       ],
     );

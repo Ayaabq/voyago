@@ -103,8 +103,9 @@ class OfferCard extends StatelessWidget {
                   HomeAssets.dummyOffers,
                   // Use a fraction of the container width and height instead of fixed values
                   width: ScreenSizeUtil.screenWidth * 0.4 * 0.8,
-               //   height: ScreenSizeUtil.screenHeight  * 0.3 * 0.7,
-                  fit: BoxFit.cover, // This ensures the image covers the entire area
+                  //   height: ScreenSizeUtil.screenHeight  * 0.3 * 0.7,
+                  fit: BoxFit
+                      .cover, // This ensures the image covers the entire area
                 ),
               ),
             ),
@@ -127,14 +128,12 @@ class OfferCard extends StatelessWidget {
                 ),
               ),
             ),
-            Align(
-                alignment:AlignmentDirectional.topEnd,
-
+            const Align(
+                alignment: AlignmentDirectional.topEnd,
                 child: Padding(
-                  padding: const EdgeInsets.all(12.0),
+                  padding: EdgeInsets.all(12.0),
                   child: FavoriteButton(),
                 )),
-
             const Positioned(
               top: 110,
               // right: 15,

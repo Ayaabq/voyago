@@ -54,7 +54,9 @@ class TripOfferSearchCard extends StatelessWidget {
                   end: Alignment.bottomCenter,
                   colors: [
                     Colors.transparent,
-                    const Color.fromARGB(0, 255, 255, 255),
+                    Theme.of(context).brightness == Brightness.dark
+                        ? const Color.fromARGB(0, 83, 82, 82)
+                        : const Color.fromARGB(0, 255, 255, 255),
                     Theme.of(context).brightness == Brightness.dark
                         ? Theme.of(context).cardColor
                         : CustomColors.kWhite[0],

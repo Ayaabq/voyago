@@ -14,31 +14,27 @@ import '../../../../../favorite/presentation/manager/change_favorite_cubit/favor
 import '../../../../../favorite/presentation/manager/change_favorite_cubit/favorite_state.dart';
 import '../../../../../favorite/presentation/views/favorite_icon_button.dart';
 
-
 class AttractionCard extends StatelessWidget {
   const AttractionCard({super.key, required this.attractionModel});
   final AttractionModel attractionModel;
   @override
   Widget build(BuildContext context) {
-    return  InkWell(
-      onTap: (){
-        GoRouter.of(context).push(AppRouter.kAttractionDetailsView,
-            extra:attractionModel );
-
+    return InkWell(
+      onTap: () {
+        GoRouter.of(context)
+            .push(AppRouter.kAttractionDetailsView, extra: attractionModel);
       },
-      child: BlocConsumer<ChangeFavoriteCubit,
-          ChangeFavoriteState>(
+      child: BlocConsumer<ChangeFavoriteCubit, ChangeFavoriteState>(
         builder: (ctx, state) {
-          return     AspectRatio(
+          return AspectRatio(
             aspectRatio: 1,
             child: Card(
               elevation: 4,
               child: Container(
-
                 width: 150,
                 height: 170,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Theme.of(context).cardColor,
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Stack(
@@ -56,7 +52,8 @@ class AttractionCard extends StatelessWidget {
                             HomeAssets.dummyAttraction,
                             width: 130,
                             height: 150,
-                            fit: BoxFit.cover, // This ensures the image covers the entire area
+                            fit: BoxFit
+                                .cover, // This ensures the image covers the entire area
                           ),
                         ),
                       ),
@@ -87,26 +84,23 @@ class AttractionCard extends StatelessWidget {
                           Container(
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
-
-                                color: CustomColors.kWhite[0]
-                            ),
-                            child:  Padding(
-                              padding: EdgeInsets.all(3.0),
+                                color: CustomColors.kWhite[0]),
+                            child: Padding(
+                              padding: const EdgeInsets.all(3.0),
                               child: CustomRating(rate: attractionModel.rate),
                             ),
                           ),
                           const Spacer(),
-                           FavoriteButton(
-                            onPressed: (){
+                          FavoriteButton(
+                            onPressed: () {
                               context
                                   .read<ChangeFavoriteCubit>()
-                                  .addIDItem2Favourite(
-                                  attractionModel.id,
-                                  Confg.addAttractionFavouriteUrl,
-                                  attractionModel: attractionModel);
-                            },isFavorite: attractionModel.isFavourite,
+                                  .addIDItem2Favourite(attractionModel.id,
+                                      Confg.addAttractionFavouriteUrl,
+                                      attractionModel: attractionModel);
+                            },
+                            isFavorite: attractionModel.isFavourite,
                           ),
-
                         ],
                       ),
                     ),
@@ -114,26 +108,24 @@ class AttractionCard extends StatelessWidget {
                       alignment: Alignment.bottomCenter,
                       child: Padding(
                         padding: const EdgeInsets.only(bottom: 10.0),
-                        child: Text(attractionModel.name,
-                          style: Styles.textStyle14W600,),
+                        child: Text(
+                          attractionModel.name,
+                          style: Styles.textStyle14W600,
+                        ),
                       ),
                     )
-
                   ],
                 ),
               ),
             ),
           );
         },
-
-
         listener: (BuildContext context, ChangeFavoriteState state) {
           final cubit = context.read<ChangeFavoriteCubit>();
-          if (state is ChangeFavouriteFailure &&
-              !cubit.hasShownFailureToast) {
+          if (state is ChangeFavouriteFailure && !cubit.hasShownFailureToast) {
             context.showFailureToast(state.errorMessage);
             cubit.hasShownFailureToast =
-            true; // Set the flag after showing the toast
+                true; // Set the flag after showing the toast
           } else if (state is ChangeFavouriteSuccess) {
             cubit.resetFailureToastFlag(); // Reset the flag on success
           }
@@ -141,6 +133,4 @@ class AttractionCard extends StatelessWidget {
       ),
     );
   }
-
-  }
-
+}

@@ -25,8 +25,11 @@ class TripOfferColumn extends StatelessWidget {
                 children: [
                   Text(
                     "Rome Trip",
-                    style: Styles.textStyle14W600
-                        .copyWith(color: CustomColors.kBlack[0]),
+                    style: Theme.of(context).brightness == Brightness.dark
+                        ? Styles.textStyle14W600
+                            .copyWith(color: CustomColors.kWhite[0])
+                        : Styles.textStyle14W600
+                            .copyWith(color: CustomColors.kBlack[0]),
                   ),
                   const Spacer(),
                 ],

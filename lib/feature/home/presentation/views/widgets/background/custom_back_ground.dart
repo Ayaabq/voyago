@@ -13,18 +13,16 @@ class CustomBackground extends StatelessWidget {
     return Stack(
       children: [
         SizedBox(
-         width: double.infinity,
+          width: double.infinity,
           height: ScreenSizeUtil.screenHeight * .23,
 
           child: FittedBox(
-              fit: BoxFit.cover,
+            fit: BoxFit.cover,
             child: Image.asset(
                 height: ScreenSizeUtil.screenHeight * .4,
                 width: ScreenSizeUtil.screenWidth,
-              HomeAssets.skyBackground,
-              fit: BoxFit.cover
-
-            ),
+                HomeAssets.skyBackground,
+                fit: BoxFit.cover),
           ),
           // height: 100,
         ),
@@ -38,8 +36,12 @@ class CustomBackground extends StatelessWidget {
                 colors: [
                   CustomColors.kMove[5],
                   const Color.fromARGB(196, 176, 139, 207),
-                  const Color.fromARGB(229, 196, 184, 233),
-                  const Color.fromARGB(250, 255, 255, 255),
+                  Theme.of(context).brightness == Brightness.dark
+                      ? const Color.fromARGB(228, 151, 139, 185)
+                      : const Color.fromARGB(229, 196, 184, 233),
+                  Theme.of(context).brightness == Brightness.dark
+                      ? const Color(0xff2e2e2e)
+                      : const Color.fromARGB(250, 255, 255, 255),
                 ],
                 stops: const [
                   0.15,
