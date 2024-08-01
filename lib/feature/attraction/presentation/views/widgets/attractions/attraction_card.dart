@@ -61,15 +61,22 @@ class AttractionCard extends StatelessWidget {
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
-                        gradient: const LinearGradient(
+                        gradient: LinearGradient(
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
                           colors: [
                             Colors.transparent,
-                            Color.fromARGB(0, 255, 255, 255),
-                            Colors.white,
+                            Theme.of(context).brightness == Brightness.dark
+                                ? const Color.fromARGB(0, 83, 82, 82)
+                                : const Color.fromARGB(0, 255, 255, 255),
+                            Theme.of(context).brightness == Brightness.dark
+                                ? Theme.of(context).cardColor
+                                : CustomColors.kWhite[0],
+                            // Colors.transparent,
+                            // Color.fromARGB(0, 255, 255, 255),
+                            // Colors.white,
                           ],
-                          stops: [
+                          stops: const [
                             0.0,
                             0.55,
                             0.75,
@@ -108,10 +115,11 @@ class AttractionCard extends StatelessWidget {
                       alignment: Alignment.bottomCenter,
                       child: Padding(
                         padding: const EdgeInsets.only(bottom: 10.0),
-                        child: Text(
-                          attractionModel.name,
-                          style: Styles.textStyle14W600,
-                        ),
+                        child: Text(attractionModel.name,
+                            style:
+                                Theme.of(context).brightness == Brightness.dark
+                                    ? Styles.textStyle14W600dark
+                                    : Styles.textStyle14W600),
                       ),
                     )
                   ],

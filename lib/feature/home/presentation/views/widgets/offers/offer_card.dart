@@ -6,6 +6,7 @@ import 'package:voyago/feature/favorite/presentation/views/favorite_icon_button.
 import 'package:voyago/feature/home/presentation/views/widgets/offers/offers_details_column.dart';
 
 import '../../../../../../core/utils/assets.dart';
+import '../../../../../../core/utils/custom_colors.dart';
 import '../../../../../../core/utils/screen_size_util.dart';
 
 class OfferCard extends StatelessWidget {
@@ -87,7 +88,7 @@ class OfferCard extends StatelessWidget {
         width: max(ScreenSizeUtil.screenWidth * 0.35, 150),
         // height: ScreenSizeUtil.screenHeight  * 0.5,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).cardColor,
           borderRadius: BorderRadius.circular(16),
         ),
         child: Stack(
@@ -112,15 +113,22 @@ class OfferCard extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
-                gradient: const LinearGradient(
+                gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
                     Colors.transparent,
-                    Color.fromARGB(0, 255, 255, 255),
-                    Colors.white,
+                    Theme.of(context).brightness == Brightness.dark
+                        ? const Color.fromARGB(0, 83, 82, 82)
+                        : const Color.fromARGB(0, 255, 255, 255),
+                    Theme.of(context).brightness == Brightness.dark
+                        ? Theme.of(context).cardColor
+                        : CustomColors.kWhite[0],
+                    // Colors.transparent,
+                    // Color.fromARGB(0, 255, 255, 255),
+                    // Colors.white,
                   ],
-                  stops: [
+                  stops: const [
                     0.0,
                     0.6,
                     0.65,
