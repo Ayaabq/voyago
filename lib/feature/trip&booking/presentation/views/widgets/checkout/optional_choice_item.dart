@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:voyago/feature/trip&booking/data/models/itinerary/event_model.dart';
 import '../../../../../../core/utils/custom_colors.dart';
 import '../../../../../../core/utils/styles.dart';
+import '../../../../../profile/presentation/manager/currency_cubit/currency_cubit.dart';
 import '../../maneger/checkout_cubit/checkout_cubit.dart';
 import '../../maneger/checkout_cubit/checkout_state.dart';
 import 'count_widget.dart';
@@ -33,6 +34,11 @@ class _OptionalChoiceItemState extends State<OptionalChoiceItem> {
 
   @override
   Widget build(BuildContext context) {
+    final exchanger= context.read<CurrencyCubit>().exchanger;
+    String currency= context.read<CurrencyCubit>().selectedCurrency;
+    if(currency=="USD") {
+      currency='\$';
+    } else if(currency=="EUR") currency='€';
     return BlocBuilder<CheckoutCubit, CheckoutState>(builder: (context, state) {
       int childNum()  {
         if (state is CheckoutLoaded) {
@@ -81,11 +87,11 @@ class _OptionalChoiceItemState extends State<OptionalChoiceItem> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "${"Child Price:".tr()} ${widget.eventModel.priceChild ?? 0} \$",
+                  "${"Child Price:".tr()} ${(widget.eventModel.priceChild ?? 0) *exchanger} $currency",
                   style: Styles.textStyle18W400,
                 ),
                 Text(
-                  "${"Adult Price:".tr()} ${widget.eventModel.priceAdult ?? 0} \$",
+                  "${"Adult Price:".tr()} ${(widget.eventModel.priceAdult ?? 0) *exchanger} $currency",
                   style: Styles.textStyle18W400,
                 ),
               ],

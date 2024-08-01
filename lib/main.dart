@@ -14,6 +14,8 @@ import 'feature/location&map/data/repo/location_repo.dart';
 import 'feature/location&map/presentation/manager/location_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
 
+import 'feature/profile/data/repo/settings_repo_impl.dart';
+import 'feature/profile/presentation/manager/currency_cubit/currency_cubit.dart';
 import 'feature/theme/widgets/cubit/app_theme_cubit.dart';
 
 void main() async {
@@ -60,7 +62,7 @@ class _VoyagoAppState extends State<VoyagoApp> {
           ),
           BlocProvider(
             create: (context) => ThemeCubit(),
-          )
+          ),
         ],
         child: BlocBuilder<ThemeCubit, ThemeData>(
           builder: (context, theme) {
