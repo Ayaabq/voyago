@@ -17,7 +17,7 @@ class Styles {
       fontWeight: FontWeight.w700,
       color: CustomColors.kMove[7],
       overflow: TextOverflow.fade);
-static TextStyle textStyle25W700dark = TextStyle(
+  static TextStyle textStyle25W700dark = TextStyle(
       fontSize: 25,
       fontWeight: FontWeight.w700,
       color: CustomColors.kWhite[0],
@@ -25,7 +25,7 @@ static TextStyle textStyle25W700dark = TextStyle(
 
   static const TextStyle textStyle16W700 = TextStyle(
       fontSize: 16, fontWeight: FontWeight.w700, overflow: TextOverflow.fade);
- static const TextStyle textStyle16W600 = TextStyle(
+  static const TextStyle textStyle16W600 = TextStyle(
       fontSize: 16, fontWeight: FontWeight.w600, overflow: TextOverflow.fade);
   static const TextStyle textStyle16W400 = TextStyle(
       fontSize: 16, fontWeight: FontWeight.w400, overflow: TextOverflow.fade);
@@ -42,18 +42,29 @@ static TextStyle textStyle25W700dark = TextStyle(
     fontWeight: FontWeight.w600,
     // color: CustomColors.kBlack[3]
   );
-static const TextStyle textStyle20W600 = TextStyle(
+  static const TextStyle textStyle20W600 = TextStyle(
       fontSize: 20, fontWeight: FontWeight.w600, overflow: TextOverflow.fade);
   static const TextStyle textStyle10W400 = TextStyle(
       fontSize: 10, fontWeight: FontWeight.w400, overflow: TextOverflow.fade);
- static  TextStyle textStyle10W400dark = TextStyle(
-      fontSize: 10, fontWeight: FontWeight.w400, overflow: TextOverflow.fade,color: CustomColors.kBlack[0]);
+  static TextStyle textStyle10W400dark = TextStyle(
+      fontSize: 10,
+      fontWeight: FontWeight.w400,
+      overflow: TextOverflow.fade,
+      color: CustomColors.kBlack[0]);
   static const TextStyle textStyle13W400 = TextStyle(
       fontSize: 13, fontWeight: FontWeight.w400, overflow: TextOverflow.fade);
-static  TextStyle textStyle13W400dark = TextStyle(
-      fontSize: 13, fontWeight: FontWeight.w400, overflow: TextOverflow.fade,color: CustomColors.kBlack[0]);
+  static TextStyle textStyle13W400dark = TextStyle(
+      fontSize: 13,
+      fontWeight: FontWeight.w400,
+      overflow: TextOverflow.fade,
+      color: CustomColors.kBlack[0]);
   static const TextStyle textStyle12W400 = TextStyle(
       fontSize: 12, fontWeight: FontWeight.w700, overflow: TextOverflow.fade);
+  static TextStyle textStyle12W400dark = TextStyle(
+      fontSize: 12,
+      fontWeight: FontWeight.w700,
+      overflow: TextOverflow.fade,
+      color: CustomColors.kWhite[0]);
   static const TextStyle textStyle8W400 =
       TextStyle(fontSize: 8, overflow: TextOverflow.fade
           // fontWeight: FontWeight.w400,
@@ -71,13 +82,15 @@ static  TextStyle textStyle13W400dark = TextStyle(
       fontWeight: FontWeight.w400,
       color: CustomColors.kBlack[2],
       overflow: TextOverflow.fade);
-static TextStyle textStyle20W600dark = TextStyle(
+  static TextStyle textStyle20W600dark = TextStyle(
       fontSize: 20,
       fontWeight: FontWeight.w400,
       color: CustomColors.kWhite[0],
       overflow: TextOverflow.fade);
   static const TextStyle textStyle14W600 = TextStyle(
       fontSize: 14, fontWeight: FontWeight.w600, overflow: TextOverflow.fade);
+static  TextStyle textStyle14W600dark = TextStyle(
+      fontSize: 14, fontWeight: FontWeight.w600, overflow: TextOverflow.fade,color: CustomColors.kWhite[0]);
   static const TextStyle textStyle14W400 = TextStyle(
       fontWeight: FontWeight.w400, fontSize: 14, overflow: TextOverflow.fade);
 }

@@ -43,37 +43,36 @@ import '../../../../data/models/trip_model.dart';
 //   }
 // }
 
-
 class TripDetailsColumn extends StatelessWidget {
   const TripDetailsColumn({super.key, required this.tripModel});
   final TripModel tripModel;
   @override
   Widget build(BuildContext context) {
-
-  ScreenSizeUtil.init(context);
-    return   Column(
+    ScreenSizeUtil.init(context);
+    return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
-
           width: double.infinity,
-
           child: Column(
-
             children: [
               Row(
                 mainAxisSize: MainAxisSize.max,
-
                 children: [
-                  Text(tripModel.name,
-                    style: Styles.textStyle12W400,),
+                  Text(
+                    tripModel.name,
+                    style: Theme.of(context).brightness == Brightness.dark
+                        ? Styles.textStyle12W400dark
+                        : Styles.textStyle12W400,
+                  ),
                   const Spacer(),
                   CustomRating(rate: tripModel.rate),
                 ],
               ),
               LocationWithCountry(country: tripModel.destination),
-              DaysAndPriceWidget(days: tripModel.duration.toInt(),
+              DaysAndPriceWidget(
+                  days: tripModel.duration.toInt(),
                   fromPrice: tripModel.price.toDouble())
             ],
           ),

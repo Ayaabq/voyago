@@ -8,6 +8,7 @@ import 'package:voyago/feature/trip&booking/presentation/views/widgets/trips/tri
 import '../../../../../../core/utils/app_router.dart';
 import '../../../../../../core/utils/assets.dart';
 import '../../../../../../core/utils/confg.dart';
+import '../../../../../../core/utils/custom_colors.dart';
 import '../../../../../favorite/presentation/manager/change_favorite_cubit/favorite_cubit.dart';
 import '../../../../../favorite/presentation/manager/change_favorite_cubit/favorite_state.dart';
 import '../../../../../favorite/presentation/views/favorite_icon_button.dart';
@@ -24,11 +25,9 @@ class TripCard extends StatelessWidget {
     return BlocConsumer<ChangeFavoriteCubit, ChangeFavoriteState>(
       builder: (ctx, state) {
         return InkWell(
-          onTap: (){
-            GoRouter.of(context).push(AppRouter.kTripDetailsView,
-                extra: tripModel);
-
-
+          onTap: () {
+            GoRouter.of(context)
+                .push(AppRouter.kTripDetailsView, extra: tripModel);
           },
           child: Card(
             elevation: 4,
@@ -37,7 +36,7 @@ class TripCard extends StatelessWidget {
               width: ScreenSizeUtil.screenWidth * 0.45,
               // height: ScreenSizeUtil.screenHeight  * 0.5,
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).cardColor,
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Stack(
@@ -62,15 +61,23 @@ class TripCard extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
-                      gradient: const LinearGradient(
+                      gradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                         colors: [
                           Colors.transparent,
-                          Color.fromARGB(0, 255, 255, 255),
-                          Colors.white,
+                          Theme.of(context).brightness == Brightness.dark
+                              ? const Color.fromARGB(0, 83, 82, 82)
+                              : const Color.fromARGB(0, 255, 255, 255),
+                          Theme.of(context).brightness == Brightness.dark
+                              ? Theme.of(context).cardColor
+                              : CustomColors.kWhite[0],
+
+                          // Colors.transparent,
+                          // Color.fromARGB(0, 255, 255, 255),
+                          // Colors.white,
                         ],
-                        stops: [
+                        stops: const [
                           0.0,
                           0.6,
                           0.65,
@@ -79,15 +86,16 @@ class TripCard extends StatelessWidget {
                     ),
                   ),
                   Align(
-                    alignment:AlignmentDirectional.topEnd,
-
+                    alignment: AlignmentDirectional.topEnd,
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: FavoriteButton(
                           onPressed: () {
-                            context.read<ChangeFavoriteCubit>().addIDItem2Favourite(
-                                tripModel.id, Confg.addTripFavouriteUrl,
-                                tripModel: tripModel);
+                            context
+                                .read<ChangeFavoriteCubit>()
+                                .addIDItem2Favourite(
+                                    tripModel.id, Confg.addTripFavouriteUrl,
+                                    tripModel: tripModel);
                           },
                           isFavorite: (tripModel.isFavourite) ?? true),
                     ),
