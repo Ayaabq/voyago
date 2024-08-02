@@ -98,7 +98,6 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
         }else if(state is CheckoutError){
           showFailureDialog(context);
           // dialog++;
-
         }else if (State is CheckoutLoading){
           showWatingDialog(context);
           dialog++;
