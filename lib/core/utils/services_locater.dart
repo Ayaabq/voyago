@@ -9,6 +9,7 @@ import 'package:voyago/feature/auth/register/data/repo/auth_register_repo_imp.da
 import 'package:voyago/feature/favorite/data/repo/favorite_repo_impl.dart';
 import 'package:voyago/feature/home/data/repo/weather_repo/weather_repo_impl.dart';
 import 'package:voyago/feature/place/data/repo/place_reop.dart';
+import 'package:voyago/feature/profile/data/repo/profile_repo_impl.dart';
 import 'package:voyago/feature/reviews/data/repo/review_repo_impl.dart';
 
 import '../../feature/destination/data/repo/destination_repo_impl.dart';
@@ -49,4 +50,9 @@ void setUpServiceLocater() {
 
   getIt.registerLazySingleton<LocationRepo>(
       () => LocationRepositoryImpl(getIt<Location>()));
+
+//profile
+
+getIt.registerSingleton<ProfileRepoImpl>(
+      ProfileRepoImpl(getIt.get<ApiServices>()));
 }

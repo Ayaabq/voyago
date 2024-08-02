@@ -59,11 +59,15 @@ library;
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
+import 'package:voyago/core/utils/services_locater.dart';
 import 'package:voyago/feature/books/presentation/views/books_view.dart';
 
 import 'package:iconsax/iconsax.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:voyago/feature/profile/data/repo/profile_repo_impl.dart';
+import 'package:voyago/feature/profile/presentation/manager/profile/profile_main/profile_cubit.dart';
 
 import '../../feature/home/presentation/views/home_view.dart';
 import '../../feature/profile/presentation/views/profile_view.dart';
@@ -85,7 +89,8 @@ class _BottomBarState extends State<BottomBar> {
     const HomeView(),
     const BooksView(),
     const FavoritesView(),
-    const ProfileView(),
+    ProfileView(),
+    
   ];
 
   final List<Map<String, dynamic>> _navigationItems = [

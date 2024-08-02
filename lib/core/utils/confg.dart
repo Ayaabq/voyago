@@ -71,4 +71,10 @@ class Confg {
 
     // reservation
     static const String reservation='/reservation/';
+
+// profile
+ static const String profileMain='/profile/main';
+static const String profileInfo='/profile/personal_information';
+
+
 }
