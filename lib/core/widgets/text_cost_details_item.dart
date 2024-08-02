@@ -21,14 +21,14 @@ class TextCostDetail extends StatelessWidget {
     return Column(
       children: [
         Text(
-          '$currency ${childPrice*exchanger} x $child Child(s)',
+          '$currency ${(childPrice*exchanger).toStringAsFixed(1)} x $child Child(s)',
           style: const TextStyle(
 
             fontSize: 16,
           ),
         ),
         Text(
-          '$currency ${adultPrice* exchanger} x $adult Adult(s)',
+          '$currency ${(adultPrice* exchanger).toStringAsFixed(1)} x $adult Adult(s)',
           style: const TextStyle(
 
             fontSize: 16,

@@ -26,17 +26,22 @@ class DaysAndPriceWidget extends StatelessWidget {
       children: [
         Text("$days Days", style: Styles.textStyle12W400),
         const Spacer(),
-        // Spacing between the text and the container
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           decoration: BoxDecoration(
             color: CustomColors.kGrey[0], // Background color of the container
             borderRadius: BorderRadius.circular(8),
           ),
-          child: Text("form ${fromPrice * exchanger} $currency",
-              style: Theme.of(context).brightness == Brightness.dark
-                  ? Styles.textStyle10W400dark
-                  : Styles.textStyle10W400),
+          child:Text(
+            "form ${(fromPrice * exchanger)
+            .toStringAsFixed(1)
+            } $currency",
+            style: Theme.of(context).brightness == Brightness.dark
+                ? Styles.textStyle10W400dark
+                : Styles.textStyle10W400,
+          )
+
+
         ),
       ],
     );

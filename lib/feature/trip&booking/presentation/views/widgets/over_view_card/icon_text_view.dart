@@ -38,7 +38,7 @@ class IconText extends StatelessWidget {
                 maxLines: 10,
                 style: textStyle??Styles.textStyle14W400,),
                 if(price!=null)
-                  Text("${price!*exchanger} $currency",
+                  Text("${(price!*exchanger).toStringAsFixed(1)} $currency",
                   style: Styles.textStyle14W600,)
 
               ],

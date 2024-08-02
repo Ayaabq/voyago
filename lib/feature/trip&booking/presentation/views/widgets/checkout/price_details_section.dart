@@ -82,7 +82,7 @@ class PriceDetailsSection extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(right: 20.0),
               child: Text(
-                '$currency ${manager.getTotalPrice(tripPrice)*exchanger}',
+                '$currency ${(manager.getTotalPrice(tripPrice)*exchanger).toStringAsFixed(1)}',
                 style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
