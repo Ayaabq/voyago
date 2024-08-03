@@ -76,6 +76,8 @@ class Confg {
 // profile
  static const String profileMain='/profile/main';
 static const String profileInfo='/profile/personal_information';
+  //map
+  static const String googleMapKey="AIzaSyBfSxmU81EloKcv7r3ET";
 
 // wallet
 

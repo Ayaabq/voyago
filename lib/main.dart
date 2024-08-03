@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:voyago/core/domain/services/firebase_api.dart';
 import 'package:voyago/core/utils/screen_size_util.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:voyago/core/utils/services_locater.dart';
@@ -17,10 +18,18 @@ import 'package:easy_localization/easy_localization.dart';
 import 'feature/profile/data/repo/settings_repo_impl.dart';
 import 'feature/profile/presentation/manager/currency_cubit/currency_cubit.dart';
 import 'feature/theme/widgets/cubit/app_theme_cubit.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
 
 void main() async {
+
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   await EasyLocalization.ensureInitialized();
+  await FirebaseApi().initNotifications();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   await Future.delayed(const Duration(seconds: 2));
 

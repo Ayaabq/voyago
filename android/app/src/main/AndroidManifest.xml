@@ -3,6 +3,8 @@
         android:label="voyago"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDiDC6Cr2BUmOZ502YGt32HrlSdgVY0uT8"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
