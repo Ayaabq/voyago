@@ -11,6 +11,7 @@ import 'package:voyago/feature/home/data/repo/weather_repo/weather_repo_impl.dar
 import 'package:voyago/feature/place/data/repo/place_reop.dart';
 import 'package:voyago/feature/profile/data/repo/profile_repo_impl.dart';
 import 'package:voyago/feature/reviews/data/repo/review_repo_impl.dart';
+import 'package:voyago/feature/wallet/data/repo/wallet_repo_impl.dart';
 
 import '../../feature/destination/data/repo/destination_repo_impl.dart';
 import '../../feature/location&map/data/repo/location_repo.dart';
@@ -41,8 +42,8 @@ void setUpServiceLocater() {
   // getIt.registerSingleton<WeatherRepoImpl>(
   //     WeatherRepoImpl(getIt.get<ApiServices>()));
 
-   getIt.registerSingleton<CurrencyRepoImpl>(
-       CurrencyRepoImpl(getIt.get<ApiServices>()));
+  getIt.registerSingleton<CurrencyRepoImpl>(
+      CurrencyRepoImpl(getIt.get<ApiServices>()));
 
   getIt.registerSingleton<WeatherRepoImpl>(
       WeatherRepoImpl(getIt.get<ApiServices>()));
@@ -53,6 +54,9 @@ void setUpServiceLocater() {
 
 //profile
 
-getIt.registerSingleton<ProfileRepoImpl>(
+  getIt.registerSingleton<ProfileRepoImpl>(
       ProfileRepoImpl(getIt.get<ApiServices>()));
+// wallet
+  getIt.registerSingleton<WalletRepoImpl>(
+      WalletRepoImpl(getIt.get<ApiServices>()));
 }

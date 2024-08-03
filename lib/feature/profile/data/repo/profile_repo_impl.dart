@@ -25,22 +25,16 @@
 //       return left(ServiecesFailure(e.toString()));
 //     }
 //   }
-  
- 
+
 // //********       info profile                       *********//////
 
 //  @override
 //   Future<Either<Failure, ProfileSuccess>> getInfoProfile() {
-    
+
 //     throw UnimplementedError();
 //   }
 
-
 // }
-
-
-
-
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
@@ -70,6 +64,7 @@ class ProfileRepoImpl implements ProfileRepo {
     }
   }
 
+////*******        info prfile                ****** */
   @override
   Future<Either<Failure, UserModel>> getUser() async {
     try {

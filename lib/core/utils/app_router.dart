@@ -203,6 +203,8 @@ class AppRouter {
           );
         },
       ),
+
+////*****           wallet      ***** */
       GoRoute(
         path: kWalletView,
         builder: (context, state) => const WalletView(),
