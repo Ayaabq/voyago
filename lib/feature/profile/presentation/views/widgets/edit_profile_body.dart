@@ -126,16 +126,16 @@ class _EditProfileBodyState extends State<EditProfileBody> {
                   keyboardType: TextInputType.name,
                   validator: (value) => ValidatorManager().validateName(value)),
             ),
-            InformationEdit(
-              icon: Icons.email_outlined,
-              label: "Email".tr(),
-              value: 'ayaalmallah@gmail.com',
-              child: TextFieldProfile(
-                  hint: "",
-                  keyboardType: TextInputType.emailAddress,
-                  validator: (value) =>
-                      ValidatorManager().validateEmail(value)),
-            ),
+            // InformationEdit(
+            //   icon: Icons.email_outlined,
+            //   label: "Email".tr(),
+            //   value: 'ayaalmallah@gmail.com',
+            //   child: TextFieldProfile(
+            //       hint: "",
+            //       keyboardType: TextInputType.emailAddress,
+            //       validator: (value) =>
+            //           ValidatorManager().validateEmail(value)),
+            // ),
             InformationEdit(
               icon: Icons.phone,
               label: "Phone Number".tr(),
@@ -149,6 +149,36 @@ class _EditProfileBodyState extends State<EditProfileBody> {
             InformationEdit(
               icon: Icons.location_on,
               label: "Hometown".tr(),
+              value: 'Damascus, Syria',
+              child: TextFieldProfile(
+                  hint: "",
+                  keyboardType: TextInputType.name,
+                  validator: (value) =>
+                      ValidatorManager().validateLocation(value)),
+            ),
+InformationEdit(
+              icon: Icons.location_on,
+              label: "old password",
+              value: 'Damascus, Syria',
+              child: TextFieldProfile(
+                  hint: "",
+                  keyboardType: TextInputType.name,
+                  validator: (value) =>
+                      ValidatorManager().validateLocation(value)),
+            ),
+InformationEdit(
+              icon: Icons.location_on,
+              label: "new password",
+              value: 'Damascus, Syria',
+              child: TextFieldProfile(
+                  hint: "",
+                  keyboardType: TextInputType.name,
+                  validator: (value) =>
+                      ValidatorManager().validateLocation(value)),
+            ),
+InformationEdit(
+              icon: Icons.location_on,
+              label: "conf password",
               value: 'Damascus, Syria',
               child: TextFieldProfile(
                   hint: "",

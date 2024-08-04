@@ -32,11 +32,11 @@ class PersonalInformationBody extends StatelessWidget {
                   GoRouter.of(context).push(AppRouter.kEditProfileView);
                 }),
           ),
-          const SizedBox(height: 10),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: ButtonAuth(title: "Change my password".tr(), onTap: () {}),
-          )
+          // const SizedBox(height: 10),
+          // Padding(
+          //   padding: const EdgeInsets.symmetric(horizontal: 20),
+          //   child: ButtonAuth(title: "Change my password".tr(), onTap: () {}),
+          // )
         ],
       ),
     );
