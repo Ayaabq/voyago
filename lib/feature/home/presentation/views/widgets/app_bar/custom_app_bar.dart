@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:voyago/core/utils/app_router.dart';
 
 import 'package:voyago/feature/home/presentation/views/widgets/app_bar/location_icon_button.dart';
@@ -22,9 +23,10 @@ class CustomAppBar extends StatelessWidget {
         SearchElevatedButton(onTap: () {
           GoRouter.of(context).push(AppRouter.kSearchView);
         }),
-        LocationIconButton(onTap: () {
+        AppBarIconButton(onTap: () {
           GoRouter.of(context).push(AppRouter.kLocationView);
-        })
+        }),
+
       ],
     );
   }

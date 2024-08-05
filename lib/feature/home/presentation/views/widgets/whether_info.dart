@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/core/widgets/custom_failure_error.dart';
@@ -9,6 +10,8 @@ import 'package:voyago/feature/home/presentation/maneger/weather_cubit/weather_c
 import 'package:voyago/feature/home/presentation/maneger/weather_cubit/weather_state.dart';
 import 'package:voyago/feature/location&map/presentation/manager/location_cubit.dart';
 import 'package:voyago/feature/location&map/presentation/manager/location_state.dart';
+
+import 'app_bar/location_icon_button.dart';
 
 class WhetherInfo extends StatefulWidget {
   const WhetherInfo({super.key, required this.degree, required this.country});
@@ -52,7 +55,12 @@ class _WhetherInfoState extends State<WhetherInfo> {
                         Text(
                           weatherModel.address,
                           style: Styles.textStyle20W700.copyWith(color: CustomColors.kWhite[0]),
-                        )
+                        ),
+                        Spacer(),
+                        AppBarIconButton(
+                            icon: Iconsax.notification,
+                            onTap: () {
+                            }),
                       ],
                     ),
                     Text(
