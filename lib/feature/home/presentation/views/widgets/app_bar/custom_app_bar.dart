@@ -26,7 +26,11 @@ class CustomAppBar extends StatelessWidget {
         AppBarIconButton(onTap: () {
           GoRouter.of(context).push(AppRouter.kLocationView);
         }),
+        AppBarIconButton(
+            icon: Iconsax.notification,
+            onTap: () {
 
+            }),
       ],
     );
   }

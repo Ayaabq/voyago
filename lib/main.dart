@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:voyago/core/domain/services/firebase_api.dart';
+import 'package:voyago/core/utils/confg.dart';
 import 'package:voyago/core/utils/screen_size_util.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:voyago/core/utils/services_locater.dart';
@@ -25,6 +27,7 @@ import 'firebase_options.dart';
 void main() async {
 
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  Gemini.init(apiKey: Confg.geminiApiKEY);
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );

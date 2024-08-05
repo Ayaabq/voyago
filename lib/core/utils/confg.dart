@@ -85,5 +85,6 @@ static const String wallet='/profile/wallet';
 
 static const String historyWallet='/profile/wallet_history';
 
-// 
+// ai chat
+static const String geminiApiKEY='AIzaSyB56tWY8pSDtt4UO5TyBYMvnXBESHxgruE';
 }

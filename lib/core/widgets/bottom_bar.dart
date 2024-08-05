@@ -60,6 +60,8 @@ library;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:voyago/core/utils/app_router.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/core/utils/services_locater.dart';
 import 'package:voyago/feature/books/presentation/views/books_view.dart';
@@ -89,7 +91,7 @@ class _BottomBarState extends State<BottomBar> {
     const HomeView(),
     const BooksView(),
     const FavoritesView(),
-    ProfileView(),
+    const ProfileView(),
     
   ];
 
@@ -119,6 +121,18 @@ class _BottomBarState extends State<BottomBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation:
+      FloatingActionButtonLocation.endFloat,
+      floatingActionButton:
+      IconButton(
+
+        style: ButtonStyle(
+            backgroundColor: WidgetStateProperty.all(CustomColors.kHighlightMove)
+        ),
+        onPressed: () {
+          GoRouter.of(context).push(AppRouter.kAiView);
+        }, icon: const Icon(Iconsax.magicpen,
+        size:35,),),
       body: _screens[_currentIndex],
       bottomNavigationBar: CurvedNavigationBar(
         index: _currentIndex,

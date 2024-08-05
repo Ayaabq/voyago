@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:voyago/core/utils/services_locater.dart';
+import 'package:voyago/feature/ai_assistent/presentation/views/ai_view.dart';
 import 'package:voyago/feature/attraction/data/models/attraction_model.dart';
 import 'package:voyago/feature/attraction/presentation/views/widgets/attraction_details.dart';
 import 'package:voyago/feature/destination/data/models/destination_model.dart';
@@ -12,14 +13,11 @@ import 'package:voyago/feature/forgot_password/presentation/views/success_sginup
 import 'package:voyago/feature/forgot_password/presentation/views/verification_code_passwordview.dart';
 import 'package:voyago/feature/get_started/presentation/views/get_started.dart';
 import 'package:voyago/feature/location&map/presentation/views/widgets/location_input.dart';
-import 'package:voyago/feature/profile/data/repo/profile_repo_impl.dart';
-import 'package:voyago/feature/profile/presentation/manager/profile/info_profile/info_profile_cubit.dart';
 import 'package:voyago/feature/profile/presentation/views/edit_profile_view.dart';
 
 import 'package:voyago/feature/search/presentation/views/search_view.dart';
 import 'package:voyago/feature/trip&booking/data/models/trip_model.dart';
 import 'package:voyago/feature/reviews/reviews_view.dart';
-import 'package:voyago/feature/trip&booking/presentation/views/widgets/checkout/checkout_view_body.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/trip_view.dart';
 import 'package:voyago/feature/wallet/presentation/views/detiles_wallet_history.dart';
 import 'package:voyago/feature/wallet/presentation/views/fill_wallet.dart';
@@ -59,6 +57,7 @@ class AppRouter {
   static const kSearchView = "/SearchView";
   static const kReviewsView = "/ReviewsView";
   static const kCheckoutView = "/CheckoutView";
+  static const kAiView = "/kAiView";
 
   ///*****          profile     **** */
   static const kPersonalInformationView = "/PersonalInformationView";
@@ -145,7 +144,7 @@ class AppRouter {
         path: kTripDetailsView,
         builder: (context, state) {
           final TripModel trip =
-              state.extra as TripModel; // Cast the extra to Trip
+          state.extra as TripModel; // Cast the extra to Trip
           return TripView(
               tripModel: trip); // Pass the Trip model to the TripView
         },
@@ -197,7 +196,7 @@ class AppRouter {
         path: kDestinationDetailsView,
         builder: (context, state) {
           final DestinationModel destination =
-              state.extra as DestinationModel; //
+          state.extra as DestinationModel; //
           return DestinationDetailsView(
             destinationModel: destination,
           );
@@ -227,7 +226,7 @@ class AppRouter {
         path: kAttractionDetailsView,
         builder: (context, state) {
           final AttractionModel attraction =
-              state.extra as AttractionModel; // Cast the extra to Trip
+          state.extra as AttractionModel; // Cast the extra to Trip
           return AttractionDetailsView(
             attraction: attraction,
           ); // Pass the Trip model to the TripView
@@ -251,6 +250,12 @@ class AppRouter {
         path: kLocationView,
         builder: (context, state) {
           return const LocationInput();
+        },
+      ), GoRoute(
+        path: kAiView,
+        builder: (context, state) {
+          return const AiView(
+          );
         },
       ),
     ],

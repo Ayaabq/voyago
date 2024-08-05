@@ -56,11 +56,7 @@ class _WhetherInfoState extends State<WhetherInfo> {
                           weatherModel.address,
                           style: Styles.textStyle20W700.copyWith(color: CustomColors.kWhite[0]),
                         ),
-                        Spacer(),
-                        AppBarIconButton(
-                            icon: Iconsax.notification,
-                            onTap: () {
-                            }),
+
                       ],
                     ),
                     Text(
