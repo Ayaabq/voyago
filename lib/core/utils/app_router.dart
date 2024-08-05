@@ -13,6 +13,7 @@ import 'package:voyago/feature/forgot_password/presentation/views/success_sginup
 import 'package:voyago/feature/forgot_password/presentation/views/verification_code_passwordview.dart';
 import 'package:voyago/feature/get_started/presentation/views/get_started.dart';
 import 'package:voyago/feature/location&map/presentation/views/widgets/location_input.dart';
+import 'package:voyago/feature/notification/presentation/views/notification_view.dart';
 
 import 'package:voyago/feature/profile/presentation/views/edit_profile_view.dart';
 
@@ -59,6 +60,7 @@ class AppRouter {
   static const kReviewsView = "/ReviewsView";
   static const kCheckoutView = "/CheckoutView";
   static const kAiView = "/kAiView";
+  static const kNotificationView = "/kNotificationView";
 
   ///*****          profile     **** */
   static const kPersonalInformationView = "/PersonalInformationView";
@@ -257,6 +259,12 @@ class AppRouter {
         builder: (context, state) {
           return const AiView(
           );
+        },
+      ),
+      GoRoute(
+        path: kNotificationView,
+        builder: (context, state) {
+          return const NotificationView();
         },
       ),
     ],

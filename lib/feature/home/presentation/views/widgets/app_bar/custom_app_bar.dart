@@ -29,7 +29,7 @@ class CustomAppBar extends StatelessWidget {
         AppBarIconButton(
             icon: Iconsax.notification,
             onTap: () {
-
+              GoRouter.of(context).push(AppRouter.kNotificationView);
             }),
       ],
     );
