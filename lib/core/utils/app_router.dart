@@ -12,6 +12,7 @@ import 'package:voyago/feature/forgot_password/presentation/views/success_sginup
 import 'package:voyago/feature/forgot_password/presentation/views/verification_code_passwordview.dart';
 import 'package:voyago/feature/get_started/presentation/views/get_started.dart';
 import 'package:voyago/feature/location&map/presentation/views/widgets/location_input.dart';
+import 'package:voyago/feature/profile/data/models/user_model.dart';
 import 'package:voyago/feature/profile/data/repo/profile_repo_impl.dart';
 import 'package:voyago/feature/profile/presentation/manager/profile/info_profile/info_profile_cubit.dart';
 import 'package:voyago/feature/profile/presentation/views/edit_profile_view.dart';
