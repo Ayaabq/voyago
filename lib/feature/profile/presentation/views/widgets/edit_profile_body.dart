@@ -83,10 +83,11 @@
 //   }
 // }
 
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:voyago/feature/profile/data/models/user_model.dart';
 import 'package:voyago/feature/profile/presentation/views/widgets/profile_textfield.dart';
 
 import '../../../../../core/utils/custom_colors.dart';
@@ -94,11 +95,14 @@ import '../../../../../core/utils/screen_size_util.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../../core/utils/validator_manager.dart';
 import '../../../../auth/login/presentation/views/widgets/button_auth.dart';
+import '../../manager/profile/info_profile/info_profile_cubit.dart';
 import 'appbar_profile.dart';
 import 'edit_image_prof.dart';
 
 class EditProfileBody extends StatefulWidget {
-  const EditProfileBody({super.key});
+  const EditProfileBody({
+    super.key,
+  });
 
   @override
   State<EditProfileBody> createState() => _EditProfileBodyState();
@@ -107,11 +111,12 @@ class EditProfileBody extends StatefulWidget {
 class _EditProfileBodyState extends State<EditProfileBody> {
   @override
   Widget build(BuildContext context) {
+//context.read<UserCubit>().fetchUser();
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-             ProfileAppBar(
+            ProfileAppBar(
               titel: "Edit Personal Information".tr(),
             ),
             const SizedBox(height: 30),
@@ -123,6 +128,8 @@ class _EditProfileBodyState extends State<EditProfileBody> {
               value: 'Ayalmalla',
               child: TextFieldProfile(
                   hint: "",
+
+                  //widget.usermodel.username,
                   keyboardType: TextInputType.name,
                   validator: (value) => ValidatorManager().validateName(value)),
             ),
@@ -142,6 +149,7 @@ class _EditProfileBodyState extends State<EditProfileBody> {
               value: '0964682070',
               child: TextFieldProfile(
                   hint: "",
+                  //    hint: widget.usermodel.phone ?? "",
                   keyboardType: TextInputType.number,
                   validator: (value) =>
                       ValidatorManager().validatePhone(value)),
@@ -152,11 +160,12 @@ class _EditProfileBodyState extends State<EditProfileBody> {
               value: 'Damascus, Syria',
               child: TextFieldProfile(
                   hint: "",
+                  //      hint: widget.usermodel.location ?? "",
                   keyboardType: TextInputType.name,
                   validator: (value) =>
                       ValidatorManager().validateLocation(value)),
             ),
-InformationEdit(
+            InformationEdit(
               icon: Icons.location_on,
               label: "old password",
               value: 'Damascus, Syria',
@@ -166,20 +175,20 @@ InformationEdit(
                   validator: (value) =>
                       ValidatorManager().validateLocation(value)),
             ),
-InformationEdit(
+            InformationEdit(
               icon: Icons.location_on,
               label: "new password",
-              value: 'Damascus, Syria',
+              value: '',
               child: TextFieldProfile(
                   hint: "",
                   keyboardType: TextInputType.name,
                   validator: (value) =>
                       ValidatorManager().validateLocation(value)),
             ),
-InformationEdit(
+            InformationEdit(
               icon: Icons.location_on,
               label: "conf password",
-              value: 'Damascus, Syria',
+              value: '',
               child: TextFieldProfile(
                   hint: "",
                   keyboardType: TextInputType.name,
@@ -230,12 +239,10 @@ class InformationEdit extends StatelessWidget {
             children: [
               Icon(icon, color: CustomColors.kMove[5]),
               const SizedBox(width: 10),
-              Text(
-                label,
-                style: Styles.textStyle16W600
+              Text(label, style: Styles.textStyle16W600
 // .copyWith(
 //                     fontWeight: FontWeight.w600, color: CustomColors.kBlack[1]),
-              ),
+                  ),
               const SizedBox(
                 height: 10,
               ),

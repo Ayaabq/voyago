@@ -27,6 +27,9 @@ class ValidatorManager {
     if (value.length < 3) {
       return 'Location must be at least 3 characters';
     }
+if (value.length > 30) {
+      return 'Location must be at less 30 characters';
+    }
     return null;
   }
 

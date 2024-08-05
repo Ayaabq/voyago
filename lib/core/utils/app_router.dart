@@ -13,6 +13,7 @@ import 'package:voyago/feature/forgot_password/presentation/views/success_sginup
 import 'package:voyago/feature/forgot_password/presentation/views/verification_code_passwordview.dart';
 import 'package:voyago/feature/get_started/presentation/views/get_started.dart';
 import 'package:voyago/feature/location&map/presentation/views/widgets/location_input.dart';
+
 import 'package:voyago/feature/profile/presentation/views/edit_profile_view.dart';
 
 import 'package:voyago/feature/search/presentation/views/search_view.dart';
