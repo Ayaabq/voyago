@@ -24,6 +24,7 @@ class Confg {
   static const String popularTrips = "/popular_trips";
 
   //favorite
+  static const String getFavorite="/profile/favourites";
   static const String addDestinationFavouriteUrl =
       "/add_destenation_favourite/";
   static const String addTripFavouriteUrl = "/add_trip_favourite/";

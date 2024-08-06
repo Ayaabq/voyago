@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:voyago/feature/favorite/presentation/views/favorite_icon_button.dart';
+import 'package:voyago/feature/favorite/presentation/views/widgets/favorite_icon_button.dart';
 
 import 'package:voyago/feature/home/presentation/views/widgets/offers/offers_details_column.dart';
 

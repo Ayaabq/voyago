@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:voyago/core/utils/app_router.dart';
 import 'package:voyago/core/utils/screen_size_util.dart';
-import 'package:voyago/feature/favorite/presentation/views/favorite_icon_button.dart';
+import 'package:voyago/feature/favorite/presentation/views/widgets/favorite_icon_button.dart';
 import 'package:voyago/feature/home/presentation/views/widgets/trip_search/widgets/search_trip_image.dart';
 
 class TripSearchCard extends StatelessWidget {

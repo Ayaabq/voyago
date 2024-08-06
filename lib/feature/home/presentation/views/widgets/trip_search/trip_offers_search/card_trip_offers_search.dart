@@ -4,7 +4,7 @@ import 'package:voyago/core/utils/assets.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/core/widgets/custom_rate.dart';
-import 'package:voyago/feature/favorite/presentation/views/favorite_icon_button.dart';
+import 'package:voyago/feature/favorite/presentation/views/widgets/favorite_icon_button.dart';
 import 'package:voyago/feature/home/presentation/views/widgets/trip_search/trip_offers_search/colunm_offer_trip.dart';
 
 import '../../../../../../../core/utils/screen_size_util.dart';
