@@ -14,14 +14,15 @@ import 'destination_item.dart';
 
 
 class DestinationListView extends StatelessWidget {
-  const DestinationListView({super.key, required this.url});
-  final String url;
+  const DestinationListView({super.key,  this.url, this.isFavorite});
+  final String? url;
+  final bool? isFavorite;
   @override
 
   @override
   Widget build(BuildContext context) {
-
-    context.read<DestinationCubit>().fetchDestinationInitial(url);
+      if(url!=null)
+    context.read<DestinationCubit>().fetchDestinationInitial(url!);
 
     return BlocBuilder<DestinationCubit, DestinationState>(
       builder: (ctx,state){

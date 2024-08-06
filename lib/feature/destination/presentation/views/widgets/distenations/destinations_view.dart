@@ -7,13 +7,13 @@ import '../../../manager/destination_cubit/destination_cubit.dart';
 import 'destination_list.dart';
 
 class DestinationsView extends StatelessWidget {
-  final String url;
+  final String? url;
   final Key viewKey; // Add a unique key for each DestinationsView
-
+  final bool? isFavorite;
   const DestinationsView({
     super.key,
-    required this.url,
-    required this.viewKey, // Require the unique key
+     this.url,
+    required this.viewKey, this.isFavorite, // Require the unique key
   });
 
   @override
