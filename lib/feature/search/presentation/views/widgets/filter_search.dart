@@ -52,7 +52,8 @@ class _FilterSearchTripsState extends State<FilterSearchTrips> {
                   onTap: () {},
                   fillColor: Theme.of(context).brightness == Brightness.dark
                       ? const Color(0xff636363)
-                      : CustomColors.kWhite[3],
+                      /// TODO put the right controller
+                      : CustomColors.kWhite[3], searchController: TextEditingController(),
                 ),
               ),
 

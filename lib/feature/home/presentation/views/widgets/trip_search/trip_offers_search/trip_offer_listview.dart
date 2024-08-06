@@ -14,6 +14,8 @@ class TripsOffersListView extends StatelessWidget {
       child: ListView.builder(
         // physics: NeverScrollableScrollPhysics(),
         // shrinkWrap: true,
+
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         scrollDirection: Axis.horizontal,
         itemCount: 10,
         itemBuilder: (context, index) {

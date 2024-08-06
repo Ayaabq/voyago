@@ -6,10 +6,11 @@ import 'package:iconsax/iconsax.dart';
 class SearchElevated extends StatelessWidget {
   const SearchElevated({
     super.key,
-    required this.onTap, required this.fillColor,
+    required this.onTap, required this.fillColor, required this.searchController,
   });
   final void Function() onTap;
   final Color fillColor;
+  final TextEditingController searchController;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -17,6 +18,7 @@ class SearchElevated extends StatelessWidget {
       height: 38,
 
       child: TextField(
+        controller: searchController,
         decoration: InputDecoration(
           hintText: 'Damascus',
           hintStyle: const TextStyle(color: Colors.black54),

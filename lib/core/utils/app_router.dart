@@ -158,7 +158,12 @@ class AppRouter {
 
       GoRoute(
         path: kSearchView,
-        builder: (context, state) => const SearchView(),
+        builder: (context, state) {
+
+          final type= (state.extra)as String;
+
+          return  SearchView(type: type,);
+        },
       ),
       GoRoute(
         path: kReviewsView,

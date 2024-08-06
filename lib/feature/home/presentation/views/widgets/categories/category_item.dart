@@ -48,11 +48,12 @@ import '../../../../../../core/utils/screen_size_util.dart';
 class CategoryItem extends StatelessWidget {
   final String title;
   final String iconPath;
+  final void Function() onTap;
 
   const CategoryItem({
     super.key,
     required this.title,
-    required this.iconPath,
+    required this.iconPath, required this.onTap,
   });
 
   @override
@@ -69,7 +70,7 @@ class CategoryItem extends StatelessWidget {
               ScreenSizeUtil.dynamicWidth(0.045)), // 4.5% of the screen width
         ),
         child: TextButton.icon(
-          onPressed: () {},
+          onPressed: onTap,
           icon: Image.asset(
             iconPath,
             width: ScreenSizeUtil.dynamicWidth(0.1), // 8% of the screen width

@@ -5,8 +5,8 @@ import 'package:voyago/feature/search/presentation/views/widgets/search_elv.dart
 import '../../../../../core/utils/custom_colors.dart';
 
 class CustomAppBarSearch extends StatelessWidget {
-  const CustomAppBarSearch({super.key});
-
+  const CustomAppBarSearch({super.key, required this.searchController});
+final TextEditingController searchController;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -28,6 +28,7 @@ class CustomAppBarSearch extends StatelessWidget {
             fillColor: Theme.of(context).brightness == Brightness.dark
                 ? const Color(0xff636363)
                 : CustomColors.kWhite[3],
+            searchController: searchController,
           ),
           IconButton(
             padding: EdgeInsetsDirectional.zero,

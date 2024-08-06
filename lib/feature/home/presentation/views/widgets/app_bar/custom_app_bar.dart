@@ -21,7 +21,7 @@ class CustomAppBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         SearchElevatedButton(onTap: () {
-          GoRouter.of(context).push(AppRouter.kSearchView);
+          GoRouter.of(context).push(AppRouter.kSearchView, extra: "all");
         }),
         AppBarIconButton(onTap: () {
           GoRouter.of(context).push(AppRouter.kLocationView);

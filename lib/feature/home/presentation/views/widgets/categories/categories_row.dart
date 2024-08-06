@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../../../core/utils/app_router.dart';
 import '../../../../../../core/utils/assets.dart';
 import '../../../../../../core/utils/screen_size_util.dart';
 import 'category_item.dart';
@@ -17,6 +19,10 @@ class CategoriesRow extends StatelessWidget {
       child: Row(
         children: [
            CategoryItem(
+             onTap: (){
+               GoRouter.of(context).push(AppRouter.kSearchView, extra: "trip");
+
+             },
             title: "Trips".tr(),
             iconPath: HomeAssets.categoryTripsIcon,
           ),
@@ -24,6 +30,10 @@ class CategoriesRow extends StatelessWidget {
               width: ScreenSizeUtil.dynamicWidth(
                   0.06)), // 6% of the screen width spacing
            CategoryItem(
+             onTap: (){
+               GoRouter.of(context).push(AppRouter.kSearchView, extra: "attraction");
+
+             },
             title: "Attractions".tr(),
             iconPath: HomeAssets.categoryAttractionIcon,
           ),
