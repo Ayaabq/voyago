@@ -1,4 +1,6 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:go_router/go_router.dart';
+import 'package:voyago/core/utils/app_router.dart';
 class FirebaseApi{
   //create an instance of firebase messaging
   final _firebaseMessaging=FirebaseMessaging.instance;
@@ -14,6 +16,7 @@ class FirebaseApi{
   void handleMessage(RemoteMessage? message){
     if(message == null) return;
     // navigate to the notification screen
+    navigatorKey.currentState!.pushReplacementNamed(AppRouter.kNotificationView);
 
   }
 

@@ -1,66 +1,52 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:voyago/core/helper/date_time_helper.dart';
+import 'package:voyago/core/utils/services_locater.dart';
+import 'package:voyago/feature/notification/data/repo/notification_repo_impl.dart';
+import 'package:voyago/feature/notification/presentation/manager/notification_cubit/notificatoin_cubit.dart';
+import 'package:voyago/feature/notification/presentation/views/widget/notification_view_body.dart';
+
+import '../../data/model/notification_model.dart';
 
 class NotificationView extends StatelessWidget {
   const NotificationView({super.key});
-  final List<NotificationItem> notifications = const [
-    NotificationItem(
-      title: 'New Message',
-      details: 'You have received a new message from John.',
-      icon: Icons.message,
-    ),
-    NotificationItem(
-      title: 'Update Available',
-      details: 'A new update is available for your app.',
-      icon: Icons.system_update,
-    ),
-    NotificationItem(
-      title: 'Reminder',
-      details: 'Don\'t forget your meeting at 3 PM today.',
-      icon: Icons.notifications,
-    ),
-    NotificationItem(
-      title: 'Friend Request',
-      details: 'Alice has sent you a friend request.',
-      icon: Icons.person_add,
-    ),
-  ];
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    final List<NotificationModel> notifications =  [
+      NotificationModel(
+        title: 'New Message',
+        body: 'You have received a new message from John.',
+        id: 1, time: DateTime.now(),
+      ),
+      NotificationModel(
+        title: 'Update Available',
+        body: 'A new update is available for your app.',
+        id: 1, time: DateTime.now(),
+
+      ),
+      NotificationModel(
+        title: 'Reminder',
+        body: 'Don\'t forget your meeting at 3 PM today.',
+        id: 1, time: DateTime.now(),
+      ),
+      NotificationModel(
+        title: 'Friend Request',
+        body: 'Alice has sent you a friend request.',
+        id: 1, time: DateTime.now(),
+      ),
+    ];
+
+    return BlocProvider(
+      create: (context)=>NotificationCubit(getIt.get<NotificationRepoImp>()),
+      child:  Scaffold(
       appBar: AppBar(
         title: const Text('Notifications'),
       ),
-      body: ListView.separated(
-        itemCount: notifications.length,
-        itemBuilder: (context, index) {
-          final notification = notifications[index];
-          return ListTile(
-            leading: CircleAvatar(
-              child: Icon(notification.icon),
-            ),
-            title: Text(notification.title),
-            subtitle: Text(notification.details),
-            onTap: () {
-              // Handle notification tap
-            },
-          );
-        }, separatorBuilder: (BuildContext context, int index) =>Divider(),
-      ),
-    );
+      body: const NotificationViewBody(),
+    ),);
   }
 }
 
 
 
-class NotificationItem {
-  final String title;
-  final String details;
-  final IconData icon;
-
-  const NotificationItem({
-    required this.title,
-    required this.details,
-    required this.icon,
-  });
-}

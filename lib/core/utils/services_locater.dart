@@ -8,6 +8,8 @@ import 'package:voyago/feature/auth/login/data/repo/login_repo_impl.dart';
 import 'package:voyago/feature/auth/register/data/repo/auth_register_repo_imp.dart';
 import 'package:voyago/feature/favorite/data/repo/favorite_repo_impl.dart';
 import 'package:voyago/feature/home/data/repo/weather_repo/weather_repo_impl.dart';
+import 'package:voyago/feature/notification/data/repo/notification_repo.dart';
+import 'package:voyago/feature/notification/data/repo/notification_repo_impl.dart';
 import 'package:voyago/feature/place/data/repo/place_reop.dart';
 import 'package:voyago/feature/profile/data/repo/profile_repo_impl.dart';
 import 'package:voyago/feature/reviews/data/repo/review_repo_impl.dart';
@@ -59,4 +61,6 @@ void setUpServiceLocater() {
 // wallet
   getIt.registerSingleton<WalletRepoImpl>(
       WalletRepoImpl(getIt.get<ApiServices>()));
+  getIt.registerSingleton<NotificationRepoImp>(
+      NotificationRepoImp(getIt.get<ApiServices>()));
 }

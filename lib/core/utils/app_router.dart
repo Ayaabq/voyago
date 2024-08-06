@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:voyago/core/utils/services_locater.dart';
@@ -42,6 +43,7 @@ import '../../feature/profile/presentation/views/setting_view.dart';
 import '../../feature/reviews/presentation/veiws/reviews_view.dart';
 import '../../feature/trip&booking/presentation/views/checkout_view.dart';
 import '../widgets/bottom_bar.dart';
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 class AppRouter {
   static const kGetStartedView = "/GetStartedView";
@@ -91,6 +93,7 @@ class AppRouter {
   //// ***location*** /////
 
   static final router = GoRouter(
+    navigatorKey: navigatorKey,
     initialLocation: initial,
     routes: [
       GoRoute(
@@ -264,7 +267,7 @@ class AppRouter {
       GoRoute(
         path: kNotificationView,
         builder: (context, state) {
-          return const NotificationView();
+          return const  NotificationView();
         },
       ),
     ],

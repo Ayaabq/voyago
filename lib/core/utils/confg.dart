@@ -86,8 +86,8 @@ class Confg {
 
   static const String historyWallet = '/profile/wallet_history';
 
-
 // ai chat
-static const String geminiApiKEY='AIzaSyB56tWY8pSDtt4UO5TyBYMvnXBESHxgruE';
-
+  static const String geminiApiKEY = 'AIzaSyB56tWY8pSDtt4UO5TyBYMvnXBESHxgruE';
+  // notification
+  static const String getNotificatio="/Notifications";
 }
