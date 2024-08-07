@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:voyago/core/domain/services/firebase_api.dart';
+import 'package:voyago/core/stripe_payment/stripe_keys.dart';
 import 'package:voyago/core/utils/confg.dart';
 import 'package:voyago/core/utils/screen_size_util.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -10,17 +11,13 @@ import 'package:voyago/core/utils/services_locater.dart';
 import 'package:voyago/feature/profile/data/repo/settings_repo_impl.dart';
 import 'package:voyago/feature/profile/presentation/manager/currency_cubit/currency_cubit.dart';
 
-import 'constants.dart';
 import 'core/utils/app_router.dart';
-import 'core/utils/storge_token.dart';
 import 'feature/favorite/data/repo/favorite_repo_impl.dart';
 import 'feature/favorite/presentation/manager/change_favorite_cubit/favorite_cubit.dart';
 import 'feature/location&map/data/repo/location_repo.dart';
 import 'feature/location&map/presentation/manager/location_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
 
-import 'feature/profile/data/repo/settings_repo_impl.dart';
-import 'feature/profile/presentation/manager/currency_cubit/currency_cubit.dart';
 import 'feature/theme/widgets/cubit/app_theme_cubit.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -30,6 +27,7 @@ void main() async {
 
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   Gemini.init(apiKey: Confg.geminiApiKEY);
+  Stripe.publishableKey=ApiKeys.publisherKey;
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );

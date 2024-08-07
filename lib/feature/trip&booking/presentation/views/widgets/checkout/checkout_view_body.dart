@@ -11,6 +11,7 @@ import 'package:voyago/feature/trip&booking/presentation/views/maneger/pages_cub
 import 'package:voyago/feature/trip&booking/presentation/views/maneger/pages_cubit/pages_cubit.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/checkout/floatin_checkout.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/checkout/pages_view.dart';
+import '../../../../../../core/stripe_payment/payment_manager.dart';
 import '../../../../../../core/utils/validator_manager.dart';
 import '../../../../../../core/widgets/back_icon_app_bar.dart';
 import 'side_indicator.dart';
@@ -86,7 +87,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
 
   void _onBookTaped() async {
     int dialog=0;
-
+    PaymentManager.makePayment(40, "EGP");
     if(valid()){
       dialog++;
       final subscription= manager.stream.listen((state){
