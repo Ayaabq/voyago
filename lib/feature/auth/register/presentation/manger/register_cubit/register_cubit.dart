@@ -37,58 +37,6 @@
 //   }
 // }
 // /*
-// import 'package:bloc/bloc.dart';
-// import 'package:dio/dio.dart';
-// import 'sign_up_data.dart'; // افترض أن ملف SignUpData يحتوي على الكود الخاص بك
-// import 'failure.dart'; // افترض أن ملف Failure يحتوي على الكود الخاص بك
-
-// // Auth States
-// abstract class AuthState {}
-
-// class AuthInitial extends AuthState {}
-
-// class AuthLoading extends AuthState {}
-
-// class AuthSuccess extends AuthState {
-//   final String message;
-
-//   AuthSuccess(this.message);
-// }
-
-// class AuthError extends AuthState {
-//   final String error;
-
-//   AuthError(this.error);
-// }
-
-// // Auth Cubit
-// class AuthCubit extends Cubit<AuthState> {
-//   final Dio dio;
-
-//   AuthCubit(this.dio) : super(AuthInitial());
-
-//   Future<void> signUp(SignUpData signUpData) async {
-//     emit(AuthLoading());
-//     try {
-//       final response = await dio.post(
-//         'https://yourapi.com/signup', // ضع هنا رابط API المناسب
-//         data: signUpData.toJson(),
-//       );
-
-//       if (response.statusCode == 200) {
-//         String message = response.data['message'];
-//         emit(AuthSuccess(message));
-//       } else {
-//         emit(AuthError('Sign Up Failed'));
-//       }
-//     } on DioException catch (e) {
-//       final failure = ServiecesFailure.fromDioError(e);
-//       emit(AuthError(failure.errMessage));
-//     } catch (e) {
-//       emit(AuthError(e.toString()));
-//     }
-//   }
-// }
 
 // */
 import 'package:bloc/bloc.dart';
