@@ -58,6 +58,7 @@ import 'package:voyago/core/domain/services/api.dart';
 import 'package:voyago/core/utils/confg.dart';
 import 'package:voyago/feature/auth/login/data/repo/login_repo.dart';
 
+import '../../../../../core/utils/storge_token.dart';
 import '../../manger/login_cubit/login_state.dart';
 
 class LoginRepoImp implements LoginRepo {
@@ -67,11 +68,15 @@ class LoginRepoImp implements LoginRepo {
 
   @override
   Future<Either<Failure, LoginSuccess>> loginData(
-      String username, String password) async {
+
+  String username, String password) async {
+    final  fcm=  await AppStorage.instance.readData(AppStorage.FCM_TOKEN);
+
     try {
       var requestBody = {
         "username": username,
         "password": password,
+        "fcm":fcm
       };
       var response = await api.post(Confg.loginUrl, body: requestBody);
       return right(LoginSuccess.fromJson(response));

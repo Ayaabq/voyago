@@ -185,7 +185,7 @@ class _FillWalletBodyState extends State<FillWalletBody> {
             const FillCard(),
             const SizedBox(height: 40),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 14),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -205,7 +205,7 @@ class _FillWalletBodyState extends State<FillWalletBody> {
                     children: [
                       Text(
                         "Upload the bank deposit picture:".tr(),
-                        style: Styles.textStyle16W400
+                        style: Styles.textStyle14W400
                             .copyWith(fontWeight: FontWeight.w500),
                       ),
                       const SizedBox(width: 10),

@@ -2,6 +2,7 @@ class AssetsData {
   static const logoAllWhite = "assets/images/main/logo_all_white.png";
   static const miniLogo = "assets/images/main/mini_logo_white.png";
   static const logoAllColors = "assets/images/main/Logo_all_colors.png";
+  static const noImage = "assets/images/main/no-image.png";
 }
 
 class OnBoardingAssets extends AssetsData {

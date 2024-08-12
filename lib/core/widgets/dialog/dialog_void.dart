@@ -25,14 +25,14 @@ void showSuccessDialog(BuildContext context) {
   );
 }
 
-void showFailureDialog(BuildContext context) {
+void showFailureDialog(BuildContext context, {String sutitle = 'ffffffffffffff'}) {
   showDialog(
     context: context,
     builder: (BuildContext context) {
-      return const DialogCustom(
+      return  DialogCustom(
         title: 'Failure!',
         imagePath: Wallet.failureDialog,
-        subtitel: 'ffffffffffffff',
+        subtitel: sutitle,
       );
     },
   );

@@ -5,12 +5,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/core/widgets/toast/toast_extensions.dart';
+import 'package:voyago/feature/destination/presentation/views/widgets/distenations/destination_image.dart';
 
 import '../../../../../../core/utils/assets.dart';
 import '../../../../../../core/utils/confg.dart';
+import '../../../../../../core/utils/services_locater.dart';
 import '../../../../../favorite/presentation/manager/change_favorite_cubit/favorite_cubit.dart';
 import '../../../../../favorite/presentation/manager/change_favorite_cubit/favorite_state.dart';
 import '../../../../../favorite/presentation/views/widgets/favorite_icon_button.dart';
+import '../../../../../images/data/repo/images_repo_impl.dart';
+import '../../../../../images/presentation/manager/images_cubit.dart';
 import '../../../../data/models/destination_model.dart';
 
 class DestinationBackground extends StatelessWidget {
@@ -25,9 +29,10 @@ class DestinationBackground extends StatelessWidget {
         return Stack(
           fit: StackFit.expand,
           children: [
-            Image.asset(
-              HomeAssets.dummyDestination,
-              fit: BoxFit.cover,
+            BlocProvider(
+              create: (context) => ImageCubit(getIt.get<ImagesRepoImpl>()),
+              child: DestinationImage(id: destinationModel!.id,),
+
             ),
             Container(
               width: double.infinity,

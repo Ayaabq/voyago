@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:voyago/core/utils/custom_floating_button.dart';
+import 'package:voyago/core/widgets/dialog/dialog.dart';
 import 'package:voyago/core/widgets/dialog/dialog_void.dart';
 import 'package:voyago/feature/trip&booking/data/models/trip_model.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/maneger/checkout_cubit/checkout_cubit.dart';
@@ -12,6 +13,8 @@ import 'package:voyago/feature/trip&booking/presentation/views/maneger/pages_cub
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/checkout/floatin_checkout.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/checkout/pages_view.dart';
 import '../../../../../../core/stripe_payment/payment_manager.dart';
+import '../../../../../../core/utils/custom_colors.dart';
+import '../../../../../../core/utils/styles.dart';
 import '../../../../../../core/utils/validator_manager.dart';
 import '../../../../../../core/widgets/back_icon_app_bar.dart';
 import 'side_indicator.dart';
@@ -28,6 +31,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   late PageController _pageController;
   late int _currentPage;
   late CheckoutCubit manager;
+  bool fromWaller=false;
   @override
   void initState() {
     manager = context.read<CheckoutCubit>();
@@ -86,38 +90,109 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   }
 
   void _onBookTaped() async {
+    _showPaymentTypeDialog();
+
+
+  }
+  void _showPaymentTypeDialog(){
+    //DialogCustom
+    showDialog(context: context, builder: (ctx){
+      return  AlertDialog(
+        title: const Text("select a payment method please"),
+        content:  Column(
+          mainAxisSize: MainAxisSize.min,
+        children: [
+          ElevatedButton(
+            onPressed:(){fromWaller=true;
+              _paymentLogic();},
+            style: ElevatedButton.styleFrom(
+              backgroundColor: CustomColors.kMove[4], // Button color
+              foregroundColor: CustomColors.kWhite[0], // Text color
+              minimumSize: const Size(double.infinity, 35), // Width and height
+              maximumSize: const Size(double.infinity, 35), // Width and height
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16), // Border radius
+              ),
+            ),
+            child: const Text("Voyago wallet", style: Styles.textStyle16W700),
+          ),
+          ElevatedButton(
+            onPressed:()async{
+              fromWaller=false;
+           if(valid()){
+             int pay= manager.getTotalPrice(widget.tripModel.price.toDouble()).toInt();
+             print(pay);
+             print(pay);
+             print(pay);
+             print(pay);
+             print(pay);
+             print(pay);
+             print(pay);
+             print(pay);
+             print(pay);
+             print(pay);
+             print(pay);
+             print(pay);
+             print(pay);
+             print(pay);
+             print(pay);
+             print(pay);
+             print(pay);
+             print(pay);
+             print(pay);
+             print(pay);
+               await PaymentManager.
+             makePayment
+               (pay,
+                 "USD"
+               );
+           }},
+            style: ElevatedButton.styleFrom(
+              backgroundColor: CustomColors.kMove[4], // Button color
+              foregroundColor: CustomColors.kWhite[0], // Text color
+              minimumSize: const Size(double.infinity, 35), // Width and height
+              maximumSize: const Size(double.infinity, 35), // Width and height
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16), // Border radius
+              ),
+            ),
+            child: const Text("Credit card", style: Styles.textStyle16W700),
+          ),
+        ],
+              ),
+      );
+    });
+  }
+  void _paymentLogic()async{
     int dialog=0;
-    PaymentManager.makePayment(40, "EGP");
     if(valid()){
-      dialog++;
-      final subscription= manager.stream.listen((state){
-        if(state is CheckoutSuccess){
-          showSuccessDialog(context);
-          dialog++;
+      if(fromWaller){
+        dialog++;
+        final subscription = manager.stream.listen((state) {
+          if (state is CheckoutSuccess) {
+            showSuccessDialog(context);
+            dialog++;
+          } else if (state is CheckoutError) {
+            showFailureDialog(context, sutitle: state.message);
+            // dialog++;
+          } else if (State is CheckoutLoading) {
+            showWatingDialog(context);
+            dialog++;
+          }
+        });
+        await manager.submitCheckout(widget.tripModel.id);
+        await Future.delayed(const Duration(seconds: 1));
+      }
 
-
-        }else if(state is CheckoutError){
-          showFailureDialog(context);
-          // dialog++;
-        }else if (State is CheckoutLoading){
-          showWatingDialog(context);
-          dialog++;
-
-        }
-
-      });
-      await  manager.submitCheckout(widget.tripModel.id);
-     await Future.delayed(const Duration(seconds: 1));
     }else{
       showFailureDialog(context);
       await Future.delayed(const Duration(seconds: 2));
       dialog++;
     }
-    while(dialog--!=0)
+    while(dialog--!=0) {
       GoRouter.of(context).pop();
-
+    }
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
