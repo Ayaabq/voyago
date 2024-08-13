@@ -15,16 +15,18 @@ class ApiServicesImp implements ApiServices {
   ApiServicesImp(this._dio) {
     _dio.options
 // if you use mobile
+
      ..baseUrl = Confg.mobileApiUrl
 //if you use eml or edge
 //      ..baseUrl = Confg.baseUrl
+
       ..responseType = ResponseType.plain
       ..sendTimeout = const Duration(minutes: 1)
       ..receiveTimeout = const Duration(minutes: 1)
       ..connectTimeout = const Duration(seconds: 20)
       ..followRedirects = true;
     /// TODO: remove comment
-    // _dio.interceptors.add(dioLoggerInterceptor);
+    _dio.interceptors.add(dioLoggerInterceptor);
   }
 
   Future<void> setHeaders(bool hasToken) async {

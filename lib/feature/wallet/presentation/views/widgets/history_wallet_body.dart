@@ -1,9 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:go_router/go_router.dart';
 import 'package:voyago/core/utils/app_router.dart';
 import 'package:voyago/core/utils/styles.dart';
+import 'package:voyago/feature/wallet/data/models/history_wallet.dart';
+import 'package:voyago/feature/wallet/presentation/manger/history_wallet/cubit/history_wallet_cubit.dart';
+import 'package:voyago/feature/wallet/presentation/manger/history_wallet/cubit/history_wallet_state.dart';
 
 import '../../../../../core/utils/assets.dart';
 import '../../../../profile/presentation/views/widgets/appbar_profile.dart';
@@ -20,46 +24,69 @@ class HistoryWalletBody extends StatelessWidget {
             titel: 'History Wallet',
           ),
           //  const SizedBox(height: 50),
-          Expanded(
-            child: ListView(
-              children: const [
-                HistoryCardWallet(),
-                SizedBox(height: 6),
-                HistoryCardWallet(),
-                SizedBox(height: 6),
-                HistoryCardWallet(),
-                SizedBox(height: 6),
-                HistoryCardWallet(),
-                SizedBox(height: 6),
-                HistoryCardWallet(),
-                HistoryCardWallet(),
-                SizedBox(height: 6),
-                HistoryCardWallet(),
-                SizedBox(height: 6),
-                HistoryCardWallet(),
-                SizedBox(height: 6),
-                HistoryCardWallet(),
-                SizedBox(height: 6),
-                HistoryCardWallet()
-              ],
-            ),
-          )
+          ListHistoryWallet()
         ],
       ),
     );
   }
 }
 
+class ListHistoryWallet extends StatelessWidget {
+  ListHistoryWallet({
+    super.key,
+    this.model,
+  });
+  List<HistoryWalletModel>? model;
+  @override
+  Widget build(BuildContext context) {
+    if (model == null) {
+      context.read<HistoryWalletCubit>().fetchHistoryWallet();
+      return BlocBuilder<HistoryWalletCubit, WalletHistoryState>(
+        builder: (context, state) {
+          if (state is WalletHistorySuccess) {
+            List<HistoryWalletModel> model = state.walletHistoryModel;
+            return Expanded(
+              child: ListView.builder(
+                  itemCount: model.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return HistoryCardWallet(
+                      model: model[index],
+                    );
+                  }),
+            );
+          } else if (state is WalletHistoryLoading) {
+            return const CircularProgressIndicator();
+          } else if (state is WalletHistoryFailure) {
+            return const Center(
+                child: Text(
+              "falier",
+              style: TextStyle(color: Colors.white),
+            ));
+          }
+          return const Text(
+            "errrror",
+            style: TextStyle(color: Colors.white),
+          );
+        },
+      );
+    }
+    return const Text("data");
+  }
+}
+
 class HistoryCardWallet extends StatelessWidget {
   const HistoryCardWallet({
     super.key,
+    required this.model,
   });
-
+  final HistoryWalletModel model;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kDetilesWaletHistoryView);
+        GoRouter.of(context)
+            .push(AppRouter.kDetilesWaletHistoryView, extra: model);
+        print(model);
       },
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -69,16 +96,20 @@ class HistoryCardWallet extends StatelessWidget {
             borderRadius: BorderRadius.circular(16.0),
           ),
           elevation: 4,
-          child:  Padding(
-            padding: EdgeInsets.all(16.0),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 DateRow(
-                  date: 'feb 03, 2024',
+                  date: model.date.toUtc().toString(),
                 ),
-                SizedBox(height: 16),
-                TransactionDetail(title: "Added amount:".tr(), value: '\$1,100'),
+                const SizedBox(height: 16),
+                TransactionDetail(
+                    title: "Added amount:".tr(),
+                    value: model.amount.toString()),
+                const SizedBox(height: 16),
+                TransactionDetail(title: "Stutas:", value: model.status),
               ],
             ),
           ),
@@ -91,12 +122,13 @@ class HistoryCardWallet extends StatelessWidget {
 class DateRow extends StatelessWidget {
   const DateRow({super.key, required this.date});
   final String date;
+  // final HistoryWalletModel model;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-         Text(
+        Text(
           "Date:".tr(),
           style: Styles.textStyle14W400,
         ),
@@ -149,7 +181,7 @@ class DepositPicture extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-         Text("Deposit picture:".tr(), style: Styles.textStyle14W400),
+        Text("Deposit picture:".tr(), style: Styles.textStyle14W400),
         const SizedBox(height: 10),
         Center(
           child: Image.asset(

@@ -42,8 +42,10 @@ import 'package:voyago/core/errors/failure.dart';
 import 'package:voyago/core/utils/confg.dart';
 import 'package:voyago/feature/profile/data/repo/profile_repo.dart';
 import 'package:voyago/feature/profile/data/models/profile_model.dart';
+import 'package:voyago/feature/profile/presentation/manager/profile/edit_profile/cubit/edit_profile_state.dart';
 
 import '../../../../core/domain/services/api.dart';
+import '../models/edit_user_model.dart';
 import '../models/user_model.dart';
 
 class ProfileRepoImpl implements ProfileRepo {
@@ -51,6 +53,7 @@ class ProfileRepoImpl implements ProfileRepo {
 
   ProfileRepoImpl(this.api);
 
+////************      main profile                   ********** */
   @override
   Future<Either<Failure, ProfileModel>> getProfile() async {
     try {
@@ -70,6 +73,31 @@ class ProfileRepoImpl implements ProfileRepo {
     try {
       var response = await api.get(Confg.profileInfo, hasToken: true);
       return right(UserModel.fromJson(response));
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServiecesFailure.fromDioError(e));
+      }
+      return left(ServiecesFailure(e.toString()));
+    }
+  }
+
+
+/////*****************      edit profile                   *****************///
+  @override
+  Future<Either<Failure, EditProfileStateSuccess>> editUser( EditUser usermodel) async{
+    
+    try {
+      var requestBody = {
+        'username': usermodel.username,
+        'phone_number': usermodel.phoneNumber,
+        'country': usermodel.country,
+        'old_password': usermodel.oldPassword,
+        'password': usermodel.password,
+        'confirm_password': usermodel.confirmPassword,
+      };
+      var response = await api.post(Confg.editProfile, body: requestBody);
+
+      return right(EditProfileStateSuccess.fromJson(response));
     } catch (e) {
       if (e is DioException) {
         return left(ServiecesFailure.fromDioError(e));

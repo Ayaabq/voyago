@@ -2,7 +2,7 @@ class Confg {
   static const String baseUrl = "http://10.0.2.2:3000";
   static const String mobileUrl = "http://10.0.2.2:3000";
   static const String baseApiUrl = "http://10.0.2.2:3000/api";
-  static const String mobileApiUrl = "http://192.168.43.64:3000/api";
+  static const String mobileApiUrl = "http://192.168.1.100:3000/api";
 
 //"http://192.168.1.102:3000/api";
 
@@ -97,6 +97,8 @@ class Confg {
   static const String wallet = '/profile/wallet';
 
   static const String historyWallet = '/profile/wallet_history';
+
+  static const String historyWalletId = "/profile/wallet_history/";
 
 // ai chat
   static const String geminiApiKEY = 'AIzaSyB56tWY8pSDtt4UO5TyBYMvnXBESHxgruE';

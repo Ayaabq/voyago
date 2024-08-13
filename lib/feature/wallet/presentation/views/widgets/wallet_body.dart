@@ -20,7 +20,7 @@ class WalletBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // context.read<WalletCubit>().fetchWallet();
+  
     return Scaffold(
       body: Column(children: [
         ProfileAppBar(
