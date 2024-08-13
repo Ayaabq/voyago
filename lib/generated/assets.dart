@@ -24,6 +24,7 @@ class Assets {
   static const String mainLogoAllColors = 'assets/images/main/Logo_all_colors.png';
   static const String mainLogoAllWhite = 'assets/images/main/logo_all_white.png';
   static const String mainMiniLogoWhite = 'assets/images/main/mini_logo_white.png';
+  static const String mainNoImage = 'assets/images/main/no-image.png';
   static const String onBoardingOnBoarding1 = 'assets/images/on_boarding/on_boarding_1.png';
   static const String onBoardingOnBoarding2 = 'assets/images/on_boarding/on_boarding_2.png';
   static const String onBoardingOnBoarding3 = 'assets/images/on_boarding/on_boarding_3.png';

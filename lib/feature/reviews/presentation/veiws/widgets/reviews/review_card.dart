@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:voyago/core/helper/date_time_helper.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/core/widgets/custom_rate.dart';
 import 'package:voyago/feature/reviews/data/models/review_model.dart';
@@ -31,7 +32,7 @@ class ReviewCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(reviewModel.userName!, style: Styles.textStyle16W700),
-                  Text(reviewModel.reviewedAt.toString(),
+                  Text(DateTimeHelper.formatDateMMMDY(reviewModel.reviewedAt!),
                       style: Styles.textStyle12W400
                           .copyWith(color: CustomColors.kGrey[1])),
                 ],

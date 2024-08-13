@@ -9,9 +9,13 @@ import '../../../../../../core/utils/app_router.dart';
 import '../../../../../../core/utils/assets.dart';
 import '../../../../../../core/utils/confg.dart';
 import '../../../../../../core/utils/custom_colors.dart';
+import '../../../../../../core/utils/services_locater.dart';
 import '../../../../../favorite/presentation/manager/change_favorite_cubit/favorite_cubit.dart';
 import '../../../../../favorite/presentation/manager/change_favorite_cubit/favorite_state.dart';
 import '../../../../../favorite/presentation/views/widgets/favorite_icon_button.dart';
+import '../../../../../images/data/repo/images_repo_impl.dart';
+import '../../../../../images/presentation/manager/images_cubit.dart';
+import '../../../../../images/presentation/views/custom)netowk_image.dart';
 import '../../../../data/models/trip_model.dart';
 
 class TripCard extends StatelessWidget {
@@ -48,13 +52,11 @@ class TripCard extends StatelessWidget {
                     bottom: 2,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(16),
-                      child: Image.asset(
-                        HomeAssets.dummyTrip,
-                        // Use a fraction of the container width and height instead of fixed values
-                        width: ScreenSizeUtil.screenWidth * 0.4 * 0.8,
-                        height: ScreenSizeUtil.screenHeight * 0.3 * 0.7,
-                        fit: BoxFit
-                            .cover, // This ensures the image covers the entire area
+                      child:  BlocProvider(
+                        key: Key("trip: ${tripModel.id}"),
+                        create: (context) => ImageCubit(getIt.get<ImagesRepoImpl>()),
+                        child: CustomNetworkImage(id: tripModel.id, url: Confg.tripImage,),
+
                       ),
                     ),
                   ),

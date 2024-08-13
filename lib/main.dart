@@ -8,6 +8,8 @@ import 'package:voyago/core/utils/confg.dart';
 import 'package:voyago/core/utils/screen_size_util.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:voyago/core/utils/services_locater.dart';
+import 'package:voyago/feature/images/data/repo/images_repo_impl.dart';
+import 'package:voyago/feature/images/presentation/manager/images_cubit.dart';
 import 'package:voyago/feature/profile/data/repo/settings_repo_impl.dart';
 import 'package:voyago/feature/profile/presentation/manager/currency_cubit/currency_cubit.dart';
 
@@ -75,6 +77,7 @@ class _VoyagoAppState extends State<VoyagoApp> {
           BlocProvider(
             create: (context) => ThemeCubit(),
           ),
+
         ],
         child: BlocBuilder<ThemeCubit, ThemeData>(
           builder: (context, theme) {

@@ -7,10 +7,10 @@ class DialogCustom extends StatelessWidget {
   const DialogCustom(
       {super.key,
       required this.title,
-      required this.imagePath,
+       this.imagePath,
       required this.subtitel});
   final String title;
-  final String imagePath;
+  final String? imagePath;
   final String subtitel;
   @override
   Widget build(BuildContext context) {
@@ -22,10 +22,11 @@ class DialogCustom extends StatelessWidget {
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
+          if(imagePath!=null)
           Padding(
             padding: const EdgeInsets.all(16),
             child: Image.asset(
-              imagePath,
+              imagePath!,
               width: 230,
               height: 185,
             ),

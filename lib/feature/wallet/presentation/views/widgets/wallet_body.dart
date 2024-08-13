@@ -105,17 +105,15 @@ class BalanceCard extends StatelessWidget {
                             fontSize: 18, fontWeight: FontWeight.w500),
                       ),
                       Text(
-                        '$currency ${state.balance * exchanger}',
+                        '$currency ${(state.balance * exchanger).toStringAsFixed(1)}',
                         style: TextStyle(
-overflow: TextOverflow.fade,
+                            overflow: TextOverflow.fade,
                             fontSize: 22,
                             fontWeight: FontWeight.bold,
                             color:
                                 Theme.of(context).brightness == Brightness.dark
                                     ? Colors.white
-                                    : Colors.black87
-
-),
+                                    : Colors.black87),
                       ),
                     ],
                   ),

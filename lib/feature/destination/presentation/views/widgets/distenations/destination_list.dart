@@ -29,7 +29,7 @@ class DestinationListView extends StatelessWidget {
         if(state is DestinationSuccess){
           List<DestinationModel> destinations=state.destinationModels;
           return SizedBox(
-            height: 140,
+            height: 150,
             child: ListView.builder(
               padding: const EdgeInsets.symmetric(horizontal: 10),
                 scrollDirection: Axis.horizontal,
