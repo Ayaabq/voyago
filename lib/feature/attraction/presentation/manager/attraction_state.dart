@@ -25,6 +25,12 @@ class AttractionSuccess extends AttractionState {
         .toList();
     return AttractionSuccess(destinations);
   }
+  static AttractionSuccess fromSearchJson(Map<String, dynamic> response) {
+    final destinations = (response['data']['attractions'] as List)
+        .map((e) => AttractionModel.fromJson(e))
+        .toList();
+    return AttractionSuccess(destinations);
+  }
 }
 
 

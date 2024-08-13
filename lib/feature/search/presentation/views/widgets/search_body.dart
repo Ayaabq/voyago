@@ -84,7 +84,7 @@ class _SearchBodyViewState extends State<SearchBodyView> {
           ],
         ),
       ),
-      const AttractionsSearchGrid(),
+      // const AttractionsSearchGrid(),
     ];
 
     return Stack(
@@ -94,7 +94,7 @@ class _SearchBodyViewState extends State<SearchBodyView> {
           slivers: [
             BackgroundSectionSearch(
               haveRow: haveRow,
-              searchController: searchController,
+              searchController: searchController, haveFilters: false,
             ),
             if (widget.type == "trip" && searchController.text.isNotEmpty)
               ...tripView,

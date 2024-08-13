@@ -111,4 +111,7 @@ class Confg {
   static const allTripImages = "/all_trip_images/";
   static const allDestinationImages = "/all_destination_images/";
   static const allAttractionImages = "/all_attraction_images/";
+
+  //search
+  static const attractionSearch="/attraction_search?destination=";
 }
