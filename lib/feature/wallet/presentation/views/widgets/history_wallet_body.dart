@@ -85,8 +85,8 @@ class HistoryCardWallet extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         GoRouter.of(context)
-            .push(AppRouter.kDetilesWaletHistoryView, extra: model.id);
-        print(model.id);
+            .push(AppRouter.kDetilesWaletHistoryView, extra: model);
+        print(model);
       },
       child: Padding(
         padding: const EdgeInsets.all(16.0),

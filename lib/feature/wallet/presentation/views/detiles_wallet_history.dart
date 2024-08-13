@@ -9,11 +9,10 @@
 // class DetilesWaletHistoryView extends StatelessWidget {
 //   const DetilesWaletHistoryView({super.key});
 
-  
 //   @override
 //   Widget build(BuildContext context) {
 //     return DetilesWalletHestoryBody(
-    
+
 //     );
 //   }
 // }
@@ -27,14 +26,14 @@ import '../manger/detiles_wallet/cubit/detiles_wallet_cubit.dart';
 import 'widgets/detiles_wallet_history_body.dart';
 
 class DetilesWaletHistoryView extends StatelessWidget {
-  final HistoryWalletModel id;
-
   const DetilesWaletHistoryView({super.key, required this.id});
-
+  final HistoryWalletModel id;
   @override
   Widget build(BuildContext context) {
     // Fetch transaction details based on the id passed from the history card
-    context.read<TransactionCubit>().fetchDetilsWallet(Confg.historyWalletId + id.id.toString());
+    context
+        .read<TransactionCubit>()
+        .fetchDetilsWallet(Confg.historyWalletId + id.id.toString());
 
     return Scaffold(
       body: BlocBuilder<TransactionCubit, TransactionState>(
@@ -45,7 +44,8 @@ class DetilesWaletHistoryView extends StatelessWidget {
             return DetilesWalletHestoryBody(model: state.transactionModel);
           } else if (state is TransactionFailure) {
             return Center(
-              child: Text('Failed to load transaction details: ${state.errorMessage}'),
+              child: Text(
+                  'Failed to load transaction details: ${state.errorMessage}'),
             );
           }
           return const Center(child: Text('Unexpected state'));

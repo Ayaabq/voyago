@@ -7,7 +7,8 @@ import 'history_wallet_body.dart';
 
 class CardTransactionDetails extends StatelessWidget {
   const CardTransactionDetails({
-    super.key, required this.model,
+    super.key,
+    required this.model,
   });
   final Transaction model;
   @override
@@ -32,27 +33,29 @@ class CardTransactionDetails extends StatelessWidget {
                     borderRadius: const BorderRadiusDirectional.only(
                         topEnd: Radius.circular(16),
                         topStart: Radius.circular(16))),
-                child:  DateRow(date: model.date.toIso8601String())),
+                child: DateRow(date: model.date.toIso8601String())),
             // const SizedBox(height: 16),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // TransactionDetail(
+                  //     title: "Transaction id:".tr(), value: '#0235326'),
+                  //  Divider(color: CustomColors.kGrey[0]),
                   TransactionDetail(
-                      title: "Transaction id:".tr(), value: '#0235326'),
+                      title: "Old balance:".tr(),
+                      value: model.lastBalance.toString()),
                   Divider(color: CustomColors.kGrey[0]),
                   TransactionDetail(
-                      title: "Old balance:".tr(), value: model.lastBalance.toString()),
+                      title: "Added amount:".tr(),
+                      value: model.amount.toString()),
                   Divider(color: CustomColors.kGrey[0]),
                   TransactionDetail(
-                      title: "Added amount:".tr(), value: model.amount.toString()),
+                      title: "New balance:".tr(),
+                      value: model.newBalance.toString()),
                   Divider(color: CustomColors.kGrey[0]),
-                  TransactionDetail(
-                      title: "New balance:".tr(), value: model.newBalance.toString()),
-                  Divider(color: CustomColors.kGrey[0]),
-TransactionDetail(
-                      title: "Status:".tr(), value: model.status),
+                  TransactionDetail(title: "Status:".tr(), value: model.status),
                   Divider(color: CustomColors.kGrey[0]),
                   const DepositPicture(),
                 ],

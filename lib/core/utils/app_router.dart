@@ -23,6 +23,7 @@ import 'package:voyago/feature/trip&booking/data/models/trip_model.dart';
 import 'package:voyago/feature/reviews/reviews_view.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/trip_view.dart';
 import 'package:voyago/feature/wallet/data/models/history_wallet.dart';
+import 'package:voyago/feature/wallet/data/repo/wallet_repo_impl.dart';
 import 'package:voyago/feature/wallet/presentation/views/detiles_wallet_history.dart';
 import 'package:voyago/feature/wallet/presentation/views/fill_wallet.dart';
 import 'package:voyago/feature/wallet/presentation/views/hestory_wallet.dart';
@@ -43,6 +44,7 @@ import '../../feature/profile/presentation/views/personal_info_view.dart';
 import '../../feature/profile/presentation/views/setting_view.dart';
 import '../../feature/reviews/presentation/veiws/reviews_view.dart';
 import '../../feature/trip&booking/presentation/views/checkout_view.dart';
+import '../../feature/wallet/presentation/manger/detiles_wallet/cubit/detiles_wallet_cubit.dart';
 import '../widgets/bottom_bar.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
@@ -234,8 +236,12 @@ class AppRouter {
           path: kDetilesWaletHistoryView,
           builder: (context, state) {
             final HistoryWalletModel model = state.extra as HistoryWalletModel;
-            return DetilesWaletHistoryView(id: model);
-           
+            return BlocProvider(
+              create: (context) => TransactionCubit(getIt.get<WalletRepoImpl>()),
+              child: DetilesWaletHistoryView(
+                id: model,
+              ),
+            );
           }),
 
       /// ** attraction** ///

@@ -15,8 +15,8 @@ class TransactionSuccess extends TransactionState {
   final Transaction transactionModel;
 
   TransactionSuccess(this.transactionModel);
- static TransactionSuccess fromJson(Map<String, dynamic> response) {
-    return TransactionSuccess(response['data']);
+ static TransactionSuccess fromJson( response) {
+    return TransactionSuccess(Transaction.fromJson(response['data']));
   }
   
 }
