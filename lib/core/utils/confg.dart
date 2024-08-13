@@ -1,6 +1,6 @@
 class Confg {
-  static const String baseUrl="http://10.0.2.2:3000";
-  static const String mobileUrl="http://10.0.2.2:3000";
+  static const String baseUrl = "http://10.0.2.2:3000";
+  static const String mobileUrl = "http://10.0.2.2:3000";
   static const String baseApiUrl = "http://10.0.2.2:3000/api";
   static const String mobileApiUrl = "http://192.168.43.64:3000/api";
 
@@ -26,7 +26,7 @@ class Confg {
   static const String popularTrips = "/popular_trips";
 
   //favorite
-  static const String getFavorite="/profile/favourites";
+  static const String getFavorite = "/profile/favourites";
   static const String addDestinationFavouriteUrl =
       "/add_destenation_favourite/";
   static const String addTripFavouriteUrl = "/add_trip_favourite/";
@@ -82,6 +82,15 @@ class Confg {
   static const String editProfile = '/EditMyProfile';
   //map
   static const String googleMapKey = "AIzaSyBfSxmU81EloKcv7r3ET";
+  static String getLatLongApi(String address) {
+    return "https://maps.googleapis.com/maps/api/geocode/json?address=$address&key=$googleGeocodingKey";
+  }
+  static String getAddressFromLatLong(double lat , double long){
+    return
+      "https://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$long&key=$googleGeocodingKey";
+  }
+  static const String googleGeocodingKey =
+      "AIzaSyBfSxmU81EloKcv7r3ET_69ciGIPlup9Dw";
 
 // wallet
 
@@ -92,12 +101,12 @@ class Confg {
 // ai chat
   static const String geminiApiKEY = 'AIzaSyB56tWY8pSDtt4UO5TyBYMvnXBESHxgruE';
   // notification
-  static const String getNotificatio="/Notifications";
+  static const String getNotificatio = "/Notifications";
   //images urls
-static const tripImage="/trip_single_image/";
-static const destinationImage="/destination_single_image/";
-static const attractionImage="/attraction_single_image/";
-static const allTripImages="/all_trip_images/";
-static const allDestinationImages="/all_destination_images/";
-static const allAttractionImages="/all_attraction_images/";
+  static const tripImage = "/trip_single_image/";
+  static const destinationImage = "/destination_single_image/";
+  static const attractionImage = "/attraction_single_image/";
+  static const allTripImages = "/all_trip_images/";
+  static const allDestinationImages = "/all_destination_images/";
+  static const allAttractionImages = "/all_attraction_images/";
 }

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -258,9 +260,12 @@ class AppRouter {
         builder: (context, state) => const DetilesBooksView(),
       ),
       GoRoute(
-        path: kLocationView,
+        path: '$kLocationView/:lat/:lng',
         builder: (context, state) {
-          return const LocationInput();
+          final lat = double.parse(state.pathParameters['lat']!);
+          final lng = double.parse(state.pathParameters['lng']!);
+          final title= state.extra as String;
+          return  LocationInput(lat: lat,long: lng, title: title,);
         },
       ), GoRoute(
         path: kAiView,

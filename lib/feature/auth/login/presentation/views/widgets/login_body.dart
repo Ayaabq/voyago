@@ -15,6 +15,7 @@ import 'package:voyago/feature/auth/login/presentation/views/widgets/header_auth
 import 'package:voyago/feature/auth/login/presentation/views/widgets/text_row.dart';
 
 import '../../../../../../core/utils/validator_manager.dart';
+import '../../../../../location&map/presentation/manager/location_cubit.dart';
 import '../../../../../theme/widgets/cubit/app_theme_cubit.dart';
 import 'custom_text_field.dart';
 
@@ -30,6 +31,7 @@ class LoginBodyView extends StatelessWidget {
         if (state is LoginLoading) {
           context.showLoadingToast();
         } else if (state is LoginSuccess) {
+
           GoRouter.of(context).push(AppRouter.kHomeView);
         }
         if (state is LoginFailure) {
@@ -101,6 +103,7 @@ class LoginBodyView extends StatelessWidget {
                                 context.read<LoginCubit>().fetchLogin(
                                     usernameController.text,
                                     passwordController.text);
+
                               }
                             }),
                         const SizedBox(height: 10),

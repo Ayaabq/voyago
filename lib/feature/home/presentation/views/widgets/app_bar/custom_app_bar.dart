@@ -16,6 +16,7 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Row(
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -23,8 +24,11 @@ class CustomAppBar extends StatelessWidget {
         SearchElevatedButton(onTap: () {
           GoRouter.of(context).push(AppRouter.kSearchView, extra: "all");
         }),
-        AppBarIconButton(onTap: () {
-          GoRouter.of(context).push(AppRouter.kLocationView);
+        AppBarIconButton(onTap: () async{
+          await context.read<LocationCubit>().fetchUserLocation();
+          final double lat = LocationCubit.userLat!;
+          final double lng =LocationCubit.userLong!;
+          GoRouter.of(context).push('${AppRouter.kLocationView}/$lat/$lng', extra: "Personal location");
         }),
         AppBarIconButton(
             icon: Iconsax.notification,

@@ -18,13 +18,9 @@ class _GetStartedState extends State<GetStarted> {
     return   BlocProvider(
 
       create: (context) => OnBoardingCubitCubit(),
-      child:  Scaffold(
+      child:  const Scaffold(
          body:
-         // GoogleMap(
-         //     initialCameraPosition:
-         //     CameraPosition(
-         //       target:
-         //       LatLng(37.42796133580664, -122.085749655962),))
+
         GetStartedBody(),
 
         ),

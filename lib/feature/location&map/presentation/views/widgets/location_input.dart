@@ -1,17 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:voyago/core/utils/custom_colors.dart';
+import 'package:voyago/core/utils/services_locater.dart';
+import 'package:voyago/feature/location&map/data/repo/location_repo.dart';
+import 'package:voyago/feature/location&map/presentation/manager/addres_cubit.dart';
 import 'package:voyago/feature/location&map/presentation/map_screen.dart';
+import 'package:voyago/feature/location&map/presentation/views/widgets/google_map_view.dart';
 import '../../manager/location_cubit.dart';
 import '../../manager/location_state.dart';
 
 
 
 class LocationInput extends StatelessWidget {
-  const LocationInput({super.key});
-
+  const LocationInput({super.key, required this.lat, required this.long, required this.title});
+  final double lat;
+  final double long;
+  final String title;
   @override
   Widget build(BuildContext context) {
-    return  MapScreen();
+    return    WillPopScope(
+      onWillPop: () async{
+        LocationCubit.placeLat=null;
+        LocationCubit.placeLong=null;
+        return true;
+      },
+      child: Scaffold(
+        appBar: AppBar(title: Text(title),
+        backgroundColor:
+        CustomColors.kMove[2],
+        ),
+        body:BlocProvider(
+          create: (BuildContext context) => AddressCubit(getIt.get<LocationRepo>()),
+        child:  CustomGoogleMap(lat: lat, long: long,),),
+      ),
+    );
     //   Scaffold(
     //   body: Column(
     //     children: [
