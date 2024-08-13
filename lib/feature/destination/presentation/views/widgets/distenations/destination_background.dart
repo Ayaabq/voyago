@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/core/widgets/toast/toast_extensions.dart';
-import 'package:voyago/feature/destination/presentation/views/widgets/distenations/destination_image.dart';
+import 'package:voyago/feature/images/presentation/views/custom)netowk_image.dart';
 
 import '../../../../../../core/utils/assets.dart';
 import '../../../../../../core/utils/confg.dart';
@@ -21,6 +21,7 @@ class DestinationBackground extends StatelessWidget {
   const DestinationBackground({super.key, this.destinationModel});
   final DestinationModel? destinationModel;
 
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ChangeFavoriteCubit,
@@ -30,8 +31,9 @@ class DestinationBackground extends StatelessWidget {
           fit: StackFit.expand,
           children: [
             BlocProvider(
+              key: Key("destination: ${destinationModel!.id}"),
               create: (context) => ImageCubit(getIt.get<ImagesRepoImpl>()),
-              child: DestinationImage(id: destinationModel!.id,),
+              child: CustomNetworkImage(id: destinationModel!.id, url: Confg.destinationImage,),
 
             ),
             Container(

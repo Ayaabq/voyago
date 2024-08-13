@@ -94,10 +94,10 @@ class Confg {
   // notification
   static const String getNotificatio="/Notifications";
   //images urls
-static const tripImage="";
+static const tripImage="/trip_single_image/";
 static const destinationImage="/destination_single_image/";
 static const attractionImage="/attraction_single_image/";
-static const allTripImages="/trip_single_image/";
-static const allDestinationImages="/all_trip_images/";
+static const allTripImages="/all_trip_images/";
+static const allDestinationImages="/all_destination_images/";
 static const allAttractionImages="/all_attraction_images/";
 }

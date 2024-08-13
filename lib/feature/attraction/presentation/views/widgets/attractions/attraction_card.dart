@@ -6,13 +6,17 @@ import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/core/widgets/custom_rate.dart';
 import 'package:voyago/core/widgets/toast/toast_extensions.dart';
 import 'package:voyago/feature/attraction/data/models/attraction_model.dart';
+import 'package:voyago/feature/images/presentation/views/custom)netowk_image.dart';
 
 import '../../../../../../core/utils/app_router.dart';
 import '../../../../../../core/utils/assets.dart';
 import '../../../../../../core/utils/confg.dart';
+import '../../../../../../core/utils/services_locater.dart';
 import '../../../../../favorite/presentation/manager/change_favorite_cubit/favorite_cubit.dart';
 import '../../../../../favorite/presentation/manager/change_favorite_cubit/favorite_state.dart';
 import '../../../../../favorite/presentation/views/widgets/favorite_icon_button.dart';
+import '../../../../../images/data/repo/images_repo_impl.dart';
+import '../../../../../images/presentation/manager/images_cubit.dart';
 
 class AttractionCard extends StatelessWidget {
   const AttractionCard({super.key, required this.attractionModel});
@@ -48,13 +52,12 @@ class AttractionCard extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(vertical: 0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(16),
-                          child: Image.asset(
-                            HomeAssets.dummyAttraction,
-                            width: 130,
-                            height: 150,
-                            fit: BoxFit
-                                .cover, // This ensures the image covers the entire area
-                          ),
+                          child: BlocProvider(
+                           key: Key("attraction: ${attractionModel.id}"),
+                            create: (context) => ImageCubit(getIt.get<ImagesRepoImpl>()),
+                            child: CustomNetworkImage(id: attractionModel.id, url: Confg.attractionImage,),
+
+                          )
                         ),
                       ),
                     ),

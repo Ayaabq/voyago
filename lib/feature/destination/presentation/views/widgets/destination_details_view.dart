@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/core/widgets/custom_card.dart';
 import 'package:voyago/feature/destination/data/models/destination_model.dart';
@@ -9,7 +10,11 @@ import 'package:voyago/feature/trip&booking/presentation/views/widgets/trips/tri
 
 import '../../../../../core/utils/confg.dart';
 import '../../../../../core/utils/screen_size_util.dart';
+import '../../../../../core/utils/services_locater.dart';
 import '../../../../attraction/presentation/views/widgets/attractions/attraction_view.dart';
+import '../../../../images/data/repo/images_repo_impl.dart';
+import '../../../../images/presentation/manager/all_images_cubit/images_cubit.dart';
+import '../../../../images/presentation/views/custom)netowk_image.dart';
 import '../../../../place/presentaion/views/widgets/place_details.dart';
 import '../../../../place/presentaion/views/widgets/place_details_background.dart';
 import '../../../../reviews/presentation/veiws/widgets/reviews/reviews_card.dart';
@@ -21,11 +26,11 @@ class DestinationDetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScreenSizeUtil.init(context);
-    return Scaffold(
+    return  Scaffold(
       body: SingleChildScrollView(
         child: Stack(
           children: [
-            const PlaceDetailsBackground(),
+             PlaceDetailsBackground(id: destinationModel.id, url: Confg.destinationImage,),
             Padding(
               padding: EdgeInsets.only(
                   top: ScreenSizeUtil.dynamicHeight(.22), left: 12, right: 12),
@@ -52,7 +57,11 @@ class DestinationDetailsView extends StatelessWidget {
                   ),
                    CustomCard(
                     title: "Pictures".tr(),
-                    content: const PicturesList(),
+                    content: BlocProvider(
+                      create: (context) => AllImagesCubit(getIt.get<ImagesRepoImpl>()),
+                      child: PicturesList(id: destinationModel.id, url: Confg.allAttractionImages,),
+
+                    ),
                   ),
                    ReviewsCard(url: Confg.destinationReviews+destinationModel.id.toString(),
                    fullUrl: Confg.destinationFullReviews+destinationModel.id.toString(),

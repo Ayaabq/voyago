@@ -18,14 +18,17 @@ class CustomHomeList extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
 
-        Text(
-          title,
-          textAlign: TextAlign.start,
-          style: Styles.textStyle20W700.copyWith(
-            color: Theme.of(context).brightness == Brightness.dark
-                ? CustomColors.kWhite[0]
-                : CustomColors.kMove[8],
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: Text(
+            title,
+            textAlign: TextAlign.start,
+            style: Styles.textStyle20W700.copyWith(
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? CustomColors.kWhite[0]
+                  : CustomColors.kMove[8],
 
+            ),
           ),
         ),
         const SizedBox(
