@@ -22,6 +22,7 @@ import 'package:voyago/feature/search/presentation/views/search_view.dart';
 import 'package:voyago/feature/trip&booking/data/models/trip_model.dart';
 import 'package:voyago/feature/reviews/reviews_view.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/trip_view.dart';
+import 'package:voyago/feature/wallet/data/models/history_wallet.dart';
 import 'package:voyago/feature/wallet/presentation/views/detiles_wallet_history.dart';
 import 'package:voyago/feature/wallet/presentation/views/fill_wallet.dart';
 import 'package:voyago/feature/wallet/presentation/views/hestory_wallet.dart';
@@ -43,6 +44,7 @@ import '../../feature/profile/presentation/views/setting_view.dart';
 import '../../feature/reviews/presentation/veiws/reviews_view.dart';
 import '../../feature/trip&booking/presentation/views/checkout_view.dart';
 import '../widgets/bottom_bar.dart';
+
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 class AppRouter {
@@ -150,7 +152,7 @@ class AppRouter {
         path: kTripDetailsView,
         builder: (context, state) {
           final TripModel trip =
-          state.extra as TripModel; // Cast the extra to Trip
+              state.extra as TripModel; // Cast the extra to Trip
           return TripView(
               tripModel: trip); // Pass the Trip model to the TripView
         },
@@ -159,10 +161,11 @@ class AppRouter {
       GoRoute(
         path: kSearchView,
         builder: (context, state) {
+          final type = (state.extra) as String;
 
-          final type= (state.extra)as String;
-
-          return  SearchView(type: type,);
+          return SearchView(
+            type: type,
+          );
         },
       ),
       GoRoute(
@@ -207,7 +210,7 @@ class AppRouter {
         path: kDestinationDetailsView,
         builder: (context, state) {
           final DestinationModel destination =
-          state.extra as DestinationModel; //
+              state.extra as DestinationModel; //
           return DestinationDetailsView(
             destinationModel: destination,
           );
@@ -228,16 +231,19 @@ class AppRouter {
         builder: (context, state) => const HistoryWalletView(),
       ),
       GoRoute(
-        path: kDetilesWaletHistoryView,
-        builder: (context, state) => const DetilesWaletHistoryView(),
-      ),
+          path: kDetilesWaletHistoryView,
+          builder: (context, state) {
+            final HistoryWalletModel model = state.extra as HistoryWalletModel;
+            return DetilesWaletHistoryView(id: model);
+           
+          }),
 
       /// ** attraction** ///
       GoRoute(
         path: kAttractionDetailsView,
         builder: (context, state) {
           final AttractionModel attraction =
-          state.extra as AttractionModel; // Cast the extra to Trip
+              state.extra as AttractionModel; // Cast the extra to Trip
           return AttractionDetailsView(
             attraction: attraction,
           ); // Pass the Trip model to the TripView
@@ -262,17 +268,17 @@ class AppRouter {
         builder: (context, state) {
           return const LocationInput();
         },
-      ), GoRoute(
+      ),
+      GoRoute(
         path: kAiView,
         builder: (context, state) {
-          return const AiView(
-          );
+          return const AiView();
         },
       ),
       GoRoute(
         path: kNotificationView,
         builder: (context, state) {
-          return const  NotificationView();
+          return const NotificationView();
         },
       ),
     ],

@@ -1,6 +1,6 @@
 class Confg {
   static const String baseUrl = "http://10.0.2.2:3000/api";
-  static const String mobileUrl = "http://192.168.137.1:3000/api";
+  static const String mobileUrl = "http://192.168.137.133:3000/api";
 
 //"http://192.168.1.102:3000/api";
 
@@ -24,7 +24,7 @@ class Confg {
   static const String popularTrips = "/popular_trips";
 
   //favorite
-  static const String getFavorite="/profile/favourites";
+  static const String getFavorite = "/profile/favourites";
   static const String addDestinationFavouriteUrl =
       "/add_destenation_favourite/";
   static const String addTripFavouriteUrl = "/add_trip_favourite/";
@@ -87,8 +87,10 @@ class Confg {
 
   static const String historyWallet = '/profile/wallet_history';
 
+  static const String historyWalletId = "/profile/wallet_history/";
+
 // ai chat
   static const String geminiApiKEY = 'AIzaSyB56tWY8pSDtt4UO5TyBYMvnXBESHxgruE';
   // notification
-  static const String getNotificatio="/Notifications";
+  static const String getNotificatio = "/Notifications";
 }
