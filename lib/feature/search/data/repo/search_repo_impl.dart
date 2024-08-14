@@ -2,23 +2,38 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
 import 'package:voyago/core/errors/failure.dart';
+import 'package:voyago/core/utils/confg.dart';
 import 'package:voyago/feature/attraction/data/repo/attraction_repo.dart';
 import 'package:voyago/feature/attraction/presentation/manager/attraction_state.dart';
+import 'package:voyago/feature/search/data/repo/search_repo.dart';
+import 'package:voyago/feature/search/presentation/manager/trip_search/trip_search_state.dart';
 
 import '../../../../core/domain/services/api.dart';
+import '../../presentation/manager/filters_state.dart';
 
 
-class AttractionRepoImp implements AttractionRepo {
+class SearchRepoImp implements SearchRepo {
   final ApiServices api;
 
-  AttractionRepoImp(this.api);
-  @override
-  Future<Either<Failure, AttractionSuccess>> getAttraction(
-      String url) async {
+  SearchRepoImp(this.api);
 
+
+  @override
+  Future<Either<Failure, TripsSearchSuccess>> getSearchTrips(String? destination, FilterState? filters) async{
+    String filter="";
+    if(destination==null){
+    destination ??= filters!.where;
+    bool priceLtoH=filters!.sortBy=='Price (low to high)';
+
+       filter =
+          "&maxPrice=${filters.maxPrice}&minPrice=${filters.minPrice}&travelers=${filters.travelers}&checkIn=${filters.checkInDate}&checkOut=${filters.checkOutDate}&"
+          "priceLtoH=$priceLtoH&priceHtoL=${!(priceLtoH)}&topRated=${filters.isTopRated}";
+    }else {
+      filter=destination;
+    }
     try {
-      var response = await api.get(url, hasToken: true);
-      return right(AttractionSuccess.fromJson(response));
+      var response = await api.get(Confg.tripSearch+filter, hasToken: true);
+      return right(TripsSearchSuccess.fromJson(response));
     } catch (e) {
       if (e is DioException) {
         return left(ServiecesFailure.fromDioError(e));
@@ -27,11 +42,7 @@ class AttractionRepoImp implements AttractionRepo {
     }
   }
 
-  @override
-  Future<Either<Failure, AttractionSuccess>> getSearchAttraction(String destination) {
-    // TODO: implement getSearchAttraction
-    throw UnimplementedError();
-  }
+
 
 
 }

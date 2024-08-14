@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:voyago/core/widgets/custom_failure_error.dart';
 import 'package:voyago/feature/attraction/data/models/attraction_model.dart';
 import 'package:voyago/feature/attraction/presentation/manager/attractoin_cubit.dart';
-import 'package:voyago/feature/search/presentation/manager/attraction_search_state.dart';
+import 'package:voyago/feature/search/presentation/manager/filters_state.dart';
 
 import '../../../../attraction/presentation/manager/attraction_state.dart';
 import '../../../../attraction/presentation/views/widgets/attractions/attraction_card.dart';

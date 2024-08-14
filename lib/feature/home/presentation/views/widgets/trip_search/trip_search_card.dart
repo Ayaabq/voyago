@@ -4,10 +4,11 @@ import 'package:voyago/core/utils/app_router.dart';
 import 'package:voyago/core/utils/screen_size_util.dart';
 import 'package:voyago/feature/favorite/presentation/views/widgets/favorite_icon_button.dart';
 import 'package:voyago/feature/home/presentation/views/widgets/trip_search/widgets/search_trip_image.dart';
+import 'package:voyago/feature/search/data/models/search_trip_model.dart';
 
 class TripSearchCard extends StatelessWidget {
-  const TripSearchCard({super.key, required this.fromPrice});
-  final String fromPrice;
+  const TripSearchCard({super.key,  required this.trip});
+  final TripSearchModel trip;
   @override
   Widget build(BuildContext context) {
     ScreenSizeUtil.init(context);
@@ -22,7 +23,8 @@ class TripSearchCard extends StatelessWidget {
             children: [
               Card(
                 elevation: 4,
-                child: SearchTripImage(fromPrice: fromPrice),
+                child: SearchTripImage(trip: trip,
+                    ),
               ),
               const Align(
                   alignment:AlignmentDirectional.topEnd,

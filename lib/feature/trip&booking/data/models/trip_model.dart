@@ -19,7 +19,6 @@ class TripModel {
     required this.duration
   }) ;
 
-  // Factory constructor to create a trip object from JSON
 
   factory TripModel.fromJson(Map<String, dynamic> json) {
     return TripModel(

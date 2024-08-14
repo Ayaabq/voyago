@@ -20,8 +20,8 @@ class CategoriesRow extends StatelessWidget {
         children: [
            CategoryItem(
              onTap: (){
-               GoRouter.of(context).push(AppRouter.kSearchView, extra: "trip");
-
+               // GoRouter.of(context).push(AppRouter.kSearchView, extra: "trip");
+               GoRouter.of(context).push(AppRouter.kTripSearch);
              },
             title: "Trips".tr(),
             iconPath: HomeAssets.categoryTripsIcon,

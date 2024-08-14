@@ -42,48 +42,42 @@ class _AttractionSearchState extends State<AttractionSearch> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: ()async{
-        context.read<AttractionCubit>().reset();
-        return true;
-      },
-      child: Scaffold(
-        body: Stack(
-          children: [
-            const CustomBackground(),
-            CustomScrollView(
-              slivers: [
-                BackgroundSectionSearch(
-                  haveRow: false,
-                  searchController: searchController, haveFilters: false,
-                ),
-                if(searchController.text.isNotEmpty)
-                SliverToBoxAdapter(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Text(
-                      "All Attractions in ${searchController.text}",
-                      textAlign: TextAlign.start,
-                      style: Styles.textStyle20W700.copyWith(
-                        color: Theme.of(context).brightness == Brightness.dark
-                            ? CustomColors.kWhite[0]
-                            : CustomColors.kMove[8],
-                      ),
+    return Scaffold(
+      body: Stack(
+        children: [
+          const CustomBackground(),
+          CustomScrollView(
+            slivers: [
+              BackgroundSectionSearch(
+                haveRow: false,
+                searchController: searchController, haveFilters: false,
+              ),
+              if(searchController.text.isNotEmpty)
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Text(
+                    "All Attractions in ${searchController.text}",
+                    textAlign: TextAlign.start,
+                    style: Styles.textStyle20W700.copyWith(
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? CustomColors.kWhite[0]
+                          : CustomColors.kMove[8],
                     ),
                   ),
                 ),
-                BlocProvider(
-                  create: (context)=> AttractionCubit((getIt.get<AttractionRepoImp>())),
-                    child:  AttractionsSearchGrid(text: searchController.text,),),
-                const SliverToBoxAdapter(
-                  child: SizedBox(
-                    height: 30,
-                  ),
+              ),
+              BlocProvider(
+                create: (context)=> AttractionCubit((getIt.get<AttractionRepoImp>())),
+                  child:  AttractionsSearchGrid(text: searchController.text,),),
+              const SliverToBoxAdapter(
+                child: SizedBox(
+                  height: 30,
                 ),
-              ],
-            ),
-          ],
-        ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

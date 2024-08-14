@@ -22,6 +22,7 @@ import 'package:voyago/feature/profile/presentation/views/edit_profile_view.dart
 import 'package:voyago/feature/search/presentation/views/attraction_search.dart';
 
 import 'package:voyago/feature/search/presentation/views/search_view.dart';
+import 'package:voyago/feature/search/presentation/views/trip_searc.dart';
 import 'package:voyago/feature/trip&booking/data/models/trip_model.dart';
 import 'package:voyago/feature/reviews/reviews_view.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/trip_view.dart';
@@ -86,6 +87,7 @@ class AppRouter {
   static const kAttractionDetailsView = "/AttractionDetailsView";
   ///*****          search     *****///
   static const kAttractionSearch = "/AttractionSearchView";
+  static const kTripSearch = "/TripSearchView";
 
 
 ////******     wallet               ****** */
@@ -296,6 +298,11 @@ class AppRouter {
           return const NotificationView();
         },
       ), GoRoute(
+        path: kTripSearch,
+        builder: (context, state) {
+          return const TripSearch();
+        },
+      ),GoRoute(
         path: kAttractionSearch,
         builder: (context, state) {
           return const AttractionSearch();

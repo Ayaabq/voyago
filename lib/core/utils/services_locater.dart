@@ -14,12 +14,14 @@ import 'package:voyago/feature/notification/data/repo/notification_repo_impl.dar
 import 'package:voyago/feature/place/data/repo/place_reop.dart';
 import 'package:voyago/feature/profile/data/repo/profile_repo_impl.dart';
 import 'package:voyago/feature/reviews/data/repo/review_repo_impl.dart';
+import 'package:voyago/feature/search/data/repo/search_repo.dart';
 import 'package:voyago/feature/wallet/data/repo/wallet_repo_impl.dart';
 
 import '../../feature/destination/data/repo/destination_repo_impl.dart';
 import '../../feature/location&map/data/repo/location_repo.dart';
 import '../../feature/location&map/data/repo/location_repo_impl.dart';
 import '../../feature/profile/data/repo/settings_repo_impl.dart';
+import '../../feature/search/data/repo/search_repo_impl.dart';
 import '../../feature/trip&booking/data/repo/trip_details_repo/trip_details_repo_impl.dart';
 import '../../feature/trip&booking/data/repo/trips_repo/trips_repo_impl.dart';
 
@@ -66,4 +68,6 @@ void setUpServiceLocater() {
       NotificationRepoImp(getIt.get<ApiServices>()));
   getIt.registerSingleton<ImagesRepoImpl>(
       ImagesRepoImpl( api: getIt.get<ApiServices>()));
+  getIt.registerSingleton<SearchRepo>(
+      SearchRepoImp(  getIt.get<ApiServices>()));
 }

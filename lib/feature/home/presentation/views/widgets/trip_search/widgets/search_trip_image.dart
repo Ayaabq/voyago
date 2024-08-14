@@ -2,18 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:voyago/core/utils/assets.dart';
 
 import 'package:voyago/feature/home/presentation/views/widgets/trip_search/widgets/colum_search_trip.dart';
+import 'package:voyago/feature/search/data/models/search_trip_model.dart';
 
 class SearchTripImage extends StatelessWidget {
   const SearchTripImage({
-    super.key,
-    required this.fromPrice,
+    super.key, required this.trip,
+
   });
 
-  final String fromPrice;
-
+final TripSearchModel trip;
   @override
   Widget build(BuildContext context) {
     return Container(
+
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(14),
         image: const DecorationImage(
@@ -21,10 +22,6 @@ class SearchTripImage extends StatelessWidget {
           fit: BoxFit.fill,
         ),
       ),
-      // width: 340,
-      // height: 200,
-      // width: ScreenSizeUtil.screenWidth * 0.8,
-      // height: ScreenSizeUtil.screenHeight * 0.23,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16),
         child: Container(
@@ -41,7 +38,7 @@ class SearchTripImage extends StatelessWidget {
           child: Padding(
             padding:
                 const EdgeInsets.only(left: 16, right: 8, top: 18, bottom: 11),
-            child: ColumnSearchTrip(fromPrice: fromPrice),
+            child: ColumnSearchTrip( tripSearchModel: trip,),
           ),
         ),
       ),

@@ -12,6 +12,7 @@ import 'package:voyago/feature/images/data/repo/images_repo_impl.dart';
 import 'package:voyago/feature/images/presentation/manager/images_cubit.dart';
 import 'package:voyago/feature/profile/data/repo/settings_repo_impl.dart';
 import 'package:voyago/feature/profile/presentation/manager/currency_cubit/currency_cubit.dart';
+import 'package:voyago/feature/search/data/repo/search_repo_impl.dart';
 
 import 'core/utils/app_router.dart';
 import 'feature/favorite/data/repo/favorite_repo_impl.dart';
@@ -20,6 +21,8 @@ import 'feature/location&map/data/repo/location_repo.dart';
 import 'feature/location&map/presentation/manager/location_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
 
+import 'feature/search/data/repo/search_repo.dart';
+import 'feature/search/presentation/manager/trip_search/trip_search_cubit.dart';
 import 'feature/theme/widgets/cubit/app_theme_cubit.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -36,7 +39,7 @@ void main() async {
   await EasyLocalization.ensureInitialized();
   await FirebaseApi().initNotifications();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  await Future.delayed(const Duration(seconds: 2));
+  // await Future.delayed(const Duration(seconds: 2));
 
   // things to do when the splash is viewing
   // dynamic hasToken = await AppStorage.instance.isReadData(AppStorage.TOKEN);
@@ -73,6 +76,8 @@ class _VoyagoAppState extends State<VoyagoApp> {
           ),
           BlocProvider(
             create: (context) => CurrencyCubit(getIt<CurrencyRepoImpl>()),
+          ), BlocProvider(
+            create: (context) => TripSearchCubit(getIt<SearchRepo>()),
           ),
           BlocProvider(
             create: (context) => ThemeCubit(),

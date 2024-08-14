@@ -114,4 +114,5 @@ class Confg {
 
   //search
   static const attractionSearch="/attraction_search?destination=";
+  static const tripSearch="/search?destination=";
 }
