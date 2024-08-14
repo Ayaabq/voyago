@@ -4,7 +4,7 @@ class CheckoutModel {
   int child;
   int adults;
   String email;
-
+  bool isStripe;
   String phoneNumber;
   String password;
   List<OptionalChoiceModel> optionalChoices;
@@ -16,6 +16,7 @@ class CheckoutModel {
     required this.phoneNumber,
     required this.password,
     required this.optionalChoices,
+    required this.isStripe
   });
 
   // Factory constructor to create an instance from JSON
@@ -30,6 +31,7 @@ class CheckoutModel {
       phoneNumber: json['phone'],
       password: json['password'],
       optionalChoices: optionalChoicesList,
+      isStripe: json['type']
     );
   }
 
@@ -45,6 +47,7 @@ class CheckoutModel {
       'phone': phoneNumber,
       'password': password,
       'optional_choices': optionalChoicesToJson,
+      'type': isStripe
     };
   }
 }

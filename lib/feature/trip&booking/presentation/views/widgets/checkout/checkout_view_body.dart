@@ -10,6 +10,8 @@ import 'package:voyago/feature/trip&booking/presentation/views/maneger/checkout_
 import 'package:voyago/feature/trip&booking/presentation/views/maneger/checkout_cubit/checkout_state.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/maneger/pages_cubit/page_state.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/maneger/pages_cubit/pages_cubit.dart';
+import 'package:voyago/feature/trip&booking/presentation/views/maneger/trip_info_2_cubit/trip_info_2_cubit.dart';
+import 'package:voyago/feature/trip&booking/presentation/views/maneger/trip_info_2_cubit/trip_info_2_state.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/checkout/floatin_checkout.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/checkout/pages_view.dart';
 import '../../../../../../core/stripe_payment/payment_manager.dart';
@@ -31,7 +33,9 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   late PageController _pageController;
   late int _currentPage;
   late CheckoutCubit manager;
-  bool fromWaller=false;
+  // bool fromWaller=false;
+  int dialog=0;
+
   @override
   void initState() {
     manager = context.read<CheckoutCubit>();
@@ -90,7 +94,79 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   }
 
   void _onBookTaped() async {
-    _showPaymentTypeDialog();
+   if(valid()) {
+      _showPaymentTypeDialog();
+      dialog++;
+    }else{
+     showFailureDialog(context,sutitle: "All field are required");
+     await Future.delayed(const Duration(seconds: 2));
+     dialog++;
+   }
+   while(dialog--!=0) {
+     GoRouter.of(context).pop();
+   }
+  }
+  void _onWalletPayChosen()async{
+    dialog++;
+    final subscription = manager.stream.listen((state) {
+      if (state is CheckoutSuccess) {
+        showSuccessDialog(context);
+        dialog++;
+      } else if (state is CheckoutError) {
+        showFailureDialog(context, sutitle: state.message+ " make sure you have blance");
+        dialog++;
+      } else if (State is CheckoutLoading) {
+        showWatingDialog(context);
+        dialog++;
+      }
+    });
+    await manager.submitCheckout(widget.tripModel.id,false);
+    await Future.delayed(const Duration(seconds: 1));
+    while(dialog--!=0) {
+      GoRouter.of(context).pop();
+    }
+    return;
+  }
+  void _onStripePayChosen()async{
+    int pay= manager.getTotalPrice(widget.tripModel.price.toDouble()).toInt();
+    dialog++;
+    await context.read<TripInfo2Cubit>().fetchTripDetailsInfo1(widget.tripModel.id);
+      if(context.read<TripInfo2Cubit>().state is TripInfo2Failure){
+        showFailureDialog(context, sutitle: "No enternet");
+        dialog++;
+        return;
+      }else if(context.read<TripInfo2Cubit>().state is TripInfo2Success){
+        if((context.read<TripInfo2Cubit>().state as TripInfo2Success).
+        tripInfo2Model.capacity>=manager.child!+manager.adults!){
+          print(pay);
+          await PaymentManager.
+          makePayment
+            (pay,
+              "USD");
+          final subscription = manager.stream.listen((state) {
+            if (state is CheckoutSuccess) {
+              showSuccessDialog(context);
+              dialog++;
+            } else if (state is CheckoutError) {
+              showFailureDialog(context, sutitle: state.message+ " make sure you have blance");
+              dialog++;
+            } else if (State is CheckoutLoading) {
+              showWatingDialog(context);
+              dialog++;
+            }
+          });
+          await manager.submitCheckout(widget.tripModel.id,true);
+        }else{
+          showFailureDialog(context, sutitle: "Oop's, the number of travelers you need, is not available any more!");
+          dialog++;
+        }
+      }
+    while(dialog--!=0) {
+      GoRouter.of(context).pop();
+    }
+
+      return;
+
 
 
   }
@@ -103,8 +179,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
           mainAxisSize: MainAxisSize.min,
         children: [
           ElevatedButton(
-            onPressed:(){fromWaller=true;
-              _paymentLogic();},
+            onPressed:_onWalletPayChosen,
             style: ElevatedButton.styleFrom(
               backgroundColor: CustomColors.kMove[4], // Button color
               foregroundColor: CustomColors.kWhite[0], // Text color
@@ -117,36 +192,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
             child: const Text("Voyago wallet", style: Styles.textStyle16W700),
           ),
           ElevatedButton(
-            onPressed:()async{
-              fromWaller=false;
-           if(valid()){
-             int pay= manager.getTotalPrice(widget.tripModel.price.toDouble()).toInt();
-             print(pay);
-             print(pay);
-             print(pay);
-             print(pay);
-             print(pay);
-             print(pay);
-             print(pay);
-             print(pay);
-             print(pay);
-             print(pay);
-             print(pay);
-             print(pay);
-             print(pay);
-             print(pay);
-             print(pay);
-             print(pay);
-             print(pay);
-             print(pay);
-             print(pay);
-             print(pay);
-               await PaymentManager.
-             makePayment
-               (pay,
-                 "USD"
-               );
-           }},
+            onPressed: _onStripePayChosen,
             style: ElevatedButton.styleFrom(
               backgroundColor: CustomColors.kMove[4], // Button color
               foregroundColor: CustomColors.kWhite[0], // Text color
@@ -162,37 +208,14 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
               ),
       );
     });
-  }
-  void _paymentLogic()async{
-    int dialog=0;
-    if(valid()){
-      if(fromWaller){
-        dialog++;
-        final subscription = manager.stream.listen((state) {
-          if (state is CheckoutSuccess) {
-            showSuccessDialog(context);
-            dialog++;
-          } else if (state is CheckoutError) {
-            showFailureDialog(context, sutitle: state.message);
-            // dialog++;
-          } else if (State is CheckoutLoading) {
-            showWatingDialog(context);
-            dialog++;
-          }
-        });
-        await manager.submitCheckout(widget.tripModel.id);
-        await Future.delayed(const Duration(seconds: 1));
-      }
 
-    }else{
-      showFailureDialog(context);
-      await Future.delayed(const Duration(seconds: 2));
-      dialog++;
-    }
-    while(dialog--!=0) {
-      GoRouter.of(context).pop();
-    }
+    return;
   }
+
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
