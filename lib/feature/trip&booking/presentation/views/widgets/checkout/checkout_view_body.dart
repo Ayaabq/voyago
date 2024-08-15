@@ -1,8 +1,12 @@
+import 'package:dio/dio.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:voyago/core/domain/services/api.dart';
+import 'package:voyago/core/utils/confg.dart';
 import 'package:voyago/core/utils/custom_floating_button.dart';
+import 'package:voyago/core/utils/services_locater.dart';
 import 'package:voyago/core/widgets/dialog/dialog.dart';
 import 'package:voyago/core/widgets/dialog/dialog_void.dart';
 import 'package:voyago/feature/trip&booking/data/models/trip_model.dart';
@@ -34,7 +38,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   late int _currentPage;
   late CheckoutCubit manager;
   // bool fromWaller=false;
-  int dialog=0;
+  // int dialog=0;
 
   @override
   void initState() {
@@ -95,45 +99,66 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
 
   void _onBookTaped() async {
    if(valid()) {
-      _showPaymentTypeDialog();
-      dialog++;
+     try{
+        Map<String,dynamic> res = await getIt.get<ApiServices>().post(Confg.checkPassword,
+            hasToken: true, body: {"password": manager.password});
+        if(res['msg']=="success"&&res['data']['authenticated']==true){
+          _showPaymentTypeDialog();
+          // dialog++;
+        }else{
+          showFailureDialog(context, sutitle: "message");
+
+        }
+      }catch ( e){
+       String message="Error";
+       if(e is DioException){
+          print("yeeeeeeeeeeeees");
+          if(e.response !=null) {
+            message=  "The passowrd is inncorrect";
+          }
+        }
+       showFailureDialog(context, sutitle: message);
+
+     }
+
+
     }else{
      showFailureDialog(context,sutitle: "All field are required");
      await Future.delayed(const Duration(seconds: 2));
-     dialog++;
+     // dialog++;
    }
-   while(dialog--!=0) {
-     GoRouter.of(context).pop();
-   }
+   // while(dialog--!=0) {
+   //   GoRouter.of(context).pop();
+   // }
   }
   void _onWalletPayChosen()async{
-    dialog++;
+    // dialog++;
     final subscription = manager.stream.listen((state) {
       if (state is CheckoutSuccess) {
         showSuccessDialog(context);
-        dialog++;
+        // dialog++;
       } else if (state is CheckoutError) {
         showFailureDialog(context, sutitle: state.message+ " make sure you have blance");
-        dialog++;
+        // dialog++;
       } else if (State is CheckoutLoading) {
         showWatingDialog(context);
-        dialog++;
+        // dialog++;
       }
     });
     await manager.submitCheckout(widget.tripModel.id,false);
     await Future.delayed(const Duration(seconds: 1));
-    while(dialog--!=0) {
-      GoRouter.of(context).pop();
-    }
+    // while(dialog--!=0) {
+    //   GoRouter.of(context).pop();
+    // }
     return;
   }
   void _onStripePayChosen()async{
     int pay= manager.getTotalPrice(widget.tripModel.price.toDouble()).toInt();
-    dialog++;
+    // dialog++;
     await context.read<TripInfo2Cubit>().fetchTripDetailsInfo1(widget.tripModel.id);
       if(context.read<TripInfo2Cubit>().state is TripInfo2Failure){
         showFailureDialog(context, sutitle: "No enternet");
-        dialog++;
+        // dialog++;
         return;
       }else if(context.read<TripInfo2Cubit>().state is TripInfo2Success){
         if((context.read<TripInfo2Cubit>().state as TripInfo2Success).
@@ -146,24 +171,24 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
           final subscription = manager.stream.listen((state) {
             if (state is CheckoutSuccess) {
               showSuccessDialog(context);
-              dialog++;
+              // dialog++;
             } else if (state is CheckoutError) {
               showFailureDialog(context, sutitle: state.message+ " make sure you have blance");
-              dialog++;
+              // dialog++;
             } else if (State is CheckoutLoading) {
               showWatingDialog(context);
-              dialog++;
+              // dialog++;
             }
           });
           await manager.submitCheckout(widget.tripModel.id,true);
         }else{
           showFailureDialog(context, sutitle: "Oop's, the number of travelers you need, is not available any more!");
-          dialog++;
+          // dialog++;
         }
       }
-    while(dialog--!=0) {
-      GoRouter.of(context).pop();
-    }
+    // while(dialog--!=0) {
+    //   GoRouter.of(context).pop();
+    // }
 
       return;
 
