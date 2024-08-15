@@ -174,6 +174,7 @@ class ApiServicesImp implements ApiServices {
       bool? hasToken}) async {
     try {
       setHeaders(hasToken ?? true);
+
       final response = await _dio.post(
         path,
         queryParameters: queryParams,

@@ -18,7 +18,7 @@ class HistoryWalletCubit extends Cubit<WalletHistoryState> {
       {
 
         emit( WalletHistoryFailure(failure.errMessage));
-        // emit(AttractionInitial());
+      
       },
           (success) async {
         emit(WalletHistorySuccess(success.walletHistoryModel));

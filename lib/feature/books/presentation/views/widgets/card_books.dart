@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:voyago/core/utils/styles.dart';
+import 'package:voyago/feature/books/data/models/books_model.dart';
 
 import '../../../../../../core/utils/assets.dart';
 import '../../../../../../core/utils/custom_colors.dart';
@@ -8,8 +9,10 @@ import '../../../../../../core/utils/screen_size_util.dart';
 import '../../../../trip&booking/presentation/views/widgets/over_view_card/icon_text_view.dart';
 
 class CardBooks extends StatelessWidget {
-  const CardBooks({super.key, required this.paymentState});
+  const CardBooks({super.key, required this.paymentState, required this.tripData});
   final String paymentState;
+
+  final TripData tripData;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -33,15 +36,15 @@ class CardBooks extends StatelessWidget {
             const SizedBox(height: 16.0),
             IconText(
                 icon: Iconsax.location,
-                title: 'Berlin, Germany',
+                title: tripData.trip.name,
                 iconColor: CustomColors.kMove[5]),
             IconText(
                 icon: Iconsax.calendar_tick,
-                title: 'Wed, October 8, 2024',
+                title: tripData.trip.startDate,
                 iconColor: CustomColors.kMove[5]),
             IconText(
               icon: Iconsax.user,
-              title: '2 Adults, 1 Child',
+              title: tripData.adult.toString() + tripData.child.toString(),
               iconColor: CustomColors.kMove[5],
             ),
             IconText(
@@ -54,7 +57,7 @@ class CardBooks extends StatelessWidget {
                   color: CustomColors.kMove[5],
                   borderRadius: BorderRadius.circular(16)),
               child: Text(
-               paymentState,
+                paymentState,
                 style: Styles.textStyle14W600
                     .copyWith(color: CustomColors.kWhite[0]),
               ),
