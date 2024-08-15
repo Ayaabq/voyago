@@ -19,7 +19,9 @@
 // }
 import 'package:dio/dio.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
+import 'package:voyago/core/domain/services/api_imp.dart';
 import 'package:voyago/core/stripe_payment/stripe_keys.dart';
+import 'package:voyago/core/utils/confg.dart';
 
 
 abstract class PaymentManager{
@@ -45,6 +47,7 @@ abstract class PaymentManager{
 
   static Future<String> _getClientSecret(String amount,String currency)async{
     Dio dio=Dio();
+    String id=await ApiServicesImp(dio).get(Confg.stripeId, hasToken: true);
     var response= await dio.post(
       'https://api.stripe.com/v1/payment_intents',
       options: Options(
@@ -56,7 +59,7 @@ abstract class PaymentManager{
       data: {
         'amount': amount,
         'currency': currency,
-        'customer':'cus_QcP2lcElSrBIQm'
+        'customer':id
       },
     );
     print(response.toString());
