@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:voyago/feature/search/presentation/views/widgets/attractions_search_grid.dart';
 import 'package:voyago/feature/search/presentation/views/widgets/back.dart';
 import 'package:voyago/feature/search/presentation/views/widgets/trip_search_list.dart';
 
 import '../../../../../core/utils/custom_colors.dart';
+import '../../../../../core/utils/services_locater.dart';
 import '../../../../../core/utils/styles.dart';
+import '../../../../attraction/data/repo/attraction_repo_impl.dart';
+import '../../../../attraction/presentation/manager/attractoin_cubit.dart';
 import '../../../../home/presentation/views/widgets/background/custom_back_ground.dart';
+import '../../manager/trip_search/trip_search_cubit.dart';
 
 class SearchBodyView extends StatefulWidget {
   const SearchBodyView({super.key, required this.type});
@@ -26,7 +31,9 @@ class _SearchBodyViewState extends State<SearchBodyView> {
   }
 
   void _onSearchChanged() {
-    setState(() {});
+    setState(() {
+      context.read<TripSearchCubit>().fetchTripsInitial(searchController.text, null);
+    });
   }
 
   @override
@@ -48,7 +55,7 @@ class _SearchBodyViewState extends State<SearchBodyView> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: Text(
-                "All Trips",
+                "Trips",
                 textAlign: TextAlign.start,
                 style: Styles.textStyle20W700.copyWith(
                   color: Theme.of(context).brightness == Brightness.dark
@@ -60,7 +67,7 @@ class _SearchBodyViewState extends State<SearchBodyView> {
           ],
         ),
       ),
-      const TripSearchList(),
+       TripSearchList(destination: searchController.text,),
     ];
 
     final attractionView = [
@@ -81,9 +88,14 @@ class _SearchBodyViewState extends State<SearchBodyView> {
                 ),
               ),
             ),
-          ],
+            ],
         ),
+
       ),
+      BlocProvider(
+        create: (context)=> AttractionCubit((getIt.get<AttractionRepoImp>())),
+        child:  AttractionsSearchGrid(text: searchController.text,),),
+
       // const AttractionsSearchGrid(),
     ];
 
@@ -96,10 +108,8 @@ class _SearchBodyViewState extends State<SearchBodyView> {
               haveRow: haveRow,
               searchController: searchController, haveFilters: false,
             ),
-            if (widget.type == "trip" && searchController.text.isNotEmpty)
               ...tripView,
-            if (widget.type == "attraction" &&
-                searchController.text.isNotEmpty)
+
               ...attractionView,
             const SliverToBoxAdapter(
               child: SizedBox(

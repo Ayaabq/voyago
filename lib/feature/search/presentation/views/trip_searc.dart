@@ -73,7 +73,7 @@ class _TripSearchState extends State<TripSearch> {
                   ],
                 ),
               ),
-              const TripSearchList(),
+               TripSearchList(destination: searchController.text,),
               const SliverToBoxAdapter(
                 child: SizedBox(
                   height: 30,

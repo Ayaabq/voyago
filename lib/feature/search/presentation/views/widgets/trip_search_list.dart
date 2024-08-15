@@ -7,11 +7,11 @@ import '../../../../../core/widgets/custom_failure_error.dart';
 import '../../../../home/presentation/views/widgets/trip_search/trip_search_card.dart';
 
 class TripSearchList extends StatelessWidget {
-  const TripSearchList({super.key});
-
+  const TripSearchList({super.key, required this.destination});
+  final String destination;
   @override
   Widget build(BuildContext context) {
-    // context.read<TripSearchCubit>().fetchTripsInitial("d", null);
+    context.read<TripSearchCubit>().fetchTripsInitial(destination, null);
 
     return    BlocBuilder<TripSearchCubit,TripsSearchState>
       (builder: (context,state) {
