@@ -132,4 +132,7 @@ static const revivesProfile = "/profile/reviews";
 
   //delete account
   static const deleteAccount="/delete_account_request";
+
+//log out 
+static const logOut="/logout";
 }

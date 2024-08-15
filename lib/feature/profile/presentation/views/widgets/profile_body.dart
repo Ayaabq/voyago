@@ -230,7 +230,6 @@
 //   }
 // }
 
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -241,6 +240,7 @@ import 'package:voyago/core/utils/app_router.dart';
 import 'package:voyago/core/utils/confg.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/core/utils/services_locater.dart';
+import 'package:voyago/core/utils/storge_token.dart';
 import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/core/widgets/dialog/dialog_void.dart';
 import 'package:voyago/feature/auth/login/presentation/views/widgets/button_auth.dart';
@@ -316,18 +316,34 @@ class ProfileBody extends StatelessWidget {
               const SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: ButtonAuth(title: "Delete my account".tr(), 
-                    onTap: () async{
-                  showWatingDialog(context);
-                    var res=await getIt.get<ApiServices>().get(Confg.deleteAccount,hasToken: true);
-                    GoRouter.of(context).pop();
-                    showSuccessDialog(context,subtitle: res['msg']);
+                child: ButtonAuth(
+                    title: "Delete my account".tr(),
+                    onTap: () async {
+                      showWatingDialog(context);
+                      var res = await getIt
+                          .get<ApiServices>()
+                          .get(Confg.deleteAccount, hasToken: true);
+                      GoRouter.of(context).pop();
+                      showSuccessDialog(context, subtitle: res['msg']);
                     }),
               ),
               const SizedBox(height: 16),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: ButtonAuth(title: "Log Out".tr(), onTap: () {}),
+                child: ButtonAuth(
+                    title: "Log Out".tr(),
+                    onTap: () async {
+                      var res = await getIt.get<ApiServices>().delete(
+                          Confg.logOut,
+                          hasToken: true,
+                          body: {"refresh_token": AppStorage.REFTOKEN});
+
+                      await AppStorage.instance.removeData(AppStorage.TOKEN);
+                      await AppStorage.instance.removeData(AppStorage.REFTOKEN);
+
+                      GoRouter.of(context)
+                          .pushReplacement(AppRouter.kLoginView);
+                    }),
               ),
             ],
           ),
@@ -427,7 +443,6 @@ class ProfilePicture extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Stack(
       children: [
         Center(
