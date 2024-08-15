@@ -27,7 +27,7 @@ class PagesView extends StatelessWidget {
               controller: pageController,
               children:  [
                 Step1Page(id:tripModel.id,),
-                Step2Page(trip: state.tripInfo2Model,name:tripModel.name ,),
+                Step2Page(tripModel: tripModel,trip: state.tripInfo2Model,name:tripModel.name ,),
                 Step3PaymentPage(tripPrice: tripModel.price.toDouble(),),
               ],
             );

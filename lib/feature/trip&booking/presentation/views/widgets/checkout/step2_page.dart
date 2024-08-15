@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:voyago/core/utils/screen_size_util.dart';
 import 'package:voyago/feature/trip&booking/data/models/trip_info_2_model.dart';
+import 'package:voyago/feature/trip&booking/data/models/trip_model.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/maneger/checkout_cubit/checkout_cubit.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/maneger/trip_info_2_cubit/trip_info_2_cubit.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/checkout/contact_details_section.dart';
@@ -16,8 +17,9 @@ import '../../../../../../core/utils/styles.dart';
 import '../../../../../../core/widgets/custom_card.dart';
 
 class Step2Page extends StatefulWidget {
-  const Step2Page({super.key, required this.trip, required this.name});
+  const Step2Page({super.key, required this.trip, required this.name, required this.tripModel});
   final TripInfo2Model trip;
+  final TripModel tripModel;
   final String name;
   @override
   State<Step2Page> createState() => _Step2PageState();
@@ -63,6 +65,7 @@ class _Step2PageState extends State<Step2Page> {
       children: [
         CustomCard(
           content: HighlightsSection(
+            tripModel: widget.tripModel,
             name: widget.name,
             trip: widget.trip,
             child: manager.child ?? 0,

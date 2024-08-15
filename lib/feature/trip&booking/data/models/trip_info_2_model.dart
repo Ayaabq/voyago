@@ -38,6 +38,8 @@ class TripInfo2Model {
     );
   }
 
+  get id => null;
+
   Map<String, dynamic> toJson() {
     return {
       'duration': duration,
