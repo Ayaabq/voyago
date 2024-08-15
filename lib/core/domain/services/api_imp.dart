@@ -96,6 +96,39 @@ class ApiServicesImp implements ApiServices {
     }
   }
 
+// إضافة تابع رفع الملفات
+  @override
+  Future upload(String path,
+      {required FormData formData,
+      Map<String, dynamic>? queryParams,
+      bool? hasToken}) async {
+    try {
+      await setHeaders(hasToken ?? true);
+
+      final response = await _dio.post(
+        path,
+        queryParameters: queryParams,
+        data: formData,
+        options: Options(
+          headers: _headers,
+          contentType: 'multipart/form-data',
+        ),
+      );
+
+      return _handleResponseAsJson(response);
+    } catch (error) {
+      rethrow;
+    }
+  }
+
+  dynamic _handleResponseAsJson(Response response) {
+    final responseAsJson = response.data.toString().isEmpty
+        ? {}
+        : jsonDecode(response.data.toString());
+    return responseAsJson;
+  }
+
+
   // @override
   // Future reqHttp(BuildContext context, String path,
   //     {Map<String, dynamic>? queryParams,
@@ -159,12 +192,7 @@ class ApiServicesImp implements ApiServices {
   //   }
   // }
 
-  dynamic _handleResponseAsJson(Response response) {
-    final responseAsJson = response.data.toString().isEmpty
-        ? {}
-        : jsonDecode(response.data.toString());
-    return responseAsJson;
-  }
+  
 
   @override
   Future postList(String path,

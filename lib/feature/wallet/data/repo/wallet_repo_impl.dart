@@ -17,7 +17,7 @@ class WalletRepoImpl implements WalletRepo {
 
   WalletRepoImpl(this.api);
 
- //********       wallet                    ******** */
+  //********       wallet                    ******** */
   @override
   Future<Either<Failure, WalletSuccess>> getWallet() async {
     try {
@@ -31,12 +31,9 @@ class WalletRepoImpl implements WalletRepo {
     }
   }
 
-
-///*******       history      wallet                         ******** */
+  ///*******       history      wallet                         ******** */
   @override
-  Future<Either<Failure, WalletHistorySuccess>> getWalletHistory() async{
-   
-
+  Future<Either<Failure, WalletHistorySuccess>> getWalletHistory() async {
     try {
       var response = await api.get(Confg.historyWallet, hasToken: true);
       return right(WalletHistorySuccess.fromJson(response));
@@ -48,11 +45,9 @@ class WalletRepoImpl implements WalletRepo {
     }
   }
 
-
-
-///*********         Transaction               ****** */
+  ///*********         Transaction               ****** */
   @override
-  Future<Either<Failure, TransactionSuccess>> getTransaction(String url) async{
+  Future<Either<Failure, TransactionSuccess>> getTransaction(String url) async {
     try {
       var response = await api.get(url, hasToken: true);
       return right(TransactionSuccess.fromJson(response));
@@ -65,10 +60,16 @@ class WalletRepoImpl implements WalletRepo {
   }
 
   @override
- Future<Either<Failure, FillWalletSuccess>> postFillWallet(FillWalletRequestModel requestModel) async {
+  Future<Either<Failure, FillWalletSuccess>> postFillWallet(
+      FillWalletRequestModel requestModel) async {
     try {
       FormData formData = await requestModel.toFormData();
-      var response = await api.post(Confg.chargeWallet, formData: formData, hasToken: true);
+      print(formData);
+      print(requestModel.amount);
+      print(requestModel.image);
+      var response = await api.post(Confg.chargeWallet,
+          formData: formData, hasToken: true);
+
       return right(FillWalletSuccess.fromJson(response));
     } catch (e) {
       if (e is DioException) {
@@ -77,9 +78,4 @@ class WalletRepoImpl implements WalletRepo {
       return left(ServiecesFailure(e.toString()));
     }
   }
-  }
-
-
-
-
-
+}
