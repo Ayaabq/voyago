@@ -13,7 +13,7 @@ class FillWalletView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => FillWalletCubit(getIt.get<WalletRepoImpl>()),
-      child: const FillWalletBody(),
+      child:  FillWalletBody(),
     );
   }
 }

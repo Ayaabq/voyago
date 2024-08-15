@@ -66,6 +66,24 @@ abstract class ApiServices {
   //   bool? hasToken,
   // });
 
+
+// up load
+
+
+
+
+Future upload(
+    String path, {
+    required FormData formData,
+    Map<String, dynamic>? queryParams,
+    bool? hasToken,
+  });
+
+
+
+
+
+//
   Future postList(
     String path, {
     Map<String, String>? queryParams,
