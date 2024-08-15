@@ -23,6 +23,8 @@ import '../../feature/destination/data/repo/destination_repo_impl.dart';
 import '../../feature/location&map/data/repo/location_repo.dart';
 import '../../feature/location&map/data/repo/location_repo_impl.dart';
 import '../../feature/profile/data/repo/settings_repo_impl.dart';
+import '../../feature/review_profile/data/repo/rev_profile_repo_imp.dart';
+import '../../feature/search/data/repo/search_repo_impl.dart';
 import '../../feature/trip&booking/data/repo/trip_details_repo/trip_details_repo_impl.dart';
 import '../../feature/trip&booking/data/repo/trips_repo/trips_repo_impl.dart';
 
@@ -68,5 +70,14 @@ void setUpServiceLocater() {
   getIt.registerSingleton<NotificationRepoImp>(
       NotificationRepoImp(getIt.get<ApiServices>()));
   getIt.registerSingleton<ImagesRepoImpl>(
-      ImagesRepoImpl( api: getIt.get<ApiServices>()));
+      ImagesRepoImpl(api: getIt.get<ApiServices>()));
+  getIt.registerSingleton<SearchRepo>(SearchRepoImp(getIt.get<ApiServices>()));
+
+getIt.registerSingleton<ReviewsProfRepoImp>(
+      ReviewsProfRepoImp(getIt.get<ApiServices>()));
+
+
+//books 
+getIt.registerSingleton<BooksImpl>(
+      BooksImpl(getIt.get<ApiServices>()));
 }
