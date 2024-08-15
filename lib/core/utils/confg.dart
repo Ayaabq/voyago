@@ -2,7 +2,7 @@ class Confg {
   static const String baseUrl = "http://10.0.2.2:3000";
   static const String mobileUrl = "http://10.0.2.2:3000";
   static const String baseApiUrl = "http://10.0.2.2:3000/api";
-  static const String mobileApiUrl = "http://192.168.1.100:3000/api";
+  static const String mobileApiUrl = "http://192.168.150.9:3000/api";
 
 //"http://192.168.1.102:3000/api";
 
@@ -99,6 +99,7 @@ class Confg {
   static const String historyWallet = '/profile/wallet_history';
 
   static const String historyWalletId = "/profile/wallet_history/";
+static const String chargeWallet = '/charge_wallet';
 
 // ai chat
   static const String geminiApiKEY = 'AIzaSyB56tWY8pSDtt4UO5TyBYMvnXBESHxgruE';
@@ -111,6 +112,15 @@ class Confg {
   static const allTripImages = "/all_trip_images/";
   static const allDestinationImages = "/all_destination_images/";
   static const allAttractionImages = "/all_attraction_images/";
+
+
+////     books 
+static const mybooks = "/personal_reservation";
+
+
+/// reviews profile 
+
+static const revivesProfile = "/profile/reviews";
 
   //search
   static const attractionSearch="/attraction_search?destination=";

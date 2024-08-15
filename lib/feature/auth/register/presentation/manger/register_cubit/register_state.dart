@@ -72,15 +72,7 @@ class RegisterInitial extends RegisterState {}
 
 class RegisterLoading extends RegisterState {}
 
-// class RegisterSuccess extends RegisterState {
-//   final String message;
-  
-//   RegisterSuccess(this.message, );
 
-//   static RegisterSuccess fromJson(Map<String, dynamic> response) {
-//     return RegisterSuccess(response['msg'],);
-//   }
-// }
 
 class RegisterSuccess extends RegisterState {
   final String message;

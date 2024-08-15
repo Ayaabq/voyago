@@ -6,6 +6,7 @@ import 'package:voyago/core/domain/services/api_imp.dart';
 import 'package:voyago/feature/attraction/data/repo/attraction_repo_impl.dart';
 import 'package:voyago/feature/auth/login/data/repo/login_repo_impl.dart';
 import 'package:voyago/feature/auth/register/data/repo/auth_register_repo_imp.dart';
+import 'package:voyago/feature/books/data/repo/book_repo.dart';
 import 'package:voyago/feature/favorite/data/repo/favorite_repo_impl.dart';
 import 'package:voyago/feature/home/data/repo/weather_repo/weather_repo_impl.dart';
 import 'package:voyago/feature/images/data/repo/images_repo_impl.dart';
@@ -17,11 +18,11 @@ import 'package:voyago/feature/reviews/data/repo/review_repo_impl.dart';
 import 'package:voyago/feature/search/data/repo/search_repo.dart';
 import 'package:voyago/feature/wallet/data/repo/wallet_repo_impl.dart';
 
+import '../../feature/books/data/repo/book_repo_imp.dart';
 import '../../feature/destination/data/repo/destination_repo_impl.dart';
 import '../../feature/location&map/data/repo/location_repo.dart';
 import '../../feature/location&map/data/repo/location_repo_impl.dart';
 import '../../feature/profile/data/repo/settings_repo_impl.dart';
-import '../../feature/search/data/repo/search_repo_impl.dart';
 import '../../feature/trip&booking/data/repo/trip_details_repo/trip_details_repo_impl.dart';
 import '../../feature/trip&booking/data/repo/trips_repo/trips_repo_impl.dart';
 
@@ -68,6 +69,4 @@ void setUpServiceLocater() {
       NotificationRepoImp(getIt.get<ApiServices>()));
   getIt.registerSingleton<ImagesRepoImpl>(
       ImagesRepoImpl( api: getIt.get<ApiServices>()));
-  getIt.registerSingleton<SearchRepo>(
-      SearchRepoImp(  getIt.get<ApiServices>()));
 }

@@ -46,7 +46,7 @@ import '../../feature/forgot_password/presentation/manger/restPassword/rest_pass
 import '../../feature/profile/presentation/views/help_view.dart';
 import '../../feature/profile/presentation/views/personal_info_view.dart';
 import '../../feature/profile/presentation/views/setting_view.dart';
-import '../../feature/reviews/presentation/veiws/reviews_view.dart';
+import '../../feature/review_profile/presention/views/reviews_view.dart';
 import '../../feature/trip&booking/presentation/views/checkout_view.dart';
 import '../../feature/wallet/presentation/manger/detiles_wallet/cubit/detiles_wallet_cubit.dart';
 import '../widgets/bottom_bar.dart';

@@ -132,7 +132,7 @@ class _EditProfileBodyState extends State<EditProfileBody> {
           context.showFailureToast(state.errorMessage);
         } else if (state is EditProfileStateSuccess) {
           context.showSuccessToast(state.message);
-        //  GoRouter.of(context).pop();
+          //  GoRouter.of(context).pop();
         } else {
           context.showErrorToast();
         }
@@ -145,8 +145,8 @@ class _EditProfileBodyState extends State<EditProfileBody> {
                 ProfileAppBar(
                   titel: "Edit Personal Information".tr(),
                 ),
-                const SizedBox(height: 30),
-                const ProfilePictureEdit(),
+                // const SizedBox(height: 30),
+                // const ProfilePictureEdit(),
                 const SizedBox(height: 30),
                 InformationEdit(
                   icon: Iconsax.user,
