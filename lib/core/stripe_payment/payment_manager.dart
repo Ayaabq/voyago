@@ -47,7 +47,10 @@ abstract class PaymentManager{
 
   static Future<String> _getClientSecret(String amount,String currency)async{
     Dio dio=Dio();
-    String id=await ApiServicesImp(dio).get(Confg.stripeId, hasToken: true);
+    // var res=await ApiServicesImp(dio).get(Confg.stripeId, hasToken: true);
+    // print(res.toString());
+    // String id =res['data'];
+    // print(id);
     var response= await dio.post(
       'https://api.stripe.com/v1/payment_intents',
       options: Options(
@@ -59,10 +62,10 @@ abstract class PaymentManager{
       data: {
         'amount': amount,
         'currency': currency,
-        'customer':id
+        'customer':"cus_QfJTcF1c7gQH5T"
       },
     );
-    print(response.toString());
+    // print(response.toString());
     return response.data["client_secret"];
   }
 

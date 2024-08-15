@@ -31,8 +31,26 @@ class _AiViewState extends State<AiView> {
 
  Widget _buildUI(){
     return DashChat(
+
         currentUser: currentUser,
         onSend: _sendMessage,
+        inputOptions: InputOptions(
+          inputTextStyle: TextStyle(
+            color: Colors.black, // Input text color set to black
+          ),
+          sendButtonBuilder: (Function() send) {
+            return IconButton(
+              icon: Icon(Icons.send),
+              color: Colors.purple, // Send button color set to purple
+              onPressed: send,
+            );
+          },
+        ),
+
+        messageOptions: MessageOptions(
+          currentUserContainerColor: Colors.purple, // Sent message bubble color set to purple
+          currentUserTextColor: Colors.white, // Text color inside sent message bubble
+        ),
         messages: messages);
  }
  void _sendMessage(ChatMessage chatMessage){

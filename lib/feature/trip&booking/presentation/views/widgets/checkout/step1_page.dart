@@ -3,9 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/maneger/trip_info_2_cubit/trip_info_2_cubit.dart';
-import 'package:voyago/feature/trip&booking/presentation/views/maneger/trip_info_2_cubit/trip_info_2_state.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/checkout/optinal_choices_list.dart';
-import 'package:voyago/feature/trip&booking/presentation/views/widgets/checkout/optional_choice_item.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/checkout/rules_section.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/checkout/travler_number.dart';
 

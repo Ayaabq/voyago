@@ -4,12 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:voyago/core/domain/services/api.dart';
+import 'package:voyago/core/utils/app_router.dart';
 import 'package:voyago/core/utils/confg.dart';
 import 'package:voyago/core/utils/custom_floating_button.dart';
 import 'package:voyago/core/utils/services_locater.dart';
 import 'package:voyago/core/widgets/dialog/dialog.dart';
 import 'package:voyago/core/widgets/dialog/dialog_void.dart';
 import 'package:voyago/feature/trip&booking/data/models/trip_model.dart';
+import 'package:voyago/feature/trip&booking/data/repo/trip_details_repo/trip_details_repo.dart';
+import 'package:voyago/feature/trip&booking/data/repo/trip_details_repo/trip_details_repo_impl.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/maneger/checkout_cubit/checkout_cubit.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/maneger/checkout_cubit/checkout_state.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/maneger/pages_cubit/page_state.dart';
@@ -133,9 +136,13 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   }
   void _onWalletPayChosen()async{
     // dialog++;
-    final subscription = manager.stream.listen((state) {
+    final subscription = manager.stream.listen((state)async {
       if (state is CheckoutSuccess) {
-        showSuccessDialog(context);
+        showSuccessDialog(context,subtitle: "Your booking has been submitted");
+        await Future.delayed(const Duration(seconds: 1));
+
+        GoRouter.of(context).push(AppRouter.kHomeView);
+
         // dialog++;
       } else if (state is CheckoutError) {
         showFailureDialog(context, sutitle: state.message+ " make sure you have blance");
@@ -155,19 +162,23 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
   void _onStripePayChosen()async{
     int pay= manager.getTotalPrice(widget.tripModel.price.toDouble()).toInt();
     // dialog++;
-    await context.read<TripInfo2Cubit>().fetchTripDetailsInfo1(widget.tripModel.id);
-      if(context.read<TripInfo2Cubit>().state is TripInfo2Failure){
+    final TripInfo2Cubit capacityManager=TripInfo2Cubit(getIt.get<TripDetailsRepoImp>());
+    await capacityManager.fetchTripDetailsInfo1(widget.tripModel.id);
+
+
+      if(capacityManager.state is TripInfo2Failure){
         showFailureDialog(context, sutitle: "No enternet");
         // dialog++;
         return;
-      }else if(context.read<TripInfo2Cubit>().state is TripInfo2Success){
-        if((context.read<TripInfo2Cubit>().state as TripInfo2Success).
+      }else if(capacityManager.state is TripInfo2Success){
+        if((capacityManager.state as TripInfo2Success).
         tripInfo2Model.capacity>=manager.child!+manager.adults!){
           print(pay);
           await PaymentManager.
           makePayment
             (pay,
               "USD");
+          // TODO: if the stripe return true
           final subscription = manager.stream.listen((state) {
             if (state is CheckoutSuccess) {
               showSuccessDialog(context);
@@ -181,6 +192,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
             }
           });
           await manager.submitCheckout(widget.tripModel.id,true);
+          GoRouter.of(context).push(AppRouter.kHomeView);
         }else{
           showFailureDialog(context, sutitle: "Oop's, the number of travelers you need, is not available any more!");
           // dialog++;
