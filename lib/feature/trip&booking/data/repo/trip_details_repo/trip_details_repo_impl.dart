@@ -91,7 +91,8 @@ class TripDetailsRepoImp implements TripDetailsRepo {
 
 
       if(response['msg']=='fail') {
-        return left(jsonDecode(response)['err']);
+        print("object");
+        return left(ServiecesFailure(response['err']));
       }
       return right(CheckoutSuccess.fromJson(response));
     }

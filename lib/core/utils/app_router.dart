@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -17,8 +19,10 @@ import 'package:voyago/feature/location&map/presentation/views/widgets/location_
 import 'package:voyago/feature/notification/presentation/views/notification_view.dart';
 
 import 'package:voyago/feature/profile/presentation/views/edit_profile_view.dart';
+import 'package:voyago/feature/search/presentation/views/attraction_search.dart';
 
 import 'package:voyago/feature/search/presentation/views/search_view.dart';
+import 'package:voyago/feature/search/presentation/views/trip_searc.dart';
 import 'package:voyago/feature/trip&booking/data/models/trip_model.dart';
 import 'package:voyago/feature/reviews/reviews_view.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/trip_view.dart';
@@ -81,6 +85,10 @@ class AppRouter {
 
   ///*****          attraction     *****///
   static const kAttractionDetailsView = "/AttractionDetailsView";
+  ///*****          search     *****///
+  static const kAttractionSearch = "/AttractionSearchView";
+  static const kTripSearch = "/TripSearchView";
+
 
 ////******     wallet               ****** */
   static const kWalletView = "/WalletView";
@@ -270,9 +278,12 @@ class AppRouter {
         builder: (context, state) => const DetilesBooksView(),
       ),
       GoRoute(
-        path: kLocationView,
+        path: '$kLocationView/:lat/:lng',
         builder: (context, state) {
-          return const LocationInput();
+          final lat = double.parse(state.pathParameters['lat']!);
+          final lng = double.parse(state.pathParameters['lng']!);
+          final title= state.extra as String;
+          return  LocationInput(lat: lat,long: lng, title: title,);
         },
       ),
       GoRoute(
@@ -285,6 +296,16 @@ class AppRouter {
         path: kNotificationView,
         builder: (context, state) {
           return const NotificationView();
+        },
+      ), GoRoute(
+        path: kTripSearch,
+        builder: (context, state) {
+          return const TripSearch();
+        },
+      ),GoRoute(
+        path: kAttractionSearch,
+        builder: (context, state) {
+          return const AttractionSearch();
         },
       ),
     ],

@@ -82,6 +82,15 @@ class Confg {
   static const String editProfile = '/EditMyProfile';
   //map
   static const String googleMapKey = "AIzaSyBfSxmU81EloKcv7r3ET";
+  static String getLatLongApi(String address) {
+    return "https://maps.googleapis.com/maps/api/geocode/json?address=$address&key=$googleGeocodingKey";
+  }
+  static String getAddressFromLatLong(double lat , double long){
+    return
+      "https://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$long&key=$googleGeocodingKey";
+  }
+  static const String googleGeocodingKey =
+      "AIzaSyBfSxmU81EloKcv7r3ET_69ciGIPlup9Dw";
 
 // wallet
 
@@ -113,4 +122,7 @@ static const mybooks = "/personal_reservation";
 
 static const revivesProfile = "/profile/reviews";
 
+  //search
+  static const attractionSearch="/attraction_search?destination=";
+  static const tripSearch="/search?destination=";
 }

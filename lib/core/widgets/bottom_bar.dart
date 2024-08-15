@@ -90,9 +90,9 @@ class _BottomBarState extends State<BottomBar> {
   final List<Widget> _screens = [
     const HomeView(),
     const BooksView(),
+    Container(),
     const FavoritesView(),
     const ProfileView(),
-    
   ];
 
   final List<Map<String, dynamic>> _navigationItems = [
@@ -105,6 +105,11 @@ class _BottomBarState extends State<BottomBar> {
       'icon': Iconsax.shopping_bag,
       'outlineIcon': Iconsax.shopping_bag5,
       'label': 'Books'.tr(),
+    },
+    {
+      'icon': Iconsax.add_circle,
+      'outlineIcon': Iconsax.add_circle5,
+      'label': 'My trips'.tr(),
     },
     {
       'icon': Iconsax.heart,
@@ -121,18 +126,19 @@ class _BottomBarState extends State<BottomBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButtonLocation:
-      FloatingActionButtonLocation.endFloat,
-      floatingActionButton:
-      IconButton(
-
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButton: IconButton(
         style: ButtonStyle(
-            backgroundColor: WidgetStateProperty.all(CustomColors.kHighlightMove)
-        ),
+            backgroundColor:
+                WidgetStateProperty.all(CustomColors.kHighlightMove)),
         onPressed: () {
           GoRouter.of(context).push(AppRouter.kAiView);
-        }, icon: const Icon(Iconsax.magicpen,
-        size:35,),),
+        },
+        icon: const Icon(
+          Iconsax.magicpen,
+          size: 35,
+        ),
+      ),
       body: _screens[_currentIndex],
       bottomNavigationBar: CurvedNavigationBar(
         index: _currentIndex,

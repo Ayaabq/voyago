@@ -26,7 +26,7 @@ class _WhetherInfoState extends State<WhetherInfo> {
   @override
   void initState() {
     super.initState();
-    context.read<LocationCubit>().fetchLocation();
+    context.read<LocationCubit>().fetchUserLocation();
   }
 
   @override

@@ -55,6 +55,27 @@ class AttractionCubit extends Cubit<AttractionState> {
 
       },
     );
+  } 
+  Future<void> fetchSearchAttraction(String destination) async {
+
+    emit(AttractionLoading());
+
+    var result = await attractionRepo.getSearchAttraction(destination);
+    result.fold(
+          (failure)
+      {
+
+        emit( AttractionFailure(failure.errMessage));
+        // emit(AttractionInitial());
+      },
+          (success) async {
+        emit(AttractionSuccess(success.attractionModel));
+
+      },
+    );
+  }
+  void reset(){
+    emit(AttractionInitial());
   }
 
 

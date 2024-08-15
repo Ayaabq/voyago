@@ -10,9 +10,11 @@ import '../../../../home/presentation/views/widgets/background/custom_back_groun
 import '../../../../home/presentation/views/widgets/custom_home_list.dart';
 
 class BackgroundSectionSearch extends StatelessWidget {
-  const BackgroundSectionSearch({super.key,  this.haveRow=true, required this.searchController});
+  const BackgroundSectionSearch({super.key,  this.haveRow=true, required this.searchController, required this.haveFilters, this.where});
   final bool haveRow;
+  final bool haveFilters;
   final TextEditingController searchController;
+  final String? where;
   @override
   Widget build(BuildContext context) {
     return  SliverToBoxAdapter(
@@ -20,7 +22,9 @@ class BackgroundSectionSearch extends StatelessWidget {
        padding: const EdgeInsets.only(left: 10, right: 10, top: 40),
        child: Column(
          children: [
-            CustomAppBarSearch(searchController: searchController,),
+            CustomAppBarSearch(searchController: searchController,
+              haveFilters: haveFilters,
+            where: where??"",),
            const SizedBox(
              height: 14,
            ),

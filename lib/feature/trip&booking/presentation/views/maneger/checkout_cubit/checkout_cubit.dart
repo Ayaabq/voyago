@@ -181,7 +181,7 @@ class CheckoutCubit extends Cubit<CheckoutState> {
     return tot;
   }
 
-  Future<void> submitCheckout(int id) async {
+  Future<void> submitCheckout(int id,bool isStripe) async {
     emit(CheckoutLoading());
       final checkout=CheckoutModel(
           adults: adults!,
@@ -189,7 +189,7 @@ class CheckoutCubit extends Cubit<CheckoutState> {
           phoneNumber: phoneNumber!,
           password: password!,
           optionalChoices: optionalChoices!,
-          email: email!);
+          email: email!, isStripe: isStripe);
       final result= await tripDetailsRepo.submitCheckout(checkout, id);
       result.fold(
             (failure) {

@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:voyago/feature/search/presentation/manager/filters_cubit.dart';
 import 'package:voyago/feature/search/presentation/views/widgets/filter_search.dart';
 import 'package:voyago/feature/search/presentation/views/widgets/search_elv.dart';
 
 import '../../../../../core/utils/custom_colors.dart';
 
 class CustomAppBarSearch extends StatelessWidget {
-  const CustomAppBarSearch({super.key, required this.searchController});
+  const CustomAppBarSearch({super.key, required this.searchController, required this.haveFilters, this.where});
 final TextEditingController searchController;
+final bool haveFilters;
+final String? where;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -30,6 +34,7 @@ final TextEditingController searchController;
                 : CustomColors.kWhite[3],
             searchController: searchController,
           ),
+          if(haveFilters)
           IconButton(
             padding: EdgeInsetsDirectional.zero,
             onPressed: () {
@@ -45,7 +50,10 @@ final TextEditingController searchController;
                 ),
                 context: context,
                 builder: (BuildContext context) {
-                  return const FilterSearchTrips();
+                  return
+                  BlocProvider(
+                    create: (_)=>FilterCubit(),
+                      child: FilterSearchTrips(where: where!,));
                 },
               );
             },

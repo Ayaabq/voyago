@@ -20,8 +20,8 @@ class CategoriesRow extends StatelessWidget {
         children: [
            CategoryItem(
              onTap: (){
-               GoRouter.of(context).push(AppRouter.kSearchView, extra: "trip");
-
+               // GoRouter.of(context).push(AppRouter.kSearchView, extra: "trip");
+               GoRouter.of(context).push(AppRouter.kTripSearch);
              },
             title: "Trips".tr(),
             iconPath: HomeAssets.categoryTripsIcon,
@@ -31,7 +31,8 @@ class CategoriesRow extends StatelessWidget {
                   0.06)), // 6% of the screen width spacing
            CategoryItem(
              onTap: (){
-               GoRouter.of(context).push(AppRouter.kSearchView, extra: "attraction");
+               GoRouter.of(context).push(AppRouter.kAttractionSearch);
+               // GoRouter.of(context).push(AppRouter.kSearchView, extra: "attraction");
 
              },
             title: "Attractions".tr(),

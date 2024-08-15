@@ -41,7 +41,7 @@ class _ImageSliderState extends State<ImageSlider> {
           if(state is AllImageSuccess){
             images=state.images.map((e)=>NetworkImage(ImagesHelper.fixUrl(e))).toList();
             if(images.isEmpty) {
-              images=[AssetImage(AssetsData.noImage)];
+              images=[const AssetImage(AssetsData.noImage)];
             }
             return  Column(
               children: [
@@ -63,7 +63,7 @@ class _ImageSliderState extends State<ImageSlider> {
           }else if (state is AllImageFailure){
            return CustomFailureError(errMessage: state.errorMessage);
           }else {
-            return LoadBase();
+            return const LoadBase();
           }
 
 
