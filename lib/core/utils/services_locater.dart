@@ -75,4 +75,9 @@ void setUpServiceLocater() {
 
 getIt.registerSingleton<ReviewsProfRepoImp>(
       ReviewsProfRepoImp(getIt.get<ApiServices>()));
+
+
+//books 
+getIt.registerSingleton<BooksImpl>(
+      BooksImpl(getIt.get<ApiServices>()));
 }
