@@ -9,15 +9,19 @@ class BooksLoading extends BooksState {}
 
 
 class BooksSuccess extends BooksState {
-  final List<BooksModel> model;
+  final BooksModel model;
 
   BooksSuccess(this.model);
   @override
   List<Object?> get props => [model];
   static BooksSuccess fromJson(Map<String, dynamic> response) {
-    final bookss = (response['data'] as List)
-    .map((e) => BooksModel.fromJson(e))
-    .toList();
+    // final bookss = (response['data'] as List)
+    // .map((e) =>
+    //     BooksModel.fromJson(e)
+    // )
+    // .toList();
+    final bookss =  BooksModel.fromJson(response);
+
     return BooksSuccess(bookss);
   }
 }

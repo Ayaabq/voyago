@@ -106,6 +106,7 @@ static const String chargeWallet = '/charge_wallet';
   // notification
   static const String getNotificatio = "/Notifications";
   //images urls
+  static const reservationImage="/reservation_trip_image/";
   static const tripImage = "/trip_single_image/";
   static const destinationImage = "/destination_single_image/";
   static const attractionImage = "/attraction_single_image/";

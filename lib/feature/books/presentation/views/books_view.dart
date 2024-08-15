@@ -91,10 +91,9 @@ class BooksListView extends StatelessWidget {
       return BlocBuilder<BooksCubit, BooksState>(
         builder: (context, state) {
           if (state is BooksSuccess) {
-            List<BooksModel> model = state.model;
-            return Expanded(
-              child: ListBooks(model: model),
-            );
+            BooksModel model = state.model;
+
+            return  ListBooks( tripData: model.data,);
           } else if (state is BooksLoading) {
             return const Center(child: CircularProgressIndicator());
           } else if (state is BooksFailure) {
@@ -154,23 +153,25 @@ class BooksListView extends StatelessWidget {
 class ListBooks extends StatelessWidget {
   ListBooks({
     super.key,
-    required this.model,
-    this.tripData,
+    // required this.model,
+    required this.tripData,
   });
 
-  final List<BooksModel> model;
-  TripData? tripData;
+  // final List<BooksModel> model;
+  List<TripData> tripData;
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: model.length,
+
+        padding: EdgeInsets.all(10),
+        itemCount: tripData.length,
         itemBuilder: (BuildContext context, int index) {
-          CardBooks(
+          return CardBooks(
             paymentState: "Paid".tr(),
-            tripData: tripData!,
+            tripData: tripData[index],
           );
-          return null;
+          // return null;
         });
   }
 }
