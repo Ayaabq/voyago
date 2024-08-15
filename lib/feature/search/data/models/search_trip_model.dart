@@ -17,7 +17,7 @@ class TripSearchModel {
   final int adminId;
   final int destinationId;
   final Destination destination;
-  final bool favorites;
+   bool favorites;
 
   TripSearchModel({
     required this.id,
@@ -89,7 +89,10 @@ class TripSearchModel {
       'Destenation': destination.toJson(),
       'favorites': favorites,
     };
+  } void changeFavouriteStatus(){
+    favorites=!favorites;
   }
+
 }
 
 class Destination {
