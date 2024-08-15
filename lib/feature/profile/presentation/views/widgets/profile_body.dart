@@ -236,9 +236,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:voyago/core/domain/services/api.dart';
 import 'package:voyago/core/utils/app_router.dart';
+import 'package:voyago/core/utils/confg.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
+import 'package:voyago/core/utils/services_locater.dart';
 import 'package:voyago/core/utils/styles.dart';
+import 'package:voyago/core/widgets/dialog/dialog_void.dart';
 import 'package:voyago/feature/auth/login/presentation/views/widgets/button_auth.dart';
 import 'package:voyago/feature/profile/presentation/manager/profile/profile_main/profile_cubit.dart';
 import 'package:voyago/generated/assets.dart';
@@ -312,7 +316,13 @@ class ProfileBody extends StatelessWidget {
               const SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: ButtonAuth(title: "Delete my account".tr(), onTap: () {}),
+                child: ButtonAuth(title: "Delete my account".tr(), 
+                    onTap: () async{
+                  showWatingDialog(context);
+                    var res=await getIt.get<ApiServices>().get(Confg.deleteAccount,hasToken: true);
+                    GoRouter.of(context).pop();
+                    showSuccessDialog(context,subtitle: res['msg']);
+                    }),
               ),
               const SizedBox(height: 16),
               Padding(

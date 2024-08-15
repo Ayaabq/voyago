@@ -12,14 +12,14 @@ void showWatingDialog(BuildContext context) {
   );
 }
 
-void showSuccessDialog(BuildContext context) {
+void showSuccessDialog(BuildContext context, {String subtitle='sssssssssssssssss'}) {
   showDialog(
     context: context,
     builder: (BuildContext context) {
-      return const DialogCustom(
+      return  DialogCustom(
         title: 'Success!',
         imagePath: Wallet.successDialog,
-        subtitel: 'sssssssssssssssss',
+        subtitel: subtitle,
       );
     },
   );

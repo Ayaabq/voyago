@@ -1,18 +1,26 @@
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:voyago/feature/trip&booking/data/models/trip_info_2_model.dart';
+import 'package:voyago/feature/trip&booking/data/models/trip_model.dart';
 
 import '../../../../../../core/helper/date_time_helper.dart';
 import '../../../../../../core/utils/assets.dart';
+import '../../../../../../core/utils/confg.dart';
 import '../../../../../../core/utils/custom_colors.dart';
 import '../../../../../../core/utils/screen_size_util.dart';
+import '../../../../../../core/utils/services_locater.dart';
+import '../../../../../images/data/repo/images_repo_impl.dart';
+import '../../../../../images/presentation/manager/images_cubit.dart';
+import '../../../../../images/presentation/views/custom)netowk_image.dart';
 import '../over_view_card/icon_text_view.dart';
 
 class HighlightCard extends StatelessWidget {
-  const HighlightCard({super.key, required this.trip, required this.child, required this.adults});
+  const HighlightCard({super.key, required this.trip, required this.child, required this.adults, required this.tripModel});
   final TripInfo2Model trip;
+  final TripModel tripModel;
   final int child;
   final int adults;
   @override
@@ -21,13 +29,22 @@ class HighlightCard extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(16),
-          child: Image.asset(
-            HomeAssets
-                .dummyOffers, // replace with your image asset path
-            height: 120,
-            width: ScreenSizeUtil.dynamicWidth(.35),
-            fit: BoxFit.cover,
+          child: BlocProvider(
+
+            create: (context) => ImageCubit(getIt.get<ImagesRepoImpl>()),
+            child: CustomNetworkImage(id: tripModel.id, url: Confg.tripImage,
+                height: 120,
+                width: ScreenSizeUtil.dynamicWidth(.35),
+            ),
+
           ),
+          // Image.asset(
+          //   HomeAssets
+          //       .dummyOffers, // replace with your image asset path
+          //   height: 120,
+          //   width: ScreenSizeUtil.dynamicWidth(.35),
+          //   fit: BoxFit.cover,
+          // ),
         ),
         const SizedBox(
           width: 20,

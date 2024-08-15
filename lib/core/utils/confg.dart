@@ -129,4 +129,7 @@ static const revivesProfile = "/profile/reviews";
   //stripe
   static const stripeId="/stripe/customerId";
   static const checkPassword="/check_password";
+
+  //delete account
+  static const deleteAccount="/delete_account_request";
 }
