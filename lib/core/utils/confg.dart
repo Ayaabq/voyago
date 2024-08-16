@@ -119,7 +119,13 @@ class Confg {
 ////     books
   static const mybooks = "/personal_reservation";
 
+
   /// reviews profile
+
+////     books 
+//static const mybooks = "/personal_reservation";
+static const editBook="/edit_reservation/";
+
 
   static const revivesProfile = "/profile/reviews";
 

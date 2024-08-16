@@ -15,7 +15,13 @@ import '../../../../../core/utils/services_locater.dart';
 import '../../../../images/data/repo/images_repo_impl.dart';
 import '../../../../images/presentation/manager/images_cubit.dart';
 import '../../../../trip&booking/presentation/views/widgets/over_view_card/icon_text_view.dart';
+
 import '../../../data/models/detiles_books.dart';
+
+import '../../../data/repo/book_repo_imp.dart';
+import '../../manger/detiles_book/cubit/detiles_book_cubit_cubit.dart';
+import '../../manger/detiles_book/cubit/detiles_book_cubit_state.dart';
+
 
 class CardBooks extends StatelessWidget {
   const CardBooks(
@@ -31,8 +37,21 @@ class CardBooks extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
+      onTap: () async{
         //  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>EditBook()));
+      //   final manager=
+      //   DetilesBooksCubit(getIt.get<BooksImpl>());
+      //  await manager.fetchDetilesBooks();
+      //   if(manager.state is BookDetilesSuccess ) {
+      //     Navigator.of(context).push(MaterialPageRoute(builder: (context)=>
+      //        EditBook(tripData: (manager.state as BookDetilesSuccess).model, tripId: 1,)));
+      //   }else{
+      //     print("noooo");
+      //     print("noooo");
+      //     print((manager.state as BookDetilesFailure).errorMessage);
+      //   }
+        // Navigator.of(context).push(
+        //     MaterialPageRoute(builder: (context) => const DetilesBooksView()));
         //  DetilesBooksCubit(getIt.get<BooksImpl>()).fetchDetilesBooks();
 //         Navigator.of(context).push(MaterialPageRoute(builder: (context) {
 //           return BlocProvider(
@@ -44,8 +63,12 @@ class CardBooks extends StatelessWidget {
 
 // //=>
 //             ));
+
         GoRouter.of(context)
             .push(AppRouter.kDetilesBooksView, extra: tripData);
+
+// GoRouter.of(context).push(AppRouter.kDetilesBooksView);
+
       },
       child: Card(
         elevation: 4,

@@ -67,12 +67,12 @@ class _PersonalTripDetailsState extends State<PersonalTripDetails> {
           )),
           BlocProvider(
             create: (_) => ItineraryCubit(getIt.get<TripDetailsRepoImp>()),
-            child: const ItineraryCard(id: 2,),
+            child: const ItineraryCard(id: 1,),
           ),
 
           BlocProvider(
               create: (_) => TripInfo3PlacesCubit(getIt.get<TripDetailsRepoImp>()),
-              child: const PlacesCard(id: 2,)
+              child: const PlacesCard(id: 1,)
           ),
           const SizedBox(height: 70,)
         ],
