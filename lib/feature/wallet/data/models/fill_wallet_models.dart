@@ -20,23 +20,42 @@ import 'package:dio/dio.dart';
 
 import 'package:dio/dio.dart';
 
+// class FillWalletRequestModel {
+//   final File image;
+//   final String amount;
+
+//   FillWalletRequestModel({required this.image, required this.amount});
+
+//   // Future<FormData> toFormData() async {
+//   //   return FormData.fromMap({
+//   //     'image': await MultipartFile.fromFile(image.path),
+//   //     'amount': amount,
+//   //   });
+//   // }
+
+// Future<FormData> toFormData() async {
+//   return FormData.fromMap({
+//     'image': await MultipartFile.fromFile(image.path, ),
+//     'amount': amount,
+//   });
+// }
+// }
+
 class FillWalletRequestModel {
   final File image;
   final String amount;
 
-  FillWalletRequestModel({required this.image, required this.amount});
-
-  // Future<FormData> toFormData() async {
-  //   return FormData.fromMap({
-  //     'image': await MultipartFile.fromFile(image.path),
-  //     'amount': amount,
-  //   });
-  // }
-
-Future<FormData> toFormData() async {
-  return FormData.fromMap({
-    'image': await MultipartFile.fromFile(image.path, ),
-    'amount': amount,
+  FillWalletRequestModel({
+    required this.image,
+    required this.amount,
   });
-}
+
+  Future<FormData> toFormData() async {
+    String fileName = image.path.split('/').last; // الحصول على اسم الملف
+
+    return FormData.fromMap({
+      'image': await MultipartFile.fromFile(image.path, filename: fileName),
+      'amount': amount,
+    });
+  }
 }

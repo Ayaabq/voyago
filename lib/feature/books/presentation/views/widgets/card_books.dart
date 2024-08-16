@@ -5,6 +5,7 @@ import 'package:voyago/core/helper/date_time_helper.dart';
 import 'package:voyago/core/utils/confg.dart';
 import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/feature/books/data/models/books_model.dart';
+import 'package:voyago/feature/books/presentation/views/widgets/detiles_books_view.dart';
 import 'package:voyago/feature/books/presentation/views/widgets/edit_book.dart';
 import 'package:voyago/feature/images/presentation/views/custom)netowk_image.dart';
 
@@ -17,39 +18,43 @@ import '../../../../images/presentation/manager/images_cubit.dart';
 import '../../../../trip&booking/presentation/views/widgets/over_view_card/icon_text_view.dart';
 
 class CardBooks extends StatelessWidget {
-  const CardBooks({super.key, required this.paymentState, required this.tripData});
+  const CardBooks(
+      {super.key, required this.paymentState, required this.tripData});
   final String paymentState;
 
   final TripData tripData;
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
-        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>EditBook()));
+      onTap: () {
+        //  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>EditBook()));
+        Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => const DetilesBooksView()));
       },
       child: Card(
         elevation: 4,
-
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child:
-
-                BlocProvider(
-                    create: (context) => ImageCubit(getIt.get<ImagesRepoImpl>()),
-                    child: CustomNetworkImage(id: tripData.id, url: Confg.reservationImage,
-                    height: 180,
-                    width:  ScreenSizeUtil.dynamicWidth(.40),))
-                // Image.asset(
-                //   HomeAssets.dummyOffers, // replace with your image asset path
-                //   height: 170,
-                //   width: ScreenSizeUtil.dynamicWidth(.30),
-                //   fit: BoxFit.cover,
-                // ),
-              ),
+                  borderRadius: BorderRadius.circular(16),
+                  child: BlocProvider(
+                      create: (context) =>
+                          ImageCubit(getIt.get<ImagesRepoImpl>()),
+                      child: CustomNetworkImage(
+                        id: tripData.id,
+                        url: Confg.reservationImage,
+                        height: 180,
+                        width: ScreenSizeUtil.dynamicWidth(.40),
+                      ))
+                  // Image.asset(
+                  //   HomeAssets.dummyOffers, // replace with your image asset path
+                  //   height: 170,
+                  //   width: ScreenSizeUtil.dynamicWidth(.30),
+                  //   fit: BoxFit.cover,
+                  // ),
+                  ),
               const SizedBox(
                 width: 20,
               ),
@@ -64,11 +69,13 @@ class CardBooks extends StatelessWidget {
                       iconColor: CustomColors.kMove[5]),
                   IconText(
                       icon: Iconsax.calendar_tick,
-                      title: DateTimeHelper.formatDateDMMM(DateTime.parse(tripData.trip.startDate)),
+                      title: DateTimeHelper.formatDateDMMM(
+                          DateTime.parse(tripData.trip.startDate)),
                       iconColor: CustomColors.kMove[5]),
                   IconText(
                     icon: Iconsax.user,
-                    title: tripData.adult.toString() + tripData.child.toString(),
+                    title:
+                        tripData.adult.toString() + tripData.child.toString(),
                     iconColor: CustomColors.kMove[5],
                   ),
                   IconText(
@@ -76,7 +83,8 @@ class CardBooks extends StatelessWidget {
                       title: 'Payment status:',
                       iconColor: CustomColors.kMove[5]),
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                     decoration: BoxDecoration(
                         color: CustomColors.kMove[5],
                         borderRadius: BorderRadius.circular(16)),

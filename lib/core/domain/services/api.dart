@@ -72,7 +72,7 @@ abstract class ApiServices {
 
 
 
-Future upload(
+Future postim(
     String path, {
     required FormData formData,
     Map<String, dynamic>? queryParams,
