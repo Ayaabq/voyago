@@ -32,10 +32,10 @@ class BooksImpl implements BooksRepo {
 
 ////***************    books detiles                 *************** */
   @override
-  Future<Either<Failure, BookDetilesSuccess>> getBooksDetiles() async{
+  Future<Either<Failure, BookDetilesSuccess>> getBooksDetiles(String url) async{
   
     try {
-      var response = await api.get(Confg.detailsreservation, hasToken: true);
+      var response = await api.get(url, hasToken: true);
       return right(BookDetilesSuccess.fromJson(response));
     } catch (e) {
       if (e is DioException) {

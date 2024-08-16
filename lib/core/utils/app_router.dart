@@ -39,6 +39,7 @@ import '../../feature/auth/login/presentation/views/login_view.dart';
 import '../../feature/auth/register/data/repo/auth_register_repo_imp.dart';
 import '../../feature/auth/register/presentation/manger/register_cubit/register_cubit.dart';
 import '../../feature/auth/register/presentation/views/register_view.dart';
+import '../../feature/books/data/models/books_model.dart';
 import '../../feature/books/data/repo/book_repo_imp.dart';
 import '../../feature/books/presentation/manger/detiles_book/cubit/detiles_book_cubit_cubit.dart';
 import '../../feature/books/presentation/views/widgets/detiles_books_view.dart';
@@ -280,13 +281,14 @@ class AppRouter {
       GoRoute(
         path: kDetilesBooksView,
         builder: (context, state) {
-final TripDetails model = state.extra as TripDetails;
+          final TripData model = state.extra as TripData;
           return BlocProvider(
-            create: (context) => DetilesBooksCubit(getIt.get<BooksImpl>())..fetchDetilesBooks(),
-            child: DetilesBooksView(model:model ),
+            create: (context) => DetilesBooksCubit(getIt.get<BooksImpl>()),
+            child: DetilesBooksView(tripData: model),
           );
         },
       ),
+
       GoRoute(
         path: '$kLocationView/:lat/:lng',
         builder: (context, state) {

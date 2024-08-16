@@ -7,5 +7,5 @@ import '../../presentation/manger/detiles_book/cubit/detiles_book_cubit_state.da
 
 abstract class BooksRepo {
 Future<Either<Failure,BooksSuccess>> getBooks();
-Future<Either<Failure,BookDetilesSuccess>> getBooksDetiles();
+Future<Either<Failure,BookDetilesSuccess>> getBooksDetiles(String url);
 }

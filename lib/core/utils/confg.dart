@@ -2,7 +2,7 @@ class Confg {
   static const String baseUrl = "http://10.0.2.2:3000";
   static const String mobileUrl = "http://10.0.2.2:3000";
   static const String baseApiUrl = "http://10.0.2.2:3000/api";
-  static const String mobileApiUrl = "http://192.168.168.9:3000/api";
+  static const String mobileApiUrl = "http://192.168.123.9:3000/api";
 
 //"http://192.168.1.102:3000/api";
 
@@ -75,7 +75,7 @@ class Confg {
 
   // reservation
   static const String reservation = '/reservation/';
-static const String detailsreservation = '/reservation_details/2';
+  static const String detailsreservation = '/reservation_details/';
 
 // profile
   static const String profileMain = '/profile/main';
@@ -86,10 +86,11 @@ static const String detailsreservation = '/reservation_details/2';
   static String getLatLongApi(String address) {
     return "https://maps.googleapis.com/maps/api/geocode/json?address=$address&key=$googleGeocodingKey";
   }
-  static String getAddressFromLatLong(double lat , double long){
-    return
-      "https://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$long&key=$googleGeocodingKey";
+
+  static String getAddressFromLatLong(double lat, double long) {
+    return "https://maps.googleapis.com/maps/api/geocode/json?latlng=$lat,$long&key=$googleGeocodingKey";
   }
+
   static const String googleGeocodingKey =
       "AIzaSyBfSxmU81EloKcv7r3ET_69ciGIPlup9Dw";
 
@@ -100,14 +101,14 @@ static const String detailsreservation = '/reservation_details/2';
   static const String historyWallet = '/profile/wallet_history';
 
   static const String historyWalletId = "/profile/wallet_history/";
-static const String chargeWallet = '/charge_wallet';
+  static const String chargeWallet = '/charge_wallet';
 
 // ai chat
   static const String geminiApiKEY = 'AIzaSyB56tWY8pSDtt4UO5TyBYMvnXBESHxgruE';
   // notification
   static const String getNotificatio = "/Notifications";
   //images urls
-  static const reservationImage="/reservation_trip_image/";
+  static const reservationImage = "/reservation_trip_image/";
   static const tripImage = "/trip_single_image/";
   static const destinationImage = "/destination_single_image/";
   static const attractionImage = "/attraction_single_image/";
@@ -115,26 +116,24 @@ static const String chargeWallet = '/charge_wallet';
   static const allDestinationImages = "/all_destination_images/";
   static const allAttractionImages = "/all_attraction_images/";
 
+////     books
+  static const mybooks = "/personal_reservation";
 
-////     books 
-static const mybooks = "/personal_reservation";
+  /// reviews profile
 
-
-/// reviews profile 
-
-static const revivesProfile = "/profile/reviews";
+  static const revivesProfile = "/profile/reviews";
 
   //search
-  static const attractionSearch="/attraction_search?destination=";
-  static const tripSearch="/search?destination=";
+  static const attractionSearch = "/attraction_search?destination=";
+  static const tripSearch = "/search?destination=";
 
   //stripe
-  static const stripeId="/stripe/customerId";
-  static const checkPassword="/check_password";
+  static const stripeId = "/stripe/customerId";
+  static const checkPassword = "/check_password";
 
   //delete account
-  static const deleteAccount="/delete_account_request";
+  static const deleteAccount = "/delete_account_request";
 
-//log out 
-static const logOut="/logout";
+//log out
+  static const logOut = "/logout";
 }

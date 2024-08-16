@@ -6,11 +6,8 @@ import 'package:voyago/core/helper/date_time_helper.dart';
 import 'package:voyago/core/utils/confg.dart';
 import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/feature/books/data/models/books_model.dart';
-import 'package:voyago/feature/books/presentation/views/widgets/detiles_books_view.dart';
-import 'package:voyago/feature/books/presentation/views/widgets/edit_book.dart';
 import 'package:voyago/feature/images/presentation/views/custom)netowk_image.dart';
 
-import '../../../../../../core/utils/assets.dart';
 import '../../../../../../core/utils/custom_colors.dart';
 import '../../../../../../core/utils/screen_size_util.dart';
 import '../../../../../core/utils/app_router.dart';
@@ -18,15 +15,19 @@ import '../../../../../core/utils/services_locater.dart';
 import '../../../../images/data/repo/images_repo_impl.dart';
 import '../../../../images/presentation/manager/images_cubit.dart';
 import '../../../../trip&booking/presentation/views/widgets/over_view_card/icon_text_view.dart';
-import '../../../data/repo/book_repo_imp.dart';
-import '../../manger/detiles_book/cubit/detiles_book_cubit_cubit.dart';
+import '../../../data/models/detiles_books.dart';
 
 class CardBooks extends StatelessWidget {
   const CardBooks(
-      {super.key, required this.paymentState, required this.tripData});
+      {super.key,
+      required this.paymentState,
+      required this.tripData,
+    //  required this.tripDetails
+});
   final String paymentState;
 
   final TripData tripData;
+  //final TripDetails tripDetails;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -43,7 +44,8 @@ class CardBooks extends StatelessWidget {
 
 // //=>
 //             ));
-GoRouter.of(context).push(AppRouter.kDetilesBooksView);
+        GoRouter.of(context)
+            .push(AppRouter.kDetilesBooksView, extra: tripData);
       },
       child: Card(
         elevation: 4,

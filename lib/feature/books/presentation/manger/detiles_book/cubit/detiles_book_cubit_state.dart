@@ -7,7 +7,7 @@ class BookDetilesInitial extends DetilesBookState {}
 class BookDetilesLoading extends DetilesBookState {}
 
 class BookDetilesSuccess extends DetilesBookState {
-  final TripData model;
+  final TripDataDD model;
 
   BookDetilesSuccess(this.model);
 
@@ -15,7 +15,7 @@ class BookDetilesSuccess extends DetilesBookState {
   List<Object?> get props => [model];
 
   static BookDetilesSuccess fromJson(Map<String, dynamic> response) {
-    final tripData = TripData.fromJson(response['data']);
+    final tripData = TripDataDD.fromJson(response['data']);
     return BookDetilesSuccess(tripData);
   }
 }
