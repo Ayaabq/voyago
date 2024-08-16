@@ -7,6 +7,7 @@ import 'package:voyago/core/utils/services_locater.dart';
 import 'package:voyago/feature/ai_assistent/presentation/views/ai_view.dart';
 import 'package:voyago/feature/attraction/data/models/attraction_model.dart';
 import 'package:voyago/feature/attraction/presentation/views/widgets/attraction_details.dart';
+import 'package:voyago/feature/books/data/models/detiles_books.dart';
 import 'package:voyago/feature/destination/data/models/destination_model.dart';
 
 import 'package:voyago/feature/forgot_password/presentation/views/forgot_password_view.dart';
@@ -38,6 +39,8 @@ import '../../feature/auth/login/presentation/views/login_view.dart';
 import '../../feature/auth/register/data/repo/auth_register_repo_imp.dart';
 import '../../feature/auth/register/presentation/manger/register_cubit/register_cubit.dart';
 import '../../feature/auth/register/presentation/views/register_view.dart';
+import '../../feature/books/data/repo/book_repo_imp.dart';
+import '../../feature/books/presentation/manger/detiles_book/cubit/detiles_book_cubit_cubit.dart';
 import '../../feature/books/presentation/views/widgets/detiles_books_view.dart';
 import '../../feature/destination/presentation/views/widgets/destination_details_view.dart';
 import '../../feature/forgot_password/presentation/manger/codeForgotPass/code_forgot_password_cubit.dart';
@@ -85,10 +88,10 @@ class AppRouter {
 
   ///*****          attraction     *****///
   static const kAttractionDetailsView = "/AttractionDetailsView";
+
   ///*****          search     *****///
   static const kAttractionSearch = "/AttractionSearchView";
   static const kTripSearch = "/TripSearchView";
-
 
 ////******     wallet               ****** */
   static const kWalletView = "/WalletView";
@@ -245,7 +248,8 @@ class AppRouter {
           builder: (context, state) {
             final HistoryWalletModel model = state.extra as HistoryWalletModel;
             return BlocProvider(
-              create: (context) => TransactionCubit(getIt.get<WalletRepoImpl>()),
+              create: (context) =>
+                  TransactionCubit(getIt.get<WalletRepoImpl>()),
               child: DetilesWaletHistoryView(
                 id: model,
               ),
@@ -275,15 +279,25 @@ class AppRouter {
 /* ///  books    /// */
       GoRoute(
         path: kDetilesBooksView,
-        builder: (context, state) => const DetilesBooksView(),
+        builder: (context, state) {
+final TripDetails model = state.extra as TripDetails;
+          return BlocProvider(
+            create: (context) => DetilesBooksCubit(getIt.get<BooksImpl>())..fetchDetilesBooks(),
+            child: DetilesBooksView(model:model ),
+          );
+        },
       ),
       GoRoute(
         path: '$kLocationView/:lat/:lng',
         builder: (context, state) {
           final lat = double.parse(state.pathParameters['lat']!);
           final lng = double.parse(state.pathParameters['lng']!);
-          final title= state.extra as String;
-          return  LocationInput(lat: lat,long: lng, title: title,);
+          final title = state.extra as String;
+          return LocationInput(
+            lat: lat,
+            long: lng,
+            title: title,
+          );
         },
       ),
       GoRoute(
@@ -297,12 +311,14 @@ class AppRouter {
         builder: (context, state) {
           return const NotificationView();
         },
-      ), GoRoute(
+      ),
+      GoRoute(
         path: kTripSearch,
         builder: (context, state) {
           return const TripSearch();
         },
-      ),GoRoute(
+      ),
+      GoRoute(
         path: kAttractionSearch,
         builder: (context, state) {
           return const AttractionSearch();
