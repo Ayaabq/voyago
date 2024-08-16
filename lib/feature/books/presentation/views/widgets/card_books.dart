@@ -18,6 +18,7 @@ import '../../../../images/presentation/manager/images_cubit.dart';
 import '../../../../trip&booking/presentation/views/widgets/over_view_card/icon_text_view.dart';
 import '../../../data/repo/book_repo_imp.dart';
 import '../../manger/detiles_book/cubit/detiles_book_cubit_cubit.dart';
+import '../../manger/detiles_book/cubit/detiles_book_cubit_state.dart';
 
 class CardBooks extends StatelessWidget {
   const CardBooks(
@@ -28,9 +29,15 @@ class CardBooks extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
+      onTap: () async{
         //  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>EditBook()));
-        DetilesBooksCubit(getIt.get<BooksImpl>()).fetchDetilesBooks();
+        final manager=
+        DetilesBooksCubit(getIt.get<BooksImpl>());
+       await manager.fetchDetilesBooks();
+        if(manager.state is BookDetilesSuccess ) {
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>
+             EditBook(tripData: (manager.state as BookDetilesSuccess).model, tripId: 2,)));
+        }
         // Navigator.of(context).push(
         //     MaterialPageRoute(builder: (context) => const DetilesBooksView()));
       },

@@ -2,12 +2,14 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:voyago/feature/auth/login/presentation/views/widgets/button_auth.dart';
+import 'package:voyago/feature/trip&booking/data/models/checkout/optional_choice_model.dart';
 
 import '../../../../../core/widgets/custom_card.dart';
 import '../../../../trip&booking/presentation/views/maneger/checkout_cubit/checkout_cubit.dart';
 import '../../../../trip&booking/presentation/views/widgets/checkout/contact_details_section.dart';
 import '../../../../trip&booking/presentation/views/widgets/checkout/optinal_choices_list.dart';
 import '../../../../trip&booking/presentation/views/widgets/checkout/travler_number.dart';
+import '../../../data/models/detiles_books.dart';
 
 class EditBookBody extends StatefulWidget {
   //
@@ -19,21 +21,21 @@ class EditBookBody extends StatefulWidget {
   //   _emailController.addListener(_onEmailChanged);
   //   _phoneController.addListener(_onPhoneChanged);
   // }
-  const EditBookBody({super.key, required this.tripID});
- final int tripID;
 
+  const EditBookBody({super.key, required this.tripData, required this.tripID});
+ final int tripID;
+  final TripData tripData;
   @override
   State<EditBookBody> createState() => _EditBookBodyState();
 }
 
 class _EditBookBodyState extends State<EditBookBody> {
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _phoneController = TextEditingController();
+  late TextEditingController _emailController ;
+  late TextEditingController _phoneController ;
   late CheckoutCubit manager;
-
+  late int tripID;
   @override
   void dispose() {
-    //   manager = context.read<CheckoutCubit>();
 
     _phoneController.dispose();
     _emailController.dispose();
@@ -52,8 +54,12 @@ class _EditBookBodyState extends State<EditBookBody> {
   @override
   void initState() {
       manager = context.read<CheckoutCubit>();
-
-
+      _emailController = TextEditingController(text: "email" );
+      _phoneController= TextEditingController(text:widget.tripData.details.phoneNumber );
+      tripID=widget.tripID;
+        manager.initCubit(widget.tripData.details.adults, widget.tripData.details.children, "email", widget.tripData.details.phoneNumber,
+            widget.tripData.reservedEvents
+                .map((e)=>OptionalChoiceModel(id: e.eventId, title: "jk", )).toList());
     // Add listeners to the controllers
       _emailController.addListener(_onEmailChanged);
       _phoneController.addListener(_onPhoneChanged);
@@ -85,7 +91,13 @@ class _EditBookBodyState extends State<EditBookBody> {
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: ButtonAuth(title: "Edit", onTap: (){}),
+          child: ButtonAuth(title: "Edit", onTap: (){
+            print(manager.adults);
+            print(manager.adults);
+            print(manager.adults);
+            print(manager.child);
+            print(manager.child);
+          }),
         )
       ],
     );

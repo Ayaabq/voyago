@@ -16,7 +16,22 @@ class CheckoutCubit extends Cubit<CheckoutState> {
   String? password;
 
   List<OptionalChoiceModel>? optionalChoices = [];
+  void initCubit(int adults, int childe, String email, String phoneNumber,  List<OptionalChoiceModel> optionalChoices){
+    this.adults=adults;
+    this.child=childe;
+    this.phoneNumber=phoneNumber;
+    this.email=email;
+    this.optionalChoices=optionalChoices;
+    emit(CheckoutLoaded(
+      adults: adults,
+      child: childe,
+      email: email,
+      phoneNumber: phoneNumber,
+      password: password ?? '',
+      optionalChoices:optionalChoices,
+    ));
 
+  }
   void updateAdults(int adults) {
     this.adults = adults;
     emit(CheckoutLoaded(
