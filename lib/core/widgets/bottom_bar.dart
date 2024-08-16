@@ -68,6 +68,7 @@ import 'package:voyago/feature/books/presentation/views/books_view.dart';
 
 import 'package:iconsax/iconsax.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:voyago/feature/presonal_trip/presentation/views/personal_trip_view.dart';
 import 'package:voyago/feature/profile/data/repo/profile_repo_impl.dart';
 import 'package:voyago/feature/profile/presentation/manager/profile/profile_main/profile_cubit.dart';
 
@@ -90,7 +91,7 @@ class _BottomBarState extends State<BottomBar> {
   final List<Widget> _screens = [
     const HomeView(),
     const BooksView(),
-    Container(),
+    const PersonalTrip(),
     const FavoritesView(),
     const ProfileView(),
   ];

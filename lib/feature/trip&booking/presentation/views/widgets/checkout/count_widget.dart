@@ -9,12 +9,13 @@ class ItemCountWidget extends StatefulWidget {
   final void Function()? onAddTap;
   final void Function()? onMidTap;
   final void Function(int i)? onPressed;
+  final TextStyle? textStyle;
   const ItemCountWidget({
     super.key,
     required this.title,
     this.initialCount = 0,
     this.onPressed,
-    this.max, this.onAddTap, this.onMidTap,
+    this.max, this.onAddTap, this.onMidTap, this.textStyle,
   });
 
   @override
@@ -58,7 +59,7 @@ class _ItemCountWidgetState extends State<ItemCountWidget> {
         Expanded(
           child: Text(
             widget.title,
-            style: Styles.textStyle16W400,
+            style: widget.textStyle??Styles.textStyle16W400,
           ),
         ),
         IconButton(

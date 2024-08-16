@@ -41,7 +41,7 @@ class TripOfferColumn extends StatelessWidget {
                   icon: Icons.location_on,
                   colorIcon: CustomColors.kGrey[2],
                   sizeIcon: 14),
-              const DaysAndPriceWidget(days: 5, fromPrice: 70)
+              const DaysAndPriceWidget(days: 5, fromPrice: 70, priceAlt: "personal",)
             ],
           ),
         )
