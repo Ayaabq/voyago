@@ -16,6 +16,8 @@ import '../../../../../core/utils/services_locater.dart';
 import '../../../../images/data/repo/images_repo_impl.dart';
 import '../../../../images/presentation/manager/images_cubit.dart';
 import '../../../../trip&booking/presentation/views/widgets/over_view_card/icon_text_view.dart';
+import '../../../data/repo/book_repo_imp.dart';
+import '../../manger/detiles_book/cubit/detiles_book_cubit_cubit.dart';
 
 class CardBooks extends StatelessWidget {
   const CardBooks(
@@ -28,8 +30,9 @@ class CardBooks extends StatelessWidget {
     return InkWell(
       onTap: () {
         //  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>EditBook()));
-        Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => const DetilesBooksView()));
+        DetilesBooksCubit(getIt.get<BooksImpl>()).fetchDetilesBooks();
+        // Navigator.of(context).push(
+        //     MaterialPageRoute(builder: (context) => const DetilesBooksView()));
       },
       child: Card(
         elevation: 4,
