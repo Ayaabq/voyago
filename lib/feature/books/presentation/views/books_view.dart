@@ -56,8 +56,6 @@ class _BooksBodyState extends State<BooksBody> {
       ),
       const Text("data"),
     ], titel: "My bookings".tr());
-
-
   }
 }
 
@@ -93,7 +91,9 @@ class BooksListView extends StatelessWidget {
           if (state is BooksSuccess) {
             BooksModel model = state.model;
 
-            return  ListBooks( tripData: model.data,);
+            return ListBooks(
+              tripData: model.data,
+            );
           } else if (state is BooksLoading) {
             return const Center(child: CircularProgressIndicator());
           } else if (state is BooksFailure) {
@@ -163,8 +163,7 @@ class ListBooks extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         itemCount: tripData.length,
         itemBuilder: (BuildContext context, int index) {
           return CardBooks(

@@ -170,15 +170,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:voyago/core/utils/confg.dart';
 import 'package:voyago/core/utils/storge_token.dart';
+import 'package:voyago/core/widgets/toast/toast_extensions.dart';
 import 'dart:io';
 
 import 'package:voyago/feature/wallet/presentation/manger/fill_wallet/cubit/fill_wallet_cubit.dart';
 import 'package:voyago/feature/wallet/presentation/views/widgets/card_fill_wallet.dart';
+import 'package:voyago/generated/assets.dart';
 
 import '../../../../../constants.dart';
+import '../../../../../core/domain/services/api.dart';
 import '../../../../../core/utils/custom_colors.dart';
 import '../../../../../core/utils/screen_size_util.dart';
+import '../../../../../core/utils/services_locater.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../../core/utils/validator_manager.dart';
 import '../../../../auth/login/presentation/views/widgets/button_auth.dart';
@@ -444,10 +449,216 @@ import 'dart:io';
 // }
 
 /////******** */
-import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
-import 'dart:io';
+// import 'package:dio/dio.dart';
+// import 'package:flutter/material.dart';
+// import 'dart:io';
 
+// import 'package:dio/dio.dart';
+// import 'package:flutter/material.dart';
+// import 'dart:io';
+// import 'package:image_picker/image_picker.dart';
+
+// class FillWalletBody extends StatefulWidget {
+//   const FillWalletBody({super.key});
+
+//   @override
+//   _FillWalletBodyState createState() => _FillWalletBodyState();
+// }
+
+// class _FillWalletBodyState extends State<FillWalletBody> {
+//   File? _image;
+//   final String _token =
+//       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoxLCJpYXQiOjE3MjM3NTY0NjEsImV4cCI6MTcyMzc2NzI2MX0.sgiO0sDOHwhB8HRmft8hnn6ddrIGqn6wQweEb-VJWas";
+// // ضع التوكن الخاص بك هنا
+
+// // ضع التوكن الخاص بك هنا
+//   final TextEditingController _textController = TextEditingController();
+
+//   Future<void> _pickImage() async {
+//     final picker = ImagePicker();
+//     final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+
+//     if (pickedFile != null) {
+//       setState(() {
+//         _image = File(pickedFile.path); // حفظ مسار الصورة
+//       });
+//     }
+//   }
+
+//   Future<void> uploadImage() async {
+//     if (_image == null) {
+//       print("No image selected.");
+//       return;
+//     }
+
+//     String fileName = _image!.path.split('/').last; // الحصول على اسم الملف
+//     String extension = fileName.split('.').last.toLowerCase();
+//     print(extension);
+//     print(fileName);
+// // الحصول على الامتداد
+
+//     if (['jpg', 'jpeg', 'png', 'gif', 'bmp'].contains(extension)) {
+//       FormData formData = FormData.fromMap({
+//         'image': MultipartFile.fromFileSync(_image!.path),
+//         'amount': _textController.text,
+//       });
+
+//       try {
+//         Dio dio = Dio();
+//         dio.options.headers["Authorization"] = "Bearer $_token";
+//         dio.options.headers["Content-Type"] = "multipart/form-data";
+// // تعيين التوكن هنا
+//         var response = await dio.post(
+//             'http://192.168.1.101:3000/api/charge_wallet',
+//             data: formData);
+//         print("Response: ${response.data}");
+//       } catch (e) {
+//         print("Error uploading image: $e");
+//       }
+//     } else {
+//       print("Invalid file format.");
+//     }
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(title: const Text("Upload Image")),
+//       body: Center(
+//         child: Column(
+//           children: [
+//             ElevatedButton(
+//                 onPressed: _pickImage, child: const Text('Pick Image')),
+//             ElevatedButton(
+//               onPressed: uploadImage,
+//               child: const Text("Upload Image"),
+//             ),
+//             TextField(
+//               controller: _textController,
+//               decoration: const InputDecoration(labelText: "Amount"),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+// // import 'dart:io';
+// // import 'package:flutter/material.dart';
+// // import 'package:image_picker/image_picker.dart';
+// // import 'package:http/http.dart' as http;
+
+// // class FillWalletBody extends StatefulWidget {
+// //   const FillWalletBody({super.key});
+
+// //   @override
+// //   _FillWalletBodyState createState() => _FillWalletBodyState();
+// // }
+
+// // class _FillWalletBodyState extends State<FillWalletBody> {
+// //   File? _selectedImage;
+// //   final _quantityController = TextEditingController();
+// //   final ImagePicker _picker = ImagePicker();
+// //   final String _token =
+// //       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoxLCJpYXQiOjE3MjM3NTY0NjEsImV4cCI6MTcyMzc2NzI2MX0.sgiO0sDOHwhB8HRmft8hnn6ddrIGqn6wQweEb-VJWas"; // ضع التوكن الخاص بك هنا
+// // //  ; // قم بتعديل التوكن هنا
+
+// //   Future<void> _pickImage() async {
+// //     final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
+
+// //     if (pickedFile != null) {
+// //       if (_validateImage(pickedFile.path)) {
+// //         setState(() {
+// //           _selectedImage = File(pickedFile.path);
+// //         });
+// //       } else {
+// //         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+// //           content:
+// //               Text('Invalid image format. Please select a JPEG or PNG image.'),
+// //         ));
+// //       }
+// //     }
+// //   }
+
+// //   bool _validateImage(String path) {
+// //     final extension = path.split('.').last.toLowerCase();
+// //     return extension == 'jpg' || extension == 'jpeg' || extension == 'png';
+// //   }
+
+// //   Future<void> _uploadData() async {
+// //     if (_selectedImage == null || _quantityController.text.isEmpty) {
+// //       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+// //         content: Text('Please select an image and enter a quantity.'),
+// //       ));
+// //       return;
+// //     }
+
+// //     final request = http.MultipartRequest(
+// //       'POST',
+// //       Uri.parse('http://192.168.1.101:3000/api/charge_wallet'),
+// //     );
+
+// //     // إضافة التوكن إلى الرؤوس (headers)
+// //     request.headers['Authorization'] = 'Bearer $_token';
+
+// //     request.files
+// //         .add(await http.MultipartFile.fromPath('image', _selectedImage!.path));
+// //     request.fields['amount'] = _quantityController.text;
+
+// //     final response = await request.send();
+
+// //     if (response.statusCode == 200) {
+// //       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+// //         content: Text('Upload successful!'),
+// //       ));
+// //     } else {
+// //       print(response.statusCode);
+// //       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+// //         content: Text('Upload failed. Please try again.'),
+// //       ));
+// //     }
+// //   }
+
+// //   @override
+// //   Widget build(BuildContext context) {
+// //     return Scaffold(
+// //       appBar: AppBar(
+// //         title: const Text('Upload Image'),
+// //       ),
+// //       body: Padding(
+// //         padding: const EdgeInsets.all(16.0),
+// //         child: Column(
+// //           children: [
+// //             if (_selectedImage != null)
+// //               Image.file(_selectedImage!, height: 150),
+// //             ElevatedButton(
+// //               onPressed: _pickImage,
+// //               child: const Text('Pick Image'),
+// //             ),
+// //             TextField(
+// //               controller: _quantityController,
+// //               decoration: const InputDecoration(labelText: 'Enter Quantity'),
+// //               keyboardType: TextInputType.number,
+// //             ),
+// //             const SizedBox(height: 20),
+// //             ElevatedButton(
+// //               onPressed: _uploadData,
+// //               child: const Text('Upload'),
+// //             ),
+// //           ],
+// //         ),
+// //       ),
+// //     );
+// //   }
+
+// //   @override
+// //   void dispose() {
+// //     _quantityController.dispose();
+// //     super.dispose();
+// //   }
+// // }
+
+////*nnnnnnnnnnnnnnn
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
@@ -462,11 +673,8 @@ class FillWalletBody extends StatefulWidget {
 
 class _FillWalletBodyState extends State<FillWalletBody> {
   File? _image;
-  final String _token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoxLCJpYXQiOjE3MjM3NTY0NjEsImV4cCI6MTcyMzc2NzI2MX0.sgiO0sDOHwhB8HRmft8hnn6ddrIGqn6wQweEb-VJWas";
-// ضع التوكن الخاص بك هنا
 
-// ضع التوكن الخاص بك هنا
+  //"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoxLCJpYXQiOjE3MjM3OTg3MjAsImV4cCI6MTcyMzgwOTUyMH0.lGGI5v2rxbqqFmyqYpIV_mQp7pzFPhoeP6kC7ev6B8c";
   final TextEditingController _textController = TextEditingController();
 
   Future<void> _pickImage() async {
@@ -488,29 +696,41 @@ class _FillWalletBodyState extends State<FillWalletBody> {
 
     String fileName = _image!.path.split('/').last; // الحصول على اسم الملف
     String extension = fileName.split('.').last.toLowerCase();
-    print(extension);
     print(fileName);
-// الحصول على الامتداد
+    print(extension);
 
     if (['jpg', 'jpeg', 'png', 'gif', 'bmp'].contains(extension)) {
       FormData formData = FormData.fromMap({
-        'image': MultipartFile.fromFileSync(_image!.path),
+        'image': [
+          await MultipartFile.fromFile(_image!.path, filename: fileName)
+        ],
         'amount': _textController.text,
       });
 
       try {
-        Dio dio = Dio();
-        dio.options.headers["Authorization"] = "Bearer $_token";
-        dio.options.headers["Content-Type"] = "multipart/form-data";
-// تعيين التوكن هنا
-        var response = await dio.post(
-            'http://192.168.1.101:3000/api/charge_wallet',
-            data: formData);
-        print("Response: ${response.data}");
+        var res = await getIt
+            .get<ApiServices>()
+            .postim(Confg.chargeWallet, hasToken: true, formData: formData);
+        // Dio dio = Dio();
+        // dio.options.headers["Authorization"] = "Bearer $token";
+        // print(token);
+        // dio.options.headers["Content-Type"] =
+        //     "multipart/form-data"; // التأكد من تحديد نوع المحتوى بشكل صحيح
+
+        // var response = await dio.post(
+        //   Confg.mobileApiUrl + Confg.chargeWallet,
+        //   data: formData,
+        // );
+
+        if (res.statusCode == 200) {
+          print("Response: ${res.data}");
+        }
       } catch (e) {
+        context.showSuccessToast("wait for admin response <3");
         print("Error uploading image: $e");
       }
     } else {
+      context.showFailureToast("Invalid file format.");
       print("Invalid file format.");
     }
   }
@@ -518,137 +738,32 @@ class _FillWalletBodyState extends State<FillWalletBody> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Upload Image")),
-      body: Center(
-        child: Column(
-          children: [
-            ElevatedButton(
-                onPressed: _pickImage, child: const Text('Pick Image')),
-            ElevatedButton(
-              onPressed: uploadImage,
-              child: const Text("Upload Image"),
-            ),
-            TextField(
-              controller: _textController,
-              decoration: const InputDecoration(labelText: "Amount"),
-            ),
-          ],
+      //appBar: AppBar(title: const Text("Fill Wallet")),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            children: [
+              ProfileAppBar(titel: "Fill in my wallet".tr()),
+              const SizedBox(height: 20),
+              if (_image != null) Image.file(_image!),
+              ElevatedButton(
+                  onPressed: _pickImage, child: const Text('Pick Image')),
+              Padding(
+                padding: const EdgeInsets.all(16),
+                child: TextField(
+                  controller: _textController,
+                  decoration: const InputDecoration(labelText: "Amount"),
+                ),
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: uploadImage,
+                child: const Text("Upload Image"),
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 }
-// import 'dart:io';
-// import 'package:flutter/material.dart';
-// import 'package:image_picker/image_picker.dart';
-// import 'package:http/http.dart' as http;
-
-// class FillWalletBody extends StatefulWidget {
-//   const FillWalletBody({super.key});
-
-//   @override
-//   _FillWalletBodyState createState() => _FillWalletBodyState();
-// }
-
-// class _FillWalletBodyState extends State<FillWalletBody> {
-//   File? _selectedImage;
-//   final _quantityController = TextEditingController();
-//   final ImagePicker _picker = ImagePicker();
-//   final String _token =
-//       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoxLCJpYXQiOjE3MjM3NTY0NjEsImV4cCI6MTcyMzc2NzI2MX0.sgiO0sDOHwhB8HRmft8hnn6ddrIGqn6wQweEb-VJWas"; // ضع التوكن الخاص بك هنا
-// //  ; // قم بتعديل التوكن هنا
-
-//   Future<void> _pickImage() async {
-//     final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
-
-//     if (pickedFile != null) {
-//       if (_validateImage(pickedFile.path)) {
-//         setState(() {
-//           _selectedImage = File(pickedFile.path);
-//         });
-//       } else {
-//         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-//           content:
-//               Text('Invalid image format. Please select a JPEG or PNG image.'),
-//         ));
-//       }
-//     }
-//   }
-
-//   bool _validateImage(String path) {
-//     final extension = path.split('.').last.toLowerCase();
-//     return extension == 'jpg' || extension == 'jpeg' || extension == 'png';
-//   }
-
-//   Future<void> _uploadData() async {
-//     if (_selectedImage == null || _quantityController.text.isEmpty) {
-//       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-//         content: Text('Please select an image and enter a quantity.'),
-//       ));
-//       return;
-//     }
-
-//     final request = http.MultipartRequest(
-//       'POST',
-//       Uri.parse('http://192.168.1.101:3000/api/charge_wallet'),
-//     );
-
-//     // إضافة التوكن إلى الرؤوس (headers)
-//     request.headers['Authorization'] = 'Bearer $_token';
-
-//     request.files
-//         .add(await http.MultipartFile.fromPath('image', _selectedImage!.path));
-//     request.fields['amount'] = _quantityController.text;
-
-//     final response = await request.send();
-
-//     if (response.statusCode == 200) {
-//       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-//         content: Text('Upload successful!'),
-//       ));
-//     } else {
-//       print(response.statusCode);
-//       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-//         content: Text('Upload failed. Please try again.'),
-//       ));
-//     }
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: const Text('Upload Image'),
-//       ),
-//       body: Padding(
-//         padding: const EdgeInsets.all(16.0),
-//         child: Column(
-//           children: [
-//             if (_selectedImage != null)
-//               Image.file(_selectedImage!, height: 150),
-//             ElevatedButton(
-//               onPressed: _pickImage,
-//               child: const Text('Pick Image'),
-//             ),
-//             TextField(
-//               controller: _quantityController,
-//               decoration: const InputDecoration(labelText: 'Enter Quantity'),
-//               keyboardType: TextInputType.number,
-//             ),
-//             const SizedBox(height: 20),
-//             ElevatedButton(
-//               onPressed: _uploadData,
-//               child: const Text('Upload'),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-
-//   @override
-//   void dispose() {
-//     _quantityController.dispose();
-//     super.dispose();
-//   }
-// }

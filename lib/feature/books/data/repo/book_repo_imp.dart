@@ -7,6 +7,7 @@ import 'package:voyago/feature/books/presentation/manger/books_cubit/books_cubit
 import '../../../../core/domain/services/api.dart';
 import '../../../../core/utils/confg.dart';
 import '../../../wallet/presentation/manger/history_wallet/cubit/history_wallet_state.dart';
+import '../../presentation/manger/detiles_book/cubit/detiles_book_cubit_state.dart';
 
 class BooksImpl implements BooksRepo {
   final ApiServices api;
@@ -26,4 +27,28 @@ class BooksImpl implements BooksRepo {
       return left(ServiecesFailure(e.toString()));
     }
   }
-}
+  
+
+
+////***************    books detiles                 *************** */
+  @override
+  Future<Either<Failure, BookDetilesSuccess>> getBooksDetiles() async{
+  
+    try {
+      var response = await api.get(Confg.detailsreservation, hasToken: true);
+      return right(BookDetilesSuccess.fromJson(response));
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServiecesFailure.fromDioError(e));
+      }
+      return left(ServiecesFailure(e.toString()));
+    }
+  }
+  
+  }
+
+
+
+
+
+

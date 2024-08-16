@@ -16,9 +16,9 @@ class ApiServicesImp implements ApiServices {
     _dio.options
 // if you use mobile
 
-     // ..baseUrl = Confg.mobileApiUrl
+     ..baseUrl = Confg.mobileApiUrl
 //if you use eml or edge
-    ..baseUrl = Confg.baseApiUrl
+   // ..baseUrl = Confg.baseApiUrl
 
       ..responseType = ResponseType.plain
       ..sendTimeout = const Duration(minutes: 1)
@@ -98,7 +98,7 @@ class ApiServicesImp implements ApiServices {
 
 // إضافة تابع رفع الملفات
   @override
-  Future upload(String path,
+  Future postim(String path,
       {required FormData formData,
       Map<String, dynamic>? queryParams,
       bool? hasToken}) async {
@@ -111,7 +111,7 @@ class ApiServicesImp implements ApiServices {
         data: formData,
         options: Options(
           headers: _headers,
-          contentType: 'multipart/form-data',
+          contentType: "multipart/form-data",
         ),
       );
 
