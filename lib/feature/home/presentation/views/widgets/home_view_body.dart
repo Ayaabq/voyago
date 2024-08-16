@@ -27,7 +27,7 @@ class HomeViewBody extends StatelessWidget {
             const BackgroundSection(),
             SliverToBoxAdapter(
               child:   CustomHomeList(
-                title: "Special offers".tr(),
+                title: "Personal Trips".tr(),
                 sizedList: const TripsOffersListView(),
               ),
             ),

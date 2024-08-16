@@ -8,11 +8,12 @@ import '../../feature/profile/presentation/manager/currency_cubit/currency_cubit
 class DaysAndPriceWidget extends StatelessWidget {
   final int days;
   final double fromPrice;
+  final String? priceAlt;
 
   const DaysAndPriceWidget({
     super.key,
     required this.days,
-    required this.fromPrice,
+    required this.fromPrice, this.priceAlt,
   });
 
   @override
@@ -33,7 +34,7 @@ class DaysAndPriceWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
           ),
           child:Text(
-            "form ${(fromPrice * exchanger)
+    priceAlt??"form ${(fromPrice * exchanger)
             .toStringAsFixed(1)
             } $currency",
             style: Theme.of(context).brightness == Brightness.dark
