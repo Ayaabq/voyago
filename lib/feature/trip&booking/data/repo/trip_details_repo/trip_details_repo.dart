@@ -1,6 +1,7 @@
 
 import 'package:dartz/dartz.dart';
 import 'package:voyago/core/errors/failure.dart';
+import 'package:voyago/feature/books/data/models/edit_reservation_model.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/maneger/itinerary_cubit/itinerary_state.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/maneger/optional_choices_cubit/optional_choices_state.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/maneger/trip_detials_cubit/trip_info_1_state.dart';
@@ -24,5 +25,6 @@ abstract class TripDetailsRepo {
   Future<Either<Failure, OptionalEventSuccess>>
   getOptionalEvent(int id);
   Future<Either<Failure, CheckoutSuccess>>submitCheckout(CheckoutModel checkout, int id)  ;
+  Future<Either<Failure, CheckoutSuccess>>editCheckout(EditReservation res, int id)  ;
 
 }

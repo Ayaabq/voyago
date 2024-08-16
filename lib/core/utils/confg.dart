@@ -75,7 +75,7 @@ class Confg {
 
   // reservation
   static const String reservation = '/reservation/';
-static const String detailsreservation = '/reservation_details/1';
+static const String detailsreservation = '/reservation_details/2';
 
 // profile
   static const String profileMain = '/profile/main';
@@ -118,6 +118,7 @@ static const String chargeWallet = '/charge_wallet';
 
 ////     books 
 static const mybooks = "/personal_reservation";
+static const editBook="/edit_reservation/";
 
 
 /// reviews profile 

@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 
 import 'package:voyago/core/errors/failure.dart';
 import 'package:voyago/core/utils/confg.dart';
+import 'package:voyago/feature/books/data/models/edit_reservation_model.dart';
 import 'package:voyago/feature/trip&booking/data/repo/trip_details_repo/trip_details_repo.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/maneger/checkout_cubit/checkout_state.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/maneger/itinerary_cubit/itinerary_state.dart';
@@ -86,6 +87,7 @@ class TripDetailsRepoImp implements TripDetailsRepo {
      print(checkout.toJson());
       final response = await api.post(
         Confg.reservation+id.toString(),
+
         body: (checkout.toJson()),
       );
 
@@ -111,6 +113,32 @@ class TripDetailsRepoImp implements TripDetailsRepo {
       var response = await api.get(Confg.optionalEvens+id.toString(), hasToken: true);
       return right(OptionalEventSuccess.fromJson(response));
     } catch (e) {
+      if (e is DioException) {
+        return left(ServiecesFailure.fromDioError(e));
+      }
+      return left(ServiecesFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, CheckoutSuccess>>
+  editCheckout(EditReservation res, int id)async {
+    try {
+      print(res.toJson());
+      final response = await api.put(
+        Confg.editBook+id.toString(),hasToken: true,
+        body: (res.toJson()),
+      );
+
+
+      if(response['msg']=='fail') {
+        print("object");
+        return left(ServiecesFailure(response['err']));
+      }
+      return right(CheckoutSuccess.fromJson(response));
+    }
+    catch (e) {
+
       if (e is DioException) {
         return left(ServiecesFailure.fromDioError(e));
       }

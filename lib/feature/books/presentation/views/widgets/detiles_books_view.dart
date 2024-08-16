@@ -12,17 +12,18 @@ import '../../../../../core/utils/screen_size_util.dart';
 import '../../../../profile/presentation/views/widgets/appbar_profile.dart';
 import '../../../../trip&booking/presentation/views/widgets/checkout/price_details_section.dart';
 import '../../../../trip&booking/presentation/views/widgets/over_view_card/icon_text_view.dart';
+import '../../../data/models/detiles_books.dart';
 
 class DetilesBooksView extends StatelessWidget {
-  const DetilesBooksView({super.key});
-
+  const DetilesBooksView({super.key, required this.model, });
+  final TripDetails model;
   @override
   Widget build(BuildContext context) {
     //  final String paymentState;
     return Scaffold(
         body: ListView(children: [
       Column(children: [
-         ProfileAppBar(
+        ProfileAppBar(
           titel: 'My bookings'.tr(),
         ),
         const SizedBox(height: 30),
@@ -33,7 +34,7 @@ class DetilesBooksView extends StatelessWidget {
                   ? CustomColors.kMove[3]
                   : CustomColors.kWhite[4],
               borderRadius: BorderRadius.circular(32)),
-          child:  Text(
+          child: Text(
             "${"Booking id:".tr()} 32146021",
             style: Styles.textStyle16W400,
           ),
@@ -49,11 +50,7 @@ class DetilesBooksView extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 10),
-        const Text(
-          "Berlin: 3-Hours City Tour by Boat ",
-          style: Styles.textStyle16W400,
-        ),
-        const SizedBox(height: 10),
+        ColumuDetilesBook(model: model),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
@@ -63,33 +60,38 @@ class DetilesBooksView extends StatelessWidget {
               const SizedBox(height: 16.0),
               IconText(
                   icon: Iconsax.location,
-                  title: 'Berlin, Germany',
+                  title: model.destination,
                   iconColor: CustomColors.kMove[5]),
               IconText(
                   icon: Iconsax.calendar_tick,
-                  title: "${"Form:".tr()}" ' Wed, October 8, 2024',
+                  title: "Form:".tr(),
                   iconColor: CustomColors.kMove[5]),
               IconText(
                   icon: Iconsax.calendar_tick,
                   title: "${"To:".tr()}" ' Wed, October 8, 2024',
                   iconColor: CustomColors.kMove[5]),
-              IconText(
-                  icon: Iconsax.clock,
-                  title: 'start at:'.tr(),
-                  iconColor: CustomColors.kMove[5]),
+              // IconText(
+              //     icon: Iconsax.clock,
+              //     title: 'start at:'.tr(),
+              //     iconColor: CustomColors.kMove[5]),
               IconText(
                 icon: Iconsax.user,
-                title: '2 ${"Adult".tr()}, 1 ${"Child".tr()}',
+                title:
+                    '${model.adults}"Adult".tr()},  ${model.children}"Child".tr()}',
                 iconColor: CustomColors.kMove[5],
               ),
               IconText(
                   isLast: false,
                   icon: Iconsax.location,
-                  title: 'Meeting point:'.tr(),
+                  title: 'Meeting point:'.tr() + model.meetingPoint,
                   iconColor: CustomColors.kMove[5]),
               IconText(
                   icon: Icons.phone_outlined,
-                  title: 'phone:'.tr(),
+                  title: 'phone:'.tr() + model.phoneNumber,
+                  iconColor: CustomColors.kMove[5]),
+              IconText(
+                  icon: Icons.email_outlined,
+                  title: 'phone:'.tr() + model.email,
                   iconColor: CustomColors.kMove[5]),
               Row(
                 children: [
@@ -106,7 +108,7 @@ class DetilesBooksView extends StatelessWidget {
                         color: CustomColors.kMove[5],
                         borderRadius: BorderRadius.circular(16)),
                     child: Text(
-                      "paymentState",
+                      "payment",
                       style: Styles.textStyle14W600
                           .copyWith(color: CustomColors.kWhite[0]),
                     ),
@@ -116,9 +118,9 @@ class DetilesBooksView extends StatelessWidget {
               const SizedBox(height: 10),
 
               /// TODO:  ekhty hety el trip price
-              const PriceDetailsSection(
-                tripPrice: 0,
-              ),
+              // const PriceDetailsSection(
+              //   tripPrice: 0,
+              // ),
               const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -166,5 +168,27 @@ class DetilesBooksView extends StatelessWidget {
         ),
       ]),
     ]));
+  }
+}
+
+class ColumuDetilesBook extends StatelessWidget {
+  const ColumuDetilesBook({
+    super.key,
+    required this.model,
+  });
+
+  final TripDetails model;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          model.tripName,
+          style: Styles.textStyle16W400,
+        ),
+        const SizedBox(height: 10),
+      ],
+    );
   }
 }

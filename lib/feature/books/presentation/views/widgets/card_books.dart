@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:voyago/core/helper/date_time_helper.dart';
 import 'package:voyago/core/utils/confg.dart';
@@ -12,6 +13,7 @@ import 'package:voyago/feature/images/presentation/views/custom)netowk_image.dar
 import '../../../../../../core/utils/assets.dart';
 import '../../../../../../core/utils/custom_colors.dart';
 import '../../../../../../core/utils/screen_size_util.dart';
+import '../../../../../core/utils/app_router.dart';
 import '../../../../../core/utils/services_locater.dart';
 import '../../../../images/data/repo/images_repo_impl.dart';
 import '../../../../images/presentation/manager/images_cubit.dart';
@@ -36,10 +38,26 @@ class CardBooks extends StatelessWidget {
        await manager.fetchDetilesBooks();
         if(manager.state is BookDetilesSuccess ) {
           Navigator.of(context).push(MaterialPageRoute(builder: (context)=>
-             EditBook(tripData: (manager.state as BookDetilesSuccess).model, tripId: 2,)));
+             EditBook(tripData: (manager.state as BookDetilesSuccess).model, tripId: 1,)));
+        }else{
+          print("noooo");
+          print("noooo");
+          print((manager.state as BookDetilesFailure).errorMessage);
         }
         // Navigator.of(context).push(
         //     MaterialPageRoute(builder: (context) => const DetilesBooksView()));
+        //  DetilesBooksCubit(getIt.get<BooksImpl>()).fetchDetilesBooks();
+//         Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+//           return BlocProvider(
+//             create: (context) =>
+//                 DetilesBooksCubit(getIt.get<BooksImpl>())..fetchDetilesBooks(),
+//             child: DetilesBooksView(model:tripData. ,),
+//           );
+//         }
+
+// //=>
+//             ));
+// GoRouter.of(context).push(AppRouter.kDetilesBooksView);
       },
       child: Card(
         elevation: 4,
