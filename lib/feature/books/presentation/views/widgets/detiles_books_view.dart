@@ -8,6 +8,7 @@ import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/feature/auth/login/presentation/views/widgets/button_auth.dart';
 import 'package:voyago/feature/books/presentation/manger/detiles_book/cubit/detiles_book_cubit_cubit.dart';
+import 'package:voyago/feature/books/presentation/views/widgets/edit_book.dart';
 
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/confg.dart';
@@ -105,7 +106,11 @@ class DetilesBooksView extends StatelessWidget {
                               ),
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (_) => EditBook(
+                                    tripData: state.model, tripId: tripData.tripId)));
+                          },
                           child: const Icon(Iconsax.edit),
                         ),
                         ElevatedButton(

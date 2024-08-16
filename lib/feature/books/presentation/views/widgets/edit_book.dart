@@ -5,12 +5,13 @@ import '../../../../../core/utils/services_locater.dart';
 import '../../../../trip&booking/data/repo/trip_details_repo/trip_details_repo_impl.dart';
 import '../../../../trip&booking/presentation/views/maneger/checkout_cubit/checkout_cubit.dart';
 import '../../../../trip&booking/presentation/views/maneger/optional_choices_cubit/optional_choices_cubit.dart';
+import '../../../data/models/books_model.dart';
 import '../../../data/models/detiles_books.dart';
 import 'edit_book_body.dart';
 
 class EditBook extends StatelessWidget {
   const EditBook({super.key, required this.tripData, required this.tripId});
-  final TripData tripData;
+  final TripDataDD tripData;
   final int tripId;
   @override
   Widget build(BuildContext context) {
