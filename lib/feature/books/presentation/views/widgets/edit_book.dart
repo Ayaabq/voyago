@@ -13,17 +13,20 @@ class EditBook extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-        body:MultiBlocProvider(
-        providers: [
-      BlocProvider(
-        create: (_) => CheckoutCubit(getIt.get<TripDetailsRepoImp>()),
-      ),
-      BlocProvider(
-        create: (_) => OptionalEventsCubit(getIt.get<TripDetailsRepoImp>()),
-      ),
-      //TODO غيري الأي دي للأيدي اللي عم يرجع مع الديتيلز
-    ], child: EditBookBody(tripID: 2,))
-    );
+        appBar: AppBar(),
+        body: MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) => CheckoutCubit(getIt.get<TripDetailsRepoImp>()),
+              ),
+              BlocProvider(
+                create: (_) =>
+                    OptionalEventsCubit(getIt.get<TripDetailsRepoImp>()),
+              ),
+              //TODO غيري الأي دي للأيدي اللي عم يرجع مع الديتيلز
+            ],
+            child: const EditBookBody(
+              tripID: 1,
+            )));
   }
 }

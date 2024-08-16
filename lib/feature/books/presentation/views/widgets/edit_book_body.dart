@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:voyago/feature/auth/login/presentation/views/widgets/button_auth.dart';
 
 import '../../../../../core/widgets/custom_card.dart';
 import '../../../../trip&booking/presentation/views/maneger/checkout_cubit/checkout_cubit.dart';
@@ -60,7 +61,7 @@ class _EditBookBodyState extends State<EditBookBody> {
   }
   @override
   Widget build(BuildContext context) {
-    return  Column(
+    return  ListView(
       children: [
         CustomCard(
           content: TravelerNumber(
@@ -82,6 +83,10 @@ class _EditBookBodyState extends State<EditBookBody> {
             phoneController: _phoneController,
           ),
         ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ButtonAuth(title: "Edit", onTap: (){}),
+        )
       ],
     );
   }
