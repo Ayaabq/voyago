@@ -393,248 +393,268 @@ import '../../../../auth/login/presentation/views/widgets/button_auth.dart';
 import '../../manager/filters_cubit.dart';
 import '../../manager/filters_state.dart';
 
-
-
 class FilterSearchTrips extends StatelessWidget {
   const FilterSearchTrips({super.key, required this.where});
   final String where;
-
 
   @override
   Widget build(BuildContext context) {
     context.read<FilterCubit>().updateWhere(where);
     return Padding(
-        padding: EdgeInsets.only(
-          bottom: MediaQuery.of(context).viewInsets.bottom,
-        ),
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 22),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Text("Where?".tr(), style: Styles.textStyle16W400.copyWith(fontWeight: FontWeight.w500)),
-                // const SizedBox(height: 10),
-                // Padding(
-                //   padding: const EdgeInsetsDirectional.all(1),
-                //   child: BlocBuilder<FilterCubit, FilterState>(
-                //     builder: (context, state) {
-                //       return SearchElevated(
-                //         onTap: () {},
-                //         fillColor: Theme.of(context).brightness == Brightness.dark
-                //             ? const Color(0xff636363)
-                //             : CustomColors.kWhite[3],
-                //         searchController: TextEditingController(text: state.where),
-                //       );
-                //     },
-                //   ),
-                // ),
-                const SizedBox(height: 12),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("Check-In".tr(), style: Styles.textStyle16W400),
-                          const SizedBox(height: 10),
-                          BlocBuilder<FilterCubit, FilterState>(
-                            builder: (context, state) {
-                              return InkWell(
-                                onTap: () => _selectDate(context, true, context.read<FilterCubit>()),
-                                child: InputDecorator(
-                                  decoration: InputDecoration(
-                                    filled: true,
-                                    fillColor: Theme.of(context).brightness == Brightness.dark
-                                        ? const Color(0xff636363)
-                                        : CustomColors.kWhite[3],
-                                    prefixIcon: Icon(Iconsax.calendar_1, color: CustomColors.kMove[4]),
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(32),
-                                      borderSide: BorderSide.none,
-                                    ),
-                                    contentPadding: const EdgeInsets.symmetric(vertical: 8),
+      padding: EdgeInsets.only(
+        bottom: MediaQuery.of(context).viewInsets.bottom,
+      ),
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 22),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Text("Where?".tr(), style: Styles.textStyle16W400.copyWith(fontWeight: FontWeight.w500)),
+              // const SizedBox(height: 10),
+              // Padding(
+              //   padding: const EdgeInsetsDirectional.all(1),
+              //   child: BlocBuilder<FilterCubit, FilterState>(
+              //     builder: (context, state) {
+              //       return SearchElevated(
+              //         onTap: () {},
+              //         fillColor: Theme.of(context).brightness == Brightness.dark
+              //             ? const Color(0xff636363)
+              //             : CustomColors.kWhite[3],
+              //         searchController: TextEditingController(text: state.where),
+              //       );
+              //     },
+              //   ),
+              // ),
+              const SizedBox(height: 12),
+              Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Check-In".tr(), style: Styles.textStyle16W400),
+                        const SizedBox(height: 10),
+                        BlocBuilder<FilterCubit, FilterState>(
+                          builder: (context, state) {
+                            return InkWell(
+                              onTap: () => _selectDate(
+                                  context, true, context.read<FilterCubit>()),
+                              child: InputDecorator(
+                                decoration: InputDecoration(
+                                  filled: true,
+                                  fillColor: Theme.of(context).brightness ==
+                                          Brightness.dark
+                                      ? const Color(0xff636363)
+                                      : CustomColors.kWhite[3],
+                                  prefixIcon: Icon(Iconsax.calendar_1,
+                                      color: CustomColors.kMove[4]),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(32),
+                                    borderSide: BorderSide.none,
                                   ),
-                                  child: Text(DateFormat('d MMM').format(state.checkInDate)),
+                                  contentPadding:
+                                      const EdgeInsets.symmetric(vertical: 8),
                                 ),
-                              );
-                            },
-                          ),
-                        ],
-                      ),
+                                child: Text(DateFormat('d MMM')
+                                    .format(state.checkInDate)),
+                              ),
+                            );
+                          },
+                        ),
+                      ],
                     ),
-                    const SizedBox(width: 10),
-                    checkOut(context),
-                  ],
-                ),
-                const SizedBox(height: 20),
-                const Text('Travelers', style: TextStyle(fontSize: 16)),
-                BlocBuilder<FilterCubit, FilterState>(
-                  builder: (context, state) {
-                    return Container(
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).brightness == Brightness.dark
-                            ? const Color(0xff636363)
-                            : CustomColors.kWhite[3],
-                        borderRadius: BorderRadius.circular(32),
-                      ),
-                      width: MediaQuery.of(context).size.width * 0.44,
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 10),
-                            child: Icon(Iconsax.profile_circle, color: CustomColors.kMove[4]),
-                          ),
-                          const SizedBox(width: 20),
-                          Text('${state.travelers}'),
-                          const SizedBox(width: 4),
-                          IconButton(
-                            padding: EdgeInsetsDirectional.zero,
-                            icon: Icon(Iconsax.minus_cirlce, color: CustomColors.kMove[4]),
-                            onPressed: () {
-                              if (state.travelers > 1) {
-                                context.read<FilterCubit>().updateTravelers(state.travelers - 1);
-                              }
-                            },
-                          ),
-                          IconButton(
-                            padding: EdgeInsetsDirectional.zero,
-                            icon: Icon(Iconsax.add_circle, color: CustomColors.kMove[4]),
-                            onPressed: () {
-                              context.read<FilterCubit>().updateTravelers(state.travelers + 1);
-                            },
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                ),
-                const SizedBox(height: 20),
-                const Text('Price', style: TextStyle(fontSize: 16)),
-                BlocBuilder<FilterCubit, FilterState>(
-                  builder: (context, state) {
-                    return RangeSlider(
-                      values: RangeValues(state.minPrice, state.maxPrice),
-                      min: 0,
-                      max: 1000,
-                      divisions: 100,
-                      labels: RangeLabels('\$${state.minPrice.round()}', '\$${state.maxPrice.round()}'),
-                      onChanged: (RangeValues values) {
-                        context.read<FilterCubit>().updatePriceRange(values.start, values.end);
-                      },
-                      activeColor: CustomColors.kMove[5],
-                      inactiveColor: CustomColors.kGrey[0],
-                    );
-                  },
-                ),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('\$0'),
-                    Text('\$1000'),
-                  ],
-                ),
-                const SizedBox(height: 18),
-                const Text('Sort by', style: Styles.textStyle16W400),
-                const SizedBox(height: 8),
-
-                BlocBuilder<FilterCubit, FilterState>(
-                  builder: (context, state) {
-                    return RadioListTile(
-                      visualDensity: const VisualDensity(horizontal: 0, vertical: -2),
-                      contentPadding: const EdgeInsets.symmetric(vertical: 0.5, horizontal: 16),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
-                      activeColor: CustomColors.kMove[5],
-                      tileColor: Theme.of(context).brightness == Brightness.dark
+                  ),
+                  const SizedBox(width: 10),
+                  checkOut(context),
+                ],
+              ),
+              const SizedBox(height: 20),
+              const Text('Travelers', style: TextStyle(fontSize: 16)),
+              BlocBuilder<FilterCubit, FilterState>(
+                builder: (context, state) {
+                  return Container(
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).brightness == Brightness.dark
                           ? const Color(0xff636363)
                           : CustomColors.kWhite[3],
-                      title: Text('Price (low to high)', style: Styles.textStyle13W400.copyWith(fontSize: 14)),
-                      value: 'Price (low to high)',
-                      groupValue: state.sortBy,
-                      onChanged: (value) {
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    width: MediaQuery.of(context).size.width * 0.44,
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10),
+                          child: Icon(Iconsax.profile_circle,
+                              color: CustomColors.kMove[4]),
+                        ),
+                        const SizedBox(width: 20),
+                        Text('${state.travelers}'),
+                        const SizedBox(width: 4),
+                        IconButton(
+                          padding: EdgeInsetsDirectional.zero,
+                          icon: Icon(Iconsax.minus_cirlce,
+                              color: CustomColors.kMove[4]),
+                          onPressed: () {
+                            if (state.travelers > 1) {
+                              context
+                                  .read<FilterCubit>()
+                                  .updateTravelers(state.travelers - 1);
+                            }
+                          },
+                        ),
+                        IconButton(
+                          padding: EdgeInsetsDirectional.zero,
+                          icon: Icon(Iconsax.add_circle,
+                              color: CustomColors.kMove[4]),
+                          onPressed: () {
+                            context
+                                .read<FilterCubit>()
+                                .updateTravelers(state.travelers + 1);
+                          },
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+              const SizedBox(height: 20),
+              const Text('Price', style: TextStyle(fontSize: 16)),
+              BlocBuilder<FilterCubit, FilterState>(
+                builder: (context, state) {
+                  return RangeSlider(
+                    values: RangeValues(state.minPrice, state.maxPrice),
+                    min: 0,
+                    max: 1000,
+                    divisions: 100,
+                    labels: RangeLabels('\$${state.minPrice.round()}',
+                        '\$${state.maxPrice.round()}'),
+                    onChanged: (RangeValues values) {
+                      context
+                          .read<FilterCubit>()
+                          .updatePriceRange(values.start, values.end);
+                    },
+                    activeColor: CustomColors.kMove[5],
+                    inactiveColor: CustomColors.kGrey[0],
+                  );
+                },
+              ),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('\$0'),
+                  Text('\$1000'),
+                ],
+              ),
+              const SizedBox(height: 18),
+              const Text('Sort by', style: Styles.textStyle16W400),
+              const SizedBox(height: 8),
 
-                        context.read<FilterCubit>().updateSortBy(value.toString());
-
-                      },
-                    );
-                  },
-                ),
-                const SizedBox(height: 14),
-                BlocBuilder<FilterCubit, FilterState>(
-                  builder: (context, state) {
-                    return RadioListTile(
-                      visualDensity: const VisualDensity(horizontal: 0, vertical: -2),
-                      contentPadding: const EdgeInsets.symmetric(vertical: 0.5, horizontal: 16),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
-                      activeColor: CustomColors.kMove[5],
-                      tileColor: Theme.of(context).brightness == Brightness.dark
-                          ? const Color(0xff636363)
-                          : CustomColors.kWhite[3],
-                      title: Text('Price (high to low)', style: Styles.textStyle13W400.copyWith(fontSize: 14)),
-                      value: 'Price (high to low)',
-                      groupValue: state.sortBy,
-                      onChanged: (value) {
-
-                        context.read<FilterCubit>().updateSortBy(value.toString());
-
-                      },
-                    );
-                  },
-                ),
-                const SizedBox(height: 14),
-                BlocBuilder<FilterCubit, FilterState>(
-                  builder: (context, state) {
-                    return
-                    //   RadioListTile(
-                    //   visualDensity: const VisualDensity(horizontal: 0, vertical: -2),
-                    //   contentPadding: const EdgeInsets.symmetric(vertical: 0.5, horizontal: 16),
-                    //   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
-                    //   activeColor: CustomColors.kMove[5],
-                    //   tileColor: Theme.of(context).brightness == Brightness.dark
-                    //       ? const Color(0xff636363)
-                    //       : CustomColors.kWhite[3],
-                    //   title: Text('Top Rated', style: Styles.textStyle13W400.copyWith(fontSize: 14)),
-                    //   value: 'Top Rated',
-                    //   groupValue: state.sortBy,
-                    //   onChanged: (value) {
-                    //     print(value);
-                    //     context.read<FilterCubit>().updateTopRatedState();
-                    //       print(context.read<FilterCubit>().state.isTopRated);
-                    //       print(context.read<FilterCubit>().state.isTopRated);
-                    //       print(context.read<FilterCubit>().state.isTopRated);
-                    //       print(context.read<FilterCubit>().state.isTopRated);
-                    //       print(context.read<FilterCubit>().state.isTopRated);
-                    //       print(context.read<FilterCubit>().state.isTopRated);
-                    //   },
-                    // );
+              BlocBuilder<FilterCubit, FilterState>(
+                builder: (context, state) {
+                  return RadioListTile(
+                    visualDensity:
+                        const VisualDensity(horizontal: 0, vertical: -2),
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 0.5, horizontal: 16),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(32)),
+                    activeColor: CustomColors.kMove[5],
+                    tileColor: Theme.of(context).brightness == Brightness.dark
+                        ? const Color(0xff636363)
+                        : CustomColors.kWhite[3],
+                    title: Text('Price (low to high)',
+                        style: Styles.textStyle13W400.copyWith(fontSize: 14)),
+                    value: 'Price (low to high)',
+                    groupValue: state.sortBy,
+                    onChanged: (value) {
+                      context
+                          .read<FilterCubit>()
+                          .updateSortBy(value.toString());
+                    },
+                  );
+                },
+              ),
+              const SizedBox(height: 14),
+              BlocBuilder<FilterCubit, FilterState>(
+                builder: (context, state) {
+                  return RadioListTile(
+                    visualDensity:
+                        const VisualDensity(horizontal: 0, vertical: -2),
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 0.5, horizontal: 16),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(32)),
+                    activeColor: CustomColors.kMove[5],
+                    tileColor: Theme.of(context).brightness == Brightness.dark
+                        ? const Color(0xff636363)
+                        : CustomColors.kWhite[3],
+                    title: Text('Price (high to low)',
+                        style: Styles.textStyle13W400.copyWith(fontSize: 14)),
+                    value: 'Price (high to low)',
+                    groupValue: state.sortBy,
+                    onChanged: (value) {
+                      context
+                          .read<FilterCubit>()
+                          .updateSortBy(value.toString());
+                    },
+                  );
+                },
+              ),
+              const SizedBox(height: 14),
+              BlocBuilder<FilterCubit, FilterState>(
+                builder: (context, state) {
+                  return
+                      //   RadioListTile(
+                      //   visualDensity: const VisualDensity(horizontal: 0, vertical: -2),
+                      //   contentPadding: const EdgeInsets.symmetric(vertical: 0.5, horizontal: 16),
+                      //   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
+                      //   activeColor: CustomColors.kMove[5],
+                      //   tileColor: Theme.of(context).brightness == Brightness.dark
+                      //       ? const Color(0xff636363)
+                      //       : CustomColors.kWhite[3],
+                      //   title: Text('Top Rated', style: Styles.textStyle13W400.copyWith(fontSize: 14)),
+                      //   value: 'Top Rated',
+                      //   groupValue: state.sortBy,
+                      //   onChanged: (value) {
+                      //     print(value);
+                      //     context.read<FilterCubit>().updateTopRatedState();
+                      //       print(context.read<FilterCubit>().state.isTopRated);
+                      //       print(context.read<FilterCubit>().state.isTopRated);
+                      //       print(context.read<FilterCubit>().state.isTopRated);
+                      //       print(context.read<FilterCubit>().state.isTopRated);
+                      //       print(context.read<FilterCubit>().state.isTopRated);
+                      //       print(context.read<FilterCubit>().state.isTopRated);
+                      //   },
+                      // );
                       CheckboxListTile(
-                        title: Text('Checkbox List Tile'),
-                        value: context.read<FilterCubit>().state.isTopRated,
-                        onChanged: (bool? value) {
-
-                            context.read<FilterCubit>().
-                            updateTopRatedState(!(context.read<FilterCubit>().state.isTopRated));
-
-                        },
-                      );
-                  },
-                ),
-                const SizedBox(height: 20),
-                ButtonAuth(
-                  title: "Search",
-                  onTap: () {
-                    final filters = context.read<FilterCubit>().getFilters();
-                    context.read<TripSearchCubit>().fetchTripsInitial(null, filters);
-                    GoRouter.of(context).pop();
-                    // Use the filters
-                  },
-                ),
-              ],
-            ),
+                    title: const Text('Top Rate'),
+                    value: context.read<FilterCubit>().state.isTopRated,
+                    onChanged: (bool? value) {
+                      context.read<FilterCubit>().updateTopRatedState(
+                          !(context.read<FilterCubit>().state.isTopRated));
+                    },
+                  );
+                },
+              ),
+              const SizedBox(height: 20),
+              ButtonAuth(
+                title: "Search",
+                onTap: () {
+                  final filters = context.read<FilterCubit>().getFilters();
+                  context
+                      .read<TripSearchCubit>()
+                      .fetchTripsInitial(null, filters);
+                  GoRouter.of(context).pop();
+                  // Use the filters
+                },
+              ),
+            ],
           ),
         ),
-      );
+      ),
+    );
   }
 
   Expanded checkOut(BuildContext context) {
@@ -647,14 +667,16 @@ class FilterSearchTrips extends StatelessWidget {
           BlocBuilder<FilterCubit, FilterState>(
             builder: (context, state) {
               return InkWell(
-                onTap: () => _selectDate(context, false, context.read<FilterCubit>()),
+                onTap: () =>
+                    _selectDate(context, false, context.read<FilterCubit>()),
                 child: InputDecorator(
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: Theme.of(context).brightness == Brightness.dark
                         ? const Color(0xff636363)
                         : CustomColors.kWhite[3],
-                    prefixIcon: Icon(Iconsax.calendar_1, color: CustomColors.kMove[4]),
+                    prefixIcon:
+                        Icon(Iconsax.calendar_1, color: CustomColors.kMove[4]),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(32),
                       borderSide: BorderSide.none,
@@ -671,10 +693,12 @@ class FilterSearchTrips extends StatelessWidget {
     );
   }
 
-  Future<void> _selectDate(BuildContext context, bool isCheckIn, FilterCubit cubit) async {
+  Future<void> _selectDate(
+      BuildContext context, bool isCheckIn, FilterCubit cubit) async {
     final DateTime? picked = await showDatePicker(
       context: context,
-      initialDate: isCheckIn ? cubit.state.checkInDate : cubit.state.checkOutDate,
+      initialDate:
+          isCheckIn ? cubit.state.checkInDate : cubit.state.checkOutDate,
       firstDate: DateTime.now(),
       lastDate: DateTime(2026),
     );
