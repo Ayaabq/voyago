@@ -13,6 +13,7 @@ import 'package:voyago/feature/books/data/repo/book_repo_imp.dart';
 import 'package:voyago/feature/books/presentation/manger/books_cubit/books_cubit_cubit.dart';
 import 'package:voyago/feature/books/presentation/manger/books_cubit/books_cubit_state.dart';
 import 'package:voyago/feature/books/presentation/views/widgets/card_books.dart';
+import 'package:voyago/feature/profile/presentation/views/widgets/appbar_profile.dart';
 
 import '../../../../core/utils/services_locater.dart';
 import '../../../wallet/data/repo/wallet_repo_impl.dart';
@@ -39,24 +40,10 @@ class BooksBody extends StatefulWidget {
 class _BooksBodyState extends State<BooksBody> {
   @override
   Widget build(BuildContext context) {
-    return CustomTabBar(tabs: [
-      Tab(
-        text: "Upcoming".tr(),
-      ),
-      Tab(
-        text: "Completed".tr(),
-      ),
-      Tab(
-        text: "Cancelled".tr(),
-      ),
-    ], tabViews: [
-      const UpcomingBooksView(),
-      BlocProvider(
-        create: (context) => BooksCubit(getIt.get<BooksImpl>()),
-        child: const CompletedBooksView(),
-      ),
-      const Text("data"),
-    ], titel: "My bookings".tr());
+    return BlocProvider(
+      create: (context) => BooksCubit(getIt.get<BooksImpl>()),
+      child: const CompletedBooksView(),
+    );
   }
 }
 
@@ -76,7 +63,17 @@ class CompletedBooksView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BooksListView();
+    return Scaffold(
+      body: Column(
+        children: [
+          const ProfileAppBar(titel: "My Books"),
+          const SizedBox(
+            height: 20,
+          ),
+          BooksListView(),
+        ],
+      ),
+    );
   }
 }
 
@@ -92,9 +89,10 @@ class BooksListView extends StatelessWidget {
           if (state is BooksSuccess) {
             BooksModel model = state.model;
 
-            return ListBooks(
-              tripData: model.data, 
-
+            return Expanded(
+              child: ListBooks(
+                tripData: model.data,
+              ),
             );
           } else if (state is BooksLoading) {
             return const Center(child: CircularProgressIndicator());
@@ -108,13 +106,13 @@ class BooksListView extends StatelessWidget {
             // ));
           }
           return const Text(
-            "errrror",
+            "Opes ...",
             style: TextStyle(color: Colors.white),
           );
         },
       );
     }
-    return const Text("data");
+    return const Text("Try again ");
   }
   // return ListView(children: const [
   //   SizedBox(
@@ -153,13 +151,8 @@ class BooksListView extends StatelessWidget {
 }
 
 class ListBooks extends StatelessWidget {
-  ListBooks(
-      {super.key,
-      
-      required this.tripData,
-       this.trip});
+  ListBooks({super.key, required this.tripData, this.trip});
 
-  
   List<TripData> tripData;
   TripDetails? trip;
   @override
@@ -171,7 +164,7 @@ class ListBooks extends StatelessWidget {
           return CardBooks(
             paymentState: "Paid".tr(),
             tripData: tripData[index],
-           // tripDetails: trip!,
+            // tripDetails: trip!,
           );
           // return null;
         });

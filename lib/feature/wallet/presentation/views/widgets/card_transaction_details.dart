@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../core/helper/date_time_helper.dart';
 import '../../../../../core/utils/custom_colors.dart';
 import '../../../data/models/ditels_histroy_wallet.dart';
 import 'history_wallet_body.dart';
@@ -33,7 +34,9 @@ class CardTransactionDetails extends StatelessWidget {
                     borderRadius: const BorderRadiusDirectional.only(
                         topEnd: Radius.circular(16),
                         topStart: Radius.circular(16))),
-                child: DateRow(date: model.date.toIso8601String())),
+                child: DateRow(
+                    date: DateTimeHelper.formatDateMMMDY(
+                        DateTime.parse(model.date.toString())))),
             // const SizedBox(height: 16),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),

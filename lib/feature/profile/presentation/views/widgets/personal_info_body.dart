@@ -22,10 +22,10 @@ class PersonalInformationBody extends StatelessWidget {
             titel: "My Personal Information".tr(),
           ),
           const SizedBox(height: 30),
-          BlocProvider(
-            create: (context) => ProfilePictureCubit(),
-            child: const ProfilePictureEdit(),
-          ),
+          // BlocProvider(
+          //   create: (context) => ProfilePictureCubit(),
+          //   child: const ProfilePictureEdit(),
+          // ),
           const SizedBox(height: 30),
           const InfoColumn(),
           Padding(

@@ -4,11 +4,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:go_router/go_router.dart';
 import 'package:voyago/core/utils/app_router.dart';
+import 'package:voyago/core/utils/screen_size_util.dart';
 import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/feature/wallet/data/models/history_wallet.dart';
 import 'package:voyago/feature/wallet/presentation/manger/history_wallet/cubit/history_wallet_cubit.dart';
 import 'package:voyago/feature/wallet/presentation/manger/history_wallet/cubit/history_wallet_state.dart';
 
+import '../../../../../core/helper/date_time_helper.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../profile/presentation/views/widgets/appbar_profile.dart';
 
@@ -102,8 +104,11 @@ class HistoryCardWallet extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 DateRow(
-                  date: model.date.toUtc().toString(),
-                ),
+                    date: DateTimeHelper.formatDateMMMDY(
+                        DateTime.parse(model.date.toString()))
+
+                    //model.date.toUtc().toString(),
+                    ),
                 const SizedBox(height: 16),
                 TransactionDetail(
                     title: "Added amount:".tr(),
@@ -186,12 +191,12 @@ class DepositPicture extends StatelessWidget {
         Center(
           child: Image.asset(
             Wallet.bankImage,
-            height: 400,
-            width: 300,
+            height: ScreenSizeUtil.screenHeight * 0.3,
+            width: ScreenSizeUtil.screenWidth * 0.6,
             fit: BoxFit.cover,
           ),
         ),
-        const SizedBox(height: 12),
+        SizedBox(height: ScreenSizeUtil.screenHeight * 0.01),
       ],
     );
   }
