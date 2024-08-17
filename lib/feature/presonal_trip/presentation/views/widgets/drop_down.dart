@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
+import 'package:voyago/feature/destination/data/models/destination_model.dart';
 
 class CustomDropdown extends StatefulWidget {
-  final List<String> items;
+  final List<DestinationModel> items;
   final ValueChanged<String?> onChanged;
   final String hintText;
   final String? initialValue;
@@ -50,10 +51,10 @@ class _CustomDropdownState extends State<CustomDropdown> {
           style: TextStyle(color: Colors.black, fontSize: 16),
           dropdownColor: Colors.white,
           borderRadius: BorderRadius.circular(15),
-          items: widget.items.map((String item) {
+          items: widget.items.map(( item) {
             return DropdownMenuItem<String>(
-              value: item,
-              child: Text(item),
+              value: item.name,
+              child: Text(item.name),
             );
           }).toList(),
           onChanged: (String? newValue) {

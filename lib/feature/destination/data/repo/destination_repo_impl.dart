@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
 import 'package:voyago/core/errors/failure.dart';
+import 'package:voyago/core/utils/confg.dart';
 
 import '../../../../core/domain/services/api.dart';
 import '../../presentation/manager/destination_cubit/destination_state.dart';
@@ -18,7 +19,8 @@ class DestinationRepoImp implements DestinationRepo {
 
     try {
       var response = await api.get(url, hasToken: true);
-      return right(DestinationSuccess.fromJson(response));
+      bool in_data= url==Confg.allDestination;
+      return right(DestinationSuccess.fromJson(response, in_data));
     } catch (e) {
       if (e is DioException) {
         return left(ServiecesFailure.fromDioError(e));

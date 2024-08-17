@@ -59,7 +59,8 @@ class DestinationDetailsView extends StatelessWidget {
                     title: "Pictures".tr(),
                     content: BlocProvider(
                       create: (context) => AllImagesCubit(getIt.get<ImagesRepoImpl>()),
-                      child: PicturesList(id: destinationModel.id, url: Confg.allAttractionImages,),
+                      child: PicturesList(id: destinationModel.id, url:
+                      Confg.allDestinationImages,),
 
                     ),
                   ),

@@ -2,7 +2,9 @@ class Confg {
   static const String baseUrl = "http://10.0.2.2:3000";
   static const String mobileUrl = "http://10.0.2.2:3000";
   static const String baseApiUrl = "http://10.0.2.2:3000/api";
+
   static const String mobileApiUrl = "http://192.168.1.101:3000/api";
+
 
 //"http://192.168.1.102:3000/api";
 
@@ -138,6 +140,12 @@ class Confg {
   //delete account
   static const deleteAccount = "/delete_account_request";
 
+
+
+static const allDestination="/all_destenations";
+static const allDestinationAttraction="/attractionsByDestenations/";
+
+static const addPersonalTrip="/add_personal_trip";
 //log out
   static const logOut = "/logout";
 
