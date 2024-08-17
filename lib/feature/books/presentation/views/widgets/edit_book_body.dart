@@ -28,7 +28,7 @@ class EditBookBody extends StatefulWidget {
 
   const EditBookBody({super.key, required this.tripData, required this.tripID});
   final int tripID;
-  final TripData tripData;
+  final TripDataDD tripData;
   @override
   State<EditBookBody> createState() => _EditBookBodyState();
 }

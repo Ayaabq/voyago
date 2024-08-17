@@ -30,7 +30,7 @@ class DetilesWaletHistoryView extends StatelessWidget {
   final HistoryWalletModel id;
   @override
   Widget build(BuildContext context) {
-    // Fetch transaction details based on the id passed from the history card
+   
     context
         .read<TransactionCubit>()
         .fetchDetilsWallet(Confg.historyWalletId + id.id.toString());

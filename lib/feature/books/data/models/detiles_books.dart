@@ -27,17 +27,17 @@ class TripDetails {
 
   factory TripDetails.fromJson(Map<String, dynamic> json) {
     return TripDetails(
-      tripName: json['trip_name'],
-      destination: json['destination'],
-      meetingPoint: json['meeting_point'],
-      from: DateTime.parse(json['from']),
-      to: DateTime.parse(json['to']),
-      adults: json['adults'],
-      children: json['children'],
-      phoneNumber: json['phone_number'],
-      email: json['email'],
-      tripPrice: json['trip_price'],
-      totalPrice: json['total_price'],
+      tripName: json['trip_name'] ?? '',
+      destination: json['destination'] ?? '',
+      meetingPoint: json['meeting_point'] ?? '',
+      from: DateTime.tryParse(json['from'] ?? '') ?? DateTime.now(),
+      to: DateTime.tryParse(json['to'] ?? '') ?? DateTime.now(),
+      adults: json['adults'] ?? 0,
+      children: json['children'] ?? 0,
+      phoneNumber: json['phone_number'] ?? '',
+      email: json['email'] ?? '',
+      tripPrice: json['trip_price'] ?? 0,
+      totalPrice: json['total_price'] ?? 0,
     );
   }
 
@@ -71,7 +71,7 @@ class EventDetails {
 
   factory EventDetails.fromJson(Map<String, dynamic> json) {
     return EventDetails(
-      title: json['title'],
+      title: json['title'] ?? 'Unknown Event',
       priceAdult: json['price_adult'],
       priceChild: json['price_child'],
     );
@@ -102,9 +102,9 @@ class ReservedEvent {
   factory ReservedEvent.fromJson(Map<String, dynamic> json) {
     return ReservedEvent(
       adult: json['adult'],
-      child: json['child'],
-      eventId: json['EventId'],
-      event: EventDetails.fromJson(json['Event']),
+      child: json['child'] ?? 0,
+      eventId: json['EventId'] ?? 0,
+      event: EventDetails.fromJson(json['Event'] ?? {}),
     );
   }
 
@@ -118,25 +118,25 @@ class ReservedEvent {
   }
 }
 
-class TripData {
+class TripDataDD {
   final TripDetails details;
   final List<ReservedEvent> reservedEvents;
   final String dateToDisableEditAndCancellation;
 
-  TripData({
+  TripDataDD({
     required this.details,
     required this.reservedEvents,
     required this.dateToDisableEditAndCancellation,
   });
 
-  factory TripData.fromJson(Map<String, dynamic> json) {
-    return TripData(
-      details: TripDetails.fromJson(json['details']),
-      reservedEvents: (json['reserved_events'] as List)
+  factory TripDataDD.fromJson(Map<String, dynamic> json) {
+    return TripDataDD(
+      details: TripDetails.fromJson(json['details'] ?? {}),
+      reservedEvents: (json['reserved_events'] as List? ?? [])
           .map((e) => ReservedEvent.fromJson(e))
           .toList(),
       dateToDisableEditAndCancellation:
-          json['date_to_disable_edit_and_cancellation'],
+          json['date_to_disable_edit_and_cancellation'] ?? '',
     );
   }
 

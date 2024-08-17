@@ -9,11 +9,11 @@ class DetilesBooksCubit extends Cubit<DetilesBookState> {
 
   DetilesBooksCubit( this.repoBooks) : super(BookDetilesInitial());
 
-  Future<void> fetchDetilesBooks() async {
+  Future<void> fetchDetilesBooks(String url ) async {
 
     emit(BookDetilesLoading());
 
-    var result = await repoBooks.getBooksDetiles();
+    var result = await repoBooks.getBooksDetiles(url);
     result.fold(
           (failure)
       {

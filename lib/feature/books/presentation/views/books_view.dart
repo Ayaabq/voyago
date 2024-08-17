@@ -17,6 +17,7 @@ import 'package:voyago/feature/books/presentation/views/widgets/card_books.dart'
 import '../../../../core/utils/services_locater.dart';
 import '../../../wallet/data/repo/wallet_repo_impl.dart';
 import '../../data/models/books_model.dart';
+import '../../data/models/detiles_books.dart';
 import 'widgets/books_empty.dart';
 
 class BooksView extends StatelessWidget {
@@ -92,7 +93,8 @@ class BooksListView extends StatelessWidget {
             BooksModel model = state.model;
 
             return ListBooks(
-              tripData: model.data,
+              tripData: model.data, 
+
             );
           } else if (state is BooksLoading) {
             return const Center(child: CircularProgressIndicator());
@@ -151,15 +153,15 @@ class BooksListView extends StatelessWidget {
 }
 
 class ListBooks extends StatelessWidget {
-  ListBooks({
-    super.key,
-    // required this.model,
-    required this.tripData,
-  });
+  ListBooks(
+      {super.key,
+      
+      required this.tripData,
+       this.trip});
 
-  // final List<BooksModel> model;
+  
   List<TripData> tripData;
-
+  TripDetails? trip;
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -169,6 +171,7 @@ class ListBooks extends StatelessWidget {
           return CardBooks(
             paymentState: "Paid".tr(),
             tripData: tripData[index],
+           // tripDetails: trip!,
           );
           // return null;
         });
