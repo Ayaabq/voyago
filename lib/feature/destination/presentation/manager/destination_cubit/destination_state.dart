@@ -19,10 +19,17 @@ class DestinationSuccess extends DestinationState {
   DestinationSuccess(this.destinationModels);
   @override
   List<Object?> get props => [destinationModels];
-  static DestinationSuccess fromJson(Map<String, dynamic> response) {
-    final destinations = (response['data']['result'] as List)
+  static DestinationSuccess fromJson(Map<String, dynamic> response, bool in_data) {
+    final destinations;
+    if(in_data)
+     destinations = (response['data']as List)
         .map((e) => DestinationModel.fromJson(e))
         .toList();
+    else
+     destinations = (response['data']['result'] as List)
+        .map((e) => DestinationModel.fromJson(e))
+        .toList();
+
     return DestinationSuccess(destinations);
   }
 }

@@ -19,14 +19,26 @@ class AttractionSuccess extends AttractionState {
   AttractionSuccess(this.attractionModel);
   @override
   List<Object?> get props => [attractionModel];
-  static AttractionSuccess fromJson(Map<String, dynamic> response) {
-    final destinations = (response['data']['result'] as List)
-        .map((e) => AttractionModel.fromJson(e))
-        .toList();
+  static AttractionSuccess fromJson(Map<String, dynamic> response, bool inData) {
+    final destinations;
+    if(inData)
+      destinations = (response['data']as List)
+          .map((e) => AttractionModel.fromJson(e))
+          .toList();
+    else
+      destinations = (response['data']['attractions'] as List)
+          .map((e) => AttractionModel.fromJson(e))
+          .toList();
     return AttractionSuccess(destinations);
   }
-  static AttractionSuccess fromSearchJson(Map<String, dynamic> response) {
-    final destinations = (response['data']['attractions'] as List)
+  static AttractionSuccess fromSearchJson(Map<String, dynamic> response, bool inData) {
+    final destinations;
+    if(inData)
+     destinations = (response['data']as List)
+        .map((e) => AttractionModel.fromJson(e))
+        .toList();
+    else
+     destinations = (response['data']['attractions'] as List)
         .map((e) => AttractionModel.fromJson(e))
         .toList();
     return AttractionSuccess(destinations);

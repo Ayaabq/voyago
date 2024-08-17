@@ -14,6 +14,7 @@ class AttractionModel {
   }) ;
 
   // Factory constructor to create a Attraction object from JSON
+  
   factory AttractionModel.fromJson(Map<String, dynamic> json) {
     return AttractionModel(
       id: json['id'],
