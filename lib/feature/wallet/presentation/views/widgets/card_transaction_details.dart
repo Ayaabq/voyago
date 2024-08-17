@@ -60,7 +60,7 @@ class CardTransactionDetails extends StatelessWidget {
                   Divider(color: CustomColors.kGrey[0]),
                   TransactionDetail(title: "Status:".tr(), value: model.status),
                   Divider(color: CustomColors.kGrey[0]),
-                  const DepositPicture(),
+               //   const DepositPicture(),
                 ],
               ),
             ),
