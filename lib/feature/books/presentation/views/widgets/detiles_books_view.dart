@@ -147,7 +147,7 @@ class DetilesBooksView extends StatelessWidget {
                             // Text(
                             //     "${state.model.reservedEvents[0].event.priceChild ?? "0"} x ${state.model.reservedEvents[0].child}  child"),
                             // const Divider(),
-                            Text("Total:  ${state.model.details.totalPrice}"),
+                            Text("Total:  ${state.model.details.tripPrice}"),
                           ],
                         )),
 

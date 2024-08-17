@@ -763,7 +763,7 @@ controller:_textController ,
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: uploadImage,
-                child: const Text("Upload Image"),
+                child: const Text("Submit"),
               ),
             ],
           ),

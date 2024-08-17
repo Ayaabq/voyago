@@ -25,7 +25,7 @@ class ReviewsBody extends StatelessWidget {
         final destinations = state.destinations;
         final attractions = state.attractions;
         if (trips.isEmpty && destinations.isEmpty && attractions.isEmpty) {
-          return const Center(child: Text("No reviews available"));
+          return const Center(child:  ReviewsEmpty());
         }
         return Scaffold(
           body: CustomTabBar(
@@ -70,9 +70,10 @@ class ReviewsBody extends StatelessWidget {
         print(state.errorMessage);
         return const Center(
             child:
-// CustomFailureError(errMessage: state.errorMessage));
+//// CustomFailureError(errMessage: state.errorMessage));
 
-                ReviewsEmpty());
+               ReviewsEmpty()
+);
       } else {
         return const Center(
           child: CircularProgressIndicator(),
