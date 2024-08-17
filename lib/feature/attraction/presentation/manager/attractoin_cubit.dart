@@ -38,11 +38,11 @@ class AttractionCubit extends Cubit<AttractionState> {
 
   AttractionCubit( this.attractionRepo) : super(AttractionInitial());
 
-  Future<void> fetchAttractionInitial(String url) async {
+  Future<void> fetchAttractionInitial(String url,bool inData) async {
 
     emit(AttractionLoading());
 
-    var result = await attractionRepo.getAttraction(url);
+    var result = await attractionRepo.getAttraction(url,inData);
     result.fold(
           (failure)
       {

@@ -18,7 +18,7 @@ class ApiServicesImp implements ApiServices {
 
       ..baseUrl = Confg.mobileApiUrl
 //if you use eml or edge
- //  ..baseUrl = Confg.baseApiUrl
+//   ..baseUrl = Confg.baseApiUrl
 
       ..responseType = ResponseType.plain
       ..sendTimeout = const Duration(minutes: 1)

@@ -19,9 +19,9 @@ abstract class TripDetailsRepo {
   Future<Either<Failure, TripInfo2Success>>
   getTripInfo2(int id);
   Future<Either<Failure, TripInfo3PlacesSuccess>>
-  getTripInfo3(int id);
+  getTripInfo3(int id,String? url);
   Future<Either<Failure, ItinerarySuccess>>
-  itinerary(int id);
+  itinerary(int id,String? url);
   Future<Either<Failure, OptionalEventSuccess>>
   getOptionalEvent(int id);
   Future<Either<Failure, CheckoutSuccess>>submitCheckout(CheckoutModel checkout, int id)  ;

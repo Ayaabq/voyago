@@ -21,14 +21,15 @@ class AttractionSuccess extends AttractionState {
   List<Object?> get props => [attractionModel];
   static AttractionSuccess fromJson(Map<String, dynamic> response, bool inData) {
     final destinations;
-    if(inData)
-      destinations = (response['data']as List)
+    if(inData) {
+      destinations = (response['data']['attractions']as List)
           .map((e) => AttractionModel.fromJson(e))
           .toList();
-    else
-      destinations = (response['data']['attractions'] as List)
+    } else {
+      destinations = (response['data']["result"] as List)
           .map((e) => AttractionModel.fromJson(e))
           .toList();
+    }
     return AttractionSuccess(destinations);
   }
   static AttractionSuccess fromSearchJson(Map<String, dynamic> response, bool inData) {

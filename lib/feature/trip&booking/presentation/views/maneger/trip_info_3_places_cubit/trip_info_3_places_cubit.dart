@@ -8,9 +8,9 @@ class TripInfo3PlacesCubit extends Cubit<TripInfo3PlacesState> {
 
   TripInfo3PlacesCubit(this.tripDetailsRepo) : super(TripInfo3PlacesInitial());
 
-  Future<void> fetchTripDetailsInfo3(int id) async {
+  Future<void> fetchTripDetailsInfo3(int id, String? url) async {
     emit(TripInfo3PlacesLoading());
-    final result = await tripDetailsRepo.getTripInfo3(id);
+    final result = await tripDetailsRepo.getTripInfo3(id,url);
     result.fold(
           (failure) {
         emit(TripInfo3PlacesFailure(failure.errMessage));

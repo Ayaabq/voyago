@@ -19,7 +19,7 @@ class AttractionListView extends StatelessWidget {
   Widget build(BuildContext context) {
 
     if(attractions ==null) {
-      context.read<AttractionCubit>().fetchAttractionInitial(url!);
+      context.read<AttractionCubit>().fetchAttractionInitial(url!,false);
       return BlocBuilder<AttractionCubit, AttractionState>(
         builder: (ctx,state){
           if(state is AttractionSuccess){

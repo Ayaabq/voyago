@@ -8,7 +8,7 @@ import 'package:voyago/feature/attraction/presentation/manager/attraction_state.
 
 abstract class AttractionRepo {
   Future<Either<Failure, AttractionSuccess>>
-  getAttraction(String url);
+  getAttraction(String url,  bool inData);
   Future<Either<Failure, AttractionSuccess>>
   getSearchAttraction(String destination);
 }

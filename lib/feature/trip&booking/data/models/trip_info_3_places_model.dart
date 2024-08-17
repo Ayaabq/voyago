@@ -18,6 +18,16 @@ class TripInfo3PlacesModel {
           : null,
     );
   }
+  factory TripInfo3PlacesModel.fromJsonPrev(Map<String, dynamic> json) {
+    return TripInfo3PlacesModel(
+      destination: DestinationModel.fromJson(json['destination']),
+      attractions:
+      (json['attractions'] != null&& (json['attractions'] as List).isNotEmpty)
+          ?
+(    List<AttractionModel>.from(json['attractions'].map((e) => AttractionModel(id: e['AttractionId'], name: e['name'], isFavourite: e['is_favourite'], rate: double.parse(e['rate']))))
+)          : [],
+    );
+  }
 
   Map<String, dynamic> toJson() {
     return {

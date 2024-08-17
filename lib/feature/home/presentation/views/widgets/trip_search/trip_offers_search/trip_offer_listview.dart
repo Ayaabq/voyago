@@ -21,7 +21,7 @@ class TripsOffersListView extends StatelessWidget {
         itemBuilder: (context, index) {
           return const Row(
             children: [
-              TripOfferSearchCard(),
+              // TripOfferSearchCard(),
               SizedBox(
                 width: 3,
               )

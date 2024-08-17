@@ -6,20 +6,21 @@ import 'package:voyago/core/utils/styles.dart';
 import 'package:voyago/core/widgets/custom_rate.dart';
 import 'package:voyago/feature/favorite/presentation/views/widgets/favorite_icon_button.dart';
 import 'package:voyago/feature/home/presentation/views/widgets/trip_search/trip_offers_search/colunm_offer_trip.dart';
+import 'package:voyago/feature/presonal_trip/data/prev_model.dart';
 
 import '../../../../../../../core/utils/screen_size_util.dart';
 import '../../../../../../presonal_trip/presentation/views/widgets/personal_trip_detials.dart';
 
 class TripOfferSearchCard extends StatelessWidget {
-  const TripOfferSearchCard({super.key});
-
+  const TripOfferSearchCard({super.key, required this.trip});
+  final PrevTrip trip;
   @override
   Widget build(BuildContext context) {
     ScreenSizeUtil.init(context);
     bool isArabic = context.locale.languageCode == 'ar';
     return InkWell(
       onTap: (){
-        Navigator.of(context).push(MaterialPageRoute(builder: (_)=>PersonalTripDetails()
+        Navigator.of(context).push(MaterialPageRoute(builder: (_)=>PersonalTripDetails(trip: trip,)
         ));
       },
       child: Card(
@@ -121,7 +122,7 @@ class TripOfferSearchCard extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(4.0),
                       child: Text(
-                        "on going",
+                        trip.startDate.year>=DateTime.now().year?"on going": "Done",
                         style: Styles.textStyle18W700.copyWith(
                             fontSize: 12, color: CustomColors.kWhite[0]),
                       ),
@@ -129,12 +130,12 @@ class TripOfferSearchCard extends StatelessWidget {
                   ),
                 ],
               ),
-              const Positioned(
+               Positioned(
                 bottom: 10,
                 // right: 15,
                 left: 10,
                 right: 10,
-                child: TripOfferColumn(),
+                child: TripOfferColumn(trip: trip,),
               ),
             ],
           ),

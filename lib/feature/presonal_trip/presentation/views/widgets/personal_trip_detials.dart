@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:voyago/core/utils/confg.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 import 'package:voyago/core/widgets/custom_card.dart';
 import 'package:voyago/feature/auth/login/presentation/views/widgets/button_auth.dart';
+import 'package:voyago/feature/presonal_trip/data/prev_model.dart';
 import 'package:voyago/feature/presonal_trip/presentation/views/widgets/add_event.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/maneger/itinerary_cubit/itinerary_state.dart';
 import 'package:voyago/feature/trip&booking/presentation/views/widgets/over_view_card/icon_text_view.dart';
@@ -17,8 +19,8 @@ import '../../../../trip&booking/presentation/views/widgets/itinerary/Itinerary_
 import '../../../../trip&booking/presentation/views/widgets/places_card.dart';
 
 class PersonalTripDetails extends StatefulWidget {
-  const PersonalTripDetails({super.key});
-
+  const PersonalTripDetails({super.key, required this.trip});
+  final PrevTrip trip;
   @override
   State<PersonalTripDetails> createState() => _PersonalTripDetailsState();
 }
@@ -41,7 +43,7 @@ class _PersonalTripDetailsState extends State<PersonalTripDetails> {
         padding: const EdgeInsets.all(8.0),
         child: ButtonAuth(title: 'Add Event', onTap: () async{
           var manager=ItineraryCubit(getIt.get<TripDetailsRepoImp>());
-          await manager.fetchTripsInitial(2);
+          await manager.fetchTripsInitial(5,Confg.prevInfo2);
           showModalBottomSheet(context: context, builder: (context){
 
             if(manager.state is ItinerarySuccess) {
@@ -67,12 +69,12 @@ class _PersonalTripDetailsState extends State<PersonalTripDetails> {
           )),
           BlocProvider(
             create: (_) => ItineraryCubit(getIt.get<TripDetailsRepoImp>()),
-            child: const ItineraryCard(id: 1,),
+            child: const ItineraryCard(id: 1,url: Confg.prevInfo2,),
           ),
 
           BlocProvider(
               create: (_) => TripInfo3PlacesCubit(getIt.get<TripDetailsRepoImp>()),
-              child: const PlacesCard(id: 1,)
+              child:  PlacesCard(id: 1,url: Confg.prevInfo1,)
           ),
           const SizedBox(height: 70,)
         ],

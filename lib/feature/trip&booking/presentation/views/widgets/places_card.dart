@@ -13,11 +13,12 @@ import '../../../../destination/presentation/views/widgets/distenations/destinat
 import '../../../data/models/trip_info_3_places_model.dart';
 
 class PlacesCard extends StatelessWidget {
-  const PlacesCard({super.key, required this.id});
+  const PlacesCard({super.key, required this.id, this.url});
   final int id;
+  final String? url;
   @override
   Widget build(BuildContext context) {
-    context.read<TripInfo3PlacesCubit>().fetchTripDetailsInfo3(id);
+    context.read<TripInfo3PlacesCubit>().fetchTripDetailsInfo3(id,url);
     return BlocBuilder<TripInfo3PlacesCubit, TripInfo3PlacesState>(
       builder: (context, state) {
         if (state is TripInfo3PlacesSuccess) {

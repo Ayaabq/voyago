@@ -20,6 +20,10 @@ class TripInfo3PlacesSuccess extends TripInfo3PlacesState {
     final tripInfo3 = TripInfo3PlacesModel.fromJson(response['data']);
     return TripInfo3PlacesSuccess(tripInfo3);
   }
+  static TripInfo3PlacesSuccess fromJsonPev(Map<String, dynamic> response) {
+    final tripInfo3 = TripInfo3PlacesModel.fromJsonPrev(response['data']);
+    return TripInfo3PlacesSuccess(tripInfo3);
+  }
 }
 
 

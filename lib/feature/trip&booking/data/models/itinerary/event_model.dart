@@ -29,25 +29,26 @@ class EventModel {
     required this.additionalNote,
     required this.dayTripId,
     this.attractionId,
-    this.adults=0,
-    this.child=0
-
+    this.adults = 0,
+    this.child = 0,
   });
 
   factory EventModel.fromJson(Map<String, dynamic> json) {
     return EventModel(
-      id: json['id'],
-      action: json['action'],
-      title: json['title']??"",
-      startDate: DateFormat('dd-MM-yyyy').parse(json['start_date']),
-      duration: json['duration'].toDouble(),
-      description: json['description'],
-      type: json['type']==null? true:false,
+      id: json['id'] ?? 0,
+      action: json['action'] ?? '',
+      title: json['title'] ?? '',
+      startDate: json['start_date'] != null
+          ? DateFormat('dd-MM-yyyy').parse(json['start_date'])
+          : DateTime.now(), // Default to current date if null
+      duration: (json['duration'] ?? 0).toDouble(),
+      description: json['description'] ?? '',
+      type: json['type'] ?? true, // Default to true if null
       priceAdult: json['price_adult']?.toDouble(),
       priceChild: json['price_child']?.toDouble(),
-      additionalNote: json['additional_note'],
-      dayTripId: json['DayTripId'],
-      attractionId: json['AttractionId'],
+      additionalNote: json['additional_note'] ?? '',
+      dayTripId: json['DayTripId']??1,
+      attractionId: json['AttractionId']??1,
     );
   }
 

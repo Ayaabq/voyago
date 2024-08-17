@@ -10,37 +10,49 @@ import '../../../destination/data/models/destination_model.dart';
 import '../../../destination/data/repo/destination_repo_impl.dart';
 import '../../../destination/presentation/manager/destination_cubit/destination_cubit.dart';
 import '../../../destination/presentation/manager/destination_cubit/destination_state.dart';
+import '../../data/repo/personatl_trip_repo.dart';
+import '../manager/destination_cubit.dart';
 
 class PersonalTrip extends StatelessWidget {
   const PersonalTrip({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      appBar: AppBar(title: const Text("Personal trip"),
-      actions: [
-        ElevatedButton.icon(onPressed: ()async{
-           List<DestinationModel> destinations=[];
-          DestinationCubit desM=DestinationCubit(getIt.get<DestinationRepoImp>());
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Personal trip"),
+        actions: [
+          ElevatedButton.icon(
+            onPressed: () async {
+              List<DestinationModel> destinations = [];
+              DestinationCubit desM =
+                  DestinationCubit(getIt.get<DestinationRepoImp>());
 
-          await desM.fetchDestinationInitial(Confg.allDestination);
-          print(desM.state.runtimeType);
-          if(desM.state is DestinationSuccess) {
-            destinations =(desM.state as DestinationSuccess).destinationModels;
-          }else{
-            print((desM.state as DestinationFailure).errorMessage);
-          }
+              await desM.fetchDestinationInitial(Confg.allDestination);
+              print(desM.state.runtimeType);
+              if (desM.state is DestinationSuccess) {
+                destinations =
+                    (desM.state as DestinationSuccess).destinationModels;
+              } else {
+                print((desM.state as DestinationFailure).errorMessage);
+              }
 
-          // TODO make go router
-          Navigator.of(context).push(MaterialPageRoute
-            (builder: (context)=>
-             BlocProvider (
-               create: (_)=>PersonalTripCubit(),
-                 child:AddPersonalTrip(destinations:destinations,))
-          ));
-        }, label: Text("New"), icon: Icon(Icons.add),)
-      ],),
-      body: const PersonalTripBody(),
+              // TODO make go router
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => BlocProvider(
+                      create: (_) => PersonalTripCubit(),
+                      child: AddPersonalTrip(
+                        destinations: destinations,
+                      ))));
+            },
+            label: Text("New"),
+            icon: Icon(Icons.add),
+          )
+        ],
+      ),
+      body: BlocProvider(
+        create: (_)=>PrevCubit(PersonatlTripRepo()),
+          child: const PersonalTripBody()),
     );
   }
 }

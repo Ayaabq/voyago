@@ -7,9 +7,9 @@ class ItineraryCubit extends Cubit<ItineraryState> {
 
   ItineraryCubit(this.tripDetailsRepo) : super(ItineraryInitial());
 
-  Future<void> fetchTripsInitial(int id) async {
+  Future<void> fetchTripsInitial(int id, String? url) async {
     emit(ItineraryLoading());
-    final result = await tripDetailsRepo.itinerary(id);
+    final result = await tripDetailsRepo.itinerary(id,url);
     result.fold(
           (failure) {
         emit(ItineraryFailure(failure.errMessage));

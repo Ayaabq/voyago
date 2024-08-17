@@ -22,11 +22,10 @@ class AttractionRepoImp implements AttractionRepo {
   AttractionRepoImp(this.api);
   @override
   Future<Either<Failure, AttractionSuccess>> getAttraction(
-      String url) async {
+      String url, bool inData) async {
 
     try {
       var response = await api.get(url, hasToken: true);
-      bool inData=isMatchingUrl(url);
       return right(AttractionSuccess.fromJson(response,inData ));
     } catch (e) {
       if (e is DioException) {

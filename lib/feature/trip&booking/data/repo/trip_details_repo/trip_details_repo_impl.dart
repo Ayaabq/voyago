@@ -55,11 +55,16 @@ class TripDetailsRepoImp implements TripDetailsRepo {
   }
 
   @override
-  Future<Either<Failure, TripInfo3PlacesSuccess>> getTripInfo3(int id) async {
+  Future<Either<Failure, TripInfo3PlacesSuccess>> getTripInfo3(int id, String? url) async {
 
     try {
-      var response = await api.get(Confg.tripInfo3+id.toString(), hasToken: true);
-      return right(TripInfo3PlacesSuccess.fromJson(response));
+      var response = await api.get(url!=null?(url+id.toString()):(Confg.tripInfo3+id.toString()), hasToken: true);
+      if(url ==null)
+
+        return right(TripInfo3PlacesSuccess.fromJson(response));
+      else
+        return right(TripInfo3PlacesSuccess.fromJsonPev(response));
+
     } catch (e) {
       if (e is DioException) {
         return left(ServiecesFailure.fromDioError(e));
@@ -69,10 +74,14 @@ class TripDetailsRepoImp implements TripDetailsRepo {
   }
 
   @override
-  Future<Either<Failure, ItinerarySuccess>> itinerary(int id) async{
+  Future<Either<Failure, ItinerarySuccess>> itinerary(int id, String? url) async{
     try {
-      var response = await api.get(Confg.itinerary+id.toString(), hasToken: true);
+      var response = await api.get((url!=null)?(url+id.toString()):Confg.itinerary+id.toString(), hasToken: true);
+      if(url ==null)
       return right(ItinerarySuccess.fromJson(response));
+      else
+        return right(ItinerarySuccess.fromJson(response));
+
     } catch (e) {
       if (e is DioException) {
         return left(ServiecesFailure.fromDioError(e));

@@ -11,11 +11,12 @@ import '../../../../../../core/widgets/custom_failure_error.dart';
 import '../../../../../../core/widgets/shimmer/load_base.dart';
 
 class ItineraryCard extends StatelessWidget {
-  const ItineraryCard({super.key, required this.id});
+  const ItineraryCard({super.key, required this.id, this.url});
     final int id;
+    final String? url;
   @override
   Widget build(BuildContext context) {
-    context.read<ItineraryCubit>().fetchTripsInitial(id);
+    context.read<ItineraryCubit>().fetchTripsInitial(id,url);
     return   BlocBuilder<ItineraryCubit, ItineraryState>(
       builder: (context, state) {
         if (state is ItinerarySuccess) {
