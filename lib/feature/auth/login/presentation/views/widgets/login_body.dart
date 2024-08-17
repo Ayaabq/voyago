@@ -107,11 +107,11 @@ class LoginBodyView extends StatelessWidget {
                               }
                             }),
                         const SizedBox(height: 10),
-                        ButtonAuth(
-                            title: "لا تكبس هون",
-                            onTap: () {
-                              GoRouter.of(context).push(AppRouter.kHomeView);
-                            }),
+                        // ButtonAuth(
+                        //     title: "لا تكبس هون",
+                        //     onTap: () {
+                        //       GoRouter.of(context).push(AppRouter.kHomeView);
+                        //     }),
                         const SizedBox(height: 10),
                         DontAccount(
                           text: "Don't have an account? ".tr(),
