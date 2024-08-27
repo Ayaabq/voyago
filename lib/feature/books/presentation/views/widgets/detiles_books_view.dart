@@ -10,9 +10,16 @@ import 'package:voyago/feature/auth/login/presentation/views/widgets/button_auth
 import 'package:voyago/feature/books/presentation/manger/detiles_book/cubit/detiles_book_cubit_cubit.dart';
 import 'package:voyago/feature/books/presentation/views/widgets/edit_book.dart';
 
+import '../../../../../core/domain/services/api.dart';
+import '../../../../../core/helper/date_time_helper.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/confg.dart';
 import '../../../../../core/utils/screen_size_util.dart';
+import '../../../../../core/utils/services_locater.dart';
+import '../../../../../core/widgets/dialog/dialog_void.dart';
+import '../../../../images/data/repo/images_repo_impl.dart';
+import '../../../../images/presentation/manager/images_cubit.dart';
+import '../../../../images/presentation/views/custom)netowk_image.dart';
 import '../../../../profile/presentation/views/widgets/appbar_profile.dart';
 import '../../../../trip&booking/presentation/views/widgets/checkout/price_details_section.dart';
 import '../../../../trip&booking/presentation/views/widgets/over_view_card/icon_text_view.dart';
@@ -58,14 +65,25 @@ class DetilesBooksView extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: Image.asset(
-                  HomeAssets.dummyOffers, // replace with your image asset path
-                  height: 170,
-                  width: ScreenSizeUtil.dynamicWidth(.90),
-                  fit: BoxFit.cover,
-                ),
-              ),
+                  borderRadius: BorderRadius.circular(16),
+                  child: BlocProvider(
+                      create: (context) =>
+                          ImageCubit(getIt.get<ImagesRepoImpl>()),
+                      child: CustomNetworkImage(
+                        id: tripData.id,
+                        url: Confg.reservationImage,
+                        height: 180,
+                        width: ScreenSizeUtil.dynamicWidth(.40),
+                      ))
+                  // ClipRRect(
+                  //   borderRadius: BorderRadius.circular(16),
+                  //   child: Image.asset(
+                  //     HomeAssets.dummyOffers, // replace with your image asset path
+                  //     height: 170,
+                  //     width: ScreenSizeUtil.dynamicWidth(.90),
+                  //     fit: BoxFit.cover,
+                  //   ),
+                  ),
               const SizedBox(height: 10),
               // ColumuDetilesBook(model: model),
               Padding(
@@ -90,10 +108,52 @@ class DetilesBooksView extends StatelessWidget {
                     // const PriceDetailsSection(
                     //   tripPrice: 0,
                     // ),
+                    Card(
+                        color: Theme.of(context).cardColor,
+                        child: Column(
+                          children: [
+                            const Text(
+                              "Price Details",
+                              textAlign: TextAlign.left,
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  const Text("Travelers:"),
+                                  Column(
+                                    children: [
+                                      Text(
+                                          "${state.model.details.tripPrice} x ${state.model.details.children}"
+                                          " children"),
+                                      Text(
+                                          "${state.model.details.tripPrice} x ${state.model.details.adults}"
+                                          " adults"),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const Divider(),
+                            // const Text("Optional choices:"),
+                            // const SizedBox(height: 10),
+                            // Text(
+                            //     "${state.model.reservedEvents[0].event.priceAdult ?? "0"} x ${state.model.reservedEvents[0].adult}  Adult"),
+                            // Text(
+                            //     "${state.model.reservedEvents[0].event.priceChild ?? "0"} x ${state.model.reservedEvents[0].child}  child"),
+                            // const Divider(),
+                            Text("Total:  ${state.model.details.tripPrice}"),
+                          ],
+                        )),
 
                     const SizedBox(height: 10),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
@@ -109,13 +169,43 @@ class DetilesBooksView extends StatelessWidget {
                           onPressed: () {
                             Navigator.of(context).push(MaterialPageRoute(
                                 builder: (_) => EditBook(
-                                    tripData: state.model, tripId: tripData.tripId)));
+                                    tripData: state.model,
+                                    tripId: tripData.tripId)));
                           },
                           child: const Icon(Iconsax.edit),
                         ),
+                        // ElevatedButton(
+                        //   style: ElevatedButton.styleFrom(
+                        //     padding: const EdgeInsets.symmetric(horizontal: 75),
+                        //     backgroundColor: CustomColors.kMove[5],
+                        //     foregroundColor: CustomColors.kWhite[0],
+                        //     shape: const RoundedRectangleBorder(
+                        //       borderRadius: BorderRadius.all(
+                        //         Radius.circular(16),
+                        //       ),
+                        //     ),
+                        //   ),
+                        //   onPressed: () async {
+                        //     showWatingDialog(context);
+
+                        //     var res = await getIt.get<ApiServices>().delete(
+                        //           Confg.deleteResv + tripData.id.toString(),
+                        //           hasToken: true,
+                        //         );
+                        //     var deta = DateTime.now();
+                        //     if (deta ==
+                        //         state.model.dateToDisableEditAndCancellation) {
+                        //       showFailureDialog(context, sutitle: res['msg']);
+                        //     }
+                        //     GoRouter.of(context).pop();
+                        //     showSuccessDialog(context, subtitle: res['msg']);
+                        //   },
+                        //   child: const Icon(Iconsax.trash),
+                        // ),
+
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            padding: const EdgeInsets.symmetric(horizontal: 75),
+                            padding: const EdgeInsets.symmetric(horizontal: 50),
                             backgroundColor: CustomColors.kMove[5],
                             foregroundColor: CustomColors.kWhite[0],
                             shape: const RoundedRectangleBorder(
@@ -124,18 +214,36 @@ class DetilesBooksView extends StatelessWidget {
                               ),
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () async {
+                            if (DateTime.now()
+                                .isAfter(DateTime.parse(state.model.dateToDisableEditAndCancellation))) {
+                              // إذا كانت الرحلة منتهية، قم بإظهار رسالة خطأ
+                              showFailureDialog(context,
+                                  sutitle: "The trip has already ended.");
+                            } else {
+                              // تنفيذ عملية الحذف
+                              showWatingDialog(context);
+
+                              var res = await getIt.get<ApiServices>().delete(
+                                    Confg.deleteResv + tripData.id.toString(),
+                                    hasToken: true,
+                                  );
+
+                              GoRouter.of(context).pop();
+                              showSuccessDialog(context, subtitle: res['msg']);
+                            }
+                          },
                           child: const Icon(Iconsax.trash),
                         )
                       ],
                     ),
                     const SizedBox(height: 10),
-                    ButtonAuth(
-                        title: "See the full trip details",
-                        onTap: () {
-                          GoRouter.of(context)
-                              .pushReplacement(AppRouter.kTripDetailsView);
-                        }),
+                    // ButtonAuth(
+                    //     title: "See the full trip details",
+                    //     onTap: () {
+                    //       GoRouter.of(context)
+                    //           .pushReplacement(AppRouter.kTripDetailsView);
+                    //     }),
                     const SizedBox(height: 20),
                   ],
                 ),
@@ -184,11 +292,14 @@ class DetilesColoumn extends StatelessWidget {
             iconColor: CustomColors.kMove[5]),
         IconText(
             icon: Iconsax.calendar_tick,
-            title: "Form:".tr() + model.from.toString(),
+            title: "Form:".tr() +
+                DateTimeHelper.formatDateMMMDY(
+                    DateTime.parse(model.from.toString())),
             iconColor: CustomColors.kMove[5]),
         IconText(
             icon: Iconsax.calendar_tick,
-            title: "${"To:".tr()}${model.to}",
+            title:
+                "${"To:".tr()}${DateTimeHelper.formatDateMMMDY(DateTime.parse(model.to.toString()))}",
             iconColor: CustomColors.kMove[5]),
         IconText(
           icon: Iconsax.user,
@@ -247,7 +358,7 @@ class DetilesColoumn extends StatelessWidget {
 //   Widget build(BuildContext context) {
 //     return Column(
 //       children: [
-        
+
 //       ],
 //     );
 //   }

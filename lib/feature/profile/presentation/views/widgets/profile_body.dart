@@ -237,8 +237,10 @@ import 'package:go_router/go_router.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:voyago/core/domain/services/api.dart';
 import 'package:voyago/core/utils/app_router.dart';
+import 'package:voyago/core/utils/assets.dart';
 import 'package:voyago/core/utils/confg.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
+import 'package:voyago/core/utils/screen_size_util.dart';
 import 'package:voyago/core/utils/services_locater.dart';
 import 'package:voyago/core/utils/storge_token.dart';
 import 'package:voyago/core/utils/styles.dart';
@@ -339,12 +341,13 @@ class ProfileBody extends StatelessWidget {
                           body: {"refresh_token": AppStorage.REFTOKEN});
 
                       await AppStorage.instance.removeData(AppStorage.TOKEN);
-                      await AppStorage.instance.removeData(AppStorage.REFTOKEN);
+                      // await AppStorage.instance.removeData(AppStorage.REFTOKEN);
 
                       GoRouter.of(context)
                           .pushReplacement(AppRouter.kLoginView);
                     }),
               ),
+              SizedBox(height: ScreenSizeUtil.screenHeight * 0.05),
             ],
           ),
         ),
@@ -451,7 +454,7 @@ class ProfilePicture extends StatelessWidget {
             backgroundColor: CustomColors.kWhite[0],
             child: const CircleAvatar(
               radius: 60,
-              backgroundImage: AssetImage(Assets.homeDummyOffer),
+              backgroundImage: AssetImage(Wallet.profile),
             ),
           ),
         ),

@@ -38,12 +38,14 @@ class EventModel {
       id: json['id'] ?? 0,
       action: json['action'] ?? '',
       title: json['title'] ?? '',
-      startDate: json['start_date'] != null
-          ? DateFormat('dd-MM-yyyy').parse(json['start_date'])
-          : DateTime.now(), // Default to current date if null
+      startDate:
+      // json['start_date'] != null
+      //     ? DateFormat('dd-MM-yyyy').parse(json['start_date'])
+      //     :
+      DateTime.now(), // Default to current date if null
       duration: (json['duration'] ?? 0).toDouble(),
       description: json['description'] ?? '',
-      type: json['type'] ?? true, // Default to true if null
+      type: json['type']=="optional" ?? true, // Default to true if null
       priceAdult: json['price_adult']?.toDouble(),
       priceChild: json['price_child']?.toDouble(),
       additionalNote: json['additional_note'] ?? '',

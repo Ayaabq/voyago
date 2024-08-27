@@ -1,7 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:voyago/core/widgets/dialog/dialog_void.dart';
 import 'package:voyago/feature/auth/login/presentation/views/widgets/button_auth.dart';
+import 'package:voyago/feature/presonal_trip/data/action.dart';
 
 import '../../../../../core/utils/custom_colors.dart';
 import '../../../../../core/utils/styles.dart';
@@ -9,6 +11,7 @@ import '../../../../../core/utils/validator_manager.dart';
 import '../../../../auth/login/presentation/views/widgets/custom_text_field.dart';
 import '../../../../trip&booking/data/models/itinerary/itinerary_day_model.dart';
 import '../../../../trip&booking/presentation/views/widgets/checkout/count_widget.dart';
+import '../../../data/repo/personatl_trip_repo.dart';
 
 class AddEvent extends StatefulWidget {
   const AddEvent({super.key, required this.itineraryDays});
@@ -22,9 +25,11 @@ class AddEvent extends StatefulWidget {
 class _AddEventState extends State<AddEvent> {
   late List<String> days ;
   int selectedIndex=0;
+  int duration=0;
   late String selectedDay ;
   TextEditingController titleController=TextEditingController();
   TextEditingController actionController=TextEditingController();
+TextEditingController durationController=TextEditingController();
 
 
   @override
@@ -39,6 +44,7 @@ class _AddEventState extends State<AddEvent> {
   void dispose() {
     titleController.dispose();
     actionController.dispose();
+    durationController.dispose();
     super.dispose();
   }
   @override
@@ -104,27 +110,48 @@ class _AddEventState extends State<AddEvent> {
               keyboardType: TextInputType.name,
             ),
             const SizedBox(height: 16,),
-
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ItemCountWidget(
-                textStyle: Styles.textStyle20W700.copyWith(
-                  color: Theme.of(context).brightness == Brightness.dark
-                      ? CustomColors.kWhite[0]
-                      : CustomColors.kMove[8],
-                ),
-                title: "Duration:".tr(),
-                initialCount: 0,
-                onAddTap: () {
-                  // context.read<CheckoutCubit>().addChildOptionalChoice(widget.eventModel.id, 1);
-                },
-                onMidTap: () {
-                  // context.read<CheckoutCubit>().addChildOptionalChoice(widget.eventModel.id, -1);
-                },
-                max: null,
-              ),
+            TextFieldCustom(
+              validator: (value) => ValidatorManager().validateWallet(value!),
+              controller: durationController,
+              hint: "Duration ".tr(),
+              onPressedIcon: () {},
+              icon: const Icon(FontAwesomeIcons.pencil),
+              keyboardType: TextInputType.number,
             ),
-            ButtonAuth(title: "Add", onTap: (){}),
+            // Padding(
+            //   padding: const EdgeInsets.all(8.0),
+            //   child: ItemCountWidget(
+            //
+            //     textStyle: Styles.textStyle20W700.copyWith(
+            //       color: Theme.of(context).brightness == Brightness.dark
+            //           ? CustomColors.kWhite[0]
+            //           : CustomColors.kMove[8],
+            //     ),
+            //     title: "Duration:".tr(),
+            //     initialCount: duration,
+            //     onAddTap: () {
+            //       setState(() {
+            //         duration++;
+            //
+            //       });
+            //       // context.read<CheckoutCubit>().addChildOptionalChoice(widget.eventModel.id, 1);
+            //     },
+            //     onMidTap: () {
+            //       setState(() {
+            //         duration--;
+            //
+            //       });
+            //       // context.read<CheckoutCubit>().addChildOptionalChoice(widget.eventModel.id, -1);
+            //     },
+            //     max: null,
+            //   ),
+            // ),
+            ButtonAuth(title: "Add", onTap: ()async{
+             var e= await PersonatlTripRepo().addEvent(widget.itineraryDays[selectedIndex].dayId!,
+                Activity(action: actionController.text, title: titleController.text, duration: int.parse(durationController.text), personalDayId: widget.itineraryDays[selectedIndex].dayId!)
+              );
+             showSuccessDialog(context,subtitle: e);
+            }),
             SizedBox(height: MediaQuery.viewInsetsOf(context).bottom,)
 
 

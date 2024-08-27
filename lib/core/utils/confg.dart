@@ -1,8 +1,9 @@
 class Confg {
-  static const String baseUrl = "http://192.168.130.192:3000";
-  static const String mobileUrl = "http://192.168.130.192:3000";
+  static const String baseUrl = "http://10.0.2.2:3000";
+  static const String mobileUrl = "http://10.0.2.2:3000";
   static const String baseApiUrl = "http://10.0.2.2:3000/api";
-  static const String mobileApiUrl = "http://192.168.130.192:3000/api";
+  static const String mobileApiUrl = "http://10.0.2.2:3000/api";
+
 
 
 //"http://192.168.1.102:3000/api";
@@ -120,13 +121,11 @@ class Confg {
 ////     books
   static const mybooks = "/personal_reservation";
 
-
   /// reviews profile
 
-////     books 
+////     books
 //static const mybooks = "/personal_reservation";
-static const editBook="/edit_reservation/";
-
+  static const editBook = "/edit_reservation/";
 
   static const revivesProfile = "/profile/reviews";
 
@@ -155,4 +154,7 @@ static const addPersonalTrip="/add_personal_trip";
   /// TODO
   static const prevInfo3="/personalTripInfo3/";
   static const addPrevEvent="/add_personal_events";
+
+// delete resv
+  static const deleteResv = "/delete_reservation/";
 }

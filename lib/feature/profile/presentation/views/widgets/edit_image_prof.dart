@@ -274,6 +274,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:voyago/core/utils/assets.dart';
 import '../../../../../core/utils/custom_colors.dart';
 import '../../../../../core/widgets/dialog/dialog_void.dart';
 import '../../../../../generated/assets.dart';
@@ -351,7 +352,7 @@ class _ProfilePictureEditState extends State<ProfilePictureEdit> {
                 radius: 60,
                 backgroundImage: _image != null
                     ? FileImage(_image!)
-                    : const AssetImage(Assets.homeDummyOffer) as ImageProvider,
+                    : const AssetImage(Wallet.profile) as ImageProvider,
               ),
             ),
             Positioned(
@@ -398,24 +399,24 @@ class _ProfilePictureEditState extends State<ProfilePictureEdit> {
                 ),
               ),
             ),
-            Positioned(
-              bottom: 0,
-              left: 4,
-              child: ElevatedButton(
-                onPressed: () {
-                  if (_image != null) {
-                    context
-                        .read<ProfilePictureCubit>()
-                        .uploadProfilePicture(_image!);
-                  } else {
-                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                      content: Text("Please select an image first"),
-                    ));
-                  }
-                },
-                child: const Text("Upload"),
-              ),
-            ),
+            // Positioned(
+            //   bottom: 0,
+            //   left: 4,
+            //   child: ElevatedButton(
+            //     onPressed: () {
+            //       if (_image != null) {
+            //         context
+            //             .read<ProfilePictureCubit>()
+            //             .uploadProfilePicture(_image!);
+            //       } else {
+            //         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+            //           content: Text("Please select an image first"),
+            //         ));
+            //       }
+            //     },
+            //     child: const Text("Upload"),
+            //   ),
+            // ),
           ],
         ),
       ),

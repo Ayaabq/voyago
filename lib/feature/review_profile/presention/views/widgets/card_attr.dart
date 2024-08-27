@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 
+import '../../../../../core/helper/date_time_helper.dart';
 import '../../../../../core/utils/custom_colors.dart';
 import '../../../../../core/widgets/custom_rate.dart';
 import '../../../data/models/attration_model.dart';
@@ -59,7 +60,9 @@ class ReviewCardAttr extends StatelessWidget {
                   ),
                   const Spacer(),
                   Text(
-                   attrationRev.createdAt.toString(),
+DateTimeHelper.formatDateMMMDY(
+                    DateTime.parse( attrationRev.createdAt.toString())),
+                  
                     style: TextStyle(
                       color: Colors.grey[600],
                     ),

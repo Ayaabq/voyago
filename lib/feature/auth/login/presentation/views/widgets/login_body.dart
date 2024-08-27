@@ -56,9 +56,9 @@ class LoginBodyView extends StatelessWidget {
                   Text("Welcome back!",
                       style: Theme.of(context).brightness == Brightness.dark
                           ? Styles.textStyle25W700dark
-                              .copyWith(fontWeight: FontWeight.w800)
+                          .copyWith(fontWeight: FontWeight.w800)
                           : Styles.textStyle25W700
-                              .copyWith(fontWeight: FontWeight.w800)),
+                          .copyWith(fontWeight: FontWeight.w800)),
                   const SizedBox(height: 20),
                   //  const FormLogin(),
 
@@ -107,11 +107,11 @@ class LoginBodyView extends StatelessWidget {
                               }
                             }),
                         const SizedBox(height: 10),
-                        ButtonAuth(
-                            title: "لا تكبس هون",
-                            onTap: () {
-                              GoRouter.of(context).push(AppRouter.kHomeView);
-                            }),
+                        // ButtonAuth(
+                        //     title: "لا تكبس هون",
+                        //     onTap: () {
+                        //       GoRouter.of(context).push(AppRouter.kHomeView);
+                        //     }),
                         const SizedBox(height: 10),
                         DontAccount(
                           text: "Don't have an account? ".tr(),

@@ -750,15 +750,20 @@ class _FillWalletBodyState extends State<FillWalletBody> {
                   onPressed: _pickImage, child: const Text('Pick Image')),
               Padding(
                 padding: const EdgeInsets.all(16),
-                child: TextField(
-                  controller: _textController,
-                  decoration: const InputDecoration(labelText: "Amount"),
-                ),
-              ),
+                child: 
+// TextField(
+//                   controller: _textController,
+//                   decoration: const InputDecoration(labelText: "Amount"),
+//                 ),
+              
+TextFieldProfile(hint:"Amount", keyboardType: TextInputType.number ,
+controller:_textController ,
+
+),),
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: uploadImage,
-                child: const Text("Upload Image"),
+                child: const Text("Submit"),
               ),
             ],
           ),

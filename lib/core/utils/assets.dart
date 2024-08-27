@@ -47,4 +47,5 @@ class Wallet extends AssetsData {
   static const booksEmpty = "assets/images/wallet/books.png";
   static const favoritesEmpty = "assets/images/wallet/empty_favorites.png";
   static const reviewsEmpty = "assets/images/wallet/reviews_empty.png";
+  static const profile = "assets/images/login/download.png";
 }

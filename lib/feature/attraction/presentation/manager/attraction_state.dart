@@ -22,7 +22,8 @@ class AttractionSuccess extends AttractionState {
   static AttractionSuccess fromJson(Map<String, dynamic> response, bool inData) {
     final destinations;
     if(inData) {
-      destinations = (response['data']['attractions']as List)
+      //['attractions']
+      destinations = (response['data']as List)
           .map((e) => AttractionModel.fromJson(e))
           .toList();
     } else {
@@ -34,11 +35,11 @@ class AttractionSuccess extends AttractionState {
   }
   static AttractionSuccess fromSearchJson(Map<String, dynamic> response, bool inData) {
     final destinations;
-    if(inData)
-     destinations = (response['data']as List)
-        .map((e) => AttractionModel.fromJson(e))
-        .toList();
-    else
+    // if(inData)
+    //  destinations = (response['data']as List)
+    //     .map((e) => AttractionModel.fromJson(e))
+    //     .toList();
+    // else
      destinations = (response['data']['attractions'] as List)
         .map((e) => AttractionModel.fromJson(e))
         .toList();

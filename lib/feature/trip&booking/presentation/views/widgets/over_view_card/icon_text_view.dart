@@ -33,8 +33,10 @@ class IconText extends StatelessWidget {
                 size: iconSize,
                 color: iconColor,),
                 const SizedBox(width: 3,),
-                Text(" $title",
-                overflow: TextOverflow.visible,
+                
+                Text
+                  (" $title",
+                overflow: TextOverflow.clip,
 
                 maxLines: 10,
                 style: textStyle??Styles.textStyle14W400,),

@@ -288,7 +288,8 @@ class _AddPersonalTripState extends State<AddPersonalTrip> {
                 List<AttractionModel> destinations=[];
                 AttractionCubit desM=AttractionCubit(getIt.get<AttractionRepoImp>());
 
-                await desM.fetchAttractionInitial(Confg.allDestinationAttraction+personalTripCubit.personalTrip.destination.id.toString(),true);
+                await desM.fetchAttractionInitial(Confg.allDestinationAttraction+personalTripCubit.
+                personalTrip.destination.id.toString(),true);
                 print(desM.state.runtimeType);
                 if(desM.state is AttractionSuccess) {
                   destinations =(desM.state as AttractionSuccess).attractionModel;

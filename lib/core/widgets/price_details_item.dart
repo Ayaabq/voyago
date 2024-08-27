@@ -14,12 +14,16 @@ class PriceDetailItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Text(
-          title,
-          style:Styles.textStyle16W400,
+        Expanded(
+
+          child: Text(
+            title,
+            style:Styles.textStyle16W400,
+            overflow: TextOverflow.clip,
+          ),
         ),
         const SizedBox(height: 8.0),
-        details
+        Expanded(child: details)
       ],
     );
   }

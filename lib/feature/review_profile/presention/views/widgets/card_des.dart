@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:voyago/feature/books/data/models/books_model.dart';
 
+import '../../../../../core/helper/date_time_helper.dart';
 import '../../../../../core/utils/custom_colors.dart';
 import '../../../../../core/widgets/custom_rate.dart';
 import '../../../data/models/destination_model.dart';
@@ -59,7 +60,9 @@ class ReviewCardDes extends StatelessWidget {
                   ),
                   const Spacer(),
                   Text(
-                   destinationRev.createdAt.toString(),
+ DateTimeHelper.formatDateMMMDY(
+                    DateTime.parse(destinationRev.createdAt.toString(),)),
+                //   destinationRev.createdAt.toString(),
                     style: TextStyle(
                       color: Colors.grey[600],
                     ),

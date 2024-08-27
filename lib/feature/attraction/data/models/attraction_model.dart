@@ -19,7 +19,7 @@ class AttractionModel {
     return AttractionModel(
       id: json['id'],
       name: json['name'],
-      image: json['image'],
+      image: "",
       isFavourite: json['is_favourite']??json['favorites'],
       rate: (json['rate']!=null)?double.parse(json['rate']):0.0
     );

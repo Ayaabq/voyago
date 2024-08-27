@@ -25,12 +25,12 @@ class HomeViewBody extends StatelessWidget {
         CustomScrollView(
           slivers: [
             const BackgroundSection(),
-            SliverToBoxAdapter(
-              child:   CustomHomeList(
-                title: "Personal Trips".tr(),
-                sizedList: const TripsOffersListView(),
-              ),
-            ),
+            // SliverToBoxAdapter(
+            //   child:   CustomHomeList(
+            //     title: "Personal Trips".tr(),
+            //     sizedList: const TripsOffersListView(),
+            //   ),
+            // ),
             SliverToBoxAdapter(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,

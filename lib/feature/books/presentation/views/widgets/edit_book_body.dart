@@ -67,7 +67,7 @@ class _EditBookBodyState extends State<EditBookBody> {
     manager.initCubit(
         widget.tripData.details.adults,
         widget.tripData.details.children,
-        "email",
+        widget.tripData.details.email,
         widget.tripData.details.phoneNumber,
         widget.tripData.reservedEvents
             .map((e) => OptionalChoiceModel(
@@ -130,7 +130,7 @@ class _EditBookBodyState extends State<EditBookBody> {
                     // dialog++;
                   }
                 });
-                await manager.editCheckout(widget.tripID);
+                await manager.editCheckout(widget.tripData.details.id);
                 await Future.delayed(const Duration(seconds: 1));
 
               }),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:voyago/core/utils/custom_colors.dart';
 
+import '../../core/helper/date_time_helper.dart';
 import '../../core/widgets/custom_rate.dart';
 import 'data/models/trip_model.dart';
 
@@ -58,7 +59,9 @@ class ReviewCardTrip extends StatelessWidget {
                   ),
                   const Spacer(),
                   Text(
-                    trip.createdAt.toString(),
+                    DateTimeHelper.formatDateMMMDY(DateTime.parse(
+                      trip.createdAt.toString(),
+                    )),
                     style: TextStyle(
                       color: Colors.grey[600],
                     ),
@@ -81,8 +84,3 @@ class ReviewCardTrip extends StatelessWidget {
     );
   }
 }
-
-
-
-
-

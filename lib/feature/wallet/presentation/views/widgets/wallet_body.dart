@@ -91,7 +91,7 @@ class BalanceCard extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 20),
                     child: Image.asset(
                       Wallet.walletImage,
-                      width: 125,
+                      width: 50,
                       height: 90,
                     ),
                   ),

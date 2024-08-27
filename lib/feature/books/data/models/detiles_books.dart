@@ -10,8 +10,9 @@ class TripDetails {
   final String email;
   final int tripPrice;
   final int totalPrice;
+  final int id;
 
-  TripDetails({
+  TripDetails( {
     required this.tripName,
     required this.destination,
     required this.meetingPoint,
@@ -23,6 +24,7 @@ class TripDetails {
     required this.email,
     required this.tripPrice,
     required this.totalPrice,
+    required this.id
   });
 
   factory TripDetails.fromJson(Map<String, dynamic> json) {
@@ -38,6 +40,7 @@ class TripDetails {
       email: json['email'] ?? '',
       tripPrice: json['trip_price'] ?? 0,
       totalPrice: json['total_price'] ?? 0,
+      id:json['reservation_id']
     );
   }
 

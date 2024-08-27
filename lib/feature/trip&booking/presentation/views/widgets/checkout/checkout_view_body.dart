@@ -174,6 +174,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
         if((capacityManager.state as TripInfo2Success).
         tripInfo2Model.capacity>=manager.child!+manager.adults!){
           print(pay);
+          await Future.delayed(Duration(seconds: 30));
           await PaymentManager.
           makePayment
             (pay,
@@ -191,10 +192,14 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
               // dialog++;
             }
           });
+          await Future.delayed(Duration(seconds: 30));
+
           await manager.submitCheckout(widget.tripModel.id,true);
+          showSuccessDialog(context,subtitle: "Done");
           GoRouter.of(context).push(AppRouter.kHomeView);
         }else{
-          showFailureDialog(context, sutitle: "Oop's, the number of travelers you need, is not available any more!");
+          showFailureDialog(context, sutitle:
+          "Oop's, the number of travelers you need, is not available any more!");
           // dialog++;
         }
       }

@@ -4,6 +4,7 @@ class PrevTrip {
   int destinationId;
   DateTime startDate;
   Destination destination;
+  int id;
 
   PrevTrip({
     required this.name,
@@ -11,6 +12,7 @@ class PrevTrip {
     required this.destinationId,
     required this.startDate,
     required this.destination,
+    required this.id
   });
 
   // Factory constructor to create a PersonalTrip object from JSON
@@ -21,6 +23,7 @@ class PrevTrip {
       destinationId: json['DestenationId'],
       startDate: DateTime.parse(json['start_date']),
       destination: Destination.fromJson(json['Destenation']),
+      id: json["id"]
     );
   }
 

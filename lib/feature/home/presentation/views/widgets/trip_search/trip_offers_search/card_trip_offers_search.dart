@@ -7,8 +7,10 @@ import 'package:voyago/core/widgets/custom_rate.dart';
 import 'package:voyago/feature/favorite/presentation/views/widgets/favorite_icon_button.dart';
 import 'package:voyago/feature/home/presentation/views/widgets/trip_search/trip_offers_search/colunm_offer_trip.dart';
 import 'package:voyago/feature/presonal_trip/data/prev_model.dart';
+import 'package:voyago/feature/presonal_trip/data/prev_overview_model.dart';
 
 import '../../../../../../../core/utils/screen_size_util.dart';
+import '../../../../../../presonal_trip/data/repo/personatl_trip_repo.dart';
 import '../../../../../../presonal_trip/presentation/views/widgets/personal_trip_detials.dart';
 
 class TripOfferSearchCard extends StatelessWidget {
@@ -19,9 +21,14 @@ class TripOfferSearchCard extends StatelessWidget {
     ScreenSizeUtil.init(context);
     bool isArabic = context.locale.languageCode == 'ar';
     return InkWell(
-      onTap: (){
-        Navigator.of(context).push(MaterialPageRoute(builder: (_)=>PersonalTripDetails(trip: trip,)
-        ));
+      onTap: ()async{
+        var e=await PersonatlTripRepo().getPrevOvreView( trip.id);
+        print(e.runtimeType);
+        e.fold((f){}, (t){
+          Navigator.of(context).push(MaterialPageRoute(builder: (_)=>PersonalTripDetails(trip: trip, overview: t,)
+
+          ));
+     });
       },
       child: Card(
         color: Theme.of(context).cardColor,
@@ -43,7 +50,8 @@ class TripOfferSearchCard extends StatelessWidget {
                 bottom: 2,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(16),
-                  child: Image.asset(
+                  child:
+                  Image.asset(
                     HomeAssets.dummyOffers,
                     // Use a fraction of the container width and height instead of fixed values
                     width: ScreenSizeUtil.screenWidth * 0.4 * 0.8,

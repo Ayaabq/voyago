@@ -70,7 +70,7 @@ class _OptionalChoiceItemState extends State<OptionalChoiceItem> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                widget.eventModel.title,
+                widget.eventModel.action,
                 style: Styles.textStyle18W400,
               ),
               IconButton(

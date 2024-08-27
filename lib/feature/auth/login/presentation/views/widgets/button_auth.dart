@@ -33,7 +33,7 @@ class ButtonAuth extends StatelessWidget {
             child: isLoading
                 ? CircularProgressIndicator(color: CustomColors.kWhite[0])
                 : Text(title,
-                    textAlign: TextAlign.center, style: Styles.textStyle20W700),
+                    textAlign: TextAlign.center, style: Styles.textStyle18W700),
           ),
         ));
   }

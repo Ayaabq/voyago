@@ -12,7 +12,7 @@ class TextFieldProfile extends HookWidget {
     required this.keyboardType,
     this.controller,
     this.obscureText = false,
-    required this.validator,
+     this.validator,
   });
 
   final String hint;

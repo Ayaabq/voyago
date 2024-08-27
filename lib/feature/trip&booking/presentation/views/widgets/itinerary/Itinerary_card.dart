@@ -33,7 +33,8 @@ class ItineraryCard extends StatelessWidget {
                 content: SizedBox(
                   height: 250,
                 ),
-              ));
+              )
+          );
         }
       },
     );
